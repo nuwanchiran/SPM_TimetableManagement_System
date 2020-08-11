@@ -31,30 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageSubjectsDashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AddSubject = new System.Windows.Forms.TabPage();
-            this.lblEvaluationHrsHours_Add = new System.Windows.Forms.Label();
-            this.lblLabHrsHours_Add = new System.Windows.Forms.Label();
-            this.lblTutorialHrsHours_Add = new System.Windows.Forms.Label();
-            this.lblLectureHrsHours_Add = new System.Windows.Forms.Label();
             this.btnAddSubject_Add = new System.Windows.Forms.Button();
             this.chkParallelSubject_Add = new System.Windows.Forms.CheckBox();
             this.lblCategory_Add = new System.Windows.Forms.Label();
             this.txtParallelSubject_Add = new System.Windows.Forms.TextBox();
-            this.txtEvaluationHrs_Add = new System.Windows.Forms.TextBox();
-            this.txtLabHrs_Add = new System.Windows.Forms.TextBox();
-            this.txtTutorialHrs_Add = new System.Windows.Forms.TextBox();
-            this.txtLectureHrs_Add = new System.Windows.Forms.TextBox();
             this.txtSubjectCode_Add = new System.Windows.Forms.TextBox();
             this.txtSubjectName_Add = new System.Windows.Forms.TextBox();
             this.cmbSemester_Add = new System.Windows.Forms.ComboBox();
             this.cmbOfferedYear_Add = new System.Windows.Forms.ComboBox();
-            this.lblEvaluationHrs_Add = new System.Windows.Forms.Label();
-            this.lblLabHrs_Add = new System.Windows.Forms.Label();
-            this.lblTutorialHrs_Add = new System.Windows.Forms.Label();
-            this.lblLectureHrs_Add = new System.Windows.Forms.Label();
-            this.chkEvaluationAdd = new System.Windows.Forms.CheckBox();
-            this.chkLab_Add = new System.Windows.Forms.CheckBox();
-            this.chkTutorial_Add = new System.Windows.Forms.CheckBox();
-            this.chkLecture_Add = new System.Windows.Forms.CheckBox();
             this.lblSubjectCode_Add = new System.Windows.Forms.Label();
             this.lblSubjectName_Add = new System.Windows.Forms.Label();
             this.lblSemester_Add = new System.Windows.Forms.Label();
@@ -72,22 +56,10 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -95,31 +67,27 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblEditSubject = new System.Windows.Forms.Label();
             this.RemoveSubject = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             this.lblRemoveSubject = new System.Windows.Forms.Label();
             this.ViewSearchSubjects = new System.Windows.Forms.TabPage();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -143,34 +111,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.AddSubject.SuspendLayout();
             this.EditSubject.SuspendLayout();
@@ -215,30 +155,14 @@
             // 
             // AddSubject
             // 
-            this.AddSubject.Controls.Add(this.lblEvaluationHrsHours_Add);
-            this.AddSubject.Controls.Add(this.lblLabHrsHours_Add);
-            this.AddSubject.Controls.Add(this.lblTutorialHrsHours_Add);
-            this.AddSubject.Controls.Add(this.lblLectureHrsHours_Add);
             this.AddSubject.Controls.Add(this.btnAddSubject_Add);
             this.AddSubject.Controls.Add(this.chkParallelSubject_Add);
             this.AddSubject.Controls.Add(this.lblCategory_Add);
             this.AddSubject.Controls.Add(this.txtParallelSubject_Add);
-            this.AddSubject.Controls.Add(this.txtEvaluationHrs_Add);
-            this.AddSubject.Controls.Add(this.txtLabHrs_Add);
-            this.AddSubject.Controls.Add(this.txtTutorialHrs_Add);
-            this.AddSubject.Controls.Add(this.txtLectureHrs_Add);
             this.AddSubject.Controls.Add(this.txtSubjectCode_Add);
             this.AddSubject.Controls.Add(this.txtSubjectName_Add);
             this.AddSubject.Controls.Add(this.cmbSemester_Add);
             this.AddSubject.Controls.Add(this.cmbOfferedYear_Add);
-            this.AddSubject.Controls.Add(this.lblEvaluationHrs_Add);
-            this.AddSubject.Controls.Add(this.lblLabHrs_Add);
-            this.AddSubject.Controls.Add(this.lblTutorialHrs_Add);
-            this.AddSubject.Controls.Add(this.lblLectureHrs_Add);
-            this.AddSubject.Controls.Add(this.chkEvaluationAdd);
-            this.AddSubject.Controls.Add(this.chkLab_Add);
-            this.AddSubject.Controls.Add(this.chkTutorial_Add);
-            this.AddSubject.Controls.Add(this.chkLecture_Add);
             this.AddSubject.Controls.Add(this.lblSubjectCode_Add);
             this.AddSubject.Controls.Add(this.lblSubjectName_Add);
             this.AddSubject.Controls.Add(this.lblSemester_Add);
@@ -252,42 +176,6 @@
             this.AddSubject.TabIndex = 0;
             this.AddSubject.Text = "Add Subject";
             this.AddSubject.UseVisualStyleBackColor = true;
-            // 
-            // lblEvaluationHrsHours_Add
-            // 
-            this.lblEvaluationHrsHours_Add.AutoSize = true;
-            this.lblEvaluationHrsHours_Add.Location = new System.Drawing.Point(458, 367);
-            this.lblEvaluationHrsHours_Add.Name = "lblEvaluationHrsHours_Add";
-            this.lblEvaluationHrsHours_Add.Size = new System.Drawing.Size(45, 20);
-            this.lblEvaluationHrsHours_Add.TabIndex = 29;
-            this.lblEvaluationHrsHours_Add.Text = "hours";
-            // 
-            // lblLabHrsHours_Add
-            // 
-            this.lblLabHrsHours_Add.AutoSize = true;
-            this.lblLabHrsHours_Add.Location = new System.Drawing.Point(458, 333);
-            this.lblLabHrsHours_Add.Name = "lblLabHrsHours_Add";
-            this.lblLabHrsHours_Add.Size = new System.Drawing.Size(45, 20);
-            this.lblLabHrsHours_Add.TabIndex = 28;
-            this.lblLabHrsHours_Add.Text = "hours";
-            // 
-            // lblTutorialHrsHours_Add
-            // 
-            this.lblTutorialHrsHours_Add.AutoSize = true;
-            this.lblTutorialHrsHours_Add.Location = new System.Drawing.Point(458, 295);
-            this.lblTutorialHrsHours_Add.Name = "lblTutorialHrsHours_Add";
-            this.lblTutorialHrsHours_Add.Size = new System.Drawing.Size(45, 20);
-            this.lblTutorialHrsHours_Add.TabIndex = 27;
-            this.lblTutorialHrsHours_Add.Text = "hours";
-            // 
-            // lblLectureHrsHours_Add
-            // 
-            this.lblLectureHrsHours_Add.AutoSize = true;
-            this.lblLectureHrsHours_Add.Location = new System.Drawing.Point(458, 255);
-            this.lblLectureHrsHours_Add.Name = "lblLectureHrsHours_Add";
-            this.lblLectureHrsHours_Add.Size = new System.Drawing.Size(45, 20);
-            this.lblLectureHrsHours_Add.TabIndex = 26;
-            this.lblLectureHrsHours_Add.Text = "hours";
             // 
             // btnAddSubject_Add
             // 
@@ -324,34 +212,6 @@
             this.txtParallelSubject_Add.Size = new System.Drawing.Size(222, 27);
             this.txtParallelSubject_Add.TabIndex = 22;
             // 
-            // txtEvaluationHrs_Add
-            // 
-            this.txtEvaluationHrs_Add.Location = new System.Drawing.Point(213, 360);
-            this.txtEvaluationHrs_Add.Name = "txtEvaluationHrs_Add";
-            this.txtEvaluationHrs_Add.Size = new System.Drawing.Size(225, 27);
-            this.txtEvaluationHrs_Add.TabIndex = 21;
-            // 
-            // txtLabHrs_Add
-            // 
-            this.txtLabHrs_Add.Location = new System.Drawing.Point(213, 326);
-            this.txtLabHrs_Add.Name = "txtLabHrs_Add";
-            this.txtLabHrs_Add.Size = new System.Drawing.Size(225, 27);
-            this.txtLabHrs_Add.TabIndex = 20;
-            // 
-            // txtTutorialHrs_Add
-            // 
-            this.txtTutorialHrs_Add.Location = new System.Drawing.Point(213, 292);
-            this.txtTutorialHrs_Add.Name = "txtTutorialHrs_Add";
-            this.txtTutorialHrs_Add.Size = new System.Drawing.Size(225, 27);
-            this.txtTutorialHrs_Add.TabIndex = 19;
-            // 
-            // txtLectureHrs_Add
-            // 
-            this.txtLectureHrs_Add.Location = new System.Drawing.Point(213, 253);
-            this.txtLectureHrs_Add.Name = "txtLectureHrs_Add";
-            this.txtLectureHrs_Add.Size = new System.Drawing.Size(225, 27);
-            this.txtLectureHrs_Add.TabIndex = 18;
-            // 
             // txtSubjectCode_Add
             // 
             this.txtSubjectCode_Add.Location = new System.Drawing.Point(213, 179);
@@ -381,82 +241,6 @@
             this.cmbOfferedYear_Add.Name = "cmbOfferedYear_Add";
             this.cmbOfferedYear_Add.Size = new System.Drawing.Size(121, 28);
             this.cmbOfferedYear_Add.TabIndex = 14;
-            // 
-            // lblEvaluationHrs_Add
-            // 
-            this.lblEvaluationHrs_Add.AutoSize = true;
-            this.lblEvaluationHrs_Add.Location = new System.Drawing.Point(93, 363);
-            this.lblEvaluationHrs_Add.Name = "lblEvaluationHrs_Add";
-            this.lblEvaluationHrs_Add.Size = new System.Drawing.Size(78, 20);
-            this.lblEvaluationHrs_Add.TabIndex = 13;
-            this.lblEvaluationHrs_Add.Text = "Evaluation";
-            // 
-            // lblLabHrs_Add
-            // 
-            this.lblLabHrs_Add.AutoSize = true;
-            this.lblLabHrs_Add.Location = new System.Drawing.Point(97, 329);
-            this.lblLabHrs_Add.Name = "lblLabHrs_Add";
-            this.lblLabHrs_Add.Size = new System.Drawing.Size(33, 20);
-            this.lblLabHrs_Add.TabIndex = 12;
-            this.lblLabHrs_Add.Text = "Lab";
-            // 
-            // lblTutorialHrs_Add
-            // 
-            this.lblTutorialHrs_Add.AutoSize = true;
-            this.lblTutorialHrs_Add.Location = new System.Drawing.Point(100, 292);
-            this.lblTutorialHrs_Add.Name = "lblTutorialHrs_Add";
-            this.lblTutorialHrs_Add.Size = new System.Drawing.Size(60, 20);
-            this.lblTutorialHrs_Add.TabIndex = 11;
-            this.lblTutorialHrs_Add.Text = "Tutorial";
-            // 
-            // lblLectureHrs_Add
-            // 
-            this.lblLectureHrs_Add.AutoSize = true;
-            this.lblLectureHrs_Add.Location = new System.Drawing.Point(97, 253);
-            this.lblLectureHrs_Add.Name = "lblLectureHrs_Add";
-            this.lblLectureHrs_Add.Size = new System.Drawing.Size(57, 20);
-            this.lblLectureHrs_Add.TabIndex = 10;
-            this.lblLectureHrs_Add.Text = "Lecture";
-            // 
-            // chkEvaluationAdd
-            // 
-            this.chkEvaluationAdd.AutoSize = true;
-            this.chkEvaluationAdd.Location = new System.Drawing.Point(410, 213);
-            this.chkEvaluationAdd.Name = "chkEvaluationAdd";
-            this.chkEvaluationAdd.Size = new System.Drawing.Size(100, 24);
-            this.chkEvaluationAdd.TabIndex = 9;
-            this.chkEvaluationAdd.Text = "Evaluation";
-            this.chkEvaluationAdd.UseVisualStyleBackColor = true;
-            // 
-            // chkLab_Add
-            // 
-            this.chkLab_Add.AutoSize = true;
-            this.chkLab_Add.Location = new System.Drawing.Point(322, 212);
-            this.chkLab_Add.Name = "chkLab_Add";
-            this.chkLab_Add.Size = new System.Drawing.Size(55, 24);
-            this.chkLab_Add.TabIndex = 8;
-            this.chkLab_Add.Text = "Lab";
-            this.chkLab_Add.UseVisualStyleBackColor = true;
-            // 
-            // chkTutorial_Add
-            // 
-            this.chkTutorial_Add.AutoSize = true;
-            this.chkTutorial_Add.Location = new System.Drawing.Point(216, 213);
-            this.chkTutorial_Add.Name = "chkTutorial_Add";
-            this.chkTutorial_Add.Size = new System.Drawing.Size(82, 24);
-            this.chkTutorial_Add.TabIndex = 7;
-            this.chkTutorial_Add.Text = "Tutorial";
-            this.chkTutorial_Add.UseVisualStyleBackColor = true;
-            // 
-            // chkLecture_Add
-            // 
-            this.chkLecture_Add.AutoSize = true;
-            this.chkLecture_Add.Location = new System.Drawing.Point(104, 213);
-            this.chkLecture_Add.Name = "chkLecture_Add";
-            this.chkLecture_Add.Size = new System.Drawing.Size(79, 24);
-            this.chkLecture_Add.TabIndex = 6;
-            this.chkLecture_Add.Text = "Lecture";
-            this.chkLecture_Add.UseVisualStyleBackColor = true;
             // 
             // lblSubjectCode_Add
             // 
@@ -520,22 +304,10 @@
             this.EditSubject.Controls.Add(this.checkBox1);
             this.EditSubject.Controls.Add(this.label1);
             this.EditSubject.Controls.Add(this.textBox1);
-            this.EditSubject.Controls.Add(this.textBox2);
-            this.EditSubject.Controls.Add(this.textBox3);
-            this.EditSubject.Controls.Add(this.textBox4);
-            this.EditSubject.Controls.Add(this.textBox5);
             this.EditSubject.Controls.Add(this.textBox6);
             this.EditSubject.Controls.Add(this.textBox7);
             this.EditSubject.Controls.Add(this.comboBox1);
             this.EditSubject.Controls.Add(this.comboBox2);
-            this.EditSubject.Controls.Add(this.label2);
-            this.EditSubject.Controls.Add(this.label3);
-            this.EditSubject.Controls.Add(this.label4);
-            this.EditSubject.Controls.Add(this.label5);
-            this.EditSubject.Controls.Add(this.checkBox2);
-            this.EditSubject.Controls.Add(this.checkBox3);
-            this.EditSubject.Controls.Add(this.checkBox4);
-            this.EditSubject.Controls.Add(this.checkBox5);
             this.EditSubject.Controls.Add(this.label6);
             this.EditSubject.Controls.Add(this.label7);
             this.EditSubject.Controls.Add(this.label8);
@@ -645,34 +417,6 @@
             this.textBox1.Size = new System.Drawing.Size(222, 27);
             this.textBox1.TabIndex = 48;
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(227, 433);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(225, 27);
-            this.textBox2.TabIndex = 47;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(227, 399);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(225, 27);
-            this.textBox3.TabIndex = 46;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(227, 365);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(225, 27);
-            this.textBox4.TabIndex = 45;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(227, 326);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(225, 27);
-            this.textBox5.TabIndex = 44;
-            // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(227, 252);
@@ -702,82 +446,6 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 28);
             this.comboBox2.TabIndex = 40;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(107, 436);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 20);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Evaluation";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(111, 402);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 20);
-            this.label3.TabIndex = 38;
-            this.label3.Text = "Lab";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(114, 365);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 20);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "Tutorial";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(111, 326);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 20);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "Lecture";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(424, 286);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(100, 24);
-            this.checkBox2.TabIndex = 35;
-            this.checkBox2.Text = "Evaluation";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(336, 285);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(55, 24);
-            this.checkBox3.TabIndex = 34;
-            this.checkBox3.Text = "Lab";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(230, 286);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(82, 24);
-            this.checkBox4.TabIndex = 33;
-            this.checkBox4.Text = "Tutorial";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(118, 286);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(79, 24);
-            this.checkBox5.TabIndex = 32;
-            this.checkBox5.Text = "Lecture";
-            this.checkBox5.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -835,30 +503,14 @@
             // 
             // RemoveSubject
             // 
-            this.RemoveSubject.Controls.Add(this.label24);
-            this.RemoveSubject.Controls.Add(this.label25);
-            this.RemoveSubject.Controls.Add(this.label26);
-            this.RemoveSubject.Controls.Add(this.label27);
             this.RemoveSubject.Controls.Add(this.button1);
             this.RemoveSubject.Controls.Add(this.checkBox11);
             this.RemoveSubject.Controls.Add(this.label28);
             this.RemoveSubject.Controls.Add(this.textBox15);
-            this.RemoveSubject.Controls.Add(this.textBox16);
-            this.RemoveSubject.Controls.Add(this.textBox17);
-            this.RemoveSubject.Controls.Add(this.textBox18);
-            this.RemoveSubject.Controls.Add(this.textBox19);
             this.RemoveSubject.Controls.Add(this.textBox20);
             this.RemoveSubject.Controls.Add(this.textBox21);
             this.RemoveSubject.Controls.Add(this.comboBox5);
             this.RemoveSubject.Controls.Add(this.comboBox6);
-            this.RemoveSubject.Controls.Add(this.label29);
-            this.RemoveSubject.Controls.Add(this.label30);
-            this.RemoveSubject.Controls.Add(this.label31);
-            this.RemoveSubject.Controls.Add(this.label32);
-            this.RemoveSubject.Controls.Add(this.checkBox12);
-            this.RemoveSubject.Controls.Add(this.checkBox13);
-            this.RemoveSubject.Controls.Add(this.checkBox14);
-            this.RemoveSubject.Controls.Add(this.checkBox15);
             this.RemoveSubject.Controls.Add(this.label33);
             this.RemoveSubject.Controls.Add(this.label34);
             this.RemoveSubject.Controls.Add(this.label35);
@@ -871,6 +523,107 @@
             this.RemoveSubject.Text = "Remove Subject";
             this.RemoveSubject.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1010, 597);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(212, 35);
+            this.button1.TabIndex = 54;
+            this.button1.Text = "Remove Subject >>>";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox11
+            // 
+            this.checkBox11.AutoSize = true;
+            this.checkBox11.Location = new System.Drawing.Point(500, 597);
+            this.checkBox11.Name = "checkBox11";
+            this.checkBox11.Size = new System.Drawing.Size(132, 24);
+            this.checkBox11.TabIndex = 53;
+            this.checkBox11.Text = "Parallel Subject";
+            this.checkBox11.UseVisualStyleBackColor = true;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(496, 633);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(69, 20);
+            this.label28.TabIndex = 52;
+            this.label28.Text = "Category";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(619, 633);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(222, 27);
+            this.textBox15.TabIndex = 51;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(616, 367);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(297, 27);
+            this.textBox20.TabIndex = 46;
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(616, 324);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(297, 27);
+            this.textBox21.TabIndex = 45;
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(792, 285);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(121, 28);
+            this.comboBox5.TabIndex = 44;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(563, 285);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(121, 28);
+            this.comboBox6.TabIndex = 43;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(488, 367);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(97, 20);
+            this.label33.TabIndex = 34;
+            this.label33.Text = "Subject Code";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(492, 331);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(102, 20);
+            this.label34.TabIndex = 33;
+            this.label34.Text = "Subject Name";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(701, 285);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(70, 20);
+            this.label35.TabIndex = 32;
+            this.label35.Text = "Semester";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(465, 285);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(92, 20);
+            this.label36.TabIndex = 31;
+            this.label36.Text = "Offered Year";
+            // 
             // lblRemoveSubject
             // 
             this.lblRemoveSubject.AutoSize = true;
@@ -882,29 +635,13 @@
             // 
             // ViewSearchSubjects
             // 
-            this.ViewSearchSubjects.Controls.Add(this.label11);
-            this.ViewSearchSubjects.Controls.Add(this.label12);
-            this.ViewSearchSubjects.Controls.Add(this.label13);
-            this.ViewSearchSubjects.Controls.Add(this.label14);
             this.ViewSearchSubjects.Controls.Add(this.checkBox6);
             this.ViewSearchSubjects.Controls.Add(this.label15);
             this.ViewSearchSubjects.Controls.Add(this.textBox8);
-            this.ViewSearchSubjects.Controls.Add(this.textBox9);
-            this.ViewSearchSubjects.Controls.Add(this.textBox10);
-            this.ViewSearchSubjects.Controls.Add(this.textBox11);
-            this.ViewSearchSubjects.Controls.Add(this.textBox12);
             this.ViewSearchSubjects.Controls.Add(this.textBox13);
             this.ViewSearchSubjects.Controls.Add(this.textBox14);
             this.ViewSearchSubjects.Controls.Add(this.comboBox3);
             this.ViewSearchSubjects.Controls.Add(this.comboBox4);
-            this.ViewSearchSubjects.Controls.Add(this.label16);
-            this.ViewSearchSubjects.Controls.Add(this.label17);
-            this.ViewSearchSubjects.Controls.Add(this.label18);
-            this.ViewSearchSubjects.Controls.Add(this.label19);
-            this.ViewSearchSubjects.Controls.Add(this.checkBox7);
-            this.ViewSearchSubjects.Controls.Add(this.checkBox8);
-            this.ViewSearchSubjects.Controls.Add(this.checkBox9);
-            this.ViewSearchSubjects.Controls.Add(this.checkBox10);
             this.ViewSearchSubjects.Controls.Add(this.label20);
             this.ViewSearchSubjects.Controls.Add(this.label21);
             this.ViewSearchSubjects.Controls.Add(this.label22);
@@ -918,42 +655,6 @@
             this.ViewSearchSubjects.TabIndex = 3;
             this.ViewSearchSubjects.Text = "View/ Search Subjects";
             this.ViewSearchSubjects.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1271, 534);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(45, 20);
-            this.label11.TabIndex = 81;
-            this.label11.Text = "hours";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1271, 500);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(45, 20);
-            this.label12.TabIndex = 80;
-            this.label12.Text = "hours";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1271, 462);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(45, 20);
-            this.label13.TabIndex = 79;
-            this.label13.Text = "hours";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(1271, 422);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(45, 20);
-            this.label14.TabIndex = 78;
-            this.label14.Text = "hours";
             // 
             // checkBox6
             // 
@@ -980,34 +681,6 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(222, 27);
             this.textBox8.TabIndex = 75;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(1026, 527);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(225, 27);
-            this.textBox9.TabIndex = 74;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(1026, 493);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(225, 27);
-            this.textBox10.TabIndex = 73;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(1026, 459);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(225, 27);
-            this.textBox11.TabIndex = 72;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(1026, 420);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(225, 27);
-            this.textBox12.TabIndex = 71;
             // 
             // textBox13
             // 
@@ -1038,82 +711,6 @@
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(121, 28);
             this.comboBox4.TabIndex = 67;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(906, 530);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(78, 20);
-            this.label16.TabIndex = 66;
-            this.label16.Text = "Evaluation";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(910, 496);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(33, 20);
-            this.label17.TabIndex = 65;
-            this.label17.Text = "Lab";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(913, 459);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(60, 20);
-            this.label18.TabIndex = 64;
-            this.label18.Text = "Tutorial";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(910, 420);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(57, 20);
-            this.label19.TabIndex = 63;
-            this.label19.Text = "Lecture";
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(1223, 380);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(100, 24);
-            this.checkBox7.TabIndex = 62;
-            this.checkBox7.Text = "Evaluation";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(1135, 379);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(55, 24);
-            this.checkBox8.TabIndex = 61;
-            this.checkBox8.Text = "Lab";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(1029, 380);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(82, 24);
-            this.checkBox9.TabIndex = 60;
-            this.checkBox9.Text = "Tutorial";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox10
-            // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(917, 380);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(79, 24);
-            this.checkBox10.TabIndex = 59;
-            this.checkBox10.Text = "Lecture";
-            this.checkBox10.UseVisualStyleBackColor = true;
             // 
             // label20
             // 
@@ -1357,247 +954,6 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(861, 555);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(45, 20);
-            this.label24.TabIndex = 58;
-            this.label24.Text = "hours";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(861, 521);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(45, 20);
-            this.label25.TabIndex = 57;
-            this.label25.Text = "hours";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(861, 483);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(45, 20);
-            this.label26.TabIndex = 56;
-            this.label26.Text = "hours";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(861, 443);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(45, 20);
-            this.label27.TabIndex = 55;
-            this.label27.Text = "hours";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1010, 597);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(212, 35);
-            this.button1.TabIndex = 54;
-            this.button1.Text = "Remove Subject >>>";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox11
-            // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(500, 597);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(132, 24);
-            this.checkBox11.TabIndex = 53;
-            this.checkBox11.Text = "Parallel Subject";
-            this.checkBox11.UseVisualStyleBackColor = true;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(496, 633);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(69, 20);
-            this.label28.TabIndex = 52;
-            this.label28.Text = "Category";
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(619, 633);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(222, 27);
-            this.textBox15.TabIndex = 51;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(616, 548);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(225, 27);
-            this.textBox16.TabIndex = 50;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(616, 514);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(225, 27);
-            this.textBox17.TabIndex = 49;
-            // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(616, 480);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(225, 27);
-            this.textBox18.TabIndex = 48;
-            // 
-            // textBox19
-            // 
-            this.textBox19.Location = new System.Drawing.Point(616, 441);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(225, 27);
-            this.textBox19.TabIndex = 47;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(616, 367);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(297, 27);
-            this.textBox20.TabIndex = 46;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Location = new System.Drawing.Point(616, 324);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(297, 27);
-            this.textBox21.TabIndex = 45;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(792, 285);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 28);
-            this.comboBox5.TabIndex = 44;
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(563, 285);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 28);
-            this.comboBox6.TabIndex = 43;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(496, 551);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(78, 20);
-            this.label29.TabIndex = 42;
-            this.label29.Text = "Evaluation";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(500, 517);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(33, 20);
-            this.label30.TabIndex = 41;
-            this.label30.Text = "Lab";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(503, 480);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(60, 20);
-            this.label31.TabIndex = 40;
-            this.label31.Text = "Tutorial";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(500, 441);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(57, 20);
-            this.label32.TabIndex = 39;
-            this.label32.Text = "Lecture";
-            // 
-            // checkBox12
-            // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(813, 401);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(100, 24);
-            this.checkBox12.TabIndex = 38;
-            this.checkBox12.Text = "Evaluation";
-            this.checkBox12.UseVisualStyleBackColor = true;
-            // 
-            // checkBox13
-            // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(725, 400);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(55, 24);
-            this.checkBox13.TabIndex = 37;
-            this.checkBox13.Text = "Lab";
-            this.checkBox13.UseVisualStyleBackColor = true;
-            // 
-            // checkBox14
-            // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Location = new System.Drawing.Point(619, 401);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(82, 24);
-            this.checkBox14.TabIndex = 36;
-            this.checkBox14.Text = "Tutorial";
-            this.checkBox14.UseVisualStyleBackColor = true;
-            // 
-            // checkBox15
-            // 
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.Location = new System.Drawing.Point(507, 401);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(79, 24);
-            this.checkBox15.TabIndex = 35;
-            this.checkBox15.Text = "Lecture";
-            this.checkBox15.UseVisualStyleBackColor = true;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(488, 367);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(97, 20);
-            this.label33.TabIndex = 34;
-            this.label33.Text = "Subject Code";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(492, 331);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(102, 20);
-            this.label34.TabIndex = 33;
-            this.label34.Text = "Subject Name";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(701, 285);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(70, 20);
-            this.label35.TabIndex = 32;
-            this.label35.Text = "Semester";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(465, 285);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(92, 20);
-            this.label36.TabIndex = 31;
-            this.label36.Text = "Offered Year";
-            // 
             // ManageSubjectsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1674,22 +1030,10 @@
         private System.Windows.Forms.CheckBox chkParallelSubject_Add;
         private System.Windows.Forms.Label lblCategory_Add;
         private System.Windows.Forms.TextBox txtParallelSubject_Add;
-        private System.Windows.Forms.TextBox txtEvaluationHrs_Add;
-        private System.Windows.Forms.TextBox txtLabHrs_Add;
-        private System.Windows.Forms.TextBox txtTutorialHrs_Add;
-        private System.Windows.Forms.TextBox txtLectureHrs_Add;
         private System.Windows.Forms.TextBox txtSubjectCode_Add;
         private System.Windows.Forms.TextBox txtSubjectName_Add;
         private System.Windows.Forms.ComboBox cmbSemester_Add;
         private System.Windows.Forms.ComboBox cmbOfferedYear_Add;
-        private System.Windows.Forms.Label lblEvaluationHrs_Add;
-        private System.Windows.Forms.Label lblLabHrs_Add;
-        private System.Windows.Forms.Label lblTutorialHrs_Add;
-        private System.Windows.Forms.Label lblLectureHrs_Add;
-        private System.Windows.Forms.CheckBox chkEvaluationAdd;
-        private System.Windows.Forms.CheckBox chkLab_Add;
-        private System.Windows.Forms.CheckBox chkTutorial_Add;
-        private System.Windows.Forms.CheckBox chkLecture_Add;
         private System.Windows.Forms.Label lblSubjectCode_Add;
         private System.Windows.Forms.Label lblSubjectName_Add;
         private System.Windows.Forms.Label lblSemester_Add;
@@ -1699,22 +1043,10 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -1726,68 +1058,32 @@
         private System.Windows.Forms.TextBox txtFindSubject_Edit;
         private System.Windows.Forms.RadioButton radSubjectName_Edit;
         private System.Windows.Forms.RadioButton radSubjectCode_Edit;
-        private System.Windows.Forms.Label lblEvaluationHrsHours_Add;
-        private System.Windows.Forms.Label lblLabHrsHours_Add;
-        private System.Windows.Forms.Label lblTutorialHrsHours_Add;
-        private System.Windows.Forms.Label lblLectureHrsHours_Add;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnReset_Search;
         private System.Windows.Forms.Button btnFindSubject_Search;
         private System.Windows.Forms.TextBox txtSearchSubject_Search;
         private System.Windows.Forms.RadioButton radSubjectName_Search;
         private System.Windows.Forms.RadioButton radSubjectCode_Search;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox10;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.DataGridView dataGridViewSubject_Search;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox11;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.TextBox textBox21;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.CheckBox checkBox13;
-        private System.Windows.Forms.CheckBox checkBox14;
-        private System.Windows.Forms.CheckBox checkBox15;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
