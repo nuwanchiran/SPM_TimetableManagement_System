@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Timetable_Management_System.src.Models;
 
 namespace Timetable_Management_System
 {
@@ -304,6 +306,60 @@ namespace Timetable_Management_System
         private void btnAddSubject_Add_Click(object sender, EventArgs e)
         {
 
+            Subject subjectObj = new Subject();
+            
+            List<Subject_Tags> subjectTagsListObj = new List<Subject_Tags>();
+
+
+            int selectedYear_Add=1;
+            bool yearSuccess_Add = Int32.TryParse(this.cmbOfferedYear_Add.GetItemText(this.cmbOfferedYear_Add.SelectedItem), out selectedYear_Add);
+
+            int selectedSemester_Add = 1;
+            bool semesterSuccess_Add = Int32.TryParse(this.cmbSemester_Add.GetItemText(this.cmbSemester_Add.SelectedItem), out selectedSemester_Add);
+
+            subjectObj.offeredYear = selectedYear_Add;
+            subjectObj.offeredSemester = selectedSemester_Add;
+            subjectObj.subjectCode = txtSubjectCode_Add.Text;
+            subjectObj.subjectName = txtSubjectName_Add.Text;
+
+            if (chkParallelSubject_Add.Checked == true)
+            {
+                subjectObj.isParallel = true;
+                subjectObj.category = txtCategory_Add.Text;
+            }
+            else if (chkParallelSubject_Add.Checked == false)
+            {
+                subjectObj.isParallel = false;
+                subjectObj.category = "N/A";
+            }
+
+
+
+            
+
+            foreach (var item in closeButtonClickStatus_Add)
+            {
+                if(item.Value==true)
+                {
+                    Subject_Tags subject_TagsObj = new Subject_Tags();
+                    string txtName = "txt" + item.Key + "Hrs_Add";
+                    TextBox txt = null;
+                    txt = AddSubject.Controls[txtName] as TextBox;
+                    //txt.Text
+                    //item.Key
+                    
+                    subject_TagsObj.subjectCode = txtSubjectCode_Add.Text;
+                    subject_TagsObj.tag = item.Key;
+                    subject_TagsObj.hrs = double.Parse(txt.Text, System.Globalization.CultureInfo.InvariantCulture) ;
+
+                    subjectTagsListObj.Add(subject_TagsObj);
+                    
+
+                }
+            }
+
+            subjectObj = subjectObj;
+            subjectTagsListObj = subjectTagsListObj;
         }
 
         private void chkParallelSubject_Add_CheckedChanged(object sender, EventArgs e)
