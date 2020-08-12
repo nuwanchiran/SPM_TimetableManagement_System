@@ -13,7 +13,10 @@ namespace Timetable_Management_System
 {
     public partial class ManageSubjectsDashboard : Form
     {
-        String[] tagsList; 
+        String[] tagsList;
+
+        Dictionary<string, bool> closeButtonClickStatus_Add = new Dictionary<string, bool>();
+
         public ManageSubjectsDashboard()
         {
             InitializeComponent();
@@ -24,12 +27,18 @@ namespace Timetable_Management_System
         private void ManageSubjectsDashboard_Load(object sender, EventArgs e)
         {
 
-
             //Add
             List<string> loadedTagsList = loadTags();
 
 
             tagsList = loadedTagsList.ToArray();
+
+            for(int i=0; i< tagsList.Length; i++)
+            {
+                //closeButtonClickStatus_Add.Add(tagsList[i], true);
+                closeButtonClickStatus_Add[tagsList[i]] = true;
+            }
+           
 
             drawTagsInSubject_Add(loadedTagsList);
             chkParallelSubject_Add.Checked = true;
@@ -128,71 +137,63 @@ namespace Timetable_Management_System
 
         // String[] closedTags_Add;
         HashSet<string> closedTags_Add = new HashSet<string>();
+        
 
         private void button_Click(object se, EventArgs ev, string needCloseType)
         {
-            //MessageBox.Show(needCloseType + " close");
+            //check  if clicked item is already available
+            //then remove
 
-            for (int i = 0; i < tagsList.Length; i++)
+            foreach (var item in closeButtonClickStatus_Add)
             {
-                if(tagsList[i].Equals(needCloseType)){
-                    closedTags_Add.Add(needCloseType);
-                }
-            }
 
-
-            String[] closedTagsArray_Add = new String[closedTags_Add.Count];
-            closedTags_Add.CopyTo(closedTagsArray_Add);
-
-
-             for(int i=0; i< closedTagsArray_Add.Length; i++)
-             {
-                string btnName = "btn" + closedTagsArray_Add[i] + "Close_Add";
-                string txtName = "txt" + closedTagsArray_Add[i] + "Hrs_Add";
-
-                Button btn = null;
-                TextBox txt = null;
-
-                if (AddSubject.Controls.ContainsKey(btnName))
+                if (item.Key.Equals(needCloseType))
                 {
-                    btn = AddSubject.Controls[btnName] as Button;
-                    txt = AddSubject.Controls[txtName] as TextBox;
-               //     btn.Enabled = false;
-                    txt.Enabled = false;
+                    closeButtonClickStatus_Add[needCloseType] = !(item.Value);
+                    break;
                 }
-
-
-
             }
-            
-        }
 
-        /*
-        private void addToUniqueArray_closedTags_Add(string needCloseType)
-        {
-            bool alreadyAvailable = false;
-            for(int i = 0; i< closedTags_Add.Length;i++)
+
+            foreach (var item in closeButtonClickStatus_Add)
             {
-                if (closedTags_Add[i].Equals(needCloseType))
+
+                //item.Key
+                 if(item.Value == false)
                 {
-                    alreadyAvailable = true;
+                    string btnName = "btn" + item.Key + "Close_Add";
+                    string txtName = "txt" + item.Key + "Hrs_Add";
+
+                    Button btn = null;
+                    TextBox txt = null;
+
+                    if (AddSubject.Controls.ContainsKey(btnName))
+                    {
+                        btn = AddSubject.Controls[btnName] as Button;
+                        txt = AddSubject.Controls[txtName] as TextBox;
+                        //     btn.Enabled = false;
+                        txt.Enabled = false;
+                    }
+                }else if (item.Value == true){
+                    string btnName = "btn" + item.Key + "Close_Add";
+                    string txtName = "txt" + item.Key + "Hrs_Add";
+
+                    Button btn = null;
+                    TextBox txt = null;
+
+                    if (AddSubject.Controls.ContainsKey(btnName))
+                    {
+                        btn = AddSubject.Controls[btnName] as Button;
+                        txt = AddSubject.Controls[txtName] as TextBox;
+                        //     btn.Enabled = false;
+                        txt.Enabled = true;
+                    }
                 }
+
             }
-            if (alreadyAvailable = false)
-            {
-                closedTags_Add
-            }
+
         }
-        */
 
-
-
-        /*
-        private void CloseButtonClick_Add(object sender, EventArgs e)
-        {
-        MessageBox.Show("");
-        }
-        */
 
         private List<string> loadTags()
         {
