@@ -81,17 +81,6 @@
             this.label36 = new System.Windows.Forms.Label();
             this.lblRemoveSubject = new System.Windows.Forms.Label();
             this.ViewSearchSubjects = new System.Windows.Forms.TabPage();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.dataGridViewSubject_Search = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnReset_Search = new System.Windows.Forms.Button();
@@ -112,6 +101,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
             this.btnReset_Add = new System.Windows.Forms.Button();
+            this.btnRefreshGridView_Search = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.AddSubject.SuspendLayout();
             this.EditSubject.SuspendLayout();
@@ -638,17 +628,7 @@
             // 
             // ViewSearchSubjects
             // 
-            this.ViewSearchSubjects.Controls.Add(this.checkBox6);
-            this.ViewSearchSubjects.Controls.Add(this.label15);
-            this.ViewSearchSubjects.Controls.Add(this.textBox8);
-            this.ViewSearchSubjects.Controls.Add(this.textBox13);
-            this.ViewSearchSubjects.Controls.Add(this.textBox14);
-            this.ViewSearchSubjects.Controls.Add(this.comboBox3);
-            this.ViewSearchSubjects.Controls.Add(this.comboBox4);
-            this.ViewSearchSubjects.Controls.Add(this.label20);
-            this.ViewSearchSubjects.Controls.Add(this.label21);
-            this.ViewSearchSubjects.Controls.Add(this.label22);
-            this.ViewSearchSubjects.Controls.Add(this.label23);
+            this.ViewSearchSubjects.Controls.Add(this.btnRefreshGridView_Search);
             this.ViewSearchSubjects.Controls.Add(this.dataGridViewSubject_Search);
             this.ViewSearchSubjects.Controls.Add(this.groupBox1);
             this.ViewSearchSubjects.Controls.Add(this.lblViewSearchSubjects);
@@ -659,106 +639,14 @@
             this.ViewSearchSubjects.Text = "View/ Search Subjects";
             this.ViewSearchSubjects.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(910, 576);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(132, 24);
-            this.checkBox6.TabIndex = 77;
-            this.checkBox6.Text = "Parallel Subject";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(906, 612);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(69, 20);
-            this.label15.TabIndex = 76;
-            this.label15.Text = "Category";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(1029, 612);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(222, 27);
-            this.textBox8.TabIndex = 75;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(1026, 346);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(297, 27);
-            this.textBox13.TabIndex = 70;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(1026, 303);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(297, 27);
-            this.textBox14.TabIndex = 69;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(1202, 264);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 28);
-            this.comboBox3.TabIndex = 68;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(973, 264);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 28);
-            this.comboBox4.TabIndex = 67;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(898, 346);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(97, 20);
-            this.label20.TabIndex = 58;
-            this.label20.Text = "Subject Code";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(902, 310);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(102, 20);
-            this.label21.TabIndex = 57;
-            this.label21.Text = "Subject Name";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(1111, 264);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(70, 20);
-            this.label22.TabIndex = 56;
-            this.label22.Text = "Semester";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(875, 264);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(92, 20);
-            this.label23.TabIndex = 55;
-            this.label23.Text = "Offered Year";
-            // 
             // dataGridViewSubject_Search
             // 
             this.dataGridViewSubject_Search.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSubject_Search.Location = new System.Drawing.Point(34, 215);
+            this.dataGridViewSubject_Search.Location = new System.Drawing.Point(107, 310);
             this.dataGridViewSubject_Search.Name = "dataGridViewSubject_Search";
             this.dataGridViewSubject_Search.RowHeadersWidth = 51;
             this.dataGridViewSubject_Search.RowTemplate.Height = 24;
-            this.dataGridViewSubject_Search.Size = new System.Drawing.Size(541, 329);
+            this.dataGridViewSubject_Search.Size = new System.Drawing.Size(902, 467);
             this.dataGridViewSubject_Search.TabIndex = 54;
             // 
             // groupBox1
@@ -791,6 +679,7 @@
             this.btnFindSubject_Search.TabIndex = 3;
             this.btnFindSubject_Search.Text = "Find Subject >>>";
             this.btnFindSubject_Search.UseVisualStyleBackColor = true;
+            this.btnFindSubject_Search.Click += new System.EventHandler(this.btnFindSubject_Search_Click);
             // 
             // txtSearchSubject_Search
             // 
@@ -959,13 +848,23 @@
             // 
             // btnReset_Add
             // 
-            this.btnReset_Add.Location = new System.Drawing.Point(743, 329);
+            this.btnReset_Add.Location = new System.Drawing.Point(842, 409);
             this.btnReset_Add.Name = "btnReset_Add";
-            this.btnReset_Add.Size = new System.Drawing.Size(110, 50);
+            this.btnReset_Add.Size = new System.Drawing.Size(110, 35);
             this.btnReset_Add.TabIndex = 26;
             this.btnReset_Add.Text = "Reset";
             this.btnReset_Add.UseVisualStyleBackColor = true;
             this.btnReset_Add.Click += new System.EventHandler(this.btnReset_Add_Click);
+            // 
+            // btnRefreshGridView_Search
+            // 
+            this.btnRefreshGridView_Search.Location = new System.Drawing.Point(934, 215);
+            this.btnRefreshGridView_Search.Name = "btnRefreshGridView_Search";
+            this.btnRefreshGridView_Search.Size = new System.Drawing.Size(75, 29);
+            this.btnRefreshGridView_Search.TabIndex = 78;
+            this.btnRefreshGridView_Search.Text = "refresh";
+            this.btnRefreshGridView_Search.UseVisualStyleBackColor = true;
+            this.btnRefreshGridView_Search.Click += new System.EventHandler(this.btnRefreshGridView_Search_Click);
             // 
             // ManageSubjectsDashboard
             // 
@@ -1077,17 +976,6 @@
         private System.Windows.Forms.TextBox txtSearchSubject_Search;
         private System.Windows.Forms.RadioButton radSubjectName_Search;
         private System.Windows.Forms.RadioButton radSubjectCode_Search;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.DataGridView dataGridViewSubject_Search;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox11;
@@ -1102,5 +990,6 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Button btnReset_Add;
+        private System.Windows.Forms.Button btnRefreshGridView_Search;
     }
 }

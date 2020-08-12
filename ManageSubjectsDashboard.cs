@@ -478,5 +478,63 @@ namespace Timetable_Management_System
             manageSubjectsDashboardObj.Show();
             this.Hide();
         }
+
+        private void btnFindSubject_Search_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRefreshGridView_Search_Click(object sender, EventArgs e)
+        {
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(cs);
+            System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand(
+                "select * " +
+                "from subjects, subjects_tags " +
+                "where subjects.subjectCode = subjects_tags.subjectCode"
+                );
+            cmd.Connection = conn;
+
+            conn.Open();
+
+            using var cmdCreateSubject = new SQLiteCommand(conn);
+
+            cmdCreateSubject.CommandText = @"CREATE TABLE  IF NOT EXISTS subjects (
+                                    subjectCode STRING PRIMARY KEY,
+	                                subjectName TEXT,
+	                                offeredYear INTEGER,
+	                                offeredSemester INTEGER,
+	                                isParallel BOOLEAN,
+	                                category TEXT   
+                )";
+            cmdCreateSubject.ExecuteNonQuery();
+
+
+
+
+            using var cmdCreateSubjectTag = new SQLiteCommand(conn);
+
+            cmdCreateSubjectTag.CommandText = @"CREATE TABLE  IF NOT EXISTS subjects_tags (
+                                        subjectCode STRING ,
+	                                    tag STRING,
+	                                    hrs DOUBLE,
+
+	                                    PRIMARY KEY (subjectCode ,tag ) 
+                )";
+            cmdCreateSubjectTag.ExecuteNonQuery();
+
+            cmd.ExecuteScalar();
+
+
+            System.Data.SQLite.SQLiteDataAdapter da = new System.Data.SQLite.SQLiteDataAdapter(cmd);
+            System.Data.DataSet ds = new System.Data.DataSet();
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            dataGridViewSubject_Search.DataSource = dt;
+            conn.Close();
+        }
     }
 }
