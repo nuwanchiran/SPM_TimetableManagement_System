@@ -489,11 +489,13 @@ namespace Timetable_Management_System
             string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
             System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(cs);
+            
             System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand(
                 "select * " +
                 "from subjects, subjects_tags " +
                 "where subjects.subjectCode = subjects_tags.subjectCode"
                 );
+            
             cmd.Connection = conn;
 
             conn.Open();
@@ -536,5 +538,7 @@ namespace Timetable_Management_System
             dataGridViewSubject_Search.DataSource = dt;
             conn.Close();
         }
+
+       
     }
 }

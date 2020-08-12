@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageSubjectsDashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AddSubject = new System.Windows.Forms.TabPage();
+            this.btnReset_Add = new System.Windows.Forms.Button();
             this.btnAddSubject_Add = new System.Windows.Forms.Button();
             this.chkParallelSubject_Add = new System.Windows.Forms.CheckBox();
             this.lblCategory_Add = new System.Windows.Forms.Label();
@@ -81,6 +82,24 @@
             this.label36 = new System.Windows.Forms.Label();
             this.lblRemoveSubject = new System.Windows.Forms.Label();
             this.ViewSearchSubjects = new System.Windows.Forms.TabPage();
+            this.btnFilter_Search = new System.Windows.Forms.Button();
+            this.lblTo_Search = new System.Windows.Forms.Label();
+            this.lblFrom_Search = new System.Windows.Forms.Label();
+            this.txtTo_Search = new System.Windows.Forms.TextBox();
+            this.txtFrom_Search = new System.Windows.Forms.TextBox();
+            this.chkParallel_Search = new System.Windows.Forms.CheckBox();
+            this.cmbTag_Search = new System.Windows.Forms.ComboBox();
+            this.cmbYear_Search = new System.Windows.Forms.ComboBox();
+            this.cmbSemester_Search = new System.Windows.Forms.ComboBox();
+            this.txtSubjectName_Search = new System.Windows.Forms.TextBox();
+            this.lblHours_Search = new System.Windows.Forms.Label();
+            this.lblTag_Search = new System.Windows.Forms.Label();
+            this.lblSemester_Search = new System.Windows.Forms.Label();
+            this.lblYear_Search = new System.Windows.Forms.Label();
+            this.lblSubjectName_Search = new System.Windows.Forms.Label();
+            this.lblSubjectCode_Search = new System.Windows.Forms.Label();
+            this.txtSubjectCode_Search = new System.Windows.Forms.TextBox();
+            this.btnRefreshGridView_Search = new System.Windows.Forms.Button();
             this.dataGridViewSubject_Search = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnReset_Search = new System.Windows.Forms.Button();
@@ -100,8 +119,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
-            this.btnReset_Add = new System.Windows.Forms.Button();
-            this.btnRefreshGridView_Search = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.AddSubject.SuspendLayout();
             this.EditSubject.SuspendLayout();
@@ -168,6 +185,16 @@
             this.AddSubject.TabIndex = 0;
             this.AddSubject.Text = "Add Subject";
             this.AddSubject.UseVisualStyleBackColor = true;
+            // 
+            // btnReset_Add
+            // 
+            this.btnReset_Add.Location = new System.Drawing.Point(842, 409);
+            this.btnReset_Add.Name = "btnReset_Add";
+            this.btnReset_Add.Size = new System.Drawing.Size(110, 35);
+            this.btnReset_Add.TabIndex = 26;
+            this.btnReset_Add.Text = "Reset";
+            this.btnReset_Add.UseVisualStyleBackColor = true;
+            this.btnReset_Add.Click += new System.EventHandler(this.btnReset_Add_Click);
             // 
             // btnAddSubject_Add
             // 
@@ -628,6 +655,23 @@
             // 
             // ViewSearchSubjects
             // 
+            this.ViewSearchSubjects.Controls.Add(this.btnFilter_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblTo_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblFrom_Search);
+            this.ViewSearchSubjects.Controls.Add(this.txtTo_Search);
+            this.ViewSearchSubjects.Controls.Add(this.txtFrom_Search);
+            this.ViewSearchSubjects.Controls.Add(this.chkParallel_Search);
+            this.ViewSearchSubjects.Controls.Add(this.cmbTag_Search);
+            this.ViewSearchSubjects.Controls.Add(this.cmbYear_Search);
+            this.ViewSearchSubjects.Controls.Add(this.cmbSemester_Search);
+            this.ViewSearchSubjects.Controls.Add(this.txtSubjectName_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblHours_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblTag_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblSemester_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblYear_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblSubjectName_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblSubjectCode_Search);
+            this.ViewSearchSubjects.Controls.Add(this.txtSubjectCode_Search);
             this.ViewSearchSubjects.Controls.Add(this.btnRefreshGridView_Search);
             this.ViewSearchSubjects.Controls.Add(this.dataGridViewSubject_Search);
             this.ViewSearchSubjects.Controls.Add(this.groupBox1);
@@ -636,17 +680,171 @@
             this.ViewSearchSubjects.Name = "ViewSearchSubjects";
             this.ViewSearchSubjects.Size = new System.Drawing.Size(1687, 907);
             this.ViewSearchSubjects.TabIndex = 3;
-            this.ViewSearchSubjects.Text = "View/ Search Subjects";
             this.ViewSearchSubjects.UseVisualStyleBackColor = true;
+            // 
+            // btnFilter_Search
+            // 
+            this.btnFilter_Search.Location = new System.Drawing.Point(670, 398);
+            this.btnFilter_Search.Name = "btnFilter_Search";
+            this.btnFilter_Search.Size = new System.Drawing.Size(280, 34);
+            this.btnFilter_Search.TabIndex = 96;
+            this.btnFilter_Search.Text = "Filter >>";
+            this.btnFilter_Search.UseVisualStyleBackColor = true;
+            // 
+            // lblTo_Search
+            // 
+            this.lblTo_Search.AutoSize = true;
+            this.lblTo_Search.Location = new System.Drawing.Point(879, 345);
+            this.lblTo_Search.Name = "lblTo_Search";
+            this.lblTo_Search.Size = new System.Drawing.Size(25, 20);
+            this.lblTo_Search.TabIndex = 95;
+            this.lblTo_Search.Text = "To";
+            // 
+            // lblFrom_Search
+            // 
+            this.lblFrom_Search.AutoSize = true;
+            this.lblFrom_Search.Location = new System.Drawing.Point(703, 341);
+            this.lblFrom_Search.Name = "lblFrom_Search";
+            this.lblFrom_Search.Size = new System.Drawing.Size(43, 20);
+            this.lblFrom_Search.TabIndex = 94;
+            this.lblFrom_Search.Text = "From";
+            // 
+            // txtTo_Search
+            // 
+            this.txtTo_Search.Location = new System.Drawing.Point(931, 341);
+            this.txtTo_Search.Name = "txtTo_Search";
+            this.txtTo_Search.Size = new System.Drawing.Size(100, 27);
+            this.txtTo_Search.TabIndex = 93;
+            this.txtTo_Search.Text = "∞";
+            // 
+            // txtFrom_Search
+            // 
+            this.txtFrom_Search.Location = new System.Drawing.Point(763, 341);
+            this.txtFrom_Search.Name = "txtFrom_Search";
+            this.txtFrom_Search.Size = new System.Drawing.Size(100, 27);
+            this.txtFrom_Search.TabIndex = 92;
+            this.txtFrom_Search.Text = "0";
+            // 
+            // chkParallel_Search
+            // 
+            this.chkParallel_Search.AutoSize = true;
+            this.chkParallel_Search.Location = new System.Drawing.Point(404, 337);
+            this.chkParallel_Search.Name = "chkParallel_Search";
+            this.chkParallel_Search.Size = new System.Drawing.Size(79, 24);
+            this.chkParallel_Search.TabIndex = 91;
+            this.chkParallel_Search.Text = "Parallel";
+            this.chkParallel_Search.UseVisualStyleBackColor = true;
+            // 
+            // cmbTag_Search
+            // 
+            this.cmbTag_Search.FormattingEnabled = true;
+            this.cmbTag_Search.Location = new System.Drawing.Point(228, 329);
+            this.cmbTag_Search.Name = "cmbTag_Search";
+            this.cmbTag_Search.Size = new System.Drawing.Size(138, 28);
+            this.cmbTag_Search.TabIndex = 90;
+            // 
+            // cmbYear_Search
+            // 
+            this.cmbYear_Search.FormattingEnabled = true;
+            this.cmbYear_Search.Location = new System.Drawing.Point(910, 273);
+            this.cmbYear_Search.Name = "cmbYear_Search";
+            this.cmbYear_Search.Size = new System.Drawing.Size(121, 28);
+            this.cmbYear_Search.TabIndex = 89;
+            // 
+            // cmbSemester_Search
+            // 
+            this.cmbSemester_Search.FormattingEnabled = true;
+            this.cmbSemester_Search.Location = new System.Drawing.Point(743, 270);
+            this.cmbSemester_Search.Name = "cmbSemester_Search";
+            this.cmbSemester_Search.Size = new System.Drawing.Size(121, 28);
+            this.cmbSemester_Search.TabIndex = 88;
+            // 
+            // txtSubjectName_Search
+            // 
+            this.txtSubjectName_Search.Location = new System.Drawing.Point(508, 269);
+            this.txtSubjectName_Search.Name = "txtSubjectName_Search";
+            this.txtSubjectName_Search.Size = new System.Drawing.Size(152, 27);
+            this.txtSubjectName_Search.TabIndex = 87;
+            // 
+            // lblHours_Search
+            // 
+            this.lblHours_Search.AutoSize = true;
+            this.lblHours_Search.Location = new System.Drawing.Point(609, 341);
+            this.lblHours_Search.Name = "lblHours_Search";
+            this.lblHours_Search.Size = new System.Drawing.Size(51, 20);
+            this.lblHours_Search.TabIndex = 86;
+            this.lblHours_Search.Text = "Hours:";
+            // 
+            // lblTag_Search
+            // 
+            this.lblTag_Search.AutoSize = true;
+            this.lblTag_Search.Location = new System.Drawing.Point(136, 332);
+            this.lblTag_Search.Name = "lblTag_Search";
+            this.lblTag_Search.Size = new System.Drawing.Size(32, 20);
+            this.lblTag_Search.TabIndex = 85;
+            this.lblTag_Search.Text = "Tag";
+            // 
+            // lblSemester_Search
+            // 
+            this.lblSemester_Search.AutoSize = true;
+            this.lblSemester_Search.Location = new System.Drawing.Point(666, 276);
+            this.lblSemester_Search.Name = "lblSemester_Search";
+            this.lblSemester_Search.Size = new System.Drawing.Size(70, 20);
+            this.lblSemester_Search.TabIndex = 83;
+            this.lblSemester_Search.Text = "Semester";
+            // 
+            // lblYear_Search
+            // 
+            this.lblYear_Search.AutoSize = true;
+            this.lblYear_Search.Location = new System.Drawing.Point(867, 276);
+            this.lblYear_Search.Name = "lblYear_Search";
+            this.lblYear_Search.Size = new System.Drawing.Size(37, 20);
+            this.lblYear_Search.TabIndex = 82;
+            this.lblYear_Search.Text = "Year";
+            // 
+            // lblSubjectName_Search
+            // 
+            this.lblSubjectName_Search.AutoSize = true;
+            this.lblSubjectName_Search.Location = new System.Drawing.Point(400, 274);
+            this.lblSubjectName_Search.Name = "lblSubjectName_Search";
+            this.lblSubjectName_Search.Size = new System.Drawing.Size(102, 20);
+            this.lblSubjectName_Search.TabIndex = 81;
+            this.lblSubjectName_Search.Text = "Subject Name";
+            // 
+            // lblSubjectCode_Search
+            // 
+            this.lblSubjectCode_Search.AutoSize = true;
+            this.lblSubjectCode_Search.Location = new System.Drawing.Point(125, 270);
+            this.lblSubjectCode_Search.Name = "lblSubjectCode_Search";
+            this.lblSubjectCode_Search.Size = new System.Drawing.Size(97, 20);
+            this.lblSubjectCode_Search.TabIndex = 80;
+            this.lblSubjectCode_Search.Text = "Subject Code";
+            // 
+            // txtSubjectCode_Search
+            // 
+            this.txtSubjectCode_Search.Location = new System.Drawing.Point(228, 267);
+            this.txtSubjectCode_Search.Name = "txtSubjectCode_Search";
+            this.txtSubjectCode_Search.Size = new System.Drawing.Size(138, 27);
+            this.txtSubjectCode_Search.TabIndex = 79;
+            // 
+            // btnRefreshGridView_Search
+            // 
+            this.btnRefreshGridView_Search.Location = new System.Drawing.Point(956, 415);
+            this.btnRefreshGridView_Search.Name = "btnRefreshGridView_Search";
+            this.btnRefreshGridView_Search.Size = new System.Drawing.Size(75, 29);
+            this.btnRefreshGridView_Search.TabIndex = 78;
+            this.btnRefreshGridView_Search.Text = "refresh";
+            this.btnRefreshGridView_Search.UseVisualStyleBackColor = true;
+            this.btnRefreshGridView_Search.Click += new System.EventHandler(this.btnRefreshGridView_Search_Click);
             // 
             // dataGridViewSubject_Search
             // 
             this.dataGridViewSubject_Search.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSubject_Search.Location = new System.Drawing.Point(107, 310);
+            this.dataGridViewSubject_Search.Location = new System.Drawing.Point(129, 450);
             this.dataGridViewSubject_Search.Name = "dataGridViewSubject_Search";
             this.dataGridViewSubject_Search.RowHeadersWidth = 51;
             this.dataGridViewSubject_Search.RowTemplate.Height = 24;
-            this.dataGridViewSubject_Search.Size = new System.Drawing.Size(902, 467);
+            this.dataGridViewSubject_Search.Size = new System.Drawing.Size(902, 404);
             this.dataGridViewSubject_Search.TabIndex = 54;
             // 
             // groupBox1
@@ -656,7 +854,7 @@
             this.groupBox1.Controls.Add(this.txtSearchSubject_Search);
             this.groupBox1.Controls.Add(this.radSubjectName_Search);
             this.groupBox1.Controls.Add(this.radSubjectCode_Search);
-            this.groupBox1.Location = new System.Drawing.Point(152, 94);
+            this.groupBox1.Location = new System.Drawing.Point(475, 107);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(811, 115);
             this.groupBox1.TabIndex = 53;
@@ -713,7 +911,7 @@
             // lblViewSearchSubjects
             // 
             this.lblViewSearchSubjects.AutoSize = true;
-            this.lblViewSearchSubjects.Location = new System.Drawing.Point(433, 50);
+            this.lblViewSearchSubjects.Location = new System.Drawing.Point(721, 40);
             this.lblViewSearchSubjects.Name = "lblViewSearchSubjects";
             this.lblViewSearchSubjects.Size = new System.Drawing.Size(142, 20);
             this.lblViewSearchSubjects.TabIndex = 0;
@@ -846,26 +1044,6 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
-            // btnReset_Add
-            // 
-            this.btnReset_Add.Location = new System.Drawing.Point(842, 409);
-            this.btnReset_Add.Name = "btnReset_Add";
-            this.btnReset_Add.Size = new System.Drawing.Size(110, 35);
-            this.btnReset_Add.TabIndex = 26;
-            this.btnReset_Add.Text = "Reset";
-            this.btnReset_Add.UseVisualStyleBackColor = true;
-            this.btnReset_Add.Click += new System.EventHandler(this.btnReset_Add_Click);
-            // 
-            // btnRefreshGridView_Search
-            // 
-            this.btnRefreshGridView_Search.Location = new System.Drawing.Point(934, 215);
-            this.btnRefreshGridView_Search.Name = "btnRefreshGridView_Search";
-            this.btnRefreshGridView_Search.Size = new System.Drawing.Size(75, 29);
-            this.btnRefreshGridView_Search.TabIndex = 78;
-            this.btnRefreshGridView_Search.Text = "refresh";
-            this.btnRefreshGridView_Search.UseVisualStyleBackColor = true;
-            this.btnRefreshGridView_Search.Click += new System.EventHandler(this.btnRefreshGridView_Search_Click);
-            // 
             // ManageSubjectsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -991,5 +1169,22 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Button btnReset_Add;
         private System.Windows.Forms.Button btnRefreshGridView_Search;
+        private System.Windows.Forms.TextBox txtSubjectCode_Search;
+        private System.Windows.Forms.Label lblYear_Search;
+        private System.Windows.Forms.Label lblSubjectName_Search;
+        private System.Windows.Forms.Label lblSubjectCode_Search;
+        private System.Windows.Forms.TextBox txtTo_Search;
+        private System.Windows.Forms.TextBox txtFrom_Search;
+        private System.Windows.Forms.CheckBox chkParallel_Search;
+        private System.Windows.Forms.ComboBox cmbTag_Search;
+        private System.Windows.Forms.ComboBox cmbYear_Search;
+        private System.Windows.Forms.ComboBox cmbSemester_Search;
+        private System.Windows.Forms.TextBox txtSubjectName_Search;
+        private System.Windows.Forms.Label lblHours_Search;
+        private System.Windows.Forms.Label lblTag_Search;
+        private System.Windows.Forms.Label lblSemester_Search;
+        private System.Windows.Forms.Button btnFilter_Search;
+        private System.Windows.Forms.Label lblTo_Search;
+        private System.Windows.Forms.Label lblFrom_Search;
     }
 }
