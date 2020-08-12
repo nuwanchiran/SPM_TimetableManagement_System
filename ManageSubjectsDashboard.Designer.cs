@@ -111,6 +111,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
+            this.btnReset_Add = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.AddSubject.SuspendLayout();
             this.EditSubject.SuspendLayout();
@@ -155,6 +156,7 @@
             // 
             // AddSubject
             // 
+            this.AddSubject.Controls.Add(this.btnReset_Add);
             this.AddSubject.Controls.Add(this.btnAddSubject_Add);
             this.AddSubject.Controls.Add(this.chkParallelSubject_Add);
             this.AddSubject.Controls.Add(this.lblCategory_Add);
@@ -288,7 +290,6 @@
             this.lblManageSubjects_Add.Size = new System.Drawing.Size(122, 20);
             this.lblManageSubjects_Add.TabIndex = 1;
             this.lblManageSubjects_Add.Text = "Manage Subjects";
-
             // 
             // lblAddSubjects_Add
             // 
@@ -956,6 +957,16 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
+            // btnReset_Add
+            // 
+            this.btnReset_Add.Location = new System.Drawing.Point(743, 329);
+            this.btnReset_Add.Name = "btnReset_Add";
+            this.btnReset_Add.Size = new System.Drawing.Size(110, 50);
+            this.btnReset_Add.TabIndex = 26;
+            this.btnReset_Add.Text = "Reset";
+            this.btnReset_Add.UseVisualStyleBackColor = true;
+            this.btnReset_Add.Click += new System.EventHandler(this.btnReset_Add_Click);
+            // 
             // ManageSubjectsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1090,5 +1101,6 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Button btnReset_Add;
     }
 }

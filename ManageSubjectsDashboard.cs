@@ -22,7 +22,7 @@ namespace Timetable_Management_System
         String[] tagsList;
 
         Dictionary<string, bool> closeButtonClickStatus_Add = new Dictionary<string, bool>();
-
+        List<string> loadedTagsList;
         public ManageSubjectsDashboard()
         {
             InitializeComponent();
@@ -32,24 +32,26 @@ namespace Timetable_Management_System
 
         private void ManageSubjectsDashboard_Load(object sender, EventArgs e)
         {
-
             //Add
-            List<string> loadedTagsList = loadTags();
-
+            loadedTagsList = loadTags();
 
             tagsList = loadedTagsList.ToArray();
 
-            for(int i=0; i< tagsList.Length; i++)
-            {
-                //closeButtonClickStatus_Add.Add(tagsList[i], true);
-                closeButtonClickStatus_Add[tagsList[i]] = true;
-            }
+            fillCloseButtonClickStatus_Add();
            
-
             drawTagsInSubject_Add(loadedTagsList);
             chkParallelSubject_Add.Checked = true;
             chkParallelSubject_Add.Checked = false;
             loadYearAndSemester_Add();
+        }
+
+        private void fillCloseButtonClickStatus_Add()
+        {
+            closeButtonClickStatus_Add.Clear();
+            for (int i = 0; i < tagsList.Length; i++)
+            {
+                closeButtonClickStatus_Add[tagsList[i]] = true;
+            }
         }
 
         private void loadYearAndSemester_Add()
@@ -66,6 +68,8 @@ namespace Timetable_Management_System
             yearsList.Add(3);
             yearsList.Add(4);
 
+           
+
             //Todo
             semestersList.Add(1);
             semestersList.Add(2);
@@ -74,11 +78,13 @@ namespace Timetable_Management_System
             {
                 cmbOfferedYear_Add.Items.Add(yearsList[i]);
             }
+            cmbOfferedYear_Add.SelectedIndex = 0;
 
             for (int i = 0; i < semestersList.Count; i++)
             {
                 cmbSemester_Add.Items.Add(semestersList[i]);
             }
+            cmbSemester_Add.SelectedIndex = 0;
         }
 
         private void drawTagsInSubject_Add(List<string> loadedTagsList)
@@ -431,6 +437,14 @@ namespace Timetable_Management_System
             con.Close();
 
             MessageBox.Show("Subject Added", "Success");
+            resetSubject_Add();
+        }
+
+        private void resetSubject_Add()
+        {
+            ManageSubjectsDashboard manageSubjectsDashboardObj = new ManageSubjectsDashboard();
+            manageSubjectsDashboardObj.Show();
+            this.Hide();
         }
 
         private void chkParallelSubject_Add_CheckedChanged(object sender, EventArgs e)
@@ -458,6 +472,11 @@ namespace Timetable_Management_System
 
         }
 
-
+        private void btnReset_Add_Click(object sender, EventArgs e)
+        {
+            ManageSubjectsDashboard manageSubjectsDashboardObj = new ManageSubjectsDashboard();
+            manageSubjectsDashboardObj.Show();
+            this.Hide();
+        }
     }
 }
