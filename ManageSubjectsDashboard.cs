@@ -8,7 +8,11 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SQLite;
+using System.IO;
+using System.Data.SqlClient;
 using System.Windows.Forms;
+using Timetable_Management_System.src;
 using Timetable_Management_System.src.Models;
 
 namespace Timetable_Management_System
@@ -358,8 +362,75 @@ namespace Timetable_Management_System
                 }
             }
 
-            subjectObj = subjectObj;
-            subjectTagsListObj = subjectTagsListObj;
+            AddsubjectToDB(subjectObj, subjectTagsListObj);
+        }
+
+        private void AddsubjectToDB(Subject subjectObj, List<Subject_Tags> subjectTagsListObj)
+        {
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+
+    
+
+            //Adding subject
+            using var cmd = new SQLiteCommand(con);
+
+            cmd.CommandText = @"CREATE TABLE  IF NOT EXISTS subjects (
+                                    subjectCode STRING PRIMARY KEY,
+	                                subjectName TEXT,
+	                                offeredYear INTEGER,
+	                                offeredSemester INTEGER,
+	                                isParallel BOOLEAN,
+	                                category TEXT
+                )";
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "INSERT INTO subjects VALUES" +
+                "(@subjectCode, @subjectName, @offeredYear, @offeredSemester, @isParallel, @category)";
+
+            cmd.Parameters.AddWithValue("@subjectCode", subjectObj.subjectCode);
+            cmd.Parameters.AddWithValue("@subjectName", subjectObj.subjectName);
+            cmd.Parameters.AddWithValue("@offeredYear", subjectObj.offeredYear);
+            cmd.Parameters.AddWithValue("@offeredSemester", subjectObj.offeredSemester);
+            cmd.Parameters.AddWithValue("@isParallel", subjectObj.isParallel);
+            cmd.Parameters.AddWithValue("@category", subjectObj.category);
+          
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+
+            //Adding subject_tag mapping
+            foreach (Subject_Tags subject_TagsObj in subjectTagsListObj) // Loop through List with foreach
+            {
+                using var cmd1 = new SQLiteCommand(con);
+
+                cmd1.CommandText = @"CREATE TABLE  IF NOT EXISTS subjects_tags (
+           
+                                        subjectCode STRING ,
+	                                    tag STRING,
+	                                    hrs DOUBLE,
+
+	                                    PRIMARY KEY (subjectCode ,tag )
+                )";
+                cmd1.ExecuteNonQuery();
+
+                cmd1.CommandText = "INSERT INTO subjects_tags VALUES" +
+                    "(@subjectCodeM, @tag, @hrs)";
+
+                cmd1.Parameters.AddWithValue("@subjectCodeM", subject_TagsObj.subjectCode);
+                cmd1.Parameters.AddWithValue("@tag", subject_TagsObj.tag);
+                cmd1.Parameters.AddWithValue("@hrs", subject_TagsObj.hrs);
+
+                cmd1.Prepare();
+
+                cmd1.ExecuteNonQuery();
+            }
+            con.Close();
+
+            MessageBox.Show("Subject Added", "Success");
         }
 
         private void chkParallelSubject_Add_CheckedChanged(object sender, EventArgs e)
