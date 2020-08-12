@@ -34,7 +34,7 @@
             this.btnAddSubject_Add = new System.Windows.Forms.Button();
             this.chkParallelSubject_Add = new System.Windows.Forms.CheckBox();
             this.lblCategory_Add = new System.Windows.Forms.Label();
-            this.txtParallelSubject_Add = new System.Windows.Forms.TextBox();
+            this.txtCategory_Add = new System.Windows.Forms.TextBox();
             this.txtSubjectCode_Add = new System.Windows.Forms.TextBox();
             this.txtSubjectName_Add = new System.Windows.Forms.TextBox();
             this.cmbSemester_Add = new System.Windows.Forms.ComboBox();
@@ -158,7 +158,7 @@
             this.AddSubject.Controls.Add(this.btnAddSubject_Add);
             this.AddSubject.Controls.Add(this.chkParallelSubject_Add);
             this.AddSubject.Controls.Add(this.lblCategory_Add);
-            this.AddSubject.Controls.Add(this.txtParallelSubject_Add);
+            this.AddSubject.Controls.Add(this.txtCategory_Add);
             this.AddSubject.Controls.Add(this.txtSubjectCode_Add);
             this.AddSubject.Controls.Add(this.txtSubjectName_Add);
             this.AddSubject.Controls.Add(this.cmbSemester_Add);
@@ -185,32 +185,34 @@
             this.btnAddSubject_Add.TabIndex = 25;
             this.btnAddSubject_Add.Text = "Add Subject >>>";
             this.btnAddSubject_Add.UseVisualStyleBackColor = true;
+            this.btnAddSubject_Add.Click += new System.EventHandler(this.btnAddSubject_Add_Click);
             // 
             // chkParallelSubject_Add
             // 
             this.chkParallelSubject_Add.AutoSize = true;
-            this.chkParallelSubject_Add.Location = new System.Drawing.Point(97, 409);
+            this.chkParallelSubject_Add.Location = new System.Drawing.Point(108, 235);
             this.chkParallelSubject_Add.Name = "chkParallelSubject_Add";
             this.chkParallelSubject_Add.Size = new System.Drawing.Size(132, 24);
             this.chkParallelSubject_Add.TabIndex = 24;
             this.chkParallelSubject_Add.Text = "Parallel Subject";
             this.chkParallelSubject_Add.UseVisualStyleBackColor = true;
+            this.chkParallelSubject_Add.CheckedChanged += new System.EventHandler(this.chkParallelSubject_Add_CheckedChanged);
             // 
             // lblCategory_Add
             // 
             this.lblCategory_Add.AutoSize = true;
-            this.lblCategory_Add.Location = new System.Drawing.Point(93, 445);
+            this.lblCategory_Add.Location = new System.Drawing.Point(104, 271);
             this.lblCategory_Add.Name = "lblCategory_Add";
             this.lblCategory_Add.Size = new System.Drawing.Size(69, 20);
             this.lblCategory_Add.TabIndex = 23;
             this.lblCategory_Add.Text = "Category";
             // 
-            // txtParallelSubject_Add
+            // txtCategory_Add
             // 
-            this.txtParallelSubject_Add.Location = new System.Drawing.Point(216, 445);
-            this.txtParallelSubject_Add.Name = "txtParallelSubject_Add";
-            this.txtParallelSubject_Add.Size = new System.Drawing.Size(222, 27);
-            this.txtParallelSubject_Add.TabIndex = 22;
+            this.txtCategory_Add.Location = new System.Drawing.Point(227, 271);
+            this.txtCategory_Add.Name = "txtCategory_Add";
+            this.txtCategory_Add.Size = new System.Drawing.Size(222, 27);
+            this.txtCategory_Add.TabIndex = 22;
             // 
             // txtSubjectCode_Add
             // 
@@ -286,7 +288,7 @@
             this.lblManageSubjects_Add.Size = new System.Drawing.Size(122, 20);
             this.lblManageSubjects_Add.TabIndex = 1;
             this.lblManageSubjects_Add.Text = "Manage Subjects";
-            this.lblManageSubjects_Add.Click += new System.EventHandler(this.lblManageSubjects_Add_Click);
+
             // 
             // lblAddSubjects_Add
             // 
@@ -1029,7 +1031,7 @@
         private System.Windows.Forms.Button btnAddSubject_Add;
         private System.Windows.Forms.CheckBox chkParallelSubject_Add;
         private System.Windows.Forms.Label lblCategory_Add;
-        private System.Windows.Forms.TextBox txtParallelSubject_Add;
+        private System.Windows.Forms.TextBox txtCategory_Add;
         private System.Windows.Forms.TextBox txtSubjectCode_Add;
         private System.Windows.Forms.TextBox txtSubjectName_Add;
         private System.Windows.Forms.ComboBox cmbSemester_Add;
