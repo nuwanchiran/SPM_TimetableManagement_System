@@ -680,6 +680,7 @@
             this.ViewSearchSubjects.Name = "ViewSearchSubjects";
             this.ViewSearchSubjects.Size = new System.Drawing.Size(1687, 907);
             this.ViewSearchSubjects.TabIndex = 3;
+            this.ViewSearchSubjects.Text = "View/ Search Subjects";
             this.ViewSearchSubjects.UseVisualStyleBackColor = true;
             // 
             // btnFilter_Search
@@ -746,7 +747,7 @@
             // cmbYear_Search
             // 
             this.cmbYear_Search.FormattingEnabled = true;
-            this.cmbYear_Search.Location = new System.Drawing.Point(910, 273);
+            this.cmbYear_Search.Location = new System.Drawing.Point(709, 270);
             this.cmbYear_Search.Name = "cmbYear_Search";
             this.cmbYear_Search.Size = new System.Drawing.Size(121, 28);
             this.cmbYear_Search.TabIndex = 89;
@@ -754,14 +755,14 @@
             // cmbSemester_Search
             // 
             this.cmbSemester_Search.FormattingEnabled = true;
-            this.cmbSemester_Search.Location = new System.Drawing.Point(743, 270);
+            this.cmbSemester_Search.Location = new System.Drawing.Point(912, 269);
             this.cmbSemester_Search.Name = "cmbSemester_Search";
             this.cmbSemester_Search.Size = new System.Drawing.Size(121, 28);
             this.cmbSemester_Search.TabIndex = 88;
             // 
             // txtSubjectName_Search
             // 
-            this.txtSubjectName_Search.Location = new System.Drawing.Point(508, 269);
+            this.txtSubjectName_Search.Location = new System.Drawing.Point(495, 269);
             this.txtSubjectName_Search.Name = "txtSubjectName_Search";
             this.txtSubjectName_Search.Size = new System.Drawing.Size(152, 27);
             this.txtSubjectName_Search.TabIndex = 87;
@@ -787,7 +788,7 @@
             // lblSemester_Search
             // 
             this.lblSemester_Search.AutoSize = true;
-            this.lblSemester_Search.Location = new System.Drawing.Point(666, 276);
+            this.lblSemester_Search.Location = new System.Drawing.Point(836, 273);
             this.lblSemester_Search.Name = "lblSemester_Search";
             this.lblSemester_Search.Size = new System.Drawing.Size(70, 20);
             this.lblSemester_Search.TabIndex = 83;
@@ -796,7 +797,7 @@
             // lblYear_Search
             // 
             this.lblYear_Search.AutoSize = true;
-            this.lblYear_Search.Location = new System.Drawing.Point(867, 276);
+            this.lblYear_Search.Location = new System.Drawing.Point(666, 273);
             this.lblYear_Search.Name = "lblYear_Search";
             this.lblYear_Search.Size = new System.Drawing.Size(37, 20);
             this.lblYear_Search.TabIndex = 82;
@@ -805,7 +806,7 @@
             // lblSubjectName_Search
             // 
             this.lblSubjectName_Search.AutoSize = true;
-            this.lblSubjectName_Search.Location = new System.Drawing.Point(400, 274);
+            this.lblSubjectName_Search.Location = new System.Drawing.Point(391, 274);
             this.lblSubjectName_Search.Name = "lblSubjectName_Search";
             this.lblSubjectName_Search.Size = new System.Drawing.Size(102, 20);
             this.lblSubjectName_Search.TabIndex = 81;
@@ -844,7 +845,7 @@
             this.dataGridViewSubject_Search.Name = "dataGridViewSubject_Search";
             this.dataGridViewSubject_Search.RowHeadersWidth = 51;
             this.dataGridViewSubject_Search.RowTemplate.Height = 24;
-            this.dataGridViewSubject_Search.Size = new System.Drawing.Size(902, 404);
+            this.dataGridViewSubject_Search.Size = new System.Drawing.Size(902, 331);
             this.dataGridViewSubject_Search.TabIndex = 54;
             // 
             // groupBox1

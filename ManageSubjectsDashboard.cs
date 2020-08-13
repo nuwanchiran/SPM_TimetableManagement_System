@@ -43,7 +43,12 @@ namespace Timetable_Management_System
             chkParallelSubject_Add.Checked = true;
             chkParallelSubject_Add.Checked = false;
             loadYearAndSemester_Add();
+
+            //Search
+            setInitialsInFilterSections_Search();
         }
+
+
 
         private void fillCloseButtonClickStatus_Add()
         {
@@ -491,7 +496,17 @@ namespace Timetable_Management_System
             System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(cs);
             
             System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand(
-                "select * " +
+                "select " +
+                "subjects.subjectCode AS Subject_Code ," +
+                "subjects.subjectName AS Subject_Name ," +
+                "subjects.offeredYear AS Year ," +
+                "subjects.offeredSemester AS Semester ," +
+                "subjects.isParallel AS Parallel_Subject ," +
+                "subjects.category AS Category ," +
+                "subjects_tags.tag AS Tag ," +
+                "subjects_tags.hrs AS Hours " +
+
+
                 "from subjects, subjects_tags " +
                 "where subjects.subjectCode = subjects_tags.subjectCode"
                 );
@@ -539,6 +554,97 @@ namespace Timetable_Management_System
             conn.Close();
         }
 
-       
+        private void setInitialsInFilterSections_Search()
+        {
+            txtSubjectCode_Search.Text = "Any";
+            txtSubjectCode_Search.GotFocus += txtSubjectCode_Search_GotFocus;
+            txtSubjectCode_Search.LostFocus += txtSubjectCode_Search_LostFocus;
+
+
+            txtSubjectName_Search.Text = "Any";
+            txtSubjectName_Search.GotFocus += txtSubjectName_Search_GotFocus;
+            txtSubjectName_Search.LostFocus += txtSubjectName_Search_LostFocus;
+
+            setYears_Search();
+            setSemesters_Search();
+            setTags_Search();
+        }
+
+        private void setSemesters_Search()
+        {
+            List<int> semestersList = new List<int>();
+
+            //Todo
+            semestersList.Add(1);
+            semestersList.Add(2);
+
+            cmbSemester_Search.Items.Clear();
+            
+            for (int i = 0; i < semestersList.Count; i++)
+            {
+                cmbSemester_Search.Items.Add(semestersList[i]);
+            }
+            cmbSemester_Search.SelectedIndex = 0;
+        }
+
+        private void setYears_Search()
+        {
+            List<int> yearsList = new List<int>();
+
+            //Todo
+            yearsList.Add(1);
+            yearsList.Add(2);
+            yearsList.Add(3);
+            yearsList.Add(4);
+
+            cmbYear_Search.Items.Clear();
+
+            for (int i = 0; i < yearsList.Count; i++)
+            {
+                cmbYear_Search.Items.Add(yearsList[i]);
+            }
+            cmbYear_Search.SelectedIndex = 0;
+        }
+
+        private void setTags_Search()
+        {
+            cmbTag_Search.Items.Clear();
+
+            cmbTag_Search.Items.Add("Any");
+            for (int i=0;i< tagsList.Length; i++)
+            {
+                cmbTag_Search.Items.Add(tagsList[i]);
+            }
+            cmbTag_Search.SelectedIndex = 0;
+
+        }
+
+        private void txtSubjectName_Search_LostFocus(object sender, EventArgs e)
+        {
+            if (txtSubjectName_Search.Text == "")
+                txtSubjectName_Search.Text = "Any";
+        }
+
+        private void txtSubjectName_Search_GotFocus(object sender, EventArgs e)
+        {
+            if (txtSubjectName_Search.Text.Equals("Any"))
+            {
+                txtSubjectName_Search.Text = "";
+            }
+        }
+
+        private void txtSubjectCode_Search_LostFocus(object sender, EventArgs e)
+        {
+            if (txtSubjectCode_Search.Text == "")
+                txtSubjectCode_Search.Text = "Any";
+        }
+
+        private void txtSubjectCode_Search_GotFocus(object sender, EventArgs e)
+        {
+            if(txtSubjectCode_Search.Text.Equals("Any")){
+                txtSubjectCode_Search.Text = "";
+            }
+           
+        }
     }
 }
