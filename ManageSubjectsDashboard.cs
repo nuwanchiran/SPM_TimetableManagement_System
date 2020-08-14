@@ -20,6 +20,8 @@ namespace Timetable_Management_System
     public partial class ManageSubjectsDashboard : Form
     {
         String[] tagsList;
+        Subject gblSearchFoundObj_Search;
+        List<Subject_Tags> gblSubjectTagslist_Search;
 
         Dictionary<string, bool> closeButtonClickStatus_Add = new Dictionary<string, bool>();
         List<string> loadedTagsList;
@@ -46,6 +48,7 @@ namespace Timetable_Management_System
 
             //Search
             setInitialsInFilterSections_Search();
+            radSubjectCode_Search.Checked = true;
         }
 
 
@@ -486,7 +489,130 @@ namespace Timetable_Management_System
 
         private void btnFindSubject_Search_Click(object sender, EventArgs e)
         {
+            string searchType = "";
+            if(radSubjectCode_Search.Checked == true)
+            {
+                searchType = "byCode";
+            }
+            if (radSubjectName_Search.Checked == true)
+            {
+                searchType = "byName";
+            }
 
+            if (searchType.Equals("byCode") && txtSearchSubject_Search.Text.Equals(""))
+            {
+                MessageBox.Show("Please enter a subject code for search");
+            }
+            else if (searchType.Equals("byName") && txtSearchSubject_Search.Text.Equals(""))
+            {
+                MessageBox.Show("Please enter a subject name for search");
+            }
+            else
+            {
+                Subject subjectObj_Search = new Subject();
+                Subject_Tags subjectTags_Search = new Subject_Tags();
+                List<Subject_Tags> subjectTagslist = new List<Subject_Tags>();
+
+                findSubject_Search(txtSearchSubject_Search.Text, searchType);
+                setFoundSubjectData_Search();
+
+            }
+        }
+
+        private void setFoundSubjectData_Search()
+        {
+            lblSubjectCodeAns_Search.Text = gblSearchFoundObj_Search.subjectCode ;
+            lblSubjectNameAns_Search.Text = gblSearchFoundObj_Search.subjectName;
+            lblYearAns_Search.Text = gblSearchFoundObj_Search.offeredYear.ToString();
+            lblSemesterAns_Search.Text = gblSearchFoundObj_Search.offeredSemester.ToString();
+            if(gblSearchFoundObj_Search.isParallel == true)
+            {
+                lblIsparallel_Search.Text = "Yes";
+                lblCategory_Search.Visible = true;
+                lblCategoryL_Search.Visible = true;
+                lblCategory_Search.Text = gblSearchFoundObj_Search.category;
+            }
+            else
+            {
+                lblIsparallel_Search.Text = "No";
+                lblCategoryL_Search.Visible = false;
+                lblCategory_Search.Visible = false ;
+            }
+            
+
+            gblSubjectTagslist_Search.ToString();
+        }
+
+        private void findSubject_Search(string searchKey, string searchType)
+        {
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "";
+            if (searchType.Equals("byCode"))
+            {
+                stm = "select " +
+                    "subjects.subjectCode AS Subject_Code ," +
+                    "subjects.subjectName AS Subject_Name ," +
+                    "subjects.offeredYear AS Year ," +
+                    "subjects.offeredSemester AS Semester ," +
+                    "subjects.isParallel AS Parallel_Subject ," +
+                    "subjects.category AS Category ," +
+                    "subjects_tags.tag AS Tag ," +
+                    "subjects_tags.hrs AS Hours " +
+
+                    "from subjects, subjects_tags" +
+                    " where subjects.subjectCode = subjects_tags.subjectCode AND subjects.subjectCode = '" + searchKey + "'";
+            }
+            else if (searchType.Equals("byName"))
+            {
+                stm = "select " +
+                    "subjects.subjectCode AS Subject_Code ," +
+                    "subjects.subjectName AS Subject_Name ," +
+                    "subjects.offeredYear AS Year ," +
+                    "subjects.offeredSemester AS Semester ," +
+                    "subjects.isParallel AS Parallel_Subject ," +
+                    "subjects.category AS Category ," +
+                    "subjects_tags.tag AS Tag ," +
+                    "subjects_tags.hrs AS Hours " +
+                    "from subjects, subjects_tags" +
+                    " where subjects.subjectCode = subjects_tags.subjectCode AND subjects.subjectName = '" + searchKey+"'";
+            }
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+
+
+            Subject subjectObj_Search = new Subject();
+            
+            List<Subject_Tags> subjectTagslist = new List<Subject_Tags>();
+
+            while (rdr.Read())
+            {
+                Subject_Tags subjectTagsObj_Search = new Subject_Tags();
+
+                subjectObj_Search.subjectCode = $@"{ rdr.GetString(0),-8}";
+                subjectObj_Search.subjectName = $@"{ rdr.GetString(1),-8}";
+                subjectObj_Search.offeredYear = Int32.Parse($@"{rdr.GetInt32(2),-3}");
+                subjectObj_Search.offeredSemester = Int32.Parse($@"{rdr.GetInt32(3),-3}");
+
+                subjectObj_Search.isParallel =  rdr.GetBoolean(rdr.GetOrdinal("Parallel_Subject"));
+
+                subjectObj_Search.category = $@"{ rdr.GetString(5),-8}";
+
+                subjectTagsObj_Search.subjectCode = $@"{ rdr.GetString(0),-8}";
+                subjectTagsObj_Search.tag = $@"{ rdr.GetString(6),-8}";
+                subjectTagsObj_Search.hrs = rdr.GetDouble(rdr.GetOrdinal("Hours"));
+               
+                subjectTagslist.Add(subjectTagsObj_Search);
+                
+            }
+
+            gblSearchFoundObj_Search = subjectObj_Search;
+            gblSubjectTagslist_Search = subjectTagslist;
         }
 
         private void btnRefreshGridView_Search_Click(object sender, EventArgs e)
@@ -568,6 +694,44 @@ namespace Timetable_Management_System
             setYears_Search();
             setSemesters_Search();
             setTags_Search();
+
+            txtTo_Search.Text = "∞";
+            txtTo_Search.GotFocus += txtTo_Search_GotFocus;
+            txtTo_Search.LostFocus += txtTo_Search_LostFocus;
+
+
+            txtFrom_Search.Text = "0";
+            txtFrom_Search.GotFocus += txtFrom_Search_GotFocus;
+            txtFrom_Search.LostFocus += txtFrom_Search_LostFocus;
+
+        }
+
+        private void txtFrom_Search_LostFocus(object sender, EventArgs e)
+        {
+            if (txtFrom_Search.Text == "")
+                txtFrom_Search.Text = "0";
+        }
+
+        private void txtFrom_Search_GotFocus(object sender, EventArgs e)
+        {
+            if (txtFrom_Search.Text.Equals("0"))
+            {
+                txtFrom_Search.Text = "";
+            }
+        }
+
+        private void txtTo_Search_LostFocus(object sender, EventArgs e)
+        {
+            if (txtTo_Search.Text == "")
+                txtTo_Search.Text = "∞";
+        }
+
+        private void txtTo_Search_GotFocus(object sender, EventArgs e)
+        {
+            if (txtTo_Search.Text.Equals("∞"))
+            {
+                txtTo_Search.Text = "";
+            }
         }
 
         private void setSemesters_Search()
@@ -579,7 +743,8 @@ namespace Timetable_Management_System
             semestersList.Add(2);
 
             cmbSemester_Search.Items.Clear();
-            
+
+            cmbSemester_Search.Items.Add("Any");
             for (int i = 0; i < semestersList.Count; i++)
             {
                 cmbSemester_Search.Items.Add(semestersList[i]);
@@ -599,6 +764,7 @@ namespace Timetable_Management_System
 
             cmbYear_Search.Items.Clear();
 
+            cmbYear_Search.Items.Add("Any");
             for (int i = 0; i < yearsList.Count; i++)
             {
                 cmbYear_Search.Items.Add(yearsList[i]);
@@ -645,6 +811,156 @@ namespace Timetable_Management_System
                 txtSubjectCode_Search.Text = "";
             }
            
+        }
+
+        private void btnFilter_Search_Click(object sender, EventArgs e)
+        {
+            string subjectCode = txtSubjectCode_Search.Text;
+            string subjectName = txtSubjectName_Search.Text;
+            string year = this.cmbYear_Search.GetItemText(this.cmbYear_Search.SelectedItem);
+            string semester = this.cmbSemester_Search.GetItemText(this.cmbSemester_Search.SelectedItem);
+            string tag = this.cmbTag_Search.GetItemText(this.cmbTag_Search.SelectedItem);
+            bool parallel = chkParallel_Search.Checked;
+            string from = txtFrom_Search.Text;
+            string to = txtTo_Search.Text;
+
+            string query = generateFilterString(subjectCode, subjectName, year, semester, tag, parallel, from, to);
+            MessageBox.Show(query);
+            filterSubjects_Search(subjectCode, subjectName, year, semester, tag, parallel, from, to, query);
+
+        }
+
+        private string generateFilterString(string subjectCode, string subjectName, string year, string semester, string tag, bool parallel, string from, string to)
+        {
+
+            string q = "select " +
+              "subjects.subjectCode AS Subject_Code ," +
+              "subjects.subjectName AS Subject_Name ," +
+              "subjects.offeredYear AS Year ," +
+              "subjects.offeredSemester AS Semester ," +
+              "subjects.isParallel AS Parallel_Subject ," +
+              "subjects.category AS Category ," +
+              "subjects_tags.tag AS Tag ," +
+              "subjects_tags.hrs AS Hours " +
+
+
+              "from subjects, subjects_tags " +
+              "where subjects.subjectCode = subjects_tags.subjectCode ";
+
+            if (!subjectCode.Equals("Any"))
+            {
+                string temp = " AND subjects.subjectCode = " + subjectCode;
+                q = q + temp;
+            }
+
+            if (!subjectName.Equals("Any"))
+            {
+                string temp = " AND subjects.subjectName = " + subjectName;
+                q = q + temp;
+            }
+
+            if (!year.Equals("Any"))
+            {
+                string temp = " AND subjects.offeredYear = " + year;
+                q = q + temp;
+            }
+
+            if (!semester.Equals("Any"))
+            {
+                string temp = " AND subjects.offeredSemester = " + semester;
+                q = q + temp;
+            }
+
+            if (!tag.Equals("Any"))
+            {
+                string temp = " AND subjects_tags.tag = " + tag;
+                q = q + temp;
+            }
+            if(parallel == true)
+            {
+                string temp = " AND subjects.isParallel = " + true;
+                q = q + temp;
+            }else if(parallel == false)
+            {
+                string temp = " AND subjects.isParallel = " + false;
+                q = q + temp;
+            }
+
+            int fromNumber_Search;
+            int toNumber_Search;
+            bool successFrom_Search = Int32.TryParse(from, out fromNumber_Search);
+            bool successTo_Search = Int32.TryParse(to, out toNumber_Search);
+
+            if (to.Equals("∞"))
+            {
+
+                string temp = " AND subjects_tags.hrs >= " + fromNumber_Search;
+                q = q + temp;
+            }
+            else
+            {
+                string temp = " AND subjects_tags.hrs >= " + fromNumber_Search + " AND subjects_tags.hrs <= "+ toNumber_Search;
+                q = q + temp;
+            }
+
+            return q;
+
+
+        }
+
+        private void filterSubjects_Search(string subjectCode, string subjectName, string year, string semester, string tag, bool parallel, string from, string to, string query)
+        {
+
+
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(cs);
+
+            System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand(query);
+
+            cmd.Connection = conn;
+
+            conn.Open();
+
+            /*
+            using var cmdCreateSubject = new SQLiteCommand(conn);
+
+            cmdCreateSubject.CommandText = @"CREATE TABLE  IF NOT EXISTS subjects (
+                                    subjectCode STRING PRIMARY KEY,
+	                                subjectName TEXT,
+	                                offeredYear INTEGER,
+	                                offeredSemester INTEGER,
+	                                isParallel BOOLEAN,
+	                                category TEXT   
+                )";
+            cmdCreateSubject.ExecuteNonQuery();
+            
+
+
+
+            using var cmdCreateSubjectTag = new SQLiteCommand(conn);
+
+            cmdCreateSubjectTag.CommandText = @"CREATE TABLE  IF NOT EXISTS subjects_tags (
+                                        subjectCode STRING ,
+	                                    tag STRING,
+	                                    hrs DOUBLE,
+
+	                                    PRIMARY KEY (subjectCode ,tag ) 
+                )";
+            cmdCreateSubjectTag.ExecuteNonQuery();
+
+            cmd.ExecuteScalar();
+            */
+
+            System.Data.SQLite.SQLiteDataAdapter da = new System.Data.SQLite.SQLiteDataAdapter(cmd);
+            System.Data.DataSet ds = new System.Data.DataSet();
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            dataGridViewSubject_Search.DataSource = dt;
+            conn.Close();
         }
     }
 }

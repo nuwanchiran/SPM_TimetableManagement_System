@@ -82,6 +82,20 @@
             this.label36 = new System.Windows.Forms.Label();
             this.lblRemoveSubject = new System.Windows.Forms.Label();
             this.ViewSearchSubjects = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblCategory_Search = new System.Windows.Forms.Label();
+            this.lblIsparallel_Search = new System.Windows.Forms.Label();
+            this.lblSemesterAns_Search = new System.Windows.Forms.Label();
+            this.lblYearAns_Search = new System.Windows.Forms.Label();
+            this.lblSubjectNameAns_Search = new System.Windows.Forms.Label();
+            this.lblSubjectCodeAns_Search = new System.Windows.Forms.Label();
+            this.lblTagsL_Search = new System.Windows.Forms.Label();
+            this.lblCategoryL_Search = new System.Windows.Forms.Label();
+            this.lblIsParallelL_Search = new System.Windows.Forms.Label();
+            this.lblSemesterL_Search = new System.Windows.Forms.Label();
+            this.lblYearL_Search = new System.Windows.Forms.Label();
+            this.lblSubjectNameL_Search = new System.Windows.Forms.Label();
+            this.lblSubjectCodeL_Search = new System.Windows.Forms.Label();
             this.btnFilter_Search = new System.Windows.Forms.Button();
             this.lblTo_Search = new System.Windows.Forms.Label();
             this.lblFrom_Search = new System.Windows.Forms.Label();
@@ -125,6 +139,7 @@
             this.groupBox5.SuspendLayout();
             this.RemoveSubject.SuspendLayout();
             this.ViewSearchSubjects.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubject_Search)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoggedUser)).BeginInit();
@@ -655,6 +670,7 @@
             // 
             // ViewSearchSubjects
             // 
+            this.ViewSearchSubjects.Controls.Add(this.groupBox2);
             this.ViewSearchSubjects.Controls.Add(this.btnFilter_Search);
             this.ViewSearchSubjects.Controls.Add(this.lblTo_Search);
             this.ViewSearchSubjects.Controls.Add(this.lblFrom_Search);
@@ -683,6 +699,152 @@
             this.ViewSearchSubjects.Text = "View/ Search Subjects";
             this.ViewSearchSubjects.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblCategory_Search);
+            this.groupBox2.Controls.Add(this.lblIsparallel_Search);
+            this.groupBox2.Controls.Add(this.lblSemesterAns_Search);
+            this.groupBox2.Controls.Add(this.lblYearAns_Search);
+            this.groupBox2.Controls.Add(this.lblSubjectNameAns_Search);
+            this.groupBox2.Controls.Add(this.lblSubjectCodeAns_Search);
+            this.groupBox2.Controls.Add(this.lblTagsL_Search);
+            this.groupBox2.Controls.Add(this.lblCategoryL_Search);
+            this.groupBox2.Controls.Add(this.lblIsParallelL_Search);
+            this.groupBox2.Controls.Add(this.lblSemesterL_Search);
+            this.groupBox2.Controls.Add(this.lblYearL_Search);
+            this.groupBox2.Controls.Add(this.lblSubjectNameL_Search);
+            this.groupBox2.Controls.Add(this.lblSubjectCodeL_Search);
+            this.groupBox2.Location = new System.Drawing.Point(1211, 337);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(383, 402);
+            this.groupBox2.TabIndex = 97;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Subject";
+            // 
+            // lblCategory_Search
+            // 
+            this.lblCategory_Search.AutoSize = true;
+            this.lblCategory_Search.Location = new System.Drawing.Point(288, 208);
+            this.lblCategory_Search.Name = "lblCategory_Search";
+            this.lblCategory_Search.Size = new System.Drawing.Size(15, 20);
+            this.lblCategory_Search.TabIndex = 108;
+            this.lblCategory_Search.Text = "*";
+            // 
+            // lblIsparallel_Search
+            // 
+            this.lblIsparallel_Search.AutoSize = true;
+            this.lblIsparallel_Search.Location = new System.Drawing.Point(123, 208);
+            this.lblIsparallel_Search.Name = "lblIsparallel_Search";
+            this.lblIsparallel_Search.Size = new System.Drawing.Size(15, 20);
+            this.lblIsparallel_Search.TabIndex = 107;
+            this.lblIsparallel_Search.Text = "*";
+            // 
+            // lblSemesterAns_Search
+            // 
+            this.lblSemesterAns_Search.AutoSize = true;
+            this.lblSemesterAns_Search.Location = new System.Drawing.Point(155, 176);
+            this.lblSemesterAns_Search.Name = "lblSemesterAns_Search";
+            this.lblSemesterAns_Search.Size = new System.Drawing.Size(15, 20);
+            this.lblSemesterAns_Search.TabIndex = 106;
+            this.lblSemesterAns_Search.Text = "*";
+            // 
+            // lblYearAns_Search
+            // 
+            this.lblYearAns_Search.AutoSize = true;
+            this.lblYearAns_Search.Location = new System.Drawing.Point(155, 147);
+            this.lblYearAns_Search.Name = "lblYearAns_Search";
+            this.lblYearAns_Search.Size = new System.Drawing.Size(15, 20);
+            this.lblYearAns_Search.TabIndex = 105;
+            this.lblYearAns_Search.Text = "*";
+            // 
+            // lblSubjectNameAns_Search
+            // 
+            this.lblSubjectNameAns_Search.AutoSize = true;
+            this.lblSubjectNameAns_Search.Location = new System.Drawing.Point(151, 113);
+            this.lblSubjectNameAns_Search.Name = "lblSubjectNameAns_Search";
+            this.lblSubjectNameAns_Search.Size = new System.Drawing.Size(15, 20);
+            this.lblSubjectNameAns_Search.TabIndex = 104;
+            this.lblSubjectNameAns_Search.Text = "*";
+            // 
+            // lblSubjectCodeAns_Search
+            // 
+            this.lblSubjectCodeAns_Search.AutoSize = true;
+            this.lblSubjectCodeAns_Search.Location = new System.Drawing.Point(151, 75);
+            this.lblSubjectCodeAns_Search.Name = "lblSubjectCodeAns_Search";
+            this.lblSubjectCodeAns_Search.Size = new System.Drawing.Size(15, 20);
+            this.lblSubjectCodeAns_Search.TabIndex = 103;
+            this.lblSubjectCodeAns_Search.Text = "*";
+            // 
+            // lblTagsL_Search
+            // 
+            this.lblTagsL_Search.AutoSize = true;
+            this.lblTagsL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTagsL_Search.Location = new System.Drawing.Point(24, 251);
+            this.lblTagsL_Search.Name = "lblTagsL_Search";
+            this.lblTagsL_Search.Size = new System.Drawing.Size(43, 20);
+            this.lblTagsL_Search.TabIndex = 102;
+            this.lblTagsL_Search.Text = "Text:";
+            // 
+            // lblCategoryL_Search
+            // 
+            this.lblCategoryL_Search.AutoSize = true;
+            this.lblCategoryL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoryL_Search.Location = new System.Drawing.Point(200, 208);
+            this.lblCategoryL_Search.Name = "lblCategoryL_Search";
+            this.lblCategoryL_Search.Size = new System.Drawing.Size(73, 20);
+            this.lblCategoryL_Search.TabIndex = 101;
+            this.lblCategoryL_Search.Text = "Category";
+            // 
+            // lblIsParallelL_Search
+            // 
+            this.lblIsParallelL_Search.AutoSize = true;
+            this.lblIsParallelL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIsParallelL_Search.Location = new System.Drawing.Point(24, 208);
+            this.lblIsParallelL_Search.Name = "lblIsParallelL_Search";
+            this.lblIsParallelL_Search.Size = new System.Drawing.Size(80, 20);
+            this.lblIsParallelL_Search.TabIndex = 100;
+            this.lblIsParallelL_Search.Text = "Is Parallel:";
+            // 
+            // lblSemesterL_Search
+            // 
+            this.lblSemesterL_Search.AutoSize = true;
+            this.lblSemesterL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSemesterL_Search.Location = new System.Drawing.Point(21, 176);
+            this.lblSemesterL_Search.Name = "lblSemesterL_Search";
+            this.lblSemesterL_Search.Size = new System.Drawing.Size(74, 20);
+            this.lblSemesterL_Search.TabIndex = 98;
+            this.lblSemesterL_Search.Text = "Semester";
+            // 
+            // lblYearL_Search
+            // 
+            this.lblYearL_Search.AutoSize = true;
+            this.lblYearL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYearL_Search.Location = new System.Drawing.Point(21, 147);
+            this.lblYearL_Search.Name = "lblYearL_Search";
+            this.lblYearL_Search.Size = new System.Drawing.Size(39, 20);
+            this.lblYearL_Search.TabIndex = 98;
+            this.lblYearL_Search.Text = "Year";
+            // 
+            // lblSubjectNameL_Search
+            // 
+            this.lblSubjectNameL_Search.AutoSize = true;
+            this.lblSubjectNameL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubjectNameL_Search.Location = new System.Drawing.Point(21, 113);
+            this.lblSubjectNameL_Search.Name = "lblSubjectNameL_Search";
+            this.lblSubjectNameL_Search.Size = new System.Drawing.Size(106, 20);
+            this.lblSubjectNameL_Search.TabIndex = 99;
+            this.lblSubjectNameL_Search.Text = "Subject Name";
+            // 
+            // lblSubjectCodeL_Search
+            // 
+            this.lblSubjectCodeL_Search.AutoSize = true;
+            this.lblSubjectCodeL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubjectCodeL_Search.Location = new System.Drawing.Point(20, 75);
+            this.lblSubjectCodeL_Search.Name = "lblSubjectCodeL_Search";
+            this.lblSubjectCodeL_Search.Size = new System.Drawing.Size(99, 20);
+            this.lblSubjectCodeL_Search.TabIndex = 98;
+            this.lblSubjectCodeL_Search.Text = "Subject Code";
+            // 
             // btnFilter_Search
             // 
             this.btnFilter_Search.Location = new System.Drawing.Point(670, 398);
@@ -691,6 +853,7 @@
             this.btnFilter_Search.TabIndex = 96;
             this.btnFilter_Search.Text = "Filter >>";
             this.btnFilter_Search.UseVisualStyleBackColor = true;
+            this.btnFilter_Search.Click += new System.EventHandler(this.btnFilter_Search_Click);
             // 
             // lblTo_Search
             // 
@@ -1077,6 +1240,8 @@
             this.RemoveSubject.PerformLayout();
             this.ViewSearchSubjects.ResumeLayout(false);
             this.ViewSearchSubjects.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubject_Search)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -1187,5 +1352,19 @@
         private System.Windows.Forms.Button btnFilter_Search;
         private System.Windows.Forms.Label lblTo_Search;
         private System.Windows.Forms.Label lblFrom_Search;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblCategory_Search;
+        private System.Windows.Forms.Label lblIsparallel_Search;
+        private System.Windows.Forms.Label lblSemesterAns_Search;
+        private System.Windows.Forms.Label lblYearAns_Search;
+        private System.Windows.Forms.Label lblSubjectNameAns_Search;
+        private System.Windows.Forms.Label lblSubjectCodeAns_Search;
+        private System.Windows.Forms.Label lblTagsL_Search;
+        private System.Windows.Forms.Label lblCategoryL_Search;
+        private System.Windows.Forms.Label lblIsParallelL_Search;
+        private System.Windows.Forms.Label lblSemesterL_Search;
+        private System.Windows.Forms.Label lblYearL_Search;
+        private System.Windows.Forms.Label lblSubjectNameL_Search;
+        private System.Windows.Forms.Label lblSubjectCodeL_Search;
     }
 }
