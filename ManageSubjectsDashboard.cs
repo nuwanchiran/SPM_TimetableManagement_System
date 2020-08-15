@@ -54,9 +54,10 @@ namespace Timetable_Management_System
 
             //Remove
             radSubjectCode_Remove.Checked = true;
+            hideDataInRemove();
         }
 
-
+       
 
         private void fillCloseButtonClickStatus_Add()
         {
@@ -1052,9 +1053,101 @@ namespace Timetable_Management_System
 
         }
 
+
+
+        private void hideDataInRemove()
+        {
+            lblAnsSubjectCode_Remove.Text = "";
+            lblAnsSubjectName_Remove.Text = "";
+            lblAnsYear_Remove.Text = "";
+            lblAnsSemester_Remove.Text = "";
+            lblAnsIsParallel_Remove.Text = "";
+            lblAnsCategory_Remove.Text = "";
+
+            lblAnsSubjectCode_Remove.Visible = false;
+            lblAnsSubjectName_Remove.Visible = false;
+            lblAnsYear_Remove.Visible = false;
+            lblAnsSemester_Remove.Visible = false;
+            lblAnsIsParallel_Remove.Visible = false;
+            lblAnsCategory_Remove.Visible = false;
+
+            lblTags_Remove.Visible = false;
+            lblHours_Remove.Visible = false;
+        }
+
         private void btnFindSubject_Remove_Click(object sender, EventArgs e)
         {
+            string searchType = "";
+            if (radSubjectCode_Remove.Checked == true)
+            {
+                searchType = "byCode";
+            }
+            if (radSubjectName_Remove.Checked == true)
+            {
+                searchType = "byName";
+            }
 
+            if (searchType.Equals("byCode") && txtKeyword_Remove.Text.Equals(""))
+            {
+                MessageBox.Show("Please enter a subject code for find");
+            }
+            else if (searchType.Equals("byName") && txtKeyword_Remove.Text.Equals(""))
+            {
+                MessageBox.Show("Please enter a subject name for find");
+            }
+            else
+            {
+                Subject subjectObj_Search = new Subject();
+                Subject_Tags subjectTags_Search = new Subject_Tags();
+                List<Subject_Tags> subjectTagslist = new List<Subject_Tags>();
+
+                bool isfound = findSubject_Search(txtKeyword_Remove.Text, searchType);
+
+                if (isfound == true)
+                {
+                    setFoundSubjectData_Remove();
+                    setsubjectTags_Remove();
+                }
+                else
+                {
+                    MessageBox.Show("Subject not found");
+                }
+
+            }
+        }
+
+        private void setsubjectTags_Remove()
+        {
+            lblAnsSubjectCode_Remove.Visible = true;
+            lblAnsSubjectName_Remove.Visible = true;
+            lblAnsYear_Remove.Visible = true;
+            lblAnsSemester_Remove.Visible = true;
+
+            lblAnsSubjectCode_Remove.Text = gblSearchFoundObj_Search.subjectCode;
+            lblAnsSubjectName_Remove.Text = gblSearchFoundObj_Search.subjectName;
+            lblAnsYear_Remove.Text = gblSearchFoundObj_Search.offeredYear.ToString();
+            lblAnsSemester_Remove.Text = gblSearchFoundObj_Search.offeredSemester.ToString();
+
+            if (gblSearchFoundObj_Search.isParallel == true)
+            {
+                lblAnsIsParallel_Remove.Visible = true;
+                lblAnsIsParallel_Remove.Text = "Yes";
+                lblAnsCategory_Remove.Visible = true;
+                lblAnsCategory_Remove.Text = gblSearchFoundObj_Search.category;
+            } else if (gblSearchFoundObj_Search.isParallel == false)
+            {
+                lblAnsIsParallel_Remove.Visible = true;
+                lblAnsIsParallel_Remove.Text = "No";
+            }
+
+
+
+        }
+
+        private void setFoundSubjectData_Remove()
+        {
+            gblSubjectTagslist_Search.ToString();
+            MessageBox.Show("Tags remove found");
         }
     }
 }

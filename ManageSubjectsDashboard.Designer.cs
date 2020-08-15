@@ -131,19 +131,19 @@
             this.radSubjectCode_Remove = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lblHours_Remove = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblAnsCategory_Remove = new System.Windows.Forms.Label();
             this.lblTags_Remove = new System.Windows.Forms.Label();
             this.lblSubjectCodeL_Remove = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblAnsIsParallel_Remove = new System.Windows.Forms.Label();
             this.lblSubjectNameL_Remove = new System.Windows.Forms.Label();
             this.lblYearL_Remove = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lblAnsSemester_Remove = new System.Windows.Forms.Label();
             this.lblSemesterL_Remove = new System.Windows.Forms.Label();
             this.Category = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.lblAnsYear_Remove = new System.Windows.Forms.Label();
             this.lblIsParallelL_Remove = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lblAnsSubjectCode_Remove = new System.Windows.Forms.Label();
+            this.lblAnsSubjectName_Remove = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.AddSubject.SuspendLayout();
             this.EditSubject.SuspendLayout();
@@ -1196,19 +1196,19 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.lblHours_Remove);
-            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.lblAnsCategory_Remove);
             this.groupBox4.Controls.Add(this.lblTags_Remove);
             this.groupBox4.Controls.Add(this.lblSubjectCodeL_Remove);
-            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.lblAnsIsParallel_Remove);
             this.groupBox4.Controls.Add(this.lblSubjectNameL_Remove);
             this.groupBox4.Controls.Add(this.lblYearL_Remove);
-            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.lblAnsSemester_Remove);
             this.groupBox4.Controls.Add(this.lblSemesterL_Remove);
             this.groupBox4.Controls.Add(this.Category);
-            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.lblAnsYear_Remove);
             this.groupBox4.Controls.Add(this.lblIsParallelL_Remove);
-            this.groupBox4.Controls.Add(this.label19);
-            this.groupBox4.Controls.Add(this.label20);
+            this.groupBox4.Controls.Add(this.lblAnsSubjectCode_Remove);
+            this.groupBox4.Controls.Add(this.lblAnsSubjectName_Remove);
             this.groupBox4.Location = new System.Drawing.Point(501, 256);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(236, 393);
@@ -1226,14 +1226,14 @@
             this.lblHours_Remove.TabIndex = 109;
             this.lblHours_Remove.Text = "Hours";
             // 
-            // label3
+            // lblAnsCategory_Remove
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(154, 189);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(15, 20);
-            this.label3.TabIndex = 108;
-            this.label3.Text = "*";
+            this.lblAnsCategory_Remove.AutoSize = true;
+            this.lblAnsCategory_Remove.Location = new System.Drawing.Point(154, 189);
+            this.lblAnsCategory_Remove.Name = "lblAnsCategory_Remove";
+            this.lblAnsCategory_Remove.Size = new System.Drawing.Size(15, 20);
+            this.lblAnsCategory_Remove.TabIndex = 108;
+            this.lblAnsCategory_Remove.Text = "*";
             // 
             // lblTags_Remove
             // 
@@ -1255,14 +1255,14 @@
             this.lblSubjectCodeL_Remove.TabIndex = 98;
             this.lblSubjectCodeL_Remove.Text = "Subject Code";
             // 
-            // label11
+            // lblAnsIsParallel_Remove
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(154, 157);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(15, 20);
-            this.label11.TabIndex = 107;
-            this.label11.Text = "*";
+            this.lblAnsIsParallel_Remove.AutoSize = true;
+            this.lblAnsIsParallel_Remove.Location = new System.Drawing.Point(154, 157);
+            this.lblAnsIsParallel_Remove.Name = "lblAnsIsParallel_Remove";
+            this.lblAnsIsParallel_Remove.Size = new System.Drawing.Size(15, 20);
+            this.lblAnsIsParallel_Remove.TabIndex = 107;
+            this.lblAnsIsParallel_Remove.Text = "*";
             // 
             // lblSubjectNameL_Remove
             // 
@@ -1284,14 +1284,14 @@
             this.lblYearL_Remove.TabIndex = 98;
             this.lblYearL_Remove.Text = "Year";
             // 
-            // label14
+            // lblAnsSemester_Remove
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(154, 133);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(15, 20);
-            this.label14.TabIndex = 106;
-            this.label14.Text = "*";
+            this.lblAnsSemester_Remove.AutoSize = true;
+            this.lblAnsSemester_Remove.Location = new System.Drawing.Point(154, 133);
+            this.lblAnsSemester_Remove.Name = "lblAnsSemester_Remove";
+            this.lblAnsSemester_Remove.Size = new System.Drawing.Size(15, 20);
+            this.lblAnsSemester_Remove.TabIndex = 106;
+            this.lblAnsSemester_Remove.Text = "*";
             // 
             // lblSemesterL_Remove
             // 
@@ -1313,14 +1313,14 @@
             this.Category.TabIndex = 101;
             this.Category.Text = "Category";
             // 
-            // label17
+            // lblAnsYear_Remove
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(154, 103);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(15, 20);
-            this.label17.TabIndex = 105;
-            this.label17.Text = "*";
+            this.lblAnsYear_Remove.AutoSize = true;
+            this.lblAnsYear_Remove.Location = new System.Drawing.Point(154, 103);
+            this.lblAnsYear_Remove.Name = "lblAnsYear_Remove";
+            this.lblAnsYear_Remove.Size = new System.Drawing.Size(15, 20);
+            this.lblAnsYear_Remove.TabIndex = 105;
+            this.lblAnsYear_Remove.Text = "*";
             // 
             // lblIsParallelL_Remove
             // 
@@ -1332,23 +1332,23 @@
             this.lblIsParallelL_Remove.TabIndex = 100;
             this.lblIsParallelL_Remove.Text = "Is Parallel:";
             // 
-            // label19
+            // lblAnsSubjectCode_Remove
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(154, 41);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(15, 20);
-            this.label19.TabIndex = 103;
-            this.label19.Text = "*";
+            this.lblAnsSubjectCode_Remove.AutoSize = true;
+            this.lblAnsSubjectCode_Remove.Location = new System.Drawing.Point(154, 41);
+            this.lblAnsSubjectCode_Remove.Name = "lblAnsSubjectCode_Remove";
+            this.lblAnsSubjectCode_Remove.Size = new System.Drawing.Size(15, 20);
+            this.lblAnsSubjectCode_Remove.TabIndex = 103;
+            this.lblAnsSubjectCode_Remove.Text = "*";
             // 
-            // label20
+            // lblAnsSubjectName_Remove
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(154, 73);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(15, 20);
-            this.label20.TabIndex = 104;
-            this.label20.Text = "*";
+            this.lblAnsSubjectName_Remove.AutoSize = true;
+            this.lblAnsSubjectName_Remove.Location = new System.Drawing.Point(154, 73);
+            this.lblAnsSubjectName_Remove.Name = "lblAnsSubjectName_Remove";
+            this.lblAnsSubjectName_Remove.Size = new System.Drawing.Size(15, 20);
+            this.lblAnsSubjectName_Remove.TabIndex = 104;
+            this.lblAnsSubjectName_Remove.Text = "*";
             // 
             // ManageSubjectsDashboard
             // 
@@ -1504,19 +1504,19 @@
         private System.Windows.Forms.Label lblTagsHoursL_Search;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label lblHours_Remove;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblAnsCategory_Remove;
         private System.Windows.Forms.Label lblTags_Remove;
         private System.Windows.Forms.Label lblSubjectCodeL_Remove;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblAnsIsParallel_Remove;
         private System.Windows.Forms.Label lblSubjectNameL_Remove;
         private System.Windows.Forms.Label lblYearL_Remove;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblAnsSemester_Remove;
         private System.Windows.Forms.Label lblSemesterL_Remove;
         private System.Windows.Forms.Label Category;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblAnsYear_Remove;
         private System.Windows.Forms.Label lblIsParallelL_Remove;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblAnsSubjectCode_Remove;
+        private System.Windows.Forms.Label lblAnsSubjectName_Remove;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnReset_Remove;
         private System.Windows.Forms.Button btnFindSubject_Remove;
