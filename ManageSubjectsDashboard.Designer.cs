@@ -68,18 +68,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblEditSubject = new System.Windows.Forms.Label();
             this.RemoveSubject = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
+            this.btnRemoveSubject_Remove = new System.Windows.Forms.Button();
             this.lblRemoveSubject = new System.Windows.Forms.Label();
             this.ViewSearchSubjects = new System.Windows.Forms.TabPage();
             this.lblCategory_Search = new System.Windows.Forms.Label();
@@ -134,6 +123,27 @@
             this.imgTime = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblTagsHoursL_Search = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnReset_Remove = new System.Windows.Forms.Button();
+            this.btnFindSubject_Remove = new System.Windows.Forms.Button();
+            this.txtKeyword_Remove = new System.Windows.Forms.TextBox();
+            this.radSubjectName_Remove = new System.Windows.Forms.RadioButton();
+            this.radSubjectCode_Remove = new System.Windows.Forms.RadioButton();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblHours_Remove = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTags_Remove = new System.Windows.Forms.Label();
+            this.lblSubjectCodeL_Remove = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblSubjectNameL_Remove = new System.Windows.Forms.Label();
+            this.lblYearL_Remove = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblSemesterL_Remove = new System.Windows.Forms.Label();
+            this.Category = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lblIsParallelL_Remove = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.AddSubject.SuspendLayout();
             this.EditSubject.SuspendLayout();
@@ -154,6 +164,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -539,18 +551,9 @@
             // 
             // RemoveSubject
             // 
-            this.RemoveSubject.Controls.Add(this.button1);
-            this.RemoveSubject.Controls.Add(this.checkBox11);
-            this.RemoveSubject.Controls.Add(this.label28);
-            this.RemoveSubject.Controls.Add(this.textBox15);
-            this.RemoveSubject.Controls.Add(this.textBox20);
-            this.RemoveSubject.Controls.Add(this.textBox21);
-            this.RemoveSubject.Controls.Add(this.comboBox5);
-            this.RemoveSubject.Controls.Add(this.comboBox6);
-            this.RemoveSubject.Controls.Add(this.label33);
-            this.RemoveSubject.Controls.Add(this.label34);
-            this.RemoveSubject.Controls.Add(this.label35);
-            this.RemoveSubject.Controls.Add(this.label36);
+            this.RemoveSubject.Controls.Add(this.groupBox4);
+            this.RemoveSubject.Controls.Add(this.groupBox3);
+            this.RemoveSubject.Controls.Add(this.btnRemoveSubject_Remove);
             this.RemoveSubject.Controls.Add(this.lblRemoveSubject);
             this.RemoveSubject.Location = new System.Drawing.Point(224, 4);
             this.RemoveSubject.Name = "RemoveSubject";
@@ -559,106 +562,14 @@
             this.RemoveSubject.Text = "Remove Subject";
             this.RemoveSubject.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnRemoveSubject_Remove
             // 
-            this.button1.Location = new System.Drawing.Point(1010, 597);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(212, 35);
-            this.button1.TabIndex = 54;
-            this.button1.Text = "Remove Subject >>>";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox11
-            // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(500, 597);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(132, 24);
-            this.checkBox11.TabIndex = 53;
-            this.checkBox11.Text = "Parallel Subject";
-            this.checkBox11.UseVisualStyleBackColor = true;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(496, 633);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(69, 20);
-            this.label28.TabIndex = 52;
-            this.label28.Text = "Category";
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(619, 633);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(222, 27);
-            this.textBox15.TabIndex = 51;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(616, 367);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(297, 27);
-            this.textBox20.TabIndex = 46;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Location = new System.Drawing.Point(616, 324);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(297, 27);
-            this.textBox21.TabIndex = 45;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(792, 285);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 28);
-            this.comboBox5.TabIndex = 44;
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(563, 285);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 28);
-            this.comboBox6.TabIndex = 43;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(488, 367);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(97, 20);
-            this.label33.TabIndex = 34;
-            this.label33.Text = "Subject Code";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(492, 331);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(102, 20);
-            this.label34.TabIndex = 33;
-            this.label34.Text = "Subject Name";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(701, 285);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(70, 20);
-            this.label35.TabIndex = 32;
-            this.label35.Text = "Semester";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(465, 285);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(92, 20);
-            this.label36.TabIndex = 31;
-            this.label36.Text = "Offered Year";
+            this.btnRemoveSubject_Remove.Location = new System.Drawing.Point(1010, 597);
+            this.btnRemoveSubject_Remove.Name = "btnRemoveSubject_Remove";
+            this.btnRemoveSubject_Remove.Size = new System.Drawing.Size(212, 35);
+            this.btnRemoveSubject_Remove.TabIndex = 54;
+            this.btnRemoveSubject_Remove.Text = "Remove Subject >>>";
+            this.btnRemoveSubject_Remove.UseVisualStyleBackColor = true;
             // 
             // lblRemoveSubject
             // 
@@ -1221,6 +1132,224 @@
             this.lblTagsHoursL_Search.TabIndex = 109;
             this.lblTagsHoursL_Search.Text = "Hours";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnReset_Remove);
+            this.groupBox3.Controls.Add(this.btnFindSubject_Remove);
+            this.groupBox3.Controls.Add(this.txtKeyword_Remove);
+            this.groupBox3.Controls.Add(this.radSubjectName_Remove);
+            this.groupBox3.Controls.Add(this.radSubjectCode_Remove);
+            this.groupBox3.Location = new System.Drawing.Point(216, 98);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(811, 115);
+            this.groupBox3.TabIndex = 55;
+            this.groupBox3.TabStop = false;
+            // 
+            // btnReset_Remove
+            // 
+            this.btnReset_Remove.Location = new System.Drawing.Point(709, 43);
+            this.btnReset_Remove.Name = "btnReset_Remove";
+            this.btnReset_Remove.Size = new System.Drawing.Size(75, 39);
+            this.btnReset_Remove.TabIndex = 4;
+            this.btnReset_Remove.Text = "Reset";
+            this.btnReset_Remove.UseVisualStyleBackColor = true;
+            // 
+            // btnFindSubject_Remove
+            // 
+            this.btnFindSubject_Remove.Location = new System.Drawing.Point(519, 41);
+            this.btnFindSubject_Remove.Name = "btnFindSubject_Remove";
+            this.btnFindSubject_Remove.Size = new System.Drawing.Size(169, 41);
+            this.btnFindSubject_Remove.TabIndex = 3;
+            this.btnFindSubject_Remove.Text = "Find Subject >>>";
+            this.btnFindSubject_Remove.UseVisualStyleBackColor = true;
+            this.btnFindSubject_Remove.Click += new System.EventHandler(this.btnFindSubject_Remove_Click);
+            // 
+            // txtKeyword_Remove
+            // 
+            this.txtKeyword_Remove.Location = new System.Drawing.Point(195, 48);
+            this.txtKeyword_Remove.Name = "txtKeyword_Remove";
+            this.txtKeyword_Remove.Size = new System.Drawing.Size(301, 27);
+            this.txtKeyword_Remove.TabIndex = 2;
+            // 
+            // radSubjectName_Remove
+            // 
+            this.radSubjectName_Remove.AutoSize = true;
+            this.radSubjectName_Remove.Location = new System.Drawing.Point(49, 58);
+            this.radSubjectName_Remove.Name = "radSubjectName_Remove";
+            this.radSubjectName_Remove.Size = new System.Drawing.Size(123, 24);
+            this.radSubjectName_Remove.TabIndex = 1;
+            this.radSubjectName_Remove.TabStop = true;
+            this.radSubjectName_Remove.Text = "Subject Name";
+            this.radSubjectName_Remove.UseVisualStyleBackColor = true;
+            // 
+            // radSubjectCode_Remove
+            // 
+            this.radSubjectCode_Remove.AutoSize = true;
+            this.radSubjectCode_Remove.Location = new System.Drawing.Point(49, 27);
+            this.radSubjectCode_Remove.Name = "radSubjectCode_Remove";
+            this.radSubjectCode_Remove.Size = new System.Drawing.Size(118, 24);
+            this.radSubjectCode_Remove.TabIndex = 0;
+            this.radSubjectCode_Remove.TabStop = true;
+            this.radSubjectCode_Remove.Text = "Subject Code";
+            this.radSubjectCode_Remove.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.lblHours_Remove);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.lblTags_Remove);
+            this.groupBox4.Controls.Add(this.lblSubjectCodeL_Remove);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.lblSubjectNameL_Remove);
+            this.groupBox4.Controls.Add(this.lblYearL_Remove);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.lblSemesterL_Remove);
+            this.groupBox4.Controls.Add(this.Category);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.lblIsParallelL_Remove);
+            this.groupBox4.Controls.Add(this.label19);
+            this.groupBox4.Controls.Add(this.label20);
+            this.groupBox4.Location = new System.Drawing.Point(501, 256);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(236, 393);
+            this.groupBox4.TabIndex = 110;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Subject";
+            // 
+            // lblHours_Remove
+            // 
+            this.lblHours_Remove.AutoSize = true;
+            this.lblHours_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHours_Remove.Location = new System.Drawing.Point(138, 223);
+            this.lblHours_Remove.Name = "lblHours_Remove";
+            this.lblHours_Remove.Size = new System.Drawing.Size(51, 20);
+            this.lblHours_Remove.TabIndex = 109;
+            this.lblHours_Remove.Text = "Hours";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(154, 189);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(15, 20);
+            this.label3.TabIndex = 108;
+            this.label3.Text = "*";
+            // 
+            // lblTags_Remove
+            // 
+            this.lblTags_Remove.AutoSize = true;
+            this.lblTags_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTags_Remove.Location = new System.Drawing.Point(40, 223);
+            this.lblTags_Remove.Name = "lblTags_Remove";
+            this.lblTags_Remove.Size = new System.Drawing.Size(41, 20);
+            this.lblTags_Remove.TabIndex = 102;
+            this.lblTags_Remove.Text = "Tags";
+            // 
+            // lblSubjectCodeL_Remove
+            // 
+            this.lblSubjectCodeL_Remove.AutoSize = true;
+            this.lblSubjectCodeL_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubjectCodeL_Remove.Location = new System.Drawing.Point(17, 41);
+            this.lblSubjectCodeL_Remove.Name = "lblSubjectCodeL_Remove";
+            this.lblSubjectCodeL_Remove.Size = new System.Drawing.Size(99, 20);
+            this.lblSubjectCodeL_Remove.TabIndex = 98;
+            this.lblSubjectCodeL_Remove.Text = "Subject Code";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(154, 157);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(15, 20);
+            this.label11.TabIndex = 107;
+            this.label11.Text = "*";
+            // 
+            // lblSubjectNameL_Remove
+            // 
+            this.lblSubjectNameL_Remove.AutoSize = true;
+            this.lblSubjectNameL_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubjectNameL_Remove.Location = new System.Drawing.Point(17, 73);
+            this.lblSubjectNameL_Remove.Name = "lblSubjectNameL_Remove";
+            this.lblSubjectNameL_Remove.Size = new System.Drawing.Size(106, 20);
+            this.lblSubjectNameL_Remove.TabIndex = 99;
+            this.lblSubjectNameL_Remove.Text = "Subject Name";
+            // 
+            // lblYearL_Remove
+            // 
+            this.lblYearL_Remove.AutoSize = true;
+            this.lblYearL_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYearL_Remove.Location = new System.Drawing.Point(17, 103);
+            this.lblYearL_Remove.Name = "lblYearL_Remove";
+            this.lblYearL_Remove.Size = new System.Drawing.Size(39, 20);
+            this.lblYearL_Remove.TabIndex = 98;
+            this.lblYearL_Remove.Text = "Year";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(154, 133);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(15, 20);
+            this.label14.TabIndex = 106;
+            this.label14.Text = "*";
+            // 
+            // lblSemesterL_Remove
+            // 
+            this.lblSemesterL_Remove.AutoSize = true;
+            this.lblSemesterL_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSemesterL_Remove.Location = new System.Drawing.Point(17, 133);
+            this.lblSemesterL_Remove.Name = "lblSemesterL_Remove";
+            this.lblSemesterL_Remove.Size = new System.Drawing.Size(74, 20);
+            this.lblSemesterL_Remove.TabIndex = 98;
+            this.lblSemesterL_Remove.Text = "Semester";
+            // 
+            // Category
+            // 
+            this.Category.AutoSize = true;
+            this.Category.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Category.Location = new System.Drawing.Point(18, 189);
+            this.Category.Name = "Category";
+            this.Category.Size = new System.Drawing.Size(73, 20);
+            this.Category.TabIndex = 101;
+            this.Category.Text = "Category";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(154, 103);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(15, 20);
+            this.label17.TabIndex = 105;
+            this.label17.Text = "*";
+            // 
+            // lblIsParallelL_Remove
+            // 
+            this.lblIsParallelL_Remove.AutoSize = true;
+            this.lblIsParallelL_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIsParallelL_Remove.Location = new System.Drawing.Point(17, 157);
+            this.lblIsParallelL_Remove.Name = "lblIsParallelL_Remove";
+            this.lblIsParallelL_Remove.Size = new System.Drawing.Size(80, 20);
+            this.lblIsParallelL_Remove.TabIndex = 100;
+            this.lblIsParallelL_Remove.Text = "Is Parallel:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(154, 41);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(15, 20);
+            this.label19.TabIndex = 103;
+            this.label19.Text = "*";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(154, 73);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(15, 20);
+            this.label20.TabIndex = 104;
+            this.label20.Text = "*";
+            // 
             // ManageSubjectsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1269,6 +1398,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1334,18 +1467,7 @@
         private System.Windows.Forms.RadioButton radSubjectName_Search;
         private System.Windows.Forms.RadioButton radSubjectCode_Search;
         private System.Windows.Forms.DataGridView dataGridViewSubject_Search;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Button btnRemoveSubject_Remove;
         private System.Windows.Forms.Button btnReset_Add;
         private System.Windows.Forms.Button btnRefreshGridView_Search;
         private System.Windows.Forms.TextBox txtSubjectCode_Search;
@@ -1380,5 +1502,26 @@
         private System.Windows.Forms.Label lblSubjectCodeL_Search;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblTagsHoursL_Search;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label lblHours_Remove;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTags_Remove;
+        private System.Windows.Forms.Label lblSubjectCodeL_Remove;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblSubjectNameL_Remove;
+        private System.Windows.Forms.Label lblYearL_Remove;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblSemesterL_Remove;
+        private System.Windows.Forms.Label Category;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblIsParallelL_Remove;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnReset_Remove;
+        private System.Windows.Forms.Button btnFindSubject_Remove;
+        private System.Windows.Forms.TextBox txtKeyword_Remove;
+        private System.Windows.Forms.RadioButton radSubjectName_Remove;
+        private System.Windows.Forms.RadioButton radSubjectCode_Remove;
     }
 }

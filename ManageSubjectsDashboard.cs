@@ -51,6 +51,9 @@ namespace Timetable_Management_System
             radSubjectCode_Search.Checked = true;
             lblTagsL_Search.Visible = false;
             lblTagsHoursL_Search.Visible = false;
+
+            //Remove
+            radSubjectCode_Remove.Checked = true;
         }
 
 
@@ -532,7 +535,6 @@ namespace Timetable_Management_System
 
         private void setsubjectTags()
         {
-
             lblTagsL_Search.Visible = true;
             lblTagsHoursL_Search.Visible = true;
 
@@ -574,12 +576,6 @@ namespace Timetable_Management_System
                 initialLocation = initialLocation + 30;
 
             }
-
-
-
-
-
-
 
         }
 
@@ -1053,6 +1049,11 @@ namespace Timetable_Management_System
 
             gblSearchFoundObj_Search = null;
             gblSubjectTagslist_Search = null;
+
+        }
+
+        private void btnFindSubject_Remove_Click(object sender, EventArgs e)
+        {
 
         }
     }
