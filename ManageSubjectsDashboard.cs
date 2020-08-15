@@ -49,6 +49,8 @@ namespace Timetable_Management_System
             //Search
             setInitialsInFilterSections_Search();
             radSubjectCode_Search.Checked = true;
+            lblTagsL_Search.Visible = false;
+            lblTagsHoursL_Search.Visible = false;
         }
 
 
@@ -513,10 +515,72 @@ namespace Timetable_Management_System
                 Subject_Tags subjectTags_Search = new Subject_Tags();
                 List<Subject_Tags> subjectTagslist = new List<Subject_Tags>();
 
-                findSubject_Search(txtSearchSubject_Search.Text, searchType);
-                setFoundSubjectData_Search();
+                bool isfound = findSubject_Search(txtSearchSubject_Search.Text, searchType);
+                
+                if(isfound == true)
+                {
+                    setFoundSubjectData_Search();
+                    setsubjectTags();
+                }
+                else
+                {
+                    MessageBox.Show("Subject not found");
+                }
 
             }
+        }
+
+        private void setsubjectTags()
+        {
+
+            lblTagsL_Search.Visible = true;
+            lblTagsHoursL_Search.Visible = true;
+
+            gblSubjectTagslist_Search.ToString();
+           
+            int initialLocation = 250;
+
+            foreach (Subject_Tags obj in gblSubjectTagslist_Search)
+            {
+              //  MessageBox.Show(obj.hrs + obj.subjectCode + obj.tag);
+
+                Label lbl = new Label();
+                lbl.Location = new System.Drawing.Point(1000, initialLocation);
+                lbl.Size = new System.Drawing.Size(80, 20);
+                lbl.Name = "lbl" + obj.tag + "Found_Search";
+                lbl.Text = obj.tag;
+                lbl.BringToFront();
+
+                ViewSearchSubjects.Controls.Add(lbl);
+                
+                initialLocation = initialLocation + 30;
+
+            }
+
+            initialLocation = 250;
+            foreach (Subject_Tags obj in gblSubjectTagslist_Search)
+            {
+                //  MessageBox.Show(obj.hrs + obj.subjectCode + obj.tag);
+
+                Label lbl = new Label();
+                lbl.Location = new System.Drawing.Point(1100, initialLocation);
+                lbl.Size = new System.Drawing.Size(80, 20);
+                lbl.Name = "lbl" + obj.hrs + "Found_Search";
+                lbl.Text =  obj.hrs.ToString();
+                lbl.BringToFront();
+
+                ViewSearchSubjects.Controls.Add(lbl);
+
+                initialLocation = initialLocation + 30;
+
+            }
+
+
+
+
+
+
+
         }
 
         private void setFoundSubjectData_Search()
@@ -540,10 +604,10 @@ namespace Timetable_Management_System
             }
             
 
-            gblSubjectTagslist_Search.ToString();
+          
         }
 
-        private void findSubject_Search(string searchKey, string searchType)
+        private bool findSubject_Search(string searchKey, string searchType)
         {
 
             string cs = @"URI=file:.\" + Utils.dbName + ".db";
@@ -613,6 +677,15 @@ namespace Timetable_Management_System
 
             gblSearchFoundObj_Search = subjectObj_Search;
             gblSubjectTagslist_Search = subjectTagslist;
+
+            if(subjectObj_Search.subjectCode == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private void btnRefreshGridView_Search_Click(object sender, EventArgs e)
@@ -961,6 +1034,26 @@ namespace Timetable_Management_System
 
             dataGridViewSubject_Search.DataSource = dt;
             conn.Close();
+        }
+
+        private void btnReset_Search_Click(object sender, EventArgs e)
+        {
+            resetSearchFound();
+        }
+
+        private void resetSearchFound()
+        {
+            
+            lblSubjectCodeAns_Search.Text = "";
+            lblSubjectNameAns_Search.Text = "";
+            lblYearAns_Search.Text = "";
+            lblSemesterAns_Search.Text = "";
+            lblIsparallel_Search.Text = "";
+            lblCategory_Search.Text = "";
+
+            gblSearchFoundObj_Search = null;
+            gblSubjectTagslist_Search = null;
+
         }
     }
 }
