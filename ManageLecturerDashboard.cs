@@ -1317,8 +1317,17 @@ namespace Timetable_Management_System
         private void fillLecImageFoundForSearch(Lecturer lecObj)
         {
 
-            pictureBoxLecturer_Edit.Image = Image.FromFile(@"" + lecObj.photoPath);
-            pictureBoxLecturer_Edit.SizeMode = PictureBoxSizeMode.StretchImage;
+            Image imgRemoveLecturer = null;
+
+            using (FileStream stream = new FileStream(lecObj.photoPath, FileMode.Open))
+            {
+                imgRemoveLecturer = Image.FromStream(stream);
+            }
+
+            pictureBoxLecturer_Edit.Image = imgRemoveLecturer;
+
+        //    pictureBoxLecturer_Edit.Image = Image.FromFile(@"" + lecObj.photoPath);
+        //    pictureBoxLecturer_Edit.SizeMode = PictureBoxSizeMode.StretchImage;
 
         }
 
@@ -1510,12 +1519,12 @@ namespace Timetable_Management_System
                     //Delete Old image
                     try
                     {
+                        pictureBoxLecturer_Edit.Image = null;
                         // Check if file exists with its full path    
                         if (File.Exists(@"" + imagePathForUpdate))
                         {
                             // If file found, delete it    
                             File.Delete(@"" + imagePathForUpdate);
-                            MessageBox.Show("Image deleted successfully");
                         }
                         else
                         {
@@ -1538,8 +1547,6 @@ namespace Timetable_Management_System
                         
                         gblUpdatedFullPath_Edit= imageFolderPath+"\\"+gblSafeFileName_Edit;
 
-
-                        MessageBox.Show("Updated");
                     }
                    
                 }
@@ -1568,47 +1575,36 @@ namespace Timetable_Management_System
 
                 if (chooseImageButtonTouched)
                 {
-                    cmd.CommandText = @"UPDATE lecturers SET title= '" + cmbTitle_Edit.Text + "' AND " +
-                    "name = '" + txtName_Edit.Text + "' AND " +
-                    "faculty = '" + cmbFaculty_Edit.Text + "' AND " +
-                    "department = '" + cmbDepartment_Edit.Text + "' AND " +
-                    "center = '" + cmbCenter_Edit.Text + "' AND " +
-                    "building = '" + cmbBuilding_Edit.Text + "' AND " +
-                    "employeeLevel = '" + tempEmpLevel + "' AND " +
+                    cmd.CommandText = @"UPDATE lecturers SET title= '" + cmbTitle_Edit.Text + "' , " +
+                    "name = '" + txtName_Edit.Text + "' , " +
+                    "faculty = '" + cmbFaculty_Edit.Text + "' , " +
+                    "department = '" + cmbDepartment_Edit.Text + "' , " +
+                    "center = '" + cmbCenter_Edit.Text + "' , " +
+                    "building = '" + cmbBuilding_Edit.Text + "' , " +
+                    "employeeLevel = '" + tempEmpLevel + "' , " +
                     "photoPath = '" + gblUpdatedFullPath_Edit + "' " +
                     "WHERE lecturerID = '" + empID + "'";
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Update success");
+
                 }
                 else
                 {
-                    cmd.CommandText = @"UPDATE lecturers SET title= '" + cmbTitle_Edit.Text + "' AND " +
-                    "name = '" + txtName_Edit.Text + "' AND " +
-                    "faculty = '" + cmbFaculty_Edit.Text + "' AND " +
-                    "department = '" + cmbDepartment_Edit.Text + "' AND " +
-                    "center = '" + cmbCenter_Edit.Text + "' AND " +
-                    "building = '" + cmbBuilding_Edit.Text + "' AND " +
-                    "employeeLevel = '" + tempEmpLevel + "' AND " +
+                    cmd.CommandText = @"UPDATE lecturers SET title= '" + cmbTitle_Edit.Text + "' , " +
+                    "name = '" + txtName_Edit.Text + "' , " +
+                    "faculty = '" + cmbFaculty_Edit.Text + "' , " +
+                    "department = '" + cmbDepartment_Edit.Text + "' , " +
+                    "center = '" + cmbCenter_Edit.Text + "' , " +
+                    "building = '" + cmbBuilding_Edit.Text + "' , " +
+                    "employeeLevel = '" + tempEmpLevel + "' , " +
                     "WHERE lecturerID = '" + empID + "' ";
                     cmd.ExecuteNonQuery();
 
                 }
 
-
-               
-
-               
                 con.Close();
-
-
+                MessageBox.Show("Update success");
+                cleanLecturerEditTab();
             }
-
-
-
-
-
-
-
 
         }
 
