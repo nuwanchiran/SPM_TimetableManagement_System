@@ -541,43 +541,31 @@ namespace Timetable_Management_System
 
             gblSubjectTagslist_Search.ToString();
            
-            int initialLocation = 250;
+            int initialLocation = 450;
 
             foreach (Subject_Tags obj in gblSubjectTagslist_Search)
             {
-              //  MessageBox.Show(obj.hrs + obj.subjectCode + obj.tag);
-
                 Label lbl = new Label();
                 lbl.Location = new System.Drawing.Point(1000, initialLocation);
                 lbl.Size = new System.Drawing.Size(80, 20);
                 lbl.Name = "lbl" + obj.tag + "Found_Search";
                 lbl.Text = obj.tag;
-                lbl.BringToFront();
+
+                Label lbl1 = new Label();
+                lbl1.Location = new System.Drawing.Point(1100, initialLocation);
+                lbl1.Size = new System.Drawing.Size(80, 20);
+                lbl1.Name = "lbl" + obj.hrs + "Found_Search";
+                lbl1.Text = obj.hrs.ToString();
+                System.Diagnostics.Debug.WriteLine(obj.tag + "::" + obj.hrs);
+
+                groupBox2.SendToBack();
 
                 ViewSearchSubjects.Controls.Add(lbl);
-                
-                initialLocation = initialLocation + 30;
-
-            }
-
-            initialLocation = 250;
-            foreach (Subject_Tags obj in gblSubjectTagslist_Search)
-            {
-                //  MessageBox.Show(obj.hrs + obj.subjectCode + obj.tag);
-
-                Label lbl = new Label();
-                lbl.Location = new System.Drawing.Point(1100, initialLocation);
-                lbl.Size = new System.Drawing.Size(80, 20);
-                lbl.Name = "lbl" + obj.hrs + "Found_Search";
-                lbl.Text =  obj.hrs.ToString();
-                lbl.BringToFront();
-
-                ViewSearchSubjects.Controls.Add(lbl);
+                ViewSearchSubjects.Controls.Add(lbl1);
 
                 initialLocation = initialLocation + 30;
 
             }
-
         }
 
         private void setFoundSubjectData_Search()
@@ -896,7 +884,7 @@ namespace Timetable_Management_System
 
             string query = generateFilterString(subjectCode, subjectName, year, semester, tag, parallel, from, to);
             MessageBox.Show(query);
-            filterSubjects_Search(subjectCode, subjectName, year, semester, tag, parallel, from, to, query);
+            filterSubjects_Search(query);
 
         }
 
@@ -919,13 +907,13 @@ namespace Timetable_Management_System
 
             if (!subjectCode.Equals("Any"))
             {
-                string temp = " AND subjects.subjectCode = " + subjectCode;
+                string temp = " AND subjects.subjectCode = '" + subjectCode +"'";
                 q = q + temp;
             }
 
             if (!subjectName.Equals("Any"))
             {
-                string temp = " AND subjects.subjectName = " + subjectName;
+                string temp = " AND subjects.subjectName = '" + subjectName+"'";
                 q = q + temp;
             }
 
@@ -943,7 +931,7 @@ namespace Timetable_Management_System
 
             if (!tag.Equals("Any"))
             {
-                string temp = " AND subjects_tags.tag = " + tag;
+                string temp = " AND subjects_tags.tag = '" + tag+"' ";
                 q = q + temp;
             }
             if(parallel == true)
@@ -978,11 +966,12 @@ namespace Timetable_Management_System
 
         }
 
-        private void filterSubjects_Search(string subjectCode, string subjectName, string year, string semester, string tag, bool parallel, string from, string to, string query)
+        private void filterSubjects_Search(string query)
         {
 
-
-
+            Console.WriteLine(query);
+            
+            
             string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
             System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(cs);
@@ -992,6 +981,10 @@ namespace Timetable_Management_System
             cmd.Connection = conn;
 
             conn.Open();
+            
+
+
+
 
             /*
             using var cmdCreateSubject = new SQLiteCommand(conn);
@@ -1023,6 +1016,11 @@ namespace Timetable_Management_System
             cmd.ExecuteScalar();
             */
 
+
+
+
+           
+
             System.Data.SQLite.SQLiteDataAdapter da = new System.Data.SQLite.SQLiteDataAdapter(cmd);
             System.Data.DataSet ds = new System.Data.DataSet();
 
@@ -1031,6 +1029,9 @@ namespace Timetable_Management_System
 
             dataGridViewSubject_Search.DataSource = dt;
             conn.Close();
+
+
+
         }
 
         private void btnReset_Search_Click(object sender, EventArgs e)
