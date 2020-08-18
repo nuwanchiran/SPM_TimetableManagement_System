@@ -50,8 +50,8 @@ namespace Timetable_Management_System
             fillDepartmentCmb();
             fillCenterCmb();
             fillBuilding();
-            cmbTitle.SelectedIndex = 0;
-            cmbEmpLevel.SelectedIndex = 0;
+          //  cmbTitle.SelectedIndex = 0;
+          //  cmbEmpLevel.SelectedIndex = 0;
 
 
 
@@ -69,6 +69,8 @@ namespace Timetable_Management_System
             refreshLecturersSearch();
             fillComboBoxesInSearch();
             cleanLecturerSummaryAndSetInitialImage_Search();
+
+            refreshLecturersSearch();
 
             //Remove tab
             radFindById_Remove.Checked = true;
@@ -523,13 +525,20 @@ namespace Timetable_Management_System
             fillDepartmentCmb();
             fillCenterCmb();
             fillBuilding();
-            cmbTitle.SelectedIndex = 0;
-            cmbEmpLevel.SelectedIndex = 0;
+
+            cmbTitle.Text = "";
+            cmbFaculty.Text = "";
+            cmbDepartment.Text = "";
+            cmbCenter.Text = "";
+            cmbBuilding.Text = "";
+            cmbEmpLevel.Text = "";
+            txtEmpRank.Text = "";
 
 
-         //   pictureBoxLecturer.ImageLocation = @"D:\Timetable_Management_System\images\lecturerDefaultImage.png";
-         //   pictureBoxLecturer.Image = Image.FromFile(@"\Timetable_Management_System\images\lecturerDefaultImage.png");
-         //   pictureBoxLecturer.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            //   pictureBoxLecturer.ImageLocation = @"D:\Timetable_Management_System\images\lecturerDefaultImage.png";
+            //   pictureBoxLecturer.Image = Image.FromFile(@"\Timetable_Management_System\images\lecturerDefaultImage.png");
+            //   pictureBoxLecturer.SizeMode = PictureBoxSizeMode.StretchImage;
 
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
@@ -720,7 +729,13 @@ namespace Timetable_Management_System
         private void btnRefreshSearch_Click(object sender, EventArgs e)
         {
             refreshLecturersSearch();
-           
+
+
+            //Reset code
+            refreshLecturersSearch();
+            resetLecturerSigleView();
+            txtSearch.Text = "";
+            radFindByIdSearch.Checked = true;
 
         }
 
@@ -1107,7 +1122,7 @@ namespace Timetable_Management_System
                     // Check if file exists with its full path    
                     if (File.Exists(@""+ imagePathForRemove))
                     {
-                        // If file found, delete it    
+                        // If file found, delete it
                         File.Delete(@"" + imagePathForRemove);
                     MessageBox.Show("Image deleted successfully");
                     }
@@ -1289,12 +1304,21 @@ namespace Timetable_Management_System
                 loadLecturerDataCmbs_Edit();
                 setDataToCmbAndTxt_Edit(lecObj);
                 cmbBoxSetSpecificValue(lecObj);
+                fillLecImageFoundForSearch(lecObj);
 
             }
             else
             {
                 MessageBox.Show("Lecturer not found");
             }
+
+        }
+
+        private void fillLecImageFoundForSearch(Lecturer lecObj)
+        {
+
+            pictureBoxLecturer_Edit.Image = Image.FromFile(@"" + lecObj.photoPath);
+            pictureBoxLecturer_Edit.SizeMode = PictureBoxSizeMode.StretchImage;
 
         }
 
@@ -1322,7 +1346,7 @@ namespace Timetable_Management_System
 
         private void setDataToCmbAndTxt_Edit(Lecturer lecObj)
         {
-            txtName_Edit.Text = lecObj.name;
+            txtName_Edit.Text = lecObj.name.Trim();
             txtEmpID_Edit.Text = lecObj.lecturerID+"";
             txtEmpRank_Edit.Text = lecObj.employeeLevel + "."+ lecObj.lecturerID;
             
@@ -1489,16 +1513,16 @@ namespace Timetable_Management_System
                 if (chooseImageButtonTouched == true)
                 {
                     //delete existing image and submit new image
-      /*              imageLink = imageLink;
+  /*                  imageLink = imageLink;
                     gblSafeFileName = gblSafeFileName;
                     gblSafeFileName_Edit = gblSafeFileName_Edit;
                     completeImagePath = completeImagePath;
                     imagePathForRemove = imagePathForRemove;
                     imagePathForUpdate = imagePathForUpdate;
                     newImagePathForUpdate = newImagePathForUpdate;
-*/
+  */
                     //Delete Old image
- /*                   try
+                    try
                     {
                         // Check if file exists with its full path    
                         if (File.Exists(@"" + imagePathForUpdate))
@@ -1516,7 +1540,7 @@ namespace Timetable_Management_System
                     {
                         MessageBox.Show(ioExp.Message);
                     }
- */
+ 
                     //Add new Image
 
                     if (!newImagePathForUpdate.Equals(""))
@@ -1568,7 +1592,7 @@ namespace Timetable_Management_System
                     "photoPath = '" + gblUpdatedFullPath_Edit + "' " +
                     "WHERE lecturerID = '" + empID + "'";
                     cmd.ExecuteNonQuery();
-
+                    MessageBox.Show("Update success");
                 }
                 else
                 {
@@ -1587,7 +1611,7 @@ namespace Timetable_Management_System
 
                
 
-                MessageBox.Show("Update success");
+               
                 con.Close();
 
 
