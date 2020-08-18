@@ -1460,13 +1460,6 @@ namespace Timetable_Management_System
             string building = this.cmbBuilding_Edit.GetItemText(this.cmbBuilding_Edit.SelectedItem);
             int empLevel = tempEmpLevel;
 
-           
-          
-
-
-
-
-
 
             int number;
 
@@ -1513,14 +1506,7 @@ namespace Timetable_Management_System
                 if (chooseImageButtonTouched == true)
                 {
                     //delete existing image and submit new image
-  /*                  imageLink = imageLink;
-                    gblSafeFileName = gblSafeFileName;
-                    gblSafeFileName_Edit = gblSafeFileName_Edit;
-                    completeImagePath = completeImagePath;
-                    imagePathForRemove = imagePathForRemove;
-                    imagePathForUpdate = imagePathForUpdate;
-                    newImagePathForUpdate = newImagePathForUpdate;
-  */
+ 
                     //Delete Old image
                     try
                     {
