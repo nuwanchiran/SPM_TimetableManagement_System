@@ -14,6 +14,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using Timetable_Management_System.src;
 using Timetable_Management_System.src.Models;
+using System.Runtime.CompilerServices;
 
 namespace Timetable_Management_System
 {
@@ -24,6 +25,9 @@ namespace Timetable_Management_System
         List<Subject_Tags> gblSubjectTagslist_Search;
         List<string> gblTagNames_Remove;
         List<string> gblTagNames_Search;
+        List<string> gblTagNames_label_Edit;
+        List<string> gblTagNames_text_Edit;
+        List<string> gblTagNames_button_Edit;
 
         Dictionary<string, bool> closeButtonClickStatus_Add = new Dictionary<string, bool>();
         Dictionary<string, bool> closeButtonClickStatus_Edit = new Dictionary<string, bool>();
@@ -57,6 +61,10 @@ namespace Timetable_Management_System
             gblSubjectTagsListForUpdateFind = new List<Subject_Tags>();
             radSubjectCode_Edit.Checked = true;
 
+            gblTagNames_label_Edit = new List<string>();
+            gblTagNames_text_Edit = new List<string>();
+            gblTagNames_button_Edit = new List<string>();
+
             //Search
             setInitialsInFilterSections_Search();
             radSubjectCode_Search.Checked = true;
@@ -89,7 +97,7 @@ namespace Timetable_Management_System
             closeButtonClickStatus_Edit.Clear();
             foreach (Subject_Tags item in gblSubjectTagsListForUpdateFind) 
             {
-                closeButtonClickStatus_Add[item.tag] = true;
+                closeButtonClickStatus_Edit[item.tag] = true;
             }
         }
 
@@ -1421,7 +1429,7 @@ namespace Timetable_Management_System
                 }
                 else
                 {
-                    Console.WriteLine(gblSubjectTagsListForUpdateFind);
+                   // Console.WriteLine(gblSubjectTagsListForUpdateFind);
                     fillBoxes_Edit();
                     fillFoundData_Edit(subObj);
                     drawTagsData_Edit();
@@ -1437,6 +1445,10 @@ namespace Timetable_Management_System
         {
             Console.WriteLine(gblSubjectTagsListForUpdateFind);
 
+            gblTagNames_label_Edit.Clear();
+            gblTagNames_text_Edit.Clear();
+            gblTagNames_button_Edit.Clear();
+
             int initialLocation = 250;
             foreach (Subject_Tags item in gblSubjectTagsListForUpdateFind) // Loop through List with foreach
             {
@@ -1446,25 +1458,33 @@ namespace Timetable_Management_System
                 label.Location = new System.Drawing.Point(110, initialLocation);
                 label.Size = new System.Drawing.Size(80, 20);
                 label.Name = "lbl" + item.tag + "_Edit";
+                label.Name = label.Name.Trim();
                 label.Text = item.tag + "";
                 EditSubject.Controls.Add(label);
 
+                gblTagNames_label_Edit.Add(label.Name);
+                
                 TextBox textbox = new TextBox();
                 textbox.Location = new System.Drawing.Point(200, initialLocation);
                 textbox.Size = new System.Drawing.Size(80, 20);
                 textbox.Name = "txt" + item.tag + "Hrs_Edit";
+                textbox.Name = textbox.Name.Trim() ;
                 textbox.Text = ""+item.hrs;
                 EditSubject.Controls.Add(textbox);
+
+                gblTagNames_text_Edit.Add(textbox.Name);
 
                 Button closeBtn = new Button();
                 closeBtn.Location = new System.Drawing.Point(370, initialLocation);
                 closeBtn.Size = new System.Drawing.Size(20, 20);
                 closeBtn.Name = "btn" + item.tag + "Close_Edit";
                 //closeBtn.Click += new EventHandler(CloseButtonClick_Add(tagsList[i]));
-                string temp = item + "";
+                string temp = item.tag + "";
                 closeBtn.Click += (se, ev) => button_Click_Edit(se, ev, temp);
                 closeBtn.Text = "X";
                 EditSubject.Controls.Add(closeBtn);
+
+                gblTagNames_button_Edit.Add(closeBtn.Name);
 
                 initialLocation = initialLocation + 30;
 
@@ -1481,10 +1501,12 @@ namespace Timetable_Management_System
 
             //check  if clicked item is already available
             //then remove
-            
+
+            Console.WriteLine(closeType);
+
+
             foreach (var item in closeButtonClickStatus_Edit)
             {
-
                 if (item.Key.Equals(closeType))
                 {
                     closeButtonClickStatus_Edit[closeType] = !(item.Value);
@@ -1663,5 +1685,94 @@ namespace Timetable_Management_System
             lblCategory_Search.Text = "";
         }
 
+        private void btnResetSubject_Edit_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(gblTagNames_label_Edit);
+            Console.WriteLine(gblTagNames_text_Edit);
+            Console.WriteLine(gblTagNames_button_Edit);
+
+            foreach (var str in gblTagNames_label_Edit)
+            {
+                Label subjectTagLabels = (Label)this.GetControlByName(this, str);
+                subjectTagLabels.Text = "";
+            }
+            gblTagNames_label_Edit.Clear();
+
+
+            foreach (var str in gblTagNames_text_Edit)
+            {
+                TextBox subjectText = (TextBox)this.GetControlByName(this, str);
+                subjectText.Visible = false;
+            }
+            gblTagNames_text_Edit.Clear();
+
+            foreach (var str in gblTagNames_button_Edit)
+            {
+                Button subjectText = (Button)this.GetControlByName(this, str);
+                subjectText.Visible = false;
+            }
+            gblTagNames_button_Edit.Clear();
+
+            cmbOfferedYear_Edit.Items.Clear();
+            cmbOfferedSemester_Edit.Items.Clear();
+            txtSubjectName_Edit.Text = "";
+            txtSubejctCode_Edit.Text = "";
+            chkIsParallel_Edit.Checked = false;
+
+            txtFindSubject_Edit.Text = "";
+        }
+
+        private void btnEditSubject_Edit_Click(object sender, EventArgs e)
+        {
+            if (txtFindSubject_Edit.Text.Equals(""))
+            {
+                if (radSubjectCode_Edit.Checked == true)
+                {
+                    MessageBox.Show("Please enter subject code");
+                }else if(radSubjectName_Edit.Checked == true)
+                {
+                    MessageBox.Show("Please enter subject name");
+                }
+            }
+            else
+            {
+                string type = "";
+                if (radSubjectCode_Edit.Checked == true)
+                {
+                    type = "byId";
+                }
+                else if (radSubjectName_Edit.Checked == true)
+                {
+                    type = "byName";
+                }
+
+                Updatesubject(txtFindSubject_Edit.Text.Trim(), type);
+
+            }
+          
+        }
+
+        private void Updatesubject(string v, string type)
+        {
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+            using var cmd = new SQLiteCommand(con);
+
+
+
+            cmd.CommandText = @"UPDATE subjects SET subjectCode= '" + txtSubejctCode_Edit.Text + "' , " +
+            "subjectName = '" + txtSubjectName_Edit.Text + "' , " +
+            "offeredYear = '" + cmbOfferedYear_Edit.Text + "' , " +
+            "offeredSemester = '" + cmbOfferedSemester_Edit.Text + "' , " +
+            "isParallel = '" + chkIsParallel_Edit.Checked + "' , " +
+            "category = '" + txtCategory_Edit.Text+"'";
+              //  cmd.ExecuteNonQuery();
+
+            con.Close();
+            MessageBox.Show("Subject Updated success");
+        }
     }
 }

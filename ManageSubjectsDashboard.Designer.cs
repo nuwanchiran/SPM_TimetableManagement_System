@@ -391,6 +391,7 @@
             this.btnResetSubject_Edit.TabIndex = 4;
             this.btnResetSubject_Edit.Text = "Reset";
             this.btnResetSubject_Edit.UseVisualStyleBackColor = true;
+            this.btnResetSubject_Edit.Click += new System.EventHandler(this.btnResetSubject_Edit_Click);
             // 
             // btnFindSubject_Edit
             // 
@@ -439,6 +440,7 @@
             this.btnEditSubject_Edit.TabIndex = 51;
             this.btnEditSubject_Edit.Text = "Edit Subject >>>";
             this.btnEditSubject_Edit.UseVisualStyleBackColor = true;
+            this.btnEditSubject_Edit.Click += new System.EventHandler(this.btnEditSubject_Edit_Click);
             // 
             // chkIsParallel_Edit
             // 
