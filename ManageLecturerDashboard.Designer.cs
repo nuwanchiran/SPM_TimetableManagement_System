@@ -63,7 +63,9 @@
             this.lblEmpId = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblAddLecturer = new System.Windows.Forms.Label();
+            this.lblManageLecturer = new System.Windows.Forms.Label();
             this.EditLecturer = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnEditLecturer = new System.Windows.Forms.Button();
             this.txtEmpID_Edit = new System.Windows.Forms.TextBox();
             this.txtName_Edit = new System.Windows.Forms.TextBox();
@@ -101,6 +103,7 @@
             this.radFindById_Edit = new System.Windows.Forms.RadioButton();
             this.lblEditLecturer = new System.Windows.Forms.Label();
             this.lblLecCenter_Remove = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnRemove_Remove = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lblLecturerCenter = new System.Windows.Forms.Label();
@@ -118,6 +121,7 @@
             this.radFindById_Remove = new System.Windows.Forms.RadioButton();
             this.lblRemoveLecturer = new System.Windows.Forms.Label();
             this.ViewSearchLecturers = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.Level = new System.Windows.Forms.Label();
             this.Building = new System.Windows.Forms.Label();
             this.lblCenterSearch = new System.Windows.Forms.Label();
@@ -156,10 +160,10 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
-            this.lblManageLecturer = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.AddLecturer.SuspendLayout();
             this.groupBoxLecturer.SuspendLayout();
@@ -214,6 +218,7 @@
             // 
             // AddLecturer
             // 
+            this.AddLecturer.Controls.Add(this.label6);
             this.AddLecturer.Controls.Add(this.groupBoxLecturer);
             this.AddLecturer.Controls.Add(this.loading1);
             this.AddLecturer.Controls.Add(this.lblSelectedImg);
@@ -257,7 +262,7 @@
             this.groupBoxLecturer.Controls.Add(this.lblLecName);
             this.groupBoxLecturer.Controls.Add(this.lblLecTitle);
             this.groupBoxLecturer.Controls.Add(this.pictureBoxLecturer);
-            this.groupBoxLecturer.Location = new System.Drawing.Point(586, 86);
+            this.groupBoxLecturer.Location = new System.Drawing.Point(876, 174);
             this.groupBoxLecturer.Name = "groupBoxLecturer";
             this.groupBoxLecturer.Size = new System.Drawing.Size(350, 410);
             this.groupBoxLecturer.TabIndex = 26;
@@ -303,18 +308,20 @@
             // lblLecName
             // 
             this.lblLecName.AutoSize = true;
+            this.lblLecName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLecName.Location = new System.Drawing.Point(170, 273);
             this.lblLecName.Name = "lblLecName";
-            this.lblLecName.Size = new System.Drawing.Size(49, 20);
+            this.lblLecName.Size = new System.Drawing.Size(51, 20);
             this.lblLecName.TabIndex = 50;
             this.lblLecName.Text = "Name";
             // 
             // lblLecTitle
             // 
             this.lblLecTitle.AutoSize = true;
+            this.lblLecTitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLecTitle.Location = new System.Drawing.Point(126, 273);
             this.lblLecTitle.Name = "lblLecTitle";
-            this.lblLecTitle.Size = new System.Drawing.Size(38, 20);
+            this.lblLecTitle.Size = new System.Drawing.Size(40, 20);
             this.lblLecTitle.TabIndex = 25;
             this.lblLecTitle.Text = "Title";
             // 
@@ -331,7 +338,7 @@
             // 
             this.loading1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("loading1.BackgroundImage")));
             this.loading1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.loading1.Location = new System.Drawing.Point(785, 575);
+            this.loading1.Location = new System.Drawing.Point(976, 702);
             this.loading1.Name = "loading1";
             this.loading1.Size = new System.Drawing.Size(20, 20);
             this.loading1.TabIndex = 25;
@@ -340,7 +347,7 @@
             // lblSelectedImg
             // 
             this.lblSelectedImg.AutoSize = true;
-            this.lblSelectedImg.Location = new System.Drawing.Point(264, 440);
+            this.lblSelectedImg.Location = new System.Drawing.Point(409, 522);
             this.lblSelectedImg.Name = "lblSelectedImg";
             this.lblSelectedImg.Size = new System.Drawing.Size(141, 20);
             this.lblSelectedImg.TabIndex = 23;
@@ -348,7 +355,7 @@
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(163, 435);
+            this.btnBrowse.Location = new System.Drawing.Point(308, 517);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(95, 27);
             this.btnBrowse.TabIndex = 22;
@@ -359,7 +366,7 @@
             // btnReset
             // 
             this.btnReset.BackColor = System.Drawing.Color.Tan;
-            this.btnReset.Location = new System.Drawing.Point(905, 522);
+            this.btnReset.Location = new System.Drawing.Point(1096, 649);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(123, 49);
             this.btnReset.TabIndex = 21;
@@ -370,7 +377,8 @@
             // btnAddLecturer
             // 
             this.btnAddLecturer.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnAddLecturer.Location = new System.Drawing.Point(715, 522);
+            this.btnAddLecturer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddLecturer.Location = new System.Drawing.Point(906, 649);
             this.btnAddLecturer.Name = "btnAddLecturer";
             this.btnAddLecturer.Size = new System.Drawing.Size(164, 49);
             this.btnAddLecturer.TabIndex = 20;
@@ -380,7 +388,7 @@
             // 
             // txtEmpID
             // 
-            this.txtEmpID.Location = new System.Drawing.Point(163, 174);
+            this.txtEmpID.Location = new System.Drawing.Point(308, 256);
             this.txtEmpID.Name = "txtEmpID";
             this.txtEmpID.Size = new System.Drawing.Size(264, 27);
             this.txtEmpID.TabIndex = 19;
@@ -388,7 +396,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(245, 137);
+            this.txtName.Location = new System.Drawing.Point(390, 219);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(182, 27);
             this.txtName.TabIndex = 18;
@@ -397,16 +405,15 @@
             // txtEmpRank
             // 
             this.txtEmpRank.AutoSize = true;
-            this.txtEmpRank.Location = new System.Drawing.Point(159, 399);
+            this.txtEmpRank.Location = new System.Drawing.Point(304, 481);
             this.txtEmpRank.Name = "txtEmpRank";
-            this.txtEmpRank.Size = new System.Drawing.Size(27, 20);
+            this.txtEmpRank.Size = new System.Drawing.Size(0, 20);
             this.txtEmpRank.TabIndex = 17;
-            this.txtEmpRank.Text = "***";
             // 
             // cmbEmpLevel
             // 
             this.cmbEmpLevel.FormattingEnabled = true;
-            this.cmbEmpLevel.Location = new System.Drawing.Point(163, 351);
+            this.cmbEmpLevel.Location = new System.Drawing.Point(308, 433);
             this.cmbEmpLevel.Name = "cmbEmpLevel";
             this.cmbEmpLevel.Size = new System.Drawing.Size(264, 28);
             this.cmbEmpLevel.TabIndex = 16;
@@ -415,7 +422,7 @@
             // cmbBuilding
             // 
             this.cmbBuilding.FormattingEnabled = true;
-            this.cmbBuilding.Location = new System.Drawing.Point(163, 316);
+            this.cmbBuilding.Location = new System.Drawing.Point(308, 398);
             this.cmbBuilding.Name = "cmbBuilding";
             this.cmbBuilding.Size = new System.Drawing.Size(264, 28);
             this.cmbBuilding.TabIndex = 15;
@@ -423,7 +430,7 @@
             // cmbCenter
             // 
             this.cmbCenter.FormattingEnabled = true;
-            this.cmbCenter.Location = new System.Drawing.Point(163, 282);
+            this.cmbCenter.Location = new System.Drawing.Point(308, 364);
             this.cmbCenter.Name = "cmbCenter";
             this.cmbCenter.Size = new System.Drawing.Size(264, 28);
             this.cmbCenter.TabIndex = 14;
@@ -432,7 +439,7 @@
             // cmbDepartment
             // 
             this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(163, 245);
+            this.cmbDepartment.Location = new System.Drawing.Point(308, 327);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(264, 28);
             this.cmbDepartment.TabIndex = 13;
@@ -441,7 +448,7 @@
             // cmbFaculty
             // 
             this.cmbFaculty.FormattingEnabled = true;
-            this.cmbFaculty.Location = new System.Drawing.Point(163, 210);
+            this.cmbFaculty.Location = new System.Drawing.Point(308, 292);
             this.cmbFaculty.Name = "cmbFaculty";
             this.cmbFaculty.Size = new System.Drawing.Size(264, 28);
             this.cmbFaculty.TabIndex = 12;
@@ -451,7 +458,7 @@
             // 
             this.cmbTitle.DisplayMember = "1";
             this.cmbTitle.FormattingEnabled = true;
-            this.cmbTitle.Location = new System.Drawing.Point(163, 136);
+            this.cmbTitle.Location = new System.Drawing.Point(308, 218);
             this.cmbTitle.Name = "cmbTitle";
             this.cmbTitle.Size = new System.Drawing.Size(62, 28);
             this.cmbTitle.TabIndex = 11;
@@ -461,7 +468,7 @@
             // lblSelectPhoto
             // 
             this.lblSelectPhoto.AutoSize = true;
-            this.lblSelectPhoto.Location = new System.Drawing.Point(40, 438);
+            this.lblSelectPhoto.Location = new System.Drawing.Point(185, 520);
             this.lblSelectPhoto.Name = "lblSelectPhoto";
             this.lblSelectPhoto.Size = new System.Drawing.Size(92, 20);
             this.lblSelectPhoto.TabIndex = 10;
@@ -470,7 +477,7 @@
             // lblEmployeeRank
             // 
             this.lblEmployeeRank.AutoSize = true;
-            this.lblEmployeeRank.Location = new System.Drawing.Point(38, 399);
+            this.lblEmployeeRank.Location = new System.Drawing.Point(183, 481);
             this.lblEmployeeRank.Name = "lblEmployeeRank";
             this.lblEmployeeRank.Size = new System.Drawing.Size(107, 20);
             this.lblEmployeeRank.TabIndex = 9;
@@ -479,7 +486,7 @@
             // lblEmployeeLevel
             // 
             this.lblEmployeeLevel.AutoSize = true;
-            this.lblEmployeeLevel.Location = new System.Drawing.Point(40, 359);
+            this.lblEmployeeLevel.Location = new System.Drawing.Point(185, 441);
             this.lblEmployeeLevel.Name = "lblEmployeeLevel";
             this.lblEmployeeLevel.Size = new System.Drawing.Size(113, 20);
             this.lblEmployeeLevel.TabIndex = 8;
@@ -488,7 +495,7 @@
             // lblBuilding
             // 
             this.lblBuilding.AutoSize = true;
-            this.lblBuilding.Location = new System.Drawing.Point(40, 321);
+            this.lblBuilding.Location = new System.Drawing.Point(185, 403);
             this.lblBuilding.Name = "lblBuilding";
             this.lblBuilding.Size = new System.Drawing.Size(64, 20);
             this.lblBuilding.TabIndex = 7;
@@ -497,7 +504,7 @@
             // lblCenter
             // 
             this.lblCenter.AutoSize = true;
-            this.lblCenter.Location = new System.Drawing.Point(40, 282);
+            this.lblCenter.Location = new System.Drawing.Point(185, 364);
             this.lblCenter.Name = "lblCenter";
             this.lblCenter.Size = new System.Drawing.Size(52, 20);
             this.lblCenter.TabIndex = 6;
@@ -506,7 +513,7 @@
             // lblDepartment
             // 
             this.lblDepartment.AutoSize = true;
-            this.lblDepartment.Location = new System.Drawing.Point(38, 245);
+            this.lblDepartment.Location = new System.Drawing.Point(183, 327);
             this.lblDepartment.Name = "lblDepartment";
             this.lblDepartment.Size = new System.Drawing.Size(89, 20);
             this.lblDepartment.TabIndex = 5;
@@ -515,7 +522,7 @@
             // lblFaculty
             // 
             this.lblFaculty.AutoSize = true;
-            this.lblFaculty.Location = new System.Drawing.Point(38, 210);
+            this.lblFaculty.Location = new System.Drawing.Point(183, 292);
             this.lblFaculty.Name = "lblFaculty";
             this.lblFaculty.Size = new System.Drawing.Size(54, 20);
             this.lblFaculty.TabIndex = 4;
@@ -524,7 +531,7 @@
             // lblEmpId
             // 
             this.lblEmpId.AutoSize = true;
-            this.lblEmpId.Location = new System.Drawing.Point(38, 174);
+            this.lblEmpId.Location = new System.Drawing.Point(183, 256);
             this.lblEmpId.Name = "lblEmpId";
             this.lblEmpId.Size = new System.Drawing.Size(94, 20);
             this.lblEmpId.TabIndex = 3;
@@ -533,7 +540,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(38, 136);
+            this.lblName.Location = new System.Drawing.Point(183, 218);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(49, 20);
             this.lblName.TabIndex = 2;
@@ -543,14 +550,25 @@
             // 
             this.lblAddLecturer.AutoSize = true;
             this.lblAddLecturer.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddLecturer.Location = new System.Drawing.Point(183, 74);
+            this.lblAddLecturer.Location = new System.Drawing.Point(649, 75);
             this.lblAddLecturer.Name = "lblAddLecturer";
             this.lblAddLecturer.Size = new System.Drawing.Size(163, 32);
             this.lblAddLecturer.TabIndex = 1;
             this.lblAddLecturer.Text = "Add Lecturer";
             // 
+            // lblManageLecturer
+            // 
+            this.lblManageLecturer.AutoSize = true;
+            this.lblManageLecturer.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManageLecturer.Location = new System.Drawing.Point(605, 21);
+            this.lblManageLecturer.Name = "lblManageLecturer";
+            this.lblManageLecturer.Size = new System.Drawing.Size(268, 41);
+            this.lblManageLecturer.TabIndex = 0;
+            this.lblManageLecturer.Text = "Manage Lecturers";
+            // 
             // EditLecturer
             // 
+            this.EditLecturer.Controls.Add(this.label5);
             this.EditLecturer.Controls.Add(this.label3);
             this.EditLecturer.Controls.Add(this.btnEditLecturer);
             this.EditLecturer.Controls.Add(this.txtEmpID_Edit);
@@ -584,10 +602,20 @@
             this.EditLecturer.Text = "Edit Lecturer";
             this.EditLecturer.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(605, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(268, 41);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "Manage Lecturers";
+            // 
             // btnEditLecturer
             // 
             this.btnEditLecturer.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnEditLecturer.Location = new System.Drawing.Point(843, 713);
+            this.btnEditLecturer.Location = new System.Drawing.Point(1027, 737);
             this.btnEditLecturer.Name = "btnEditLecturer";
             this.btnEditLecturer.Size = new System.Drawing.Size(164, 49);
             this.btnEditLecturer.TabIndex = 45;
@@ -597,14 +625,14 @@
             // 
             // txtEmpID_Edit
             // 
-            this.txtEmpID_Edit.Location = new System.Drawing.Point(291, 365);
+            this.txtEmpID_Edit.Location = new System.Drawing.Point(475, 389);
             this.txtEmpID_Edit.Name = "txtEmpID_Edit";
             this.txtEmpID_Edit.Size = new System.Drawing.Size(264, 27);
             this.txtEmpID_Edit.TabIndex = 44;
             // 
             // txtName_Edit
             // 
-            this.txtName_Edit.Location = new System.Drawing.Point(373, 328);
+            this.txtName_Edit.Location = new System.Drawing.Point(557, 352);
             this.txtName_Edit.Name = "txtName_Edit";
             this.txtName_Edit.Size = new System.Drawing.Size(182, 27);
             this.txtName_Edit.TabIndex = 43;
@@ -618,7 +646,7 @@
             this.groupBox6.Controls.Add(this.lblLecName_Edit);
             this.groupBox6.Controls.Add(this.lblLecTitle_Edit);
             this.groupBox6.Controls.Add(this.pictureBoxLecturer_Edit);
-            this.groupBox6.Location = new System.Drawing.Point(714, 277);
+            this.groupBox6.Location = new System.Drawing.Point(898, 301);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(350, 410);
             this.groupBox6.TabIndex = 48;
@@ -691,7 +719,7 @@
             // lblSelectedImg_Edit
             // 
             this.lblSelectedImg_Edit.AutoSize = true;
-            this.lblSelectedImg_Edit.Location = new System.Drawing.Point(392, 631);
+            this.lblSelectedImg_Edit.Location = new System.Drawing.Point(576, 655);
             this.lblSelectedImg_Edit.Name = "lblSelectedImg_Edit";
             this.lblSelectedImg_Edit.Size = new System.Drawing.Size(141, 20);
             this.lblSelectedImg_Edit.TabIndex = 47;
@@ -699,7 +727,7 @@
             // 
             // btnBrowse_Edit
             // 
-            this.btnBrowse_Edit.Location = new System.Drawing.Point(291, 626);
+            this.btnBrowse_Edit.Location = new System.Drawing.Point(475, 650);
             this.btnBrowse_Edit.Name = "btnBrowse_Edit";
             this.btnBrowse_Edit.Size = new System.Drawing.Size(95, 27);
             this.btnBrowse_Edit.TabIndex = 46;
@@ -710,7 +738,7 @@
             // txtEmpRank_Edit
             // 
             this.txtEmpRank_Edit.AutoSize = true;
-            this.txtEmpRank_Edit.Location = new System.Drawing.Point(287, 590);
+            this.txtEmpRank_Edit.Location = new System.Drawing.Point(471, 614);
             this.txtEmpRank_Edit.Name = "txtEmpRank_Edit";
             this.txtEmpRank_Edit.Size = new System.Drawing.Size(27, 20);
             this.txtEmpRank_Edit.TabIndex = 42;
@@ -719,7 +747,7 @@
             // cmbEmpLevel_Edit
             // 
             this.cmbEmpLevel_Edit.FormattingEnabled = true;
-            this.cmbEmpLevel_Edit.Location = new System.Drawing.Point(291, 542);
+            this.cmbEmpLevel_Edit.Location = new System.Drawing.Point(475, 566);
             this.cmbEmpLevel_Edit.Name = "cmbEmpLevel_Edit";
             this.cmbEmpLevel_Edit.Size = new System.Drawing.Size(264, 28);
             this.cmbEmpLevel_Edit.TabIndex = 41;
@@ -727,7 +755,7 @@
             // cmbBuilding_Edit
             // 
             this.cmbBuilding_Edit.FormattingEnabled = true;
-            this.cmbBuilding_Edit.Location = new System.Drawing.Point(291, 507);
+            this.cmbBuilding_Edit.Location = new System.Drawing.Point(475, 531);
             this.cmbBuilding_Edit.Name = "cmbBuilding_Edit";
             this.cmbBuilding_Edit.Size = new System.Drawing.Size(264, 28);
             this.cmbBuilding_Edit.TabIndex = 40;
@@ -735,7 +763,7 @@
             // cmbCenter_Edit
             // 
             this.cmbCenter_Edit.FormattingEnabled = true;
-            this.cmbCenter_Edit.Location = new System.Drawing.Point(291, 473);
+            this.cmbCenter_Edit.Location = new System.Drawing.Point(475, 497);
             this.cmbCenter_Edit.Name = "cmbCenter_Edit";
             this.cmbCenter_Edit.Size = new System.Drawing.Size(264, 28);
             this.cmbCenter_Edit.TabIndex = 39;
@@ -743,7 +771,7 @@
             // cmbDepartment_Edit
             // 
             this.cmbDepartment_Edit.FormattingEnabled = true;
-            this.cmbDepartment_Edit.Location = new System.Drawing.Point(291, 436);
+            this.cmbDepartment_Edit.Location = new System.Drawing.Point(475, 460);
             this.cmbDepartment_Edit.Name = "cmbDepartment_Edit";
             this.cmbDepartment_Edit.Size = new System.Drawing.Size(264, 28);
             this.cmbDepartment_Edit.TabIndex = 38;
@@ -751,7 +779,7 @@
             // cmbFaculty_Edit
             // 
             this.cmbFaculty_Edit.FormattingEnabled = true;
-            this.cmbFaculty_Edit.Location = new System.Drawing.Point(291, 401);
+            this.cmbFaculty_Edit.Location = new System.Drawing.Point(475, 425);
             this.cmbFaculty_Edit.Name = "cmbFaculty_Edit";
             this.cmbFaculty_Edit.Size = new System.Drawing.Size(264, 28);
             this.cmbFaculty_Edit.TabIndex = 37;
@@ -760,7 +788,7 @@
             // 
             this.cmbTitle_Edit.DisplayMember = "1";
             this.cmbTitle_Edit.FormattingEnabled = true;
-            this.cmbTitle_Edit.Location = new System.Drawing.Point(291, 327);
+            this.cmbTitle_Edit.Location = new System.Drawing.Point(475, 351);
             this.cmbTitle_Edit.Name = "cmbTitle_Edit";
             this.cmbTitle_Edit.Size = new System.Drawing.Size(62, 28);
             this.cmbTitle_Edit.TabIndex = 36;
@@ -769,7 +797,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(168, 629);
+            this.label11.Location = new System.Drawing.Point(352, 653);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(92, 20);
             this.label11.TabIndex = 35;
@@ -778,7 +806,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(166, 590);
+            this.label12.Location = new System.Drawing.Point(350, 614);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(107, 20);
             this.label12.TabIndex = 34;
@@ -787,7 +815,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(168, 550);
+            this.label13.Location = new System.Drawing.Point(352, 574);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(113, 20);
             this.label13.TabIndex = 33;
@@ -796,7 +824,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(168, 512);
+            this.label14.Location = new System.Drawing.Point(352, 536);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(64, 20);
             this.label14.TabIndex = 32;
@@ -805,7 +833,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(168, 473);
+            this.label15.Location = new System.Drawing.Point(352, 497);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(52, 20);
             this.label15.TabIndex = 31;
@@ -814,7 +842,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(166, 436);
+            this.label16.Location = new System.Drawing.Point(350, 460);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(89, 20);
             this.label16.TabIndex = 30;
@@ -823,7 +851,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(166, 401);
+            this.label17.Location = new System.Drawing.Point(350, 425);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(54, 20);
             this.label17.TabIndex = 29;
@@ -832,7 +860,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(166, 365);
+            this.label18.Location = new System.Drawing.Point(350, 389);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(94, 20);
             this.label18.TabIndex = 28;
@@ -841,7 +869,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(166, 327);
+            this.label19.Location = new System.Drawing.Point(350, 351);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(49, 20);
             this.label19.TabIndex = 27;
@@ -854,7 +882,7 @@
             this.groupBox5.Controls.Add(this.txtFind_Edit);
             this.groupBox5.Controls.Add(this.radFindByName_Edit);
             this.groupBox5.Controls.Add(this.radFindById_Edit);
-            this.groupBox5.Location = new System.Drawing.Point(195, 101);
+            this.groupBox5.Location = new System.Drawing.Point(379, 116);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(811, 115);
             this.groupBox5.TabIndex = 5;
@@ -874,6 +902,7 @@
             // btnFind_Edit
             // 
             this.btnFind_Edit.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnFind_Edit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFind_Edit.Location = new System.Drawing.Point(519, 41);
             this.btnFind_Edit.Name = "btnFind_Edit";
             this.btnFind_Edit.Size = new System.Drawing.Size(169, 41);
@@ -915,7 +944,7 @@
             // 
             this.lblEditLecturer.AutoSize = true;
             this.lblEditLecturer.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditLecturer.Location = new System.Drawing.Point(574, 66);
+            this.lblEditLecturer.Location = new System.Drawing.Point(653, 71);
             this.lblEditLecturer.Name = "lblEditLecturer";
             this.lblEditLecturer.Size = new System.Drawing.Size(160, 32);
             this.lblEditLecturer.TabIndex = 0;
@@ -923,6 +952,7 @@
             // 
             // lblLecCenter_Remove
             // 
+            this.lblLecCenter_Remove.Controls.Add(this.label7);
             this.lblLecCenter_Remove.Controls.Add(this.label4);
             this.lblLecCenter_Remove.Controls.Add(this.btnRemove_Remove);
             this.lblLecCenter_Remove.Controls.Add(this.groupBox4);
@@ -935,11 +965,21 @@
             this.lblLecCenter_Remove.Text = "RemoveLecturer";
             this.lblLecCenter_Remove.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(605, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(268, 41);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "Manage Lecturers";
+            // 
             // btnRemove_Remove
             // 
             this.btnRemove_Remove.BackColor = System.Drawing.Color.LightCoral;
             this.btnRemove_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove_Remove.Location = new System.Drawing.Point(921, 687);
+            this.btnRemove_Remove.Location = new System.Drawing.Point(1038, 745);
             this.btnRemove_Remove.Name = "btnRemove_Remove";
             this.btnRemove_Remove.Size = new System.Drawing.Size(202, 60);
             this.btnRemove_Remove.TabIndex = 29;
@@ -956,7 +996,7 @@
             this.groupBox4.Controls.Add(this.lblLecName_Remove);
             this.groupBox4.Controls.Add(this.lblLecTitle_Remove);
             this.groupBox4.Controls.Add(this.pictureBoxLecturer_Remove);
-            this.groupBox4.Location = new System.Drawing.Point(407, 242);
+            this.groupBox4.Location = new System.Drawing.Point(593, 302);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(350, 410);
             this.groupBox4.TabIndex = 28;
@@ -1035,7 +1075,7 @@
             this.groupBox3.Controls.Add(this.txtFind_Remove);
             this.groupBox3.Controls.Add(this.radFindByName_Remove);
             this.groupBox3.Controls.Add(this.radFindById_Remove);
-            this.groupBox3.Location = new System.Drawing.Point(212, 102);
+            this.groupBox3.Location = new System.Drawing.Point(379, 116);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(811, 115);
             this.groupBox3.TabIndex = 4;
@@ -1097,7 +1137,7 @@
             // 
             this.lblRemoveLecturer.AutoSize = true;
             this.lblRemoveLecturer.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRemoveLecturer.Location = new System.Drawing.Point(481, 67);
+            this.lblRemoveLecturer.Location = new System.Drawing.Point(638, 71);
             this.lblRemoveLecturer.Name = "lblRemoveLecturer";
             this.lblRemoveLecturer.Size = new System.Drawing.Size(207, 32);
             this.lblRemoveLecturer.TabIndex = 0;
@@ -1105,6 +1145,7 @@
             // 
             // ViewSearchLecturers
             // 
+            this.ViewSearchLecturers.Controls.Add(this.label8);
             this.ViewSearchLecturers.Controls.Add(this.label1);
             this.ViewSearchLecturers.Controls.Add(this.Level);
             this.ViewSearchLecturers.Controls.Add(this.Building);
@@ -1127,6 +1168,16 @@
             this.ViewSearchLecturers.TabIndex = 3;
             this.ViewSearchLecturers.Text = "View/ Search Lecturers";
             this.ViewSearchLecturers.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(605, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(268, 41);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Manage Lecturers";
             // 
             // Level
             // 
@@ -1273,18 +1324,20 @@
             // lblLecNameSearch
             // 
             this.lblLecNameSearch.AutoSize = true;
+            this.lblLecNameSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLecNameSearch.Location = new System.Drawing.Point(170, 273);
             this.lblLecNameSearch.Name = "lblLecNameSearch";
-            this.lblLecNameSearch.Size = new System.Drawing.Size(49, 20);
+            this.lblLecNameSearch.Size = new System.Drawing.Size(51, 20);
             this.lblLecNameSearch.TabIndex = 50;
             this.lblLecNameSearch.Text = "Name";
             // 
             // lblLecTitleSearch
             // 
             this.lblLecTitleSearch.AutoSize = true;
+            this.lblLecTitleSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLecTitleSearch.Location = new System.Drawing.Point(126, 273);
             this.lblLecTitleSearch.Name = "lblLecTitleSearch";
-            this.lblLecTitleSearch.Size = new System.Drawing.Size(38, 20);
+            this.lblLecTitleSearch.Size = new System.Drawing.Size(40, 20);
             this.lblLecTitleSearch.TabIndex = 25;
             this.lblLecTitleSearch.Text = "Title";
             // 
@@ -1309,6 +1362,7 @@
             // 
             // dataGridViewSearchLecturer
             // 
+            this.dataGridViewSearchLecturer.AllowUserToAddRows = false;
             this.dataGridViewSearchLecturer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSearchLecturer.Location = new System.Drawing.Point(52, 342);
             this.dataGridViewSearchLecturer.Name = "dataGridViewSearchLecturer";
@@ -1325,7 +1379,7 @@
             this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Controls.Add(this.radFindByNameSearch);
             this.groupBox1.Controls.Add(this.radFindByIdSearch);
-            this.groupBox1.Location = new System.Drawing.Point(238, 142);
+            this.groupBox1.Location = new System.Drawing.Point(379, 116);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(811, 115);
             this.groupBox1.TabIndex = 3;
@@ -1387,7 +1441,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(510, 104);
+            this.label2.Location = new System.Drawing.Point(658, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(171, 32);
             this.label2.TabIndex = 2;
@@ -1520,45 +1574,41 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
-            // lblManageLecturer
+            // label5
             // 
-            this.lblManageLecturer.AutoSize = true;
-            this.lblManageLecturer.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManageLecturer.Location = new System.Drawing.Point(461, 13);
-            this.lblManageLecturer.Name = "lblManageLecturer";
-            this.lblManageLecturer.Size = new System.Drawing.Size(268, 41);
-            this.lblManageLecturer.TabIndex = 0;
-            this.lblManageLecturer.Text = "Manage Lecturers";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(227, 20);
+            this.label5.TabIndex = 112;
+            this.label5.Text = "Manage Lecturers > Edit Lecturer";
             // 
-            // label3
+            // label6
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(515, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(268, 41);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "Manage Lecturers";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(20, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(229, 20);
+            this.label6.TabIndex = 113;
+            this.label6.Text = "Manage Lecturers > Add Lecturer";
             // 
-            // label4
+            // label7
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(453, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(268, 41);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "Manage Lecturers";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(20, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(255, 20);
+            this.label7.TabIndex = 114;
+            this.label7.Text = "Manage Lecturers > Remove Lecturer";
             // 
-            // label1
+            // label8
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(461, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 41);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "Manage Lecturers";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(20, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(233, 20);
+            this.label8.TabIndex = 115;
+            this.label8.Text = "Manage Lecturers > View Lecturer";
             // 
             // ManageLecturerDashboard
             // 
@@ -1758,5 +1808,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

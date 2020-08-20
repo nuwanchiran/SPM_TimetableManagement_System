@@ -140,11 +140,11 @@ namespace Timetable_Management_System
         {
            
            
-            int initialLocation = 250;
+            int initialLocation = 290;
             for(int i=0;i< tagsList.Length; i++)
             {
                 Label label = new Label();
-                label.Location = new System.Drawing.Point(110, initialLocation);
+                label.Location = new System.Drawing.Point(410, initialLocation);
                 label.Size = new System.Drawing.Size(80, 20);
                 label.Name = "lbl"+ tagsList[i]+"_Add";
                 label.Text = tagsList[i]+"";
@@ -152,12 +152,12 @@ namespace Timetable_Management_System
                 initialLocation = initialLocation + 30;
             }
             
-            initialLocation = 250;
+            initialLocation = 290;
 
             for (int i = 0; i < tagsList.Length; i++)
             {
                 TextBox textbox = new TextBox();
-                textbox.Location = new System.Drawing.Point(200, initialLocation);
+                textbox.Location = new System.Drawing.Point(500, initialLocation);
                 textbox.Size = new System.Drawing.Size(80, 20);
                 textbox.Name = "txt" + tagsList[i] + "Hrs_Add";
                 textbox.Text = "";
@@ -165,12 +165,12 @@ namespace Timetable_Management_System
                 initialLocation = initialLocation + 30;
             }
 
-            initialLocation = 250;
+            initialLocation = 290;
 
             for (int i = 0; i < tagsList.Length; i++)
             {
                 Label lbl = new Label();
-                lbl.Location = new System.Drawing.Point(300, initialLocation);
+                lbl.Location = new System.Drawing.Point(600, initialLocation);
                 lbl.Size = new System.Drawing.Size(50, 20);
                 lbl.Name = "lbl" + tagsList[i] + "Hours_Add";
                 lbl.Text = "hours";
@@ -178,12 +178,12 @@ namespace Timetable_Management_System
                 initialLocation = initialLocation + 30;
             }
 
-            initialLocation = 250;
+            initialLocation = 290;
 
             for (int i = 0; i < tagsList.Length; i++)
             {
                 Button closeBtn = new Button();
-                closeBtn.Location = new System.Drawing.Point(370, initialLocation);
+                closeBtn.Location = new System.Drawing.Point(720, initialLocation);
                 closeBtn.Size = new System.Drawing.Size(20, 20);
                 closeBtn.Name = "btn" + tagsList[i] + "Close_Add";
                 //closeBtn.Click += new EventHandler(CloseButtonClick_Add(tagsList[i]));
@@ -588,7 +588,7 @@ namespace Timetable_Management_System
             foreach (Subject_Tags obj in gblSubjectTagslist_Search)
             {
                 Label lbl = new Label();
-                lbl.Location = new System.Drawing.Point(1000, initialLocation);
+                lbl.Location = new System.Drawing.Point(1100, initialLocation);
                 lbl.Size = new System.Drawing.Size(80, 20);
                 lbl.Name = "lbl" + obj.tag + "Found_Search";
                 lbl.Text = obj.tag;
@@ -596,7 +596,7 @@ namespace Timetable_Management_System
                 gblTagNames_Search.Add(lbl.Name);
 
                 Label lbl1 = new Label();
-                lbl1.Location = new System.Drawing.Point(1100, initialLocation);
+                lbl1.Location = new System.Drawing.Point(1200, initialLocation);
                 lbl1.Size = new System.Drawing.Size(50, 20);
                 lbl1.Name = "lbl" + obj.hrs + "Found_Search";
                 lbl1.Text = obj.hrs.ToString();
@@ -1205,7 +1205,7 @@ namespace Timetable_Management_System
                 foreach (Subject_Tags obj in gblSubjectTagslist_Search)
                 {
                     Label lbl = new Label();
-                    lbl.Location = new System.Drawing.Point(400, initialLocation);
+                    lbl.Location = new System.Drawing.Point(500, initialLocation);
                     lbl.Size = new System.Drawing.Size(80, 20);
                     lbl.Name = "lbl" + obj.tag + "Found_Remove";
                     lbl.Name = lbl.Name.Trim();
@@ -1214,7 +1214,7 @@ namespace Timetable_Management_System
                     gblTagNames_Remove.Add(lbl.Name);
 
                     Label lbl1 = new Label();
-                    lbl1.Location = new System.Drawing.Point(500, initialLocation);
+                    lbl1.Location = new System.Drawing.Point(600, initialLocation);
                     lbl1.Size = new System.Drawing.Size(40, 20);
                     lbl1.Name = "lbl" + obj.hrs + "Found_Remove";
                     lbl1.Name = lbl1.Name.Trim();
@@ -1449,13 +1449,13 @@ namespace Timetable_Management_System
             gblTagNames_text_Edit.Clear();
             gblTagNames_button_Edit.Clear();
 
-            int initialLocation = 250;
+            int initialLocation = 410;
             foreach (Subject_Tags item in gblSubjectTagsListForUpdateFind) // Loop through List with foreach
             {
                 Console.WriteLine(item);
 
                 Label label = new Label();
-                label.Location = new System.Drawing.Point(110, initialLocation);
+                label.Location = new System.Drawing.Point(410, initialLocation);
                 label.Size = new System.Drawing.Size(80, 20);
                 label.Name = "lbl" + item.tag + "_Edit";
                 label.Name = label.Name.Trim();
@@ -1465,7 +1465,7 @@ namespace Timetable_Management_System
                 gblTagNames_label_Edit.Add(label.Name);
                 
                 TextBox textbox = new TextBox();
-                textbox.Location = new System.Drawing.Point(200, initialLocation);
+                textbox.Location = new System.Drawing.Point(500, initialLocation);
                 textbox.Size = new System.Drawing.Size(80, 20);
                 textbox.Name = "txt" + item.tag + "Hrs_Edit";
                 textbox.Name = textbox.Name.Trim() ;
@@ -1475,7 +1475,7 @@ namespace Timetable_Management_System
                 gblTagNames_text_Edit.Add(textbox.Name);
 
                 Button closeBtn = new Button();
-                closeBtn.Location = new System.Drawing.Point(370, initialLocation);
+                closeBtn.Location = new System.Drawing.Point(670, initialLocation);
                 closeBtn.Size = new System.Drawing.Size(20, 20);
                 closeBtn.Name = "btn" + item.tag + "Close_Edit";
                 //closeBtn.Click += new EventHandler(CloseButtonClick_Add(tagsList[i]));
