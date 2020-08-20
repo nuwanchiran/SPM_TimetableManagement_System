@@ -22,8 +22,10 @@ namespace Timetable_Management_System
         String[] tagsList;
         Subject gblSearchFoundObj_Search;
         List<Subject_Tags> gblSubjectTagslist_Search;
+        List<string> gblTagNames_Remove;
 
         Dictionary<string, bool> closeButtonClickStatus_Add = new Dictionary<string, bool>();
+        Dictionary<string, bool> closeButtonClickStatus_Edit = new Dictionary<string, bool>();
         List<string> loadedTagsList;
         List<string> gblSearchSubjectsAvailableTagsHrsNamesList;
 
@@ -65,6 +67,7 @@ namespace Timetable_Management_System
             //Remove
             radSubjectCode_Remove.Checked = true;
             hideDataInRemove();
+            gblTagNames_Remove = new List<string>();
         }
 
        
@@ -77,6 +80,17 @@ namespace Timetable_Management_System
                 closeButtonClickStatus_Add[tagsList[i]] = true;
             }
         }
+
+        private void fillCloseButtonClickStatus_Edit()
+        {
+            closeButtonClickStatus_Edit.Clear();
+            foreach (Subject_Tags item in gblSubjectTagsListForUpdateFind) 
+            {
+                closeButtonClickStatus_Add[item.tag] = true;
+            }
+        }
+
+
 
         private void loadYearAndSemester_Add()
         {
@@ -1142,13 +1156,8 @@ namespace Timetable_Management_System
 
         private void setsubjectTags_Remove()
         {
-            gblSubjectTagslist_Search.ToString();
-            //MessageBox.Show("Tags remove found");
-
-            // lblTagsL_Search.Visible = true;
-            // lblTagsHoursL_Search.Visible = true;
-
             //  gblSubjectTagslist_Search.ToString();
+            gblTagNames_Remove.Clear();
 
             int tempCounter = 0;
             foreach (Subject_Tags obj in gblSubjectTagslist_Search)
@@ -1170,14 +1179,19 @@ namespace Timetable_Management_System
                     lbl.Location = new System.Drawing.Point(400, initialLocation);
                     lbl.Size = new System.Drawing.Size(80, 20);
                     lbl.Name = "lbl" + obj.tag + "Found_Remove";
+                    lbl.Name = lbl.Name.Trim();
                     lbl.Text = obj.tag;
+
+                    gblTagNames_Remove.Add(lbl.Name);
 
                     Label lbl1 = new Label();
                     lbl1.Location = new System.Drawing.Point(500, initialLocation);
                     lbl1.Size = new System.Drawing.Size(40, 20);
                     lbl1.Name = "lbl" + obj.hrs + "Found_Remove";
+                    lbl1.Name = lbl1.Name.Trim();
                     lbl1.Text = obj.hrs.ToString() + "";
-                    //System.Diagnostics.Debug.WriteLine(obj.tag + "::" + obj.hrs);
+
+                    gblTagNames_Remove.Add(lbl1.Name);
 
                     groupBox4.SendToBack();
 
@@ -1233,7 +1247,42 @@ namespace Timetable_Management_System
 
         private void btnReset_Remove_Click(object sender, EventArgs e)
         {
+            RemoveReset();
+        }
 
+        private void RemoveReset()
+        {
+            foreach (var str in gblTagNames_Remove)
+            {
+                Label subjectTagLabels = (Label)this.GetControlByName(this, str);
+                subjectTagLabels.Text = "";
+            }
+            gblTagNames_Remove.Clear();
+
+            lblTags_Remove.Visible = false;
+            lblHours_Remove.Visible = false;
+
+            lblAnsSubjectCode_Remove.Text = "";
+            lblAnsSubjectName_Remove.Text = "";
+            lblAnsYear_Remove.Text = "";
+            lblAnsSemester_Remove.Text = "";
+            lblAnsIsParallel_Remove.Text = "";
+            lblAnsCategory_Remove.Text = "";
+        }
+ 
+
+        public Control GetControlByName(Control ParentCntl, string NameToSearch)
+        {
+            if (ParentCntl.Name == NameToSearch)
+                return ParentCntl;
+
+            foreach (Control ChildCntl in ParentCntl.Controls)
+            {
+                Control ResultCntl = GetControlByName(ChildCntl, NameToSearch);
+                if (ResultCntl != null)
+                    return ResultCntl;
+            }
+            return null;
         }
 
         private void btnRemoveSubject_Remove_Click(object sender, EventArgs e)
@@ -1318,6 +1367,7 @@ namespace Timetable_Management_System
             con.Close();
 
             MessageBox.Show("Subject Removed Successfully", "Success");
+            RemoveReset();
         }
 
         private void btnFindSubject_Edit_Click(object sender, EventArgs e)
@@ -1353,11 +1403,113 @@ namespace Timetable_Management_System
                     Console.WriteLine(gblSubjectTagsListForUpdateFind);
                     fillBoxes_Edit();
                     fillFoundData_Edit(subObj);
+                    drawTagsData_Edit();
                 }
 
             }
 
                 
+
+        }
+
+        private void drawTagsData_Edit()
+        {
+            Console.WriteLine(gblSubjectTagsListForUpdateFind);
+
+            int initialLocation = 250;
+            foreach (Subject_Tags item in gblSubjectTagsListForUpdateFind) // Loop through List with foreach
+            {
+                Console.WriteLine(item);
+
+                Label label = new Label();
+                label.Location = new System.Drawing.Point(110, initialLocation);
+                label.Size = new System.Drawing.Size(80, 20);
+                label.Name = "lbl" + item.tag + "_Edit";
+                label.Text = item.tag + "";
+                EditSubject.Controls.Add(label);
+
+                TextBox textbox = new TextBox();
+                textbox.Location = new System.Drawing.Point(200, initialLocation);
+                textbox.Size = new System.Drawing.Size(80, 20);
+                textbox.Name = "txt" + item.tag + "Hrs_Edit";
+                textbox.Text = ""+item.hrs;
+                EditSubject.Controls.Add(textbox);
+
+                Button closeBtn = new Button();
+                closeBtn.Location = new System.Drawing.Point(370, initialLocation);
+                closeBtn.Size = new System.Drawing.Size(20, 20);
+                closeBtn.Name = "btn" + item.tag + "Close_Edit";
+                //closeBtn.Click += new EventHandler(CloseButtonClick_Add(tagsList[i]));
+                string temp = item + "";
+                closeBtn.Click += (se, ev) => button_Click_Edit(se, ev, temp);
+                closeBtn.Text = "X";
+                EditSubject.Controls.Add(closeBtn);
+
+                initialLocation = initialLocation + 30;
+
+
+            }
+
+            fillCloseButtonClickStatus_Edit();
+
+
+        }
+
+        private void button_Click_Edit(object se, EventArgs ev, string closeType)
+        {
+
+            //check  if clicked item is already available
+            //then remove
+            
+            foreach (var item in closeButtonClickStatus_Edit)
+            {
+
+                if (item.Key.Equals(closeType))
+                {
+                    closeButtonClickStatus_Edit[closeType] = !(item.Value);
+                    break;
+                }
+            }
+            
+
+            foreach (var item in closeButtonClickStatus_Edit)
+            {
+
+                //item.Key
+                if (item.Value == false)
+                {
+                    string btnName = "btn" + item.Key + "Close_Edit";
+                    string txtName = "txt" + item.Key + "Hrs_Edit";
+
+                    Button btn = null;
+                    TextBox txt = null;
+
+                    if (EditSubject.Controls.ContainsKey(btnName))
+                    {
+                        btn = EditSubject.Controls[btnName] as Button;
+                        txt = EditSubject.Controls[txtName] as TextBox;
+                        //     btn.Enabled = false;
+                        txt.Enabled = false;
+                    }
+                }
+                else if (item.Value == true)
+                {
+                    string btnName = "btn" + item.Key + "Close_Edit";
+                    string txtName = "txt" + item.Key + "Hrs_Edit";
+
+                    Button btn = null;
+                    TextBox txt = null;
+
+                    if (AddSubject.Controls.ContainsKey(btnName))
+                    {
+                        btn = EditSubject.Controls[btnName] as Button;
+                        txt = EditSubject.Controls[txtName] as TextBox;
+                        //     btn.Enabled = false;
+                        txt.Enabled = true;
+                    }
+                }
+
+            }
 
         }
 
