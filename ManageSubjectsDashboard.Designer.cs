@@ -144,6 +144,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.AddSubject.SuspendLayout();
             this.EditSubject.SuspendLayout();
@@ -216,22 +218,25 @@
             // 
             // btnReset_Add
             // 
+            this.btnReset_Add.BackColor = System.Drawing.Color.Tan;
             this.btnReset_Add.Location = new System.Drawing.Point(842, 409);
             this.btnReset_Add.Name = "btnReset_Add";
             this.btnReset_Add.Size = new System.Drawing.Size(110, 35);
             this.btnReset_Add.TabIndex = 26;
             this.btnReset_Add.Text = "Reset";
-            this.btnReset_Add.UseVisualStyleBackColor = true;
+            this.btnReset_Add.UseVisualStyleBackColor = false;
             this.btnReset_Add.Click += new System.EventHandler(this.btnReset_Add_Click);
             // 
             // btnAddSubject_Add
             // 
+            this.btnAddSubject_Add.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAddSubject_Add.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddSubject_Add.Location = new System.Drawing.Point(607, 409);
             this.btnAddSubject_Add.Name = "btnAddSubject_Add";
             this.btnAddSubject_Add.Size = new System.Drawing.Size(212, 35);
             this.btnAddSubject_Add.TabIndex = 25;
             this.btnAddSubject_Add.Text = "Add Subject >>>";
-            this.btnAddSubject_Add.UseVisualStyleBackColor = true;
+            this.btnAddSubject_Add.UseVisualStyleBackColor = false;
             this.btnAddSubject_Add.Click += new System.EventHandler(this.btnAddSubject_Add_Click);
             // 
             // chkParallelSubject_Add
@@ -330,18 +335,20 @@
             // lblManageSubjects_Add
             // 
             this.lblManageSubjects_Add.AutoSize = true;
+            this.lblManageSubjects_Add.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblManageSubjects_Add.Location = new System.Drawing.Point(536, 27);
             this.lblManageSubjects_Add.Name = "lblManageSubjects_Add";
-            this.lblManageSubjects_Add.Size = new System.Drawing.Size(122, 20);
+            this.lblManageSubjects_Add.Size = new System.Drawing.Size(258, 41);
             this.lblManageSubjects_Add.TabIndex = 1;
             this.lblManageSubjects_Add.Text = "Manage Subjects";
             // 
             // lblAddSubjects_Add
             // 
             this.lblAddSubjects_Add.AutoSize = true;
+            this.lblAddSubjects_Add.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAddSubjects_Add.Location = new System.Drawing.Point(279, 58);
             this.lblAddSubjects_Add.Name = "lblAddSubjects_Add";
-            this.lblAddSubjects_Add.Size = new System.Drawing.Size(89, 20);
+            this.lblAddSubjects_Add.Size = new System.Drawing.Size(152, 32);
             this.lblAddSubjects_Add.TabIndex = 0;
             this.lblAddSubjects_Add.Text = "Add Subjets";
             // 
@@ -385,22 +392,25 @@
             // 
             // btnResetSubject_Edit
             // 
+            this.btnResetSubject_Edit.BackColor = System.Drawing.Color.Tan;
             this.btnResetSubject_Edit.Location = new System.Drawing.Point(709, 43);
             this.btnResetSubject_Edit.Name = "btnResetSubject_Edit";
             this.btnResetSubject_Edit.Size = new System.Drawing.Size(75, 39);
             this.btnResetSubject_Edit.TabIndex = 4;
             this.btnResetSubject_Edit.Text = "Reset";
-            this.btnResetSubject_Edit.UseVisualStyleBackColor = true;
+            this.btnResetSubject_Edit.UseVisualStyleBackColor = false;
             this.btnResetSubject_Edit.Click += new System.EventHandler(this.btnResetSubject_Edit_Click);
             // 
             // btnFindSubject_Edit
             // 
+            this.btnFindSubject_Edit.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnFindSubject_Edit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFindSubject_Edit.Location = new System.Drawing.Point(519, 41);
             this.btnFindSubject_Edit.Name = "btnFindSubject_Edit";
             this.btnFindSubject_Edit.Size = new System.Drawing.Size(169, 41);
             this.btnFindSubject_Edit.TabIndex = 3;
             this.btnFindSubject_Edit.Text = "Find Subject >>>";
-            this.btnFindSubject_Edit.UseVisualStyleBackColor = true;
+            this.btnFindSubject_Edit.UseVisualStyleBackColor = false;
             this.btnFindSubject_Edit.Click += new System.EventHandler(this.btnFindSubject_Edit_Click);
             // 
             // txtFindSubject_Edit
@@ -434,12 +444,14 @@
             // 
             // btnEditSubject_Edit
             // 
+            this.btnEditSubject_Edit.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnEditSubject_Edit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditSubject_Edit.Location = new System.Drawing.Point(560, 589);
             this.btnEditSubject_Edit.Name = "btnEditSubject_Edit";
             this.btnEditSubject_Edit.Size = new System.Drawing.Size(188, 35);
             this.btnEditSubject_Edit.TabIndex = 51;
             this.btnEditSubject_Edit.Text = "Edit Subject >>>";
-            this.btnEditSubject_Edit.UseVisualStyleBackColor = true;
+            this.btnEditSubject_Edit.UseVisualStyleBackColor = false;
             this.btnEditSubject_Edit.Click += new System.EventHandler(this.btnEditSubject_Edit_Click);
             // 
             // chkIsParallel_Edit
@@ -538,23 +550,26 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(542, 32);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(122, 20);
+            this.label10.Size = new System.Drawing.Size(258, 41);
             this.label10.TabIndex = 27;
             this.label10.Text = "Manage Subjects";
             // 
             // lblEditSubject
             // 
             this.lblEditSubject.AutoSize = true;
-            this.lblEditSubject.Location = new System.Drawing.Point(312, 123);
+            this.lblEditSubject.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditSubject.Location = new System.Drawing.Point(265, 102);
             this.lblEditSubject.Name = "lblEditSubject";
-            this.lblEditSubject.Size = new System.Drawing.Size(88, 20);
+            this.lblEditSubject.Size = new System.Drawing.Size(150, 32);
             this.lblEditSubject.TabIndex = 0;
             this.lblEditSubject.Text = "Edit Subject";
             // 
             // RemoveSubject
             // 
+            this.RemoveSubject.Controls.Add(this.label1);
             this.RemoveSubject.Controls.Add(this.groupBox4);
             this.RemoveSubject.Controls.Add(this.groupBox3);
             this.RemoveSubject.Controls.Add(this.btnRemoveSubject_Remove);
@@ -738,22 +753,25 @@
             // 
             // btnReset_Remove
             // 
+            this.btnReset_Remove.BackColor = System.Drawing.Color.Tan;
             this.btnReset_Remove.Location = new System.Drawing.Point(709, 43);
             this.btnReset_Remove.Name = "btnReset_Remove";
             this.btnReset_Remove.Size = new System.Drawing.Size(75, 39);
             this.btnReset_Remove.TabIndex = 4;
             this.btnReset_Remove.Text = "Reset";
-            this.btnReset_Remove.UseVisualStyleBackColor = true;
+            this.btnReset_Remove.UseVisualStyleBackColor = false;
             this.btnReset_Remove.Click += new System.EventHandler(this.btnReset_Remove_Click);
             // 
             // btnFindSubject_Remove
             // 
+            this.btnFindSubject_Remove.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnFindSubject_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFindSubject_Remove.Location = new System.Drawing.Point(519, 41);
             this.btnFindSubject_Remove.Name = "btnFindSubject_Remove";
             this.btnFindSubject_Remove.Size = new System.Drawing.Size(169, 41);
             this.btnFindSubject_Remove.TabIndex = 3;
             this.btnFindSubject_Remove.Text = "Find Subject >>>";
-            this.btnFindSubject_Remove.UseVisualStyleBackColor = true;
+            this.btnFindSubject_Remove.UseVisualStyleBackColor = false;
             this.btnFindSubject_Remove.Click += new System.EventHandler(this.btnFindSubject_Remove_Click);
             // 
             // txtKeyword_Remove
@@ -787,25 +805,29 @@
             // 
             // btnRemoveSubject_Remove
             // 
+            this.btnRemoveSubject_Remove.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnRemoveSubject_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveSubject_Remove.Location = new System.Drawing.Point(1010, 597);
             this.btnRemoveSubject_Remove.Name = "btnRemoveSubject_Remove";
             this.btnRemoveSubject_Remove.Size = new System.Drawing.Size(212, 35);
             this.btnRemoveSubject_Remove.TabIndex = 54;
             this.btnRemoveSubject_Remove.Text = "Remove Subject >>>";
-            this.btnRemoveSubject_Remove.UseVisualStyleBackColor = true;
+            this.btnRemoveSubject_Remove.UseVisualStyleBackColor = false;
             this.btnRemoveSubject_Remove.Click += new System.EventHandler(this.btnRemoveSubject_Remove_Click);
             // 
             // lblRemoveSubject
             // 
             this.lblRemoveSubject.AutoSize = true;
-            this.lblRemoveSubject.Location = new System.Drawing.Point(522, 49);
+            this.lblRemoveSubject.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRemoveSubject.Location = new System.Drawing.Point(517, 63);
             this.lblRemoveSubject.Name = "lblRemoveSubject";
-            this.lblRemoveSubject.Size = new System.Drawing.Size(116, 20);
+            this.lblRemoveSubject.Size = new System.Drawing.Size(197, 32);
             this.lblRemoveSubject.TabIndex = 0;
             this.lblRemoveSubject.Text = "Remove Subject";
             // 
             // ViewSearchSubjects
             // 
+            this.ViewSearchSubjects.Controls.Add(this.label2);
             this.ViewSearchSubjects.Controls.Add(this.btnFilter_Search);
             this.ViewSearchSubjects.Controls.Add(this.lblTo_Search);
             this.ViewSearchSubjects.Controls.Add(this.lblFrom_Search);
@@ -837,18 +859,20 @@
             // 
             // btnFilter_Search
             // 
-            this.btnFilter_Search.Location = new System.Drawing.Point(670, 398);
+            this.btnFilter_Search.BackColor = System.Drawing.Color.Tan;
+            this.btnFilter_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilter_Search.Location = new System.Drawing.Point(1087, 261);
             this.btnFilter_Search.Name = "btnFilter_Search";
-            this.btnFilter_Search.Size = new System.Drawing.Size(280, 34);
+            this.btnFilter_Search.Size = new System.Drawing.Size(172, 91);
             this.btnFilter_Search.TabIndex = 96;
             this.btnFilter_Search.Text = "Filter >>";
-            this.btnFilter_Search.UseVisualStyleBackColor = true;
+            this.btnFilter_Search.UseVisualStyleBackColor = false;
             this.btnFilter_Search.Click += new System.EventHandler(this.btnFilter_Search_Click);
             // 
             // lblTo_Search
             // 
             this.lblTo_Search.AutoSize = true;
-            this.lblTo_Search.Location = new System.Drawing.Point(879, 345);
+            this.lblTo_Search.Location = new System.Drawing.Point(879, 330);
             this.lblTo_Search.Name = "lblTo_Search";
             this.lblTo_Search.Size = new System.Drawing.Size(25, 20);
             this.lblTo_Search.TabIndex = 95;
@@ -857,7 +881,7 @@
             // lblFrom_Search
             // 
             this.lblFrom_Search.AutoSize = true;
-            this.lblFrom_Search.Location = new System.Drawing.Point(703, 341);
+            this.lblFrom_Search.Location = new System.Drawing.Point(703, 326);
             this.lblFrom_Search.Name = "lblFrom_Search";
             this.lblFrom_Search.Size = new System.Drawing.Size(43, 20);
             this.lblFrom_Search.TabIndex = 94;
@@ -865,7 +889,7 @@
             // 
             // txtTo_Search
             // 
-            this.txtTo_Search.Location = new System.Drawing.Point(931, 341);
+            this.txtTo_Search.Location = new System.Drawing.Point(931, 325);
             this.txtTo_Search.Name = "txtTo_Search";
             this.txtTo_Search.Size = new System.Drawing.Size(100, 27);
             this.txtTo_Search.TabIndex = 93;
@@ -873,7 +897,7 @@
             // 
             // txtFrom_Search
             // 
-            this.txtFrom_Search.Location = new System.Drawing.Point(763, 341);
+            this.txtFrom_Search.Location = new System.Drawing.Point(763, 326);
             this.txtFrom_Search.Name = "txtFrom_Search";
             this.txtFrom_Search.Size = new System.Drawing.Size(100, 27);
             this.txtFrom_Search.TabIndex = 92;
@@ -882,7 +906,7 @@
             // chkParallel_Search
             // 
             this.chkParallel_Search.AutoSize = true;
-            this.chkParallel_Search.Location = new System.Drawing.Point(404, 337);
+            this.chkParallel_Search.Location = new System.Drawing.Point(404, 322);
             this.chkParallel_Search.Name = "chkParallel_Search";
             this.chkParallel_Search.Size = new System.Drawing.Size(79, 24);
             this.chkParallel_Search.TabIndex = 91;
@@ -892,7 +916,7 @@
             // cmbTag_Search
             // 
             this.cmbTag_Search.FormattingEnabled = true;
-            this.cmbTag_Search.Location = new System.Drawing.Point(228, 329);
+            this.cmbTag_Search.Location = new System.Drawing.Point(228, 314);
             this.cmbTag_Search.Name = "cmbTag_Search";
             this.cmbTag_Search.Size = new System.Drawing.Size(138, 28);
             this.cmbTag_Search.TabIndex = 90;
@@ -923,7 +947,7 @@
             // lblHours_Search
             // 
             this.lblHours_Search.AutoSize = true;
-            this.lblHours_Search.Location = new System.Drawing.Point(609, 341);
+            this.lblHours_Search.Location = new System.Drawing.Point(609, 326);
             this.lblHours_Search.Name = "lblHours_Search";
             this.lblHours_Search.Size = new System.Drawing.Size(51, 20);
             this.lblHours_Search.TabIndex = 86;
@@ -932,7 +956,7 @@
             // lblTag_Search
             // 
             this.lblTag_Search.AutoSize = true;
-            this.lblTag_Search.Location = new System.Drawing.Point(136, 332);
+            this.lblTag_Search.Location = new System.Drawing.Point(136, 317);
             this.lblTag_Search.Name = "lblTag_Search";
             this.lblTag_Search.Size = new System.Drawing.Size(32, 20);
             this.lblTag_Search.TabIndex = 85;
@@ -983,7 +1007,7 @@
             // 
             // btnRefreshGridView_Search
             // 
-            this.btnRefreshGridView_Search.Location = new System.Drawing.Point(956, 415);
+            this.btnRefreshGridView_Search.Location = new System.Drawing.Point(1184, 370);
             this.btnRefreshGridView_Search.Name = "btnRefreshGridView_Search";
             this.btnRefreshGridView_Search.Size = new System.Drawing.Size(75, 29);
             this.btnRefreshGridView_Search.TabIndex = 78;
@@ -995,7 +1019,7 @@
             // 
             this.dataGridViewSubject_Search.AllowUserToAddRows = false;
             this.dataGridViewSubject_Search.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSubject_Search.Location = new System.Drawing.Point(129, 450);
+            this.dataGridViewSubject_Search.Location = new System.Drawing.Point(140, 405);
             this.dataGridViewSubject_Search.Name = "dataGridViewSubject_Search";
             this.dataGridViewSubject_Search.RowHeadersWidth = 51;
             this.dataGridViewSubject_Search.RowTemplate.Height = 24;
@@ -1017,22 +1041,25 @@
             // 
             // btnReset_Search
             // 
+            this.btnReset_Search.BackColor = System.Drawing.Color.Tan;
             this.btnReset_Search.Location = new System.Drawing.Point(709, 43);
             this.btnReset_Search.Name = "btnReset_Search";
             this.btnReset_Search.Size = new System.Drawing.Size(75, 39);
             this.btnReset_Search.TabIndex = 4;
             this.btnReset_Search.Text = "Reset";
-            this.btnReset_Search.UseVisualStyleBackColor = true;
+            this.btnReset_Search.UseVisualStyleBackColor = false;
             this.btnReset_Search.Click += new System.EventHandler(this.btnReset_Search_Click);
             // 
             // btnFindSubject_Search
             // 
+            this.btnFindSubject_Search.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnFindSubject_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFindSubject_Search.Location = new System.Drawing.Point(519, 41);
             this.btnFindSubject_Search.Name = "btnFindSubject_Search";
             this.btnFindSubject_Search.Size = new System.Drawing.Size(169, 41);
             this.btnFindSubject_Search.TabIndex = 3;
             this.btnFindSubject_Search.Text = "Find Subject >>>";
-            this.btnFindSubject_Search.UseVisualStyleBackColor = true;
+            this.btnFindSubject_Search.UseVisualStyleBackColor = false;
             this.btnFindSubject_Search.Click += new System.EventHandler(this.btnFindSubject_Search_Click);
             // 
             // txtSearchSubject_Search
@@ -1067,9 +1094,10 @@
             // lblViewSearchSubjects
             // 
             this.lblViewSearchSubjects.AutoSize = true;
-            this.lblViewSearchSubjects.Location = new System.Drawing.Point(721, 40);
+            this.lblViewSearchSubjects.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblViewSearchSubjects.Location = new System.Drawing.Point(678, 72);
             this.lblViewSearchSubjects.Name = "lblViewSearchSubjects";
-            this.lblViewSearchSubjects.Size = new System.Drawing.Size(142, 20);
+            this.lblViewSearchSubjects.Size = new System.Drawing.Size(243, 32);
             this.lblViewSearchSubjects.TabIndex = 0;
             this.lblViewSearchSubjects.Text = "View Search Subject";
             // 
@@ -1357,6 +1385,26 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(494, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(258, 41);
+            this.label1.TabIndex = 111;
+            this.label1.Text = "Manage Subjects";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(663, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(258, 41);
+            this.label2.TabIndex = 110;
+            this.label2.Text = "Manage Subjects";
+            // 
             // ManageSubjectsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1530,5 +1578,7 @@
         private System.Windows.Forms.TextBox txtKeyword_Remove;
         private System.Windows.Forms.RadioButton radSubjectName_Remove;
         private System.Windows.Forms.RadioButton radSubjectCode_Remove;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
