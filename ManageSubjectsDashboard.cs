@@ -26,7 +26,9 @@ namespace Timetable_Management_System
         Dictionary<string, bool> closeButtonClickStatus_Add = new Dictionary<string, bool>();
         List<string> loadedTagsList;
         List<string> gblSearchSubjectsAvailableTagsHrsNamesList;
-      
+
+        List<Subject_Tags> gblSubjectTagsListForUpdateFind;
+
         public ManageSubjectsDashboard()
         {
             InitializeComponent();
@@ -47,6 +49,10 @@ namespace Timetable_Management_System
             chkParallelSubject_Add.Checked = true;
             chkParallelSubject_Add.Checked = false;
             loadYearAndSemester_Add();
+
+            //Edit
+            gblSubjectTagsListForUpdateFind = new List<Subject_Tags>();
+            radSubjectCode_Edit.Checked = true;
 
             //Search
             setInitialsInFilterSections_Search();
@@ -1312,6 +1318,166 @@ namespace Timetable_Management_System
             con.Close();
 
             MessageBox.Show("Subject Removed Successfully", "Success");
+        }
+
+        private void btnFindSubject_Edit_Click(object sender, EventArgs e)
+        {
+            if (txtFindSubject_Edit.Text.ToString().Trim().Equals(""))
+            {
+                if (radSubjectCode_Edit.Checked)
+                {
+                    MessageBox.Show("Please enter subject code");
+                }else if (radSubjectName_Edit.Checked)
+                {
+                    MessageBox.Show("Please enter subject Name");
+                }
+            }
+            else
+            {
+                string type ="";
+
+                if (radSubjectCode_Edit.Checked== true)
+                {
+                    type = "byCode";
+                }
+                else if (radSubjectName_Edit.Checked == true)
+                {
+                    type = "byName";
+                } 
+                   Subject subObj  = getSubjectDataForUpdate(txtFindSubject_Edit.Text.ToString().Trim(), type);
+                if(subObj.subjectCode == null){
+                    MessageBox.Show("Subject Not found");
+                }
+                else
+                {
+                    Console.WriteLine(gblSubjectTagsListForUpdateFind);
+                    fillBoxes_Edit();
+                    fillFoundData_Edit(subObj);
+                }
+
+            }
+
+                
+
+        }
+
+        private void fillFoundData_Edit(Subject subObj)
+        {
+            txtSubjectName_Edit.Text = subObj.subjectCode;
+            txtSubejctCode_Edit.Text = subObj.subjectName;
+
+            cmbOfferedYear_Edit.Text = subObj.offeredYear.ToString();
+            cmbOfferedSemester_Edit.Text = subObj.offeredSemester.ToString();
+
+            chkIsParallel_Edit.Checked = subObj.isParallel;
+
+            if(subObj.isParallel== false)
+            {
+                txtCategory_Edit.Visible = false;
+                lblCategory_Edit.Visible = false;
+            }
+            else
+            {
+                txtCategory_Edit.Visible = true;
+                lblCategory_Edit.Visible = true;
+            }
+
+            txtCategory_Edit.Text = subObj.category;
+        }
+
+        private void fillBoxes_Edit()
+        {
+            cmbOfferedYear_Edit.Items.Add("1");
+            cmbOfferedYear_Edit.Items.Add("2");
+            cmbOfferedYear_Edit.Items.Add("3");
+            cmbOfferedYear_Edit.Items.Add("4");
+
+            cmbOfferedSemester_Edit.Items.Add("1");
+            cmbOfferedSemester_Edit.Items.Add("2");
+        }
+
+        private Subject getSubjectDataForUpdate(string subjectSearchKeyForUpdate, string type)
+        {
+
+
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "";
+            if (type.Equals("byCode"))
+            {
+                stm = "select " +
+                    "subjects.subjectCode AS Subject_Code ," +
+                    "subjects.subjectName AS Subject_Name ," +
+                    "subjects.offeredYear AS Year ," +
+                    "subjects.offeredSemester AS Semester ," +
+                    "subjects.isParallel AS Parallel_Subject ," +
+                    "subjects.category AS Category ," +
+                    "subjects_tags.tag AS Tag ," +
+                    "subjects_tags.hrs AS Hours " +
+
+                    "from subjects, subjects_tags" +
+                    " where subjects.subjectCode = subjects_tags.subjectCode AND subjects.subjectCode = '" + subjectSearchKeyForUpdate + "'";
+            }
+            else if (type.Equals("byName"))
+            {
+                stm = "select " +
+                    "subjects.subjectCode AS Subject_Code ," +
+                    "subjects.subjectName AS Subject_Name ," +
+                    "subjects.offeredYear AS Year ," +
+                    "subjects.offeredSemester AS Semester ," +
+                    "subjects.isParallel AS Parallel_Subject ," +
+                    "subjects.category AS Category ," +
+                    "subjects_tags.tag AS Tag ," +
+                    "subjects_tags.hrs AS Hours " +
+                    "from subjects, subjects_tags" +
+                    " where subjects.subjectCode = subjects_tags.subjectCode AND subjects.subjectName = '" + subjectSearchKeyForUpdate + "'";
+            }
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+
+
+            Subject subjectObj_Search = new Subject();
+
+            List<Subject_Tags> subjectTagslist = new List<Subject_Tags>();
+            gblSubjectTagsListForUpdateFind.Clear();
+            while (rdr.Read())
+            {
+                Subject_Tags subjectTagsObj_Search = new Subject_Tags();
+
+                subjectObj_Search.subjectCode = $@"{ rdr.GetString(0),-8}";
+                subjectObj_Search.subjectName = $@"{ rdr.GetString(1),-8}";
+                subjectObj_Search.offeredYear = Int32.Parse($@"{rdr.GetInt32(2),-3}");
+                subjectObj_Search.offeredSemester = Int32.Parse($@"{rdr.GetInt32(3),-3}");
+
+                subjectObj_Search.isParallel = rdr.GetBoolean(rdr.GetOrdinal("Parallel_Subject"));
+
+                subjectObj_Search.category = $@"{ rdr.GetString(5),-8}";
+
+                subjectTagsObj_Search.subjectCode = $@"{ rdr.GetString(0),-8}";
+                subjectTagsObj_Search.tag = $@"{ rdr.GetString(6),-8}";
+                subjectTagsObj_Search.hrs = rdr.GetDouble(rdr.GetOrdinal("Hours"));
+
+                subjectTagslist.Add(subjectTagsObj_Search);
+
+            }
+
+            gblSubjectTagsListForUpdateFind = subjectTagslist;
+
+
+            return subjectObj_Search;
+
+
+        }
+
+        private void chkIsParallel_Edit_CheckedChanged(object sender, EventArgs e)
+        {
+            lblCategory_Edit.Visible = !lblCategory_Edit.Visible;
+            txtCategory_Edit.Visible = !txtCategory_Edit.Visible;
         }
     }
 }

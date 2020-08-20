@@ -54,13 +54,13 @@
             this.radSubjectName_Edit = new System.Windows.Forms.RadioButton();
             this.radSubjectCode_Edit = new System.Windows.Forms.RadioButton();
             this.btnEditSubject_Edit = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.chkIsParallel_Edit = new System.Windows.Forms.CheckBox();
+            this.lblCategory_Edit = new System.Windows.Forms.Label();
+            this.txtCategory_Edit = new System.Windows.Forms.TextBox();
+            this.txtSubejctCode_Edit = new System.Windows.Forms.TextBox();
+            this.txtSubjectName_Edit = new System.Windows.Forms.TextBox();
+            this.cmbOfferedSemester_Edit = new System.Windows.Forms.ComboBox();
+            this.cmbOfferedYear_Edit = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -349,13 +349,13 @@
             // 
             this.EditSubject.Controls.Add(this.groupBox5);
             this.EditSubject.Controls.Add(this.btnEditSubject_Edit);
-            this.EditSubject.Controls.Add(this.checkBox1);
-            this.EditSubject.Controls.Add(this.label1);
-            this.EditSubject.Controls.Add(this.textBox1);
-            this.EditSubject.Controls.Add(this.textBox6);
-            this.EditSubject.Controls.Add(this.textBox7);
-            this.EditSubject.Controls.Add(this.comboBox1);
-            this.EditSubject.Controls.Add(this.comboBox2);
+            this.EditSubject.Controls.Add(this.chkIsParallel_Edit);
+            this.EditSubject.Controls.Add(this.lblCategory_Edit);
+            this.EditSubject.Controls.Add(this.txtCategory_Edit);
+            this.EditSubject.Controls.Add(this.txtSubejctCode_Edit);
+            this.EditSubject.Controls.Add(this.txtSubjectName_Edit);
+            this.EditSubject.Controls.Add(this.cmbOfferedSemester_Edit);
+            this.EditSubject.Controls.Add(this.cmbOfferedYear_Edit);
             this.EditSubject.Controls.Add(this.label6);
             this.EditSubject.Controls.Add(this.label7);
             this.EditSubject.Controls.Add(this.label8);
@@ -400,6 +400,7 @@
             this.btnFindSubject_Edit.TabIndex = 3;
             this.btnFindSubject_Edit.Text = "Find Subject >>>";
             this.btnFindSubject_Edit.UseVisualStyleBackColor = true;
+            this.btnFindSubject_Edit.Click += new System.EventHandler(this.btnFindSubject_Edit_Click);
             // 
             // txtFindSubject_Edit
             // 
@@ -439,61 +440,62 @@
             this.btnEditSubject_Edit.Text = "Edit Subject >>>";
             this.btnEditSubject_Edit.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chkIsParallel_Edit
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(111, 482);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(132, 24);
-            this.checkBox1.TabIndex = 50;
-            this.checkBox1.Text = "Parallel Subject";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkIsParallel_Edit.AutoSize = true;
+            this.chkIsParallel_Edit.Location = new System.Drawing.Point(111, 482);
+            this.chkIsParallel_Edit.Name = "chkIsParallel_Edit";
+            this.chkIsParallel_Edit.Size = new System.Drawing.Size(132, 24);
+            this.chkIsParallel_Edit.TabIndex = 50;
+            this.chkIsParallel_Edit.Text = "Parallel Subject";
+            this.chkIsParallel_Edit.UseVisualStyleBackColor = true;
+            this.chkIsParallel_Edit.CheckedChanged += new System.EventHandler(this.chkIsParallel_Edit_CheckedChanged);
             // 
-            // label1
+            // lblCategory_Edit
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(107, 518);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 49;
-            this.label1.Text = "Category";
+            this.lblCategory_Edit.AutoSize = true;
+            this.lblCategory_Edit.Location = new System.Drawing.Point(107, 518);
+            this.lblCategory_Edit.Name = "lblCategory_Edit";
+            this.lblCategory_Edit.Size = new System.Drawing.Size(69, 20);
+            this.lblCategory_Edit.TabIndex = 49;
+            this.lblCategory_Edit.Text = "Category";
             // 
-            // textBox1
+            // txtCategory_Edit
             // 
-            this.textBox1.Location = new System.Drawing.Point(230, 518);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 27);
-            this.textBox1.TabIndex = 48;
+            this.txtCategory_Edit.Location = new System.Drawing.Point(230, 518);
+            this.txtCategory_Edit.Name = "txtCategory_Edit";
+            this.txtCategory_Edit.Size = new System.Drawing.Size(222, 27);
+            this.txtCategory_Edit.TabIndex = 48;
             // 
-            // textBox6
+            // txtSubejctCode_Edit
             // 
-            this.textBox6.Location = new System.Drawing.Point(227, 252);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(297, 27);
-            this.textBox6.TabIndex = 43;
+            this.txtSubejctCode_Edit.Location = new System.Drawing.Point(227, 252);
+            this.txtSubejctCode_Edit.Name = "txtSubejctCode_Edit";
+            this.txtSubejctCode_Edit.Size = new System.Drawing.Size(297, 27);
+            this.txtSubejctCode_Edit.TabIndex = 43;
             // 
-            // textBox7
+            // txtSubjectName_Edit
             // 
-            this.textBox7.Location = new System.Drawing.Point(227, 209);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(297, 27);
-            this.textBox7.TabIndex = 42;
+            this.txtSubjectName_Edit.Location = new System.Drawing.Point(227, 209);
+            this.txtSubjectName_Edit.Name = "txtSubjectName_Edit";
+            this.txtSubjectName_Edit.Size = new System.Drawing.Size(297, 27);
+            this.txtSubjectName_Edit.TabIndex = 42;
             // 
-            // comboBox1
+            // cmbOfferedSemester_Edit
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(403, 170);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
-            this.comboBox1.TabIndex = 41;
+            this.cmbOfferedSemester_Edit.FormattingEnabled = true;
+            this.cmbOfferedSemester_Edit.Location = new System.Drawing.Point(403, 170);
+            this.cmbOfferedSemester_Edit.Name = "cmbOfferedSemester_Edit";
+            this.cmbOfferedSemester_Edit.Size = new System.Drawing.Size(121, 28);
+            this.cmbOfferedSemester_Edit.TabIndex = 41;
             // 
-            // comboBox2
+            // cmbOfferedYear_Edit
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(174, 170);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 28);
-            this.comboBox2.TabIndex = 40;
+            this.cmbOfferedYear_Edit.FormattingEnabled = true;
+            this.cmbOfferedYear_Edit.Location = new System.Drawing.Point(174, 170);
+            this.cmbOfferedYear_Edit.Name = "cmbOfferedYear_Edit";
+            this.cmbOfferedYear_Edit.Size = new System.Drawing.Size(121, 28);
+            this.cmbOfferedYear_Edit.TabIndex = 40;
             // 
             // label6
             // 
@@ -1445,13 +1447,13 @@
         private System.Windows.Forms.Label lblOfferedYear_Add;
         private System.Windows.Forms.Label lblManageSubjects_Add;
         private System.Windows.Forms.Button btnEditSubject_Edit;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.CheckBox chkIsParallel_Edit;
+        private System.Windows.Forms.Label lblCategory_Edit;
+        private System.Windows.Forms.TextBox txtCategory_Edit;
+        private System.Windows.Forms.TextBox txtSubejctCode_Edit;
+        private System.Windows.Forms.TextBox txtSubjectName_Edit;
+        private System.Windows.Forms.ComboBox cmbOfferedSemester_Edit;
+        private System.Windows.Forms.ComboBox cmbOfferedYear_Edit;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
