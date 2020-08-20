@@ -78,7 +78,7 @@
             this.lblYearL_Remove = new System.Windows.Forms.Label();
             this.lblAnsSemester_Remove = new System.Windows.Forms.Label();
             this.lblSemesterL_Remove = new System.Windows.Forms.Label();
-            this.Category = new System.Windows.Forms.Label();
+            this.lblIsCategoryL_Remove = new System.Windows.Forms.Label();
             this.lblAnsYear_Remove = new System.Windows.Forms.Label();
             this.lblIsParallelL_Remove = new System.Windows.Forms.Label();
             this.lblAnsSubjectCode_Remove = new System.Windows.Forms.Label();
@@ -573,14 +573,14 @@
             this.groupBox4.Controls.Add(this.lblYearL_Remove);
             this.groupBox4.Controls.Add(this.lblAnsSemester_Remove);
             this.groupBox4.Controls.Add(this.lblSemesterL_Remove);
-            this.groupBox4.Controls.Add(this.Category);
+            this.groupBox4.Controls.Add(this.lblIsCategoryL_Remove);
             this.groupBox4.Controls.Add(this.lblAnsYear_Remove);
             this.groupBox4.Controls.Add(this.lblIsParallelL_Remove);
             this.groupBox4.Controls.Add(this.lblAnsSubjectCode_Remove);
             this.groupBox4.Controls.Add(this.lblAnsSubjectName_Remove);
             this.groupBox4.Location = new System.Drawing.Point(501, 256);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(236, 393);
+            this.groupBox4.Size = new System.Drawing.Size(236, 420);
             this.groupBox4.TabIndex = 110;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Subject";
@@ -672,15 +672,15 @@
             this.lblSemesterL_Remove.TabIndex = 98;
             this.lblSemesterL_Remove.Text = "Semester";
             // 
-            // Category
+            // lblIsCategoryL_Remove
             // 
-            this.Category.AutoSize = true;
-            this.Category.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Category.Location = new System.Drawing.Point(18, 189);
-            this.Category.Name = "Category";
-            this.Category.Size = new System.Drawing.Size(73, 20);
-            this.Category.TabIndex = 101;
-            this.Category.Text = "Category";
+            this.lblIsCategoryL_Remove.AutoSize = true;
+            this.lblIsCategoryL_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIsCategoryL_Remove.Location = new System.Drawing.Point(18, 189);
+            this.lblIsCategoryL_Remove.Name = "lblIsCategoryL_Remove";
+            this.lblIsCategoryL_Remove.Size = new System.Drawing.Size(73, 20);
+            this.lblIsCategoryL_Remove.TabIndex = 101;
+            this.lblIsCategoryL_Remove.Text = "Category";
             // 
             // lblAnsYear_Remove
             // 
@@ -740,6 +740,7 @@
             this.btnReset_Remove.TabIndex = 4;
             this.btnReset_Remove.Text = "Reset";
             this.btnReset_Remove.UseVisualStyleBackColor = true;
+            this.btnReset_Remove.Click += new System.EventHandler(this.btnReset_Remove_Click);
             // 
             // btnFindSubject_Remove
             // 
@@ -788,6 +789,7 @@
             this.btnRemoveSubject_Remove.TabIndex = 54;
             this.btnRemoveSubject_Remove.Text = "Remove Subject >>>";
             this.btnRemoveSubject_Remove.UseVisualStyleBackColor = true;
+            this.btnRemoveSubject_Remove.Click += new System.EventHandler(this.btnRemoveSubject_Remove_Click);
             // 
             // lblRemoveSubject
             // 
@@ -1513,7 +1515,7 @@
         private System.Windows.Forms.Label lblYearL_Remove;
         private System.Windows.Forms.Label lblAnsSemester_Remove;
         private System.Windows.Forms.Label lblSemesterL_Remove;
-        private System.Windows.Forms.Label Category;
+        private System.Windows.Forms.Label lblIsCategoryL_Remove;
         private System.Windows.Forms.Label lblAnsYear_Remove;
         private System.Windows.Forms.Label lblIsParallelL_Remove;
         private System.Windows.Forms.Label lblAnsSubjectCode_Remove;

@@ -25,6 +25,8 @@ namespace Timetable_Management_System
 
         Dictionary<string, bool> closeButtonClickStatus_Add = new Dictionary<string, bool>();
         List<string> loadedTagsList;
+        List<string> gblSearchSubjectsAvailableTagsHrsNamesList;
+      
         public ManageSubjectsDashboard()
         {
             InitializeComponent();
@@ -51,6 +53,8 @@ namespace Timetable_Management_System
             radSubjectCode_Search.Checked = true;
             lblTagsL_Search.Visible = false;
             lblTagsHoursL_Search.Visible = false;
+
+            gblSearchSubjectsAvailableTagsHrsNamesList = new List<string>();
 
             //Remove
             radSubjectCode_Remove.Checked = true;
@@ -536,6 +540,8 @@ namespace Timetable_Management_System
 
         private void setsubjectTags()
         {
+            gblSearchSubjectsAvailableTagsHrsNamesList.Clear();
+
             lblTagsL_Search.Visible = true;
             lblTagsHoursL_Search.Visible = true;
 
@@ -553,7 +559,7 @@ namespace Timetable_Management_System
 
                 Label lbl1 = new Label();
                 lbl1.Location = new System.Drawing.Point(1100, initialLocation);
-                lbl1.Size = new System.Drawing.Size(80, 20);
+                lbl1.Size = new System.Drawing.Size(50, 20);
                 lbl1.Name = "lbl" + obj.hrs + "Found_Search";
                 lbl1.Text = obj.hrs.ToString();
                 System.Diagnostics.Debug.WriteLine(obj.tag + "::" + obj.hrs);
@@ -564,6 +570,10 @@ namespace Timetable_Management_System
                 ViewSearchSubjects.Controls.Add(lbl1);
 
                 initialLocation = initialLocation + 30;
+
+
+                gblSearchSubjectsAvailableTagsHrsNamesList.Add(lbl.Name);
+                gblSearchSubjectsAvailableTagsHrsNamesList.Add(lbl1.Name);
 
             }
         }
@@ -1052,6 +1062,13 @@ namespace Timetable_Management_System
             gblSearchFoundObj_Search = null;
             gblSubjectTagslist_Search = null;
 
+            //Reset list
+            
+            foreach (var obj in gblSearchSubjectsAvailableTagsHrsNamesList)
+            {
+                
+            }
+
         }
 
 
@@ -1119,6 +1136,66 @@ namespace Timetable_Management_System
 
         private void setsubjectTags_Remove()
         {
+            gblSubjectTagslist_Search.ToString();
+            //MessageBox.Show("Tags remove found");
+
+            // lblTagsL_Search.Visible = true;
+            // lblTagsHoursL_Search.Visible = true;
+
+            //  gblSubjectTagslist_Search.ToString();
+
+            int tempCounter = 0;
+            foreach (Subject_Tags obj in gblSubjectTagslist_Search)
+            {
+                tempCounter++;
+            }
+
+            if (tempCounter > 0)
+            {
+                //Has tags
+                lblTags_Remove.Visible = true;
+                lblHours_Remove.Visible = true;
+
+                int initialLocation = 420;
+
+                foreach (Subject_Tags obj in gblSubjectTagslist_Search)
+                {
+                    Label lbl = new Label();
+                    lbl.Location = new System.Drawing.Point(400, initialLocation);
+                    lbl.Size = new System.Drawing.Size(80, 20);
+                    lbl.Name = "lbl" + obj.tag + "Found_Remove";
+                    lbl.Text = obj.tag;
+
+                    Label lbl1 = new Label();
+                    lbl1.Location = new System.Drawing.Point(500, initialLocation);
+                    lbl1.Size = new System.Drawing.Size(40, 20);
+                    lbl1.Name = "lbl" + obj.hrs + "Found_Remove";
+                    lbl1.Text = obj.hrs.ToString() + "";
+                    //System.Diagnostics.Debug.WriteLine(obj.tag + "::" + obj.hrs);
+
+                    groupBox4.SendToBack();
+
+                    RemoveSubject.Controls.Add(lbl);
+                    RemoveSubject.Controls.Add(lbl1);
+
+                    initialLocation = initialLocation + 30;
+
+                }
+                initialLocation = 420;
+            }
+            else
+            {
+                //No tags
+                lblTags_Remove.Visible = false;
+                lblHours_Remove.Visible = false;
+            }
+
+        }
+
+        private void setFoundSubjectData_Remove()
+        {
+            
+
             lblAnsSubjectCode_Remove.Visible = true;
             lblAnsSubjectName_Remove.Visible = true;
             lblAnsYear_Remove.Visible = true;
@@ -1131,24 +1208,110 @@ namespace Timetable_Management_System
 
             if (gblSearchFoundObj_Search.isParallel == true)
             {
+                lblIsCategoryL_Remove.Visible = true;
                 lblAnsIsParallel_Remove.Visible = true;
                 lblAnsIsParallel_Remove.Text = "Yes";
                 lblAnsCategory_Remove.Visible = true;
                 lblAnsCategory_Remove.Text = gblSearchFoundObj_Search.category;
-            } else if (gblSearchFoundObj_Search.isParallel == false)
+            }
+            else if (gblSearchFoundObj_Search.isParallel == false)
             {
                 lblAnsIsParallel_Remove.Visible = true;
                 lblAnsIsParallel_Remove.Text = "No";
+                lblIsCategoryL_Remove.Visible = false;
+                lblAnsCategory_Remove.Visible = false;
             }
-
-
+          
 
         }
 
-        private void setFoundSubjectData_Remove()
+        private void btnReset_Remove_Click(object sender, EventArgs e)
         {
-            gblSubjectTagslist_Search.ToString();
-            MessageBox.Show("Tags remove found");
+
+        }
+
+        private void btnRemoveSubject_Remove_Click(object sender, EventArgs e)
+        {
+            if (lblAnsSubjectCode_Remove.Text.Equals(""))
+            {
+
+                if (radSubjectName_Remove.Checked == true)
+                {
+                    MessageBox.Show("Plese enter subject name");
+                }
+                else if (radSubjectCode_Remove.Checked == true)
+                {
+                    MessageBox.Show("Plese enter a subject code");
+                }
+               
+            }
+            else
+            {
+                string type = "";
+                if(radSubjectName_Remove.Checked == true)
+                {
+                    type = "byName";
+                }
+                else if(radSubjectCode_Remove.Checked == true)
+                {
+                    type = "byCode";
+
+                }
+                removeSubjectFunction(lblAnsSubjectCode_Remove.Text.ToString().Trim(), type);
+
+            }
+        }
+
+
+        private void removeSubjectFunction(string SubjectCode, string type)
+        {
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+            //Adding subject
+            using var cmd = new SQLiteCommand(con);
+
+            cmd.CommandText = @"CREATE TABLE  IF NOT EXISTS subjects (
+                                    subjectCode STRING PRIMARY KEY,
+	                                subjectName TEXT,
+	                                offeredYear INTEGER,
+	                                offeredSemester INTEGER,
+	                                isParallel BOOLEAN,
+	                                category TEXT
+                )";
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = @"CREATE TABLE  IF NOT EXISTS subjects_tags (
+                                        subjectCode STRING ,
+	                                    tag STRING,
+	                                    hrs DOUBLE,
+
+	                                    PRIMARY KEY (subjectCode ,tag )
+                                )";
+            cmd.ExecuteNonQuery();
+
+            if (type.Equals("byCode"))
+            {
+                cmd.CommandText = "DELETE FROM subjects_tags WHERE subjectCode = @subjectCode_t";
+                cmd.Parameters.AddWithValue("@subjectCode_t", SubjectCode);
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+
+                cmd.CommandText = "DELETE FROM subjects WHERE subjectCode = @subjectCode_s";
+                cmd.Parameters.AddWithValue("@subjectCode_s", SubjectCode);
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+            }
+            else if (type.Equals("byName"))
+            {
+                //Need to fill
+            }
+
+            con.Close();
+
+            MessageBox.Show("Subject Removed Successfully", "Success");
         }
     }
 }
