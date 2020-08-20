@@ -23,6 +23,7 @@ namespace Timetable_Management_System
         Subject gblSearchFoundObj_Search;
         List<Subject_Tags> gblSubjectTagslist_Search;
         List<string> gblTagNames_Remove;
+        List<string> gblTagNames_Search;
 
         Dictionary<string, bool> closeButtonClickStatus_Add = new Dictionary<string, bool>();
         Dictionary<string, bool> closeButtonClickStatus_Edit = new Dictionary<string, bool>();
@@ -61,8 +62,10 @@ namespace Timetable_Management_System
             radSubjectCode_Search.Checked = true;
             lblTagsL_Search.Visible = false;
             lblTagsHoursL_Search.Visible = false;
+            gblTagNames_Search = new List<string>();
 
             gblSearchSubjectsAvailableTagsHrsNamesList = new List<string>();
+            hideSearchDataSummaryAtLoading();
 
             //Remove
             radSubjectCode_Remove.Checked = true;
@@ -70,7 +73,7 @@ namespace Timetable_Management_System
             gblTagNames_Remove = new List<string>();
         }
 
-       
+      
 
         private void fillCloseButtonClickStatus_Add()
         {
@@ -560,6 +563,11 @@ namespace Timetable_Management_System
 
         private void setsubjectTags()
         {
+            lblTagsL_Search.Visible = true;
+            lblTagsHoursL_Search.Visible = true;
+
+            gblTagNames_Search.Clear();
+
             gblSearchSubjectsAvailableTagsHrsNamesList.Clear();
 
             lblTagsL_Search.Visible = true;
@@ -577,12 +585,15 @@ namespace Timetable_Management_System
                 lbl.Name = "lbl" + obj.tag + "Found_Search";
                 lbl.Text = obj.tag;
 
+                gblTagNames_Search.Add(lbl.Name);
+
                 Label lbl1 = new Label();
                 lbl1.Location = new System.Drawing.Point(1100, initialLocation);
                 lbl1.Size = new System.Drawing.Size(50, 20);
                 lbl1.Name = "lbl" + obj.hrs + "Found_Search";
                 lbl1.Text = obj.hrs.ToString();
-                System.Diagnostics.Debug.WriteLine(obj.tag + "::" + obj.hrs);
+
+                gblTagNames_Search.Add(lbl1.Name);
 
                 groupBox2.SendToBack();
 
@@ -1078,16 +1089,26 @@ namespace Timetable_Management_System
             lblSemesterAns_Search.Text = "";
             lblIsparallel_Search.Text = "";
             lblCategory_Search.Text = "";
+            txtSearchSubject_Search.Text = "";
 
             gblSearchFoundObj_Search = null;
             gblSubjectTagslist_Search = null;
 
+
+            lblTagsL_Search.Visible = false;
+            lblTagsHoursL_Search.Visible = false;
             //Reset list
-            
-            foreach (var obj in gblSearchSubjectsAvailableTagsHrsNamesList)
+
+            Console.WriteLine(gblTagNames_Search);
+
+            foreach (var str in gblTagNames_Search)
             {
-                
+                Label subjectTagLabels = (Label)this.GetControlByName(this, str);
+                subjectTagLabels.Text = "";
             }
+            gblTagNames_Search.Clear();
+
+
 
         }
 
@@ -1631,5 +1652,16 @@ namespace Timetable_Management_System
             lblCategory_Edit.Visible = !lblCategory_Edit.Visible;
             txtCategory_Edit.Visible = !txtCategory_Edit.Visible;
         }
+
+        private void hideSearchDataSummaryAtLoading()
+        {
+            lblSubjectCodeAns_Search.Text = "";
+            lblSubjectNameAns_Search.Text = "";
+            lblYearAns_Search.Text = "";
+            lblSemesterAns_Search.Text = "";
+            lblIsparallel_Search.Text = "";
+            lblCategory_Search.Text = "";
+        }
+
     }
 }

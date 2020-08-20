@@ -17,7 +17,7 @@ namespace Timetable_Management_System
             InitializeComponent();
             logoPictureBox.BackColor = Color.Transparent;
             lblPassword.BackColor = Color.Transparent;
-            txtUsername.PasswordChar = '*';
+            txtPassword.PasswordChar = '*';
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
