@@ -815,9 +815,9 @@
             // 
             this.btnRemoveSubject_Remove.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnRemoveSubject_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveSubject_Remove.Location = new System.Drawing.Point(1010, 597);
+            this.btnRemoveSubject_Remove.Location = new System.Drawing.Point(1015, 643);
             this.btnRemoveSubject_Remove.Name = "btnRemoveSubject_Remove";
-            this.btnRemoveSubject_Remove.Size = new System.Drawing.Size(212, 35);
+            this.btnRemoveSubject_Remove.Size = new System.Drawing.Size(212, 51);
             this.btnRemoveSubject_Remove.TabIndex = 54;
             this.btnRemoveSubject_Remove.Text = "Remove Subject >>>";
             this.btnRemoveSubject_Remove.UseVisualStyleBackColor = false;

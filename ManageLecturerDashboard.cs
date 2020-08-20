@@ -1115,8 +1115,7 @@ namespace Timetable_Management_System
 
         private void deleteLecturerImage()
         {
-            MessageBox.Show(imagePathForRemove);
-   
+
                 try
                 {
                     // Check if file exists with its full path    
@@ -1124,7 +1123,7 @@ namespace Timetable_Management_System
                     {
                         // If file found, delete it
                         File.Delete(@"" + imagePathForRemove);
-                    MessageBox.Show("Image deleted successfully");
+                  
                     }
                     else{
                         MessageBox.Show("File not found");

@@ -932,7 +932,7 @@ namespace Timetable_Management_System
             string to = txtTo_Search.Text;
 
             string query = generateFilterString(subjectCode, subjectName, year, semester, tag, parallel, from, to);
-            MessageBox.Show(query);
+           // MessageBox.Show(query);
             filterSubjects_Search(query);
 
         }
