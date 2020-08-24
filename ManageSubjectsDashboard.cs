@@ -21,6 +21,8 @@ namespace Timetable_Management_System
     public partial class ManageSubjectsDashboard : Form
     {
         String[] tagsList;
+        List<SubjectEditStatus> editTagsStatusList;
+
         Subject gblSearchFoundObj_Search;
         List<Subject_Tags> gblSubjectTagslist_Search;
         List<string> gblTagNames_Remove;
@@ -60,6 +62,8 @@ namespace Timetable_Management_System
             //Edit
             gblSubjectTagsListForUpdateFind = new List<Subject_Tags>();
             radSubjectCode_Edit.Checked = true;
+
+            editTagsStatusList = new List<SubjectEditStatus>();
 
             gblTagNames_label_Edit = new List<string>();
             gblTagNames_text_Edit = new List<string>();
@@ -446,12 +450,12 @@ namespace Timetable_Management_System
             cmd.CommandText = "INSERT INTO subjects VALUES" +
                 "(@subjectCode, @subjectName, @offeredYear, @offeredSemester, @isParallel, @category)";
 
-            cmd.Parameters.AddWithValue("@subjectCode", subjectObj.subjectCode);
-            cmd.Parameters.AddWithValue("@subjectName", subjectObj.subjectName);
+            cmd.Parameters.AddWithValue("@subjectCode", subjectObj.subjectCode.Trim());
+            cmd.Parameters.AddWithValue("@subjectName", subjectObj.subjectName.Trim());
             cmd.Parameters.AddWithValue("@offeredYear", subjectObj.offeredYear);
             cmd.Parameters.AddWithValue("@offeredSemester", subjectObj.offeredSemester);
             cmd.Parameters.AddWithValue("@isParallel", subjectObj.isParallel);
-            cmd.Parameters.AddWithValue("@category", subjectObj.category);
+            cmd.Parameters.AddWithValue("@category", subjectObj.category.Trim());
           
             cmd.Prepare();
 
@@ -1433,6 +1437,7 @@ namespace Timetable_Management_System
                     fillBoxes_Edit();
                     fillFoundData_Edit(subObj);
                     drawTagsData_Edit();
+                    initialBlockInTag_Edit();
                 }
 
             }
@@ -1441,125 +1446,193 @@ namespace Timetable_Management_System
 
         }
 
+        private void initialBlockInTag_Edit()
+        {
+            Console.WriteLine(editTagsStatusList);
+
+            foreach (SubjectEditStatus element in editTagsStatusList)
+            {
+                if(element.closeClickStatus == false)
+                {
+                    Console.WriteLine(element);
+                    TextBox txtBox_Edit = (TextBox)this.GetControlByName(this, element.txtName);
+                    txtBox_Edit.Enabled = false;
+                }
+            
+            }
+        }
+
         private void drawTagsData_Edit()
         {
+            editTagsStatusList.Clear();
+
             Console.WriteLine(gblSubjectTagsListForUpdateFind);
 
             gblTagNames_label_Edit.Clear();
             gblTagNames_text_Edit.Clear();
             gblTagNames_button_Edit.Clear();
 
-            int initialLocation = 410;
-            foreach (Subject_Tags item in gblSubjectTagsListForUpdateFind) // Loop through List with foreach
-            {
-                Console.WriteLine(item);
+            int initialLocation = 390;
+            List<SubjectEditStatus> tempArr = new List<SubjectEditStatus>();
 
+            for (int i = 0; i < tagsList.Length; i++)
+            {
+                SubjectEditStatus subjectEditStatusObj = new SubjectEditStatus();
+
+                //Label
                 Label label = new Label();
                 label.Location = new System.Drawing.Point(410, initialLocation);
                 label.Size = new System.Drawing.Size(80, 20);
-                label.Name = "lbl" + item.tag + "_Edit";
-                label.Name = label.Name.Trim();
-                label.Text = item.tag + "";
+                label.Name = "lbl" + tagsList[i] + "_Edit";
+                label.Text = tagsList[i].Trim() + "";
                 EditSubject.Controls.Add(label);
+                subjectEditStatusObj.tag = tagsList[i];
+                subjectEditStatusObj.lblName = label.Name;
 
-                gblTagNames_label_Edit.Add(label.Name);
-                
+                //Textbox
                 TextBox textbox = new TextBox();
                 textbox.Location = new System.Drawing.Point(500, initialLocation);
                 textbox.Size = new System.Drawing.Size(80, 20);
-                textbox.Name = "txt" + item.tag + "Hrs_Edit";
-                textbox.Name = textbox.Name.Trim() ;
-                textbox.Text = ""+item.hrs;
+                textbox.Name = "txt" + tagsList[i] + "Hrs_Edit";
+                string temp = tagsList[i];
+                textbox.TextChanged += (se, ev) => text_Change_Edit(se, ev, textbox.Text, temp);
+                textbox.Leave += (se, ev) => text_Leave_Edit(se, ev, textbox.Text, textbox.Name);
+                foreach (Subject_Tags element in gblSubjectTagsListForUpdateFind)
+                {
+                    if (element.tag.Equals(tagsList[i]))
+                    {
+                        textbox.Text = element.hrs.ToString();
+                        subjectEditStatusObj.hrs = double.Parse(textbox.Text, System.Globalization.CultureInfo.InvariantCulture);
+                    }
+                }
+                if (textbox.Text.Equals(""))
+                {
+                    textbox.Text = "N/A";
+                    subjectEditStatusObj.hrs = 0;
+                }
                 EditSubject.Controls.Add(textbox);
+                subjectEditStatusObj.txtName = textbox.Name;
 
-                gblTagNames_text_Edit.Add(textbox.Name);
 
+                //hrs Label
+                Label lbl = new Label();
+                lbl.Location = new System.Drawing.Point(600, initialLocation);
+                lbl.Size = new System.Drawing.Size(50, 20);
+                lbl.Name = "lbl" + tagsList[i] + "Hours_Edit";
+                lbl.Text = "hours";
+                EditSubject.Controls.Add(lbl);
+                subjectEditStatusObj.lblhoursName = lbl.Name;
+
+                //Close button
                 Button closeBtn = new Button();
-                closeBtn.Location = new System.Drawing.Point(670, initialLocation);
+                closeBtn.Location = new System.Drawing.Point(720, initialLocation);
                 closeBtn.Size = new System.Drawing.Size(20, 20);
-                closeBtn.Name = "btn" + item.tag + "Close_Edit";
-                //closeBtn.Click += new EventHandler(CloseButtonClick_Add(tagsList[i]));
-                string temp = item.tag + "";
-                closeBtn.Click += (se, ev) => button_Click_Edit(se, ev, temp);
+                closeBtn.Name = "btn" + tagsList[i] + "Close_Edit";
+                string temp1 = tagsList[i] + "";
+                closeBtn.Click += (se, ev) => button_Click_Edit(se, ev, temp1);
                 closeBtn.Text = "X";
                 EditSubject.Controls.Add(closeBtn);
+                subjectEditStatusObj.lblCloseBtnName = closeBtn.Name;
 
-                gblTagNames_button_Edit.Add(closeBtn.Name);
+                int number;
+                bool success = Int32.TryParse(textbox.Text.Trim(), out number); ;
 
+                if (success==true)
+                {
+                    subjectEditStatusObj.closeClickStatus = true;
+                }
+                else if(textbox.Text.Equals("") || textbox.Text.Equals("N/A"))
+                {
+                    subjectEditStatusObj.closeClickStatus = false;
+                }
+                else
+                {
+                    subjectEditStatusObj.closeClickStatus = false;
+                }
                 initialLocation = initialLocation + 30;
-
-
+                tempArr.Add(subjectEditStatusObj);
             }
+            editTagsStatusList = tempArr;
 
-            fillCloseButtonClickStatus_Edit();
+        }
 
+        private void text_Leave_Edit(object se, EventArgs ev, string text, string name)
+        {
+            int number;
+            bool parseSuccess = Int32.TryParse(text, out number);
+            if(parseSuccess == false)
+            {
+                MessageBox.Show("Number of hours must be desimal");
+            }
+            else
+            {
+                if (text.Equals(""))
+                {
+                    TextBox txtBox_Edit = (TextBox)this.GetControlByName(this, name);
+                    txtBox_Edit.Enabled = false;
+                }
+            }
+            
+        }
 
+        private void text_Change_Edit(object se, EventArgs ev, string inputText, string tag)
+        {
+            int number;
+            bool parseSuccess = Int32.TryParse(inputText, out number);
+
+            if (parseSuccess == true  &&  (inputText.Equals("") || inputText.Equals("N") || inputText.Equals("N/")==false  ))
+            {
+                for (var i = 0; i < editTagsStatusList.Count; i++)
+                {
+                    if (editTagsStatusList[i].tag.Equals(tag))
+                    {
+                        editTagsStatusList[i].hrs = double.Parse(inputText, System.Globalization.CultureInfo.InvariantCulture);
+
+                    }
+                }
+            }
+            Console.WriteLine(editTagsStatusList);
         }
 
         private void button_Click_Edit(object se, EventArgs ev, string closeType)
         {
-
-            //check  if clicked item is already available
-            //then remove
-
             Console.WriteLine(closeType);
 
-
-            foreach (var item in closeButtonClickStatus_Edit)
+            for (var i = 0; i < editTagsStatusList.Count; i++)
             {
-                if (item.Key.Equals(closeType))
-                {
-                    closeButtonClickStatus_Edit[closeType] = !(item.Value);
-                    break;
-                }
-            }
-            
-
-            foreach (var item in closeButtonClickStatus_Edit)
-            {
-
-                //item.Key
-                if (item.Value == false)
-                {
-                    string btnName = "btn" + item.Key + "Close_Edit";
-                    string txtName = "txt" + item.Key + "Hrs_Edit";
-
-                    Button btn = null;
-                    TextBox txt = null;
-
-                    if (EditSubject.Controls.ContainsKey(btnName))
-                    {
-                        btn = EditSubject.Controls[btnName] as Button;
-                        txt = EditSubject.Controls[txtName] as TextBox;
-                        //     btn.Enabled = false;
-                        txt.Enabled = false;
-                    }
-                }
-                else if (item.Value == true)
-                {
-                    string btnName = "btn" + item.Key + "Close_Edit";
-                    string txtName = "txt" + item.Key + "Hrs_Edit";
-
-                    Button btn = null;
-                    TextBox txt = null;
-
-                    if (AddSubject.Controls.ContainsKey(btnName))
-                    {
-                        btn = EditSubject.Controls[btnName] as Button;
-                        txt = EditSubject.Controls[txtName] as TextBox;
-                        //     btn.Enabled = false;
-                        txt.Enabled = true;
-                    }
+                TextBox txtBox_Edit = (TextBox)this.GetControlByName(this, editTagsStatusList[i].txtName);
+                
+                if (editTagsStatusList[i].tag.Equals(closeType))
+                { 
+                    editTagsStatusList[i].closeClickStatus = !editTagsStatusList[i].closeClickStatus;
                 }
 
             }
+            updateEditTagBlockingInView();
 
+        }
+
+        private void updateEditTagBlockingInView()
+        {
+            Console.WriteLine(editTagsStatusList);
+            foreach (SubjectEditStatus element in editTagsStatusList)
+            {
+                TextBox txtBox_Edit = (TextBox)this.GetControlByName(this, element.txtName);
+                
+                if(element.closeClickStatus == true)
+                {
+                    txtBox_Edit.Enabled = true;
+                }else if (element.closeClickStatus == false)
+                {
+                    txtBox_Edit.Enabled = false;
+                }
+            }
         }
 
         private void fillFoundData_Edit(Subject subObj)
         {
-            txtSubjectName_Edit.Text = subObj.subjectCode;
-            txtSubejctCode_Edit.Text = subObj.subjectName;
+            txtSubjectName_Edit.Text = subObj.subjectName;
+            txtSubejctCode_Edit.Text = subObj.subjectCode;
 
             cmbOfferedYear_Edit.Text = subObj.offeredYear.ToString();
             cmbOfferedSemester_Edit.Text = subObj.offeredSemester.ToString();
@@ -1648,14 +1721,19 @@ namespace Timetable_Management_System
                 subjectObj_Search.subjectName = $@"{ rdr.GetString(1),-8}";
                 subjectObj_Search.offeredYear = Int32.Parse($@"{rdr.GetInt32(2),-3}");
                 subjectObj_Search.offeredSemester = Int32.Parse($@"{rdr.GetInt32(3),-3}");
-
                 subjectObj_Search.isParallel = rdr.GetBoolean(rdr.GetOrdinal("Parallel_Subject"));
-
                 subjectObj_Search.category = $@"{ rdr.GetString(5),-8}";
-
                 subjectTagsObj_Search.subjectCode = $@"{ rdr.GetString(0),-8}";
                 subjectTagsObj_Search.tag = $@"{ rdr.GetString(6),-8}";
                 subjectTagsObj_Search.hrs = rdr.GetDouble(rdr.GetOrdinal("Hours"));
+
+
+
+                subjectObj_Search.subjectCode = subjectObj_Search.subjectCode.Trim();
+                subjectObj_Search.subjectName = subjectObj_Search.subjectName.Trim();
+                subjectObj_Search.category = subjectObj_Search.category.Trim();
+                subjectTagsObj_Search.subjectCode = subjectTagsObj_Search.subjectCode.Trim();
+                subjectTagsObj_Search.tag = subjectTagsObj_Search.tag.Trim();
 
                 subjectTagslist.Add(subjectTagsObj_Search);
 
@@ -1724,36 +1802,41 @@ namespace Timetable_Management_System
 
         private void btnEditSubject_Edit_Click(object sender, EventArgs e)
         {
-            if (txtFindSubject_Edit.Text.Equals(""))
+
+
+
+            
+            if (txtSubejctCode_Edit.Text.Equals(""))
             {
-                if (radSubjectCode_Edit.Checked == true)
-                {
-                    MessageBox.Show("Please enter subject code");
-                }else if(radSubjectName_Edit.Checked == true)
-                {
-                    MessageBox.Show("Please enter subject name");
-                }
+                MessageBox.Show("Please select a subject first");
             }
             else
             {
-                string type = "";
-                if (radSubjectCode_Edit.Checked == true)
-                {
-                    type = "byId";
-                }
-                else if (radSubjectName_Edit.Checked == true)
-                {
-                    type = "byName";
-                }
+                Subject obj = new Subject();
+                
+                int offeredYearNumber;
+                bool success1 = Int32.TryParse(this.cmbOfferedYear_Edit.GetItemText(this.cmbOfferedYear_Edit.SelectedItem), out offeredYearNumber);
+                obj.offeredYear = offeredYearNumber;
 
-                Updatesubject(txtFindSubject_Edit.Text.Trim(), type);
+                int offeredSemesterNumber;
+                bool success2 = Int32.TryParse(this.cmbOfferedSemester_Edit.GetItemText(this.cmbOfferedSemester_Edit.SelectedItem), out offeredSemesterNumber);
+                obj.offeredSemester = offeredSemesterNumber;
 
+                obj.subjectName = txtSubjectName_Edit.Text;
+                obj.subjectCode = txtSubejctCode_Edit.Text;
+                obj.isParallel= chkIsParallel_Edit.Checked;
+                obj.category = txtCategory_Edit.Text;
+
+                Console.WriteLine(editTagsStatusList);
+
+                Updatesubject(obj);
+                obj = null;
             }
-          
         }
 
-        private void Updatesubject(string v, string type)
+        private void Updatesubject(Subject subjectObj)
         {
+
             string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
             using var con = new SQLiteConnection(cs);
@@ -1761,18 +1844,70 @@ namespace Timetable_Management_System
 
             using var cmd = new SQLiteCommand(con);
 
+            cmd.CommandText = @"UPDATE subjects SET subjectName= '" + subjectObj.subjectName + "' , " +
+                "offeredYear = " + subjectObj.offeredYear + " , " +
+                "offeredSemester = " + subjectObj.offeredSemester + " , " +
+                "isParallel = " + subjectObj.isParallel + " , " +
+                "category = '" + subjectObj.category + "' "+
+                "WHERE subjectCode = '" + subjectObj.subjectCode + "'";
+                cmd.ExecuteNonQuery();
 
 
-            cmd.CommandText = @"UPDATE subjects SET subjectCode= '" + txtSubejctCode_Edit.Text + "' , " +
-            "subjectName = '" + txtSubjectName_Edit.Text + "' , " +
-            "offeredYear = '" + cmbOfferedYear_Edit.Text + "' , " +
-            "offeredSemester = '" + cmbOfferedSemester_Edit.Text + "' , " +
-            "isParallel = '" + chkIsParallel_Edit.Checked + "' , " +
-            "category = '" + txtCategory_Edit.Text+"'";
-              //  cmd.ExecuteNonQuery();
+            Console.WriteLine(editTagsStatusList);
+            foreach (SubjectEditStatus element in editTagsStatusList)
+            {
+                if(element.closeClickStatus == false || element.hrs== 0)
+                {
+                    //delete
+
+                    cmd.CommandText = @"DELETE FROM subjects_tags " +
+                    "WHERE subjectCode = '" + subjectObj.subjectCode + "' AND tag = '" + element.tag + "'";
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    //first check whether already exist
+
+                    string stm = "";
+
+                    stm = "select * from subjects_tags where  subjectCode = '" + subjectObj.subjectCode + "' AND tag = '" + element.tag + "' ";
+
+                    using var cmd1 = new SQLiteCommand(stm, con);
+                    using SQLiteDataReader rdr = cmd1.ExecuteReader();
+
+                    int counter = 0;
+                    while (rdr.Read())
+                    {
+                        counter++;
+                    }
+
+                    rdr.Close();
+                    if (counter == 0)
+                    {
+                        //No record in DB
+                        //insert query
+
+                        cmd.CommandText = @"INSERT INTO subjects_tags Values('" + subjectObj.subjectCode +"', '"+ element.tag +"', "+ element.hrs + " )";
+                        cmd.ExecuteNonQuery();
+
+                    }
+                    else
+                    {
+                        //Record in DB
+                        // exist if(closeclickStatus== false || hrs == 0)  =>delete
+                        // otherwise update
+                        cmd.CommandText = @"Update subjects_tags SET hrs =" + element.hrs + " " +
+                            "WHERE subjectCode = '" + subjectObj.subjectCode + "' AND tag = '" + element.tag + "'";
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+            }
+
 
             con.Close();
-            MessageBox.Show("Subject Updated success");
+            MessageBox.Show("Update success");
+
         }
     }
 }

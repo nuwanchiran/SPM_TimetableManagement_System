@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageSubjectsDashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AddSubject = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnReset_Add = new System.Windows.Forms.Button();
             this.btnAddSubject_Add = new System.Windows.Forms.Button();
             this.chkParallelSubject_Add = new System.Windows.Forms.CheckBox();
@@ -47,6 +48,7 @@
             this.lblManageSubjects_Add = new System.Windows.Forms.Label();
             this.lblAddSubjects_Add = new System.Windows.Forms.Label();
             this.EditSubject = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnResetSubject_Edit = new System.Windows.Forms.Button();
             this.btnFindSubject_Edit = new System.Windows.Forms.Button();
@@ -68,6 +70,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblEditSubject = new System.Windows.Forms.Label();
             this.RemoveSubject = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lblHours_Remove = new System.Windows.Forms.Label();
             this.lblAnsCategory_Remove = new System.Windows.Forms.Label();
@@ -92,6 +96,8 @@
             this.btnRemoveSubject_Remove = new System.Windows.Forms.Button();
             this.lblRemoveSubject = new System.Windows.Forms.Label();
             this.ViewSearchSubjects = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnFilter_Search = new System.Windows.Forms.Button();
             this.lblTo_Search = new System.Windows.Forms.Label();
             this.lblFrom_Search = new System.Windows.Forms.Label();
@@ -144,12 +150,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.AddSubject.SuspendLayout();
             this.EditSubject.SuspendLayout();
@@ -220,6 +220,15 @@
             this.AddSubject.TabIndex = 0;
             this.AddSubject.Text = "Add Subject";
             this.AddSubject.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(20, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(221, 20);
+            this.label4.TabIndex = 54;
+            this.label4.Text = "Manage Subjects > Add Subject";
             // 
             // btnReset_Add
             // 
@@ -383,6 +392,15 @@
             this.EditSubject.Text = "Edit Subject";
             this.EditSubject.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(219, 20);
+            this.label3.TabIndex = 53;
+            this.label3.Text = "Manage Subjects > Edit Subject";
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.btnResetSubject_Edit);
@@ -489,6 +507,7 @@
             // 
             // txtSubejctCode_Edit
             // 
+            this.txtSubejctCode_Edit.Enabled = false;
             this.txtSubejctCode_Edit.Location = new System.Drawing.Point(621, 353);
             this.txtSubejctCode_Edit.Name = "txtSubejctCode_Edit";
             this.txtSubejctCode_Edit.Size = new System.Drawing.Size(297, 27);
@@ -496,7 +515,7 @@
             // 
             // txtSubjectName_Edit
             // 
-            this.txtSubjectName_Edit.Location = new System.Drawing.Point(621, 310);
+            this.txtSubjectName_Edit.Location = new System.Drawing.Point(621, 317);
             this.txtSubjectName_Edit.Name = "txtSubjectName_Edit";
             this.txtSubjectName_Edit.Size = new System.Drawing.Size(297, 27);
             this.txtSubjectName_Edit.TabIndex = 42;
@@ -587,6 +606,25 @@
             this.RemoveSubject.TabIndex = 2;
             this.RemoveSubject.Text = "Remove Subject";
             this.RemoveSubject.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(247, 20);
+            this.label5.TabIndex = 112;
+            this.label5.Text = "Manage Subjects > Remove Subject";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(605, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(258, 41);
+            this.label1.TabIndex = 111;
+            this.label1.Text = "Manage Subjects";
             // 
             // groupBox4
             // 
@@ -865,6 +903,25 @@
             this.ViewSearchSubjects.TabIndex = 3;
             this.ViewSearchSubjects.Text = "View/ Search Subjects";
             this.ViewSearchSubjects.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(20, 20);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(225, 20);
+            this.label11.TabIndex = 111;
+            this.label11.Text = "Manage Subjects > View Subject";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(605, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(258, 41);
+            this.label2.TabIndex = 110;
+            this.label2.Text = "Manage Subjects";
             // 
             // btnFilter_Search
             // 
@@ -1394,62 +1451,6 @@
             this.imgTime.TabIndex = 45;
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(605, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(258, 41);
-            this.label1.TabIndex = 111;
-            this.label1.Text = "Manage Subjects";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(605, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(258, 41);
-            this.label2.TabIndex = 110;
-            this.label2.Text = "Manage Subjects";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(219, 20);
-            this.label3.TabIndex = 53;
-            this.label3.Text = "Manage Subjects > Edit Subject";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(221, 20);
-            this.label4.TabIndex = 54;
-            this.label4.Text = "Manage Subjects > Add Subject";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(247, 20);
-            this.label5.TabIndex = 112;
-            this.label5.Text = "Manage Subjects > Remove Subject";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(20, 20);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(225, 20);
-            this.label11.TabIndex = 111;
-            this.label11.Text = "Manage Subjects > View Subject";
             // 
             // ManageSubjectsDashboard
             // 
