@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageLecturerDashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AddLecturer = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBoxLecturer = new System.Windows.Forms.GroupBox();
             this.lblLecCenter = new System.Windows.Forms.Label();
             this.lblLecFaculty = new System.Windows.Forms.Label();
@@ -65,6 +66,7 @@
             this.lblAddLecturer = new System.Windows.Forms.Label();
             this.lblManageLecturer = new System.Windows.Forms.Label();
             this.EditLecturer = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnEditLecturer = new System.Windows.Forms.Button();
             this.txtEmpID_Edit = new System.Windows.Forms.TextBox();
@@ -103,6 +105,7 @@
             this.radFindById_Edit = new System.Windows.Forms.RadioButton();
             this.lblEditLecturer = new System.Windows.Forms.Label();
             this.lblLecCenter_Remove = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnRemove_Remove = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -121,6 +124,7 @@
             this.radFindById_Remove = new System.Windows.Forms.RadioButton();
             this.lblRemoveLecturer = new System.Windows.Forms.Label();
             this.ViewSearchLecturers = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Level = new System.Windows.Forms.Label();
             this.Building = new System.Windows.Forms.Label();
@@ -133,6 +137,7 @@
             this.cmbDepartmentSearch = new System.Windows.Forms.ComboBox();
             this.cmbFacultySearch = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblLecRankSearch = new System.Windows.Forms.Label();
             this.lblLecCenterSearch = new System.Windows.Forms.Label();
             this.lblLecFacultySearch = new System.Windows.Forms.Label();
             this.lblLecDepartmentSearch = new System.Windows.Forms.Label();
@@ -160,10 +165,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.AddLecturer.SuspendLayout();
             this.groupBoxLecturer.SuspendLayout();
@@ -215,6 +216,7 @@
             this.tabControl1.Size = new System.Drawing.Size(1915, 917);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // AddLecturer
             // 
@@ -252,6 +254,15 @@
             this.AddLecturer.TabIndex = 0;
             this.AddLecturer.Text = "Add Lecturer";
             this.AddLecturer.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(20, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(229, 20);
+            this.label6.TabIndex = 113;
+            this.label6.Text = "Manage Lecturers > Add Lecturer";
             // 
             // groupBoxLecturer
             // 
@@ -422,7 +433,7 @@
             // cmbBuilding
             // 
             this.cmbBuilding.FormattingEnabled = true;
-            this.cmbBuilding.Location = new System.Drawing.Point(308, 398);
+            this.cmbBuilding.Location = new System.Drawing.Point(308, 330);
             this.cmbBuilding.Name = "cmbBuilding";
             this.cmbBuilding.Size = new System.Drawing.Size(264, 28);
             this.cmbBuilding.TabIndex = 15;
@@ -430,7 +441,7 @@
             // cmbCenter
             // 
             this.cmbCenter.FormattingEnabled = true;
-            this.cmbCenter.Location = new System.Drawing.Point(308, 364);
+            this.cmbCenter.Location = new System.Drawing.Point(308, 292);
             this.cmbCenter.Name = "cmbCenter";
             this.cmbCenter.Size = new System.Drawing.Size(264, 28);
             this.cmbCenter.TabIndex = 14;
@@ -439,7 +450,7 @@
             // cmbDepartment
             // 
             this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(308, 327);
+            this.cmbDepartment.Location = new System.Drawing.Point(308, 399);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(264, 28);
             this.cmbDepartment.TabIndex = 13;
@@ -448,7 +459,7 @@
             // cmbFaculty
             // 
             this.cmbFaculty.FormattingEnabled = true;
-            this.cmbFaculty.Location = new System.Drawing.Point(308, 292);
+            this.cmbFaculty.Location = new System.Drawing.Point(308, 364);
             this.cmbFaculty.Name = "cmbFaculty";
             this.cmbFaculty.Size = new System.Drawing.Size(264, 28);
             this.cmbFaculty.TabIndex = 12;
@@ -495,7 +506,7 @@
             // lblBuilding
             // 
             this.lblBuilding.AutoSize = true;
-            this.lblBuilding.Location = new System.Drawing.Point(185, 403);
+            this.lblBuilding.Location = new System.Drawing.Point(185, 333);
             this.lblBuilding.Name = "lblBuilding";
             this.lblBuilding.Size = new System.Drawing.Size(64, 20);
             this.lblBuilding.TabIndex = 7;
@@ -504,7 +515,7 @@
             // lblCenter
             // 
             this.lblCenter.AutoSize = true;
-            this.lblCenter.Location = new System.Drawing.Point(185, 364);
+            this.lblCenter.Location = new System.Drawing.Point(183, 292);
             this.lblCenter.Name = "lblCenter";
             this.lblCenter.Size = new System.Drawing.Size(52, 20);
             this.lblCenter.TabIndex = 6;
@@ -513,7 +524,7 @@
             // lblDepartment
             // 
             this.lblDepartment.AutoSize = true;
-            this.lblDepartment.Location = new System.Drawing.Point(183, 327);
+            this.lblDepartment.Location = new System.Drawing.Point(183, 399);
             this.lblDepartment.Name = "lblDepartment";
             this.lblDepartment.Size = new System.Drawing.Size(89, 20);
             this.lblDepartment.TabIndex = 5;
@@ -522,7 +533,7 @@
             // lblFaculty
             // 
             this.lblFaculty.AutoSize = true;
-            this.lblFaculty.Location = new System.Drawing.Point(183, 292);
+            this.lblFaculty.Location = new System.Drawing.Point(183, 364);
             this.lblFaculty.Name = "lblFaculty";
             this.lblFaculty.Size = new System.Drawing.Size(54, 20);
             this.lblFaculty.TabIndex = 4;
@@ -602,6 +613,15 @@
             this.EditLecturer.Text = "Edit Lecturer";
             this.EditLecturer.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(227, 20);
+            this.label5.TabIndex = 112;
+            this.label5.Text = "Manage Lecturers > Edit Lecturer";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -625,6 +645,7 @@
             // 
             // txtEmpID_Edit
             // 
+            this.txtEmpID_Edit.Enabled = false;
             this.txtEmpID_Edit.Location = new System.Drawing.Point(475, 389);
             this.txtEmpID_Edit.Name = "txtEmpID_Edit";
             this.txtEmpID_Edit.Size = new System.Drawing.Size(264, 27);
@@ -751,11 +772,12 @@
             this.cmbEmpLevel_Edit.Name = "cmbEmpLevel_Edit";
             this.cmbEmpLevel_Edit.Size = new System.Drawing.Size(264, 28);
             this.cmbEmpLevel_Edit.TabIndex = 41;
+            this.cmbEmpLevel_Edit.SelectedIndexChanged += new System.EventHandler(this.cmbEmpLevel_Edit_SelectedIndexChanged);
             // 
             // cmbBuilding_Edit
             // 
             this.cmbBuilding_Edit.FormattingEnabled = true;
-            this.cmbBuilding_Edit.Location = new System.Drawing.Point(475, 531);
+            this.cmbBuilding_Edit.Location = new System.Drawing.Point(474, 456);
             this.cmbBuilding_Edit.Name = "cmbBuilding_Edit";
             this.cmbBuilding_Edit.Size = new System.Drawing.Size(264, 28);
             this.cmbBuilding_Edit.TabIndex = 40;
@@ -763,15 +785,16 @@
             // cmbCenter_Edit
             // 
             this.cmbCenter_Edit.FormattingEnabled = true;
-            this.cmbCenter_Edit.Location = new System.Drawing.Point(475, 497);
+            this.cmbCenter_Edit.Location = new System.Drawing.Point(474, 422);
             this.cmbCenter_Edit.Name = "cmbCenter_Edit";
             this.cmbCenter_Edit.Size = new System.Drawing.Size(264, 28);
             this.cmbCenter_Edit.TabIndex = 39;
+            this.cmbCenter_Edit.SelectedIndexChanged += new System.EventHandler(this.cmbCenter_Edit_SelectedIndexChanged);
             // 
             // cmbDepartment_Edit
             // 
             this.cmbDepartment_Edit.FormattingEnabled = true;
-            this.cmbDepartment_Edit.Location = new System.Drawing.Point(475, 460);
+            this.cmbDepartment_Edit.Location = new System.Drawing.Point(475, 528);
             this.cmbDepartment_Edit.Name = "cmbDepartment_Edit";
             this.cmbDepartment_Edit.Size = new System.Drawing.Size(264, 28);
             this.cmbDepartment_Edit.TabIndex = 38;
@@ -779,10 +802,11 @@
             // cmbFaculty_Edit
             // 
             this.cmbFaculty_Edit.FormattingEnabled = true;
-            this.cmbFaculty_Edit.Location = new System.Drawing.Point(475, 425);
+            this.cmbFaculty_Edit.Location = new System.Drawing.Point(475, 493);
             this.cmbFaculty_Edit.Name = "cmbFaculty_Edit";
             this.cmbFaculty_Edit.Size = new System.Drawing.Size(264, 28);
             this.cmbFaculty_Edit.TabIndex = 37;
+            this.cmbFaculty_Edit.SelectedIndexChanged += new System.EventHandler(this.cmbFaculty_Edit_SelectedIndexChanged);
             // 
             // cmbTitle_Edit
             // 
@@ -824,7 +848,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(352, 536);
+            this.label14.Location = new System.Drawing.Point(351, 461);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(64, 20);
             this.label14.TabIndex = 32;
@@ -833,7 +857,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(352, 497);
+            this.label15.Location = new System.Drawing.Point(351, 422);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(52, 20);
             this.label15.TabIndex = 31;
@@ -842,7 +866,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(350, 460);
+            this.label16.Location = new System.Drawing.Point(350, 528);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(89, 20);
             this.label16.TabIndex = 30;
@@ -851,7 +875,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(350, 425);
+            this.label17.Location = new System.Drawing.Point(350, 493);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(54, 20);
             this.label17.TabIndex = 29;
@@ -964,6 +988,15 @@
             this.lblLecCenter_Remove.TabIndex = 2;
             this.lblLecCenter_Remove.Text = "RemoveLecturer";
             this.lblLecCenter_Remove.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(20, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(255, 20);
+            this.label7.TabIndex = 114;
+            this.label7.Text = "Manage Lecturers > Remove Lecturer";
             // 
             // label4
             // 
@@ -1169,6 +1202,15 @@
             this.ViewSearchLecturers.Text = "View/ Search Lecturers";
             this.ViewSearchLecturers.UseVisualStyleBackColor = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(20, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(233, 20);
+            this.label8.TabIndex = 115;
+            this.label8.Text = "Manage Lecturers > View Lecturer";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -1271,6 +1313,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblLecRankSearch);
             this.groupBox2.Controls.Add(this.lblLecCenterSearch);
             this.groupBox2.Controls.Add(this.lblLecFacultySearch);
             this.groupBox2.Controls.Add(this.lblLecDepartmentSearch);
@@ -1280,10 +1323,19 @@
             this.groupBox2.Controls.Add(this.pictureBoxLecturerSearch);
             this.groupBox2.Location = new System.Drawing.Point(1229, 277);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(350, 410);
+            this.groupBox2.Size = new System.Drawing.Size(350, 432);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lecturer";
+            // 
+            // lblLecRankSearch
+            // 
+            this.lblLecRankSearch.AutoSize = true;
+            this.lblLecRankSearch.Location = new System.Drawing.Point(62, 391);
+            this.lblLecRankSearch.Name = "lblLecRankSearch";
+            this.lblLecRankSearch.Size = new System.Drawing.Size(41, 20);
+            this.lblLecRankSearch.TabIndex = 51;
+            this.lblLecRankSearch.Text = "Rank";
             // 
             // lblLecCenterSearch
             // 
@@ -1574,42 +1626,6 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(227, 20);
-            this.label5.TabIndex = 112;
-            this.label5.Text = "Manage Lecturers > Edit Lecturer";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(229, 20);
-            this.label6.TabIndex = 113;
-            this.label6.Text = "Manage Lecturers > Add Lecturer";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(20, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(255, 20);
-            this.label7.TabIndex = 114;
-            this.label7.Text = "Manage Lecturers > Remove Lecturer";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(20, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(233, 20);
-            this.label8.TabIndex = 115;
-            this.label8.Text = "Manage Lecturers > View Lecturer";
-            // 
             // ManageLecturerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1812,5 +1828,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblLecRankSearch;
     }
 }

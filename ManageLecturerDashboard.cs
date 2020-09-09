@@ -45,15 +45,8 @@ namespace Timetable_Management_System
 
             fillEmployeeLevelCmb();
             fillTitleCmb();
-            fillFacultyCmb();
 
-            fillDepartmentCmb();
             fillCenterCmb();
-            fillBuilding();
-          //  cmbTitle.SelectedIndex = 0;
-          //  cmbEmpLevel.SelectedIndex = 0;
-
-
 
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
@@ -137,6 +130,8 @@ namespace Timetable_Management_System
             cmbEmpLevel_Edit.Text = "";
 
             chooseImageButtonTouched = false;
+
+            
         }
 
         private void cleanLecturerSummaryAndSetInitialImage_Remove()
@@ -168,6 +163,7 @@ namespace Timetable_Management_System
             lblLecDepartmentSearch.Text = "";
             lblLecFacultySearch.Text = "";
             lblLecCenterSearch.Text = "";
+            lblLecRankSearch.Text = "";
 
            // pictureBoxLecturerSearch.Image = Image.FromFile(@"\Timetable_Management_System\images\lecturerDefaultImage.png");
            // pictureBoxLecturerSearch.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -183,39 +179,86 @@ namespace Timetable_Management_System
 
         }
 
-        private void fillDepartmentCmb()
-        {
-            cmbDepartment.Items.Clear();
 
-            cmbDepartment.Items.Add("SE");
-            cmbDepartment.Items.Add("IT");
-            cmbDepartment.Items.Add("CSNE");
-        }
         private void fillCenterCmb()
         {
             cmbCenter.Items.Clear();
 
-            cmbCenter.Items.Add("Colombo");
-            cmbCenter.Items.Add("Malabe");
-            cmbCenter.Items.Add("Kandy");
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "";
+          
+           stm = "SELECT centerName FROM center";
+            
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                cmbCenter.Items.Add(""+ $@"{ rdr.GetString(0),-8}".Trim());
+            }
+            cmbCenter.SelectedIndex = 0;
+
+            string selectedCenter = this.cmbCenter.GetItemText(this.cmbCenter.SelectedItem);
+            fillBuildingCmb_New(selectedCenter);
+            fillFacultyCmb_New(selectedCenter);
+       
         }
-        private void fillBuilding()
+
+      
+
+        private void fillBuildingCmb_New(string selectedCenter)
         {
             cmbBuilding.Items.Clear();
 
-            cmbBuilding.Items.Add("Main building");
-            cmbBuilding.Items.Add("New building");
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "";
+            
+            stm = "SELECT building FROM center_building WHERE centerName ='"+ selectedCenter + "'";
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                cmbBuilding.Items.Add("" + $@"{ rdr.GetString(0),-8}".Trim());
+            }
+            cmbBuilding.SelectedIndex = 0;
+
+
         }
 
 
-        private void fillFacultyCmb()
+        private void fillFacultyCmb_New(string selectedCenter)
         {
             cmbFaculty.Items.Clear();
 
-            cmbFaculty.Items.Add("Faculty of Computing");
-            cmbFaculty.Items.Add("Faculty of Engineering");
-            cmbFaculty.Items.Add("Faculty of Business");
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "";
+
+            stm = "SELECT faculty FROM center_faculty WHERE centerName ='" + selectedCenter + "'";
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                cmbFaculty.Items.Add("" + $@"{ rdr.GetString(0),-8}".Trim());
+            }
+            cmbFaculty.SelectedIndex = 0;
+
         }
+
+
+
 
         private void fillTitleCmb()
         {
@@ -225,6 +268,8 @@ namespace Timetable_Management_System
             cmbTitle.Items.Add("Mrs.");
             cmbTitle.Items.Add("Miss.");
             cmbTitle.Items.Add("Ms.");
+
+            cmbTitle.SelectedIndex = 0;
         }
 
         private void fillEmployeeLevelCmb()
@@ -414,15 +459,54 @@ namespace Timetable_Management_System
             cmd.Parameters.AddWithValue("@photoPath", completeImagePath);
             
             cmd.Prepare();
+            try
+            {
+                cmd.ExecuteNonQuery();
 
-            cmd.ExecuteNonQuery();
+                MessageBox.Show("Employee Added", "Success");
+                resetInputData();
+                cleanlecturerSummary();
+            }
+            catch(SQLiteException e)
+            {
+                if (e.ErrorCode == 19)
+                {
+                    MessageBox.Show("Same lecturer Id already in the system!");
 
-            Console.WriteLine("row inserted");
-            con.Close();
 
-            MessageBox.Show("Employee Added", "Success");
-            resetInputData();
-            cleanlecturerSummary();
+                    
+
+                    try
+                    {
+                        // Check if file exists with its full path    
+                        if (File.Exists(@"" + completeImagePath))
+                        {
+                            // If file found, delete it
+                            File.Delete(@"" + completeImagePath);
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("File not found");
+                        }
+                    }
+                    catch (IOException ioExp)
+                    {
+                        MessageBox.Show(ioExp.Message);
+                    }
+
+
+
+
+
+
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+     
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -520,11 +604,9 @@ namespace Timetable_Management_System
 
             fillEmployeeLevelCmb();
             fillTitleCmb();
-            fillFacultyCmb();
 
-            fillDepartmentCmb();
             fillCenterCmb();
-            fillBuilding();
+
 
             cmbTitle.Text = "";
             cmbFaculty.Text = "";
@@ -575,7 +657,9 @@ namespace Timetable_Management_System
 
         private void cmbFaculty_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Faculty indexchanged
             lblLecFaculty.Text = this.cmbFaculty.GetItemText(this.cmbFaculty.SelectedItem);
+            fillDepartmentCmb_New(this.cmbCenter.GetItemText(this.cmbCenter.SelectedItem) , this.cmbFaculty.GetItemText(this.cmbFaculty.SelectedItem));
         }
 
         private void cmbTitle_SelectedIndexChanged(object sender, EventArgs e)
@@ -590,7 +674,34 @@ namespace Timetable_Management_System
 
         private void cmbCenter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //center index changed
             lblLecCenter.Text = this.cmbCenter.GetItemText(this.cmbCenter.SelectedItem);
+
+            fillBuildingCmb_New(this.cmbCenter.GetItemText(this.cmbCenter.SelectedItem));
+            fillFacultyCmb_New(this.cmbCenter.GetItemText(this.cmbCenter.SelectedItem));
+            fillDepartmentCmb_New(this.cmbCenter.GetItemText(this.cmbCenter.SelectedItem), this.cmbFaculty.GetItemText(this.cmbFaculty.SelectedItem));
+        }
+
+        private void fillDepartmentCmb_New(string selectedCenter, string selectedFaculty)
+        {
+            cmbDepartment.Items.Clear();
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "";
+
+            stm = "SELECT department FROM center_faculty_department WHERE centerName = '"+ selectedCenter + "' AND faculty='"+ selectedFaculty + "'";
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                cmbDepartment.Items.Add("" + $@"{ rdr.GetString(0),-8}".Trim());
+            }
+            cmbDepartment.SelectedIndex = 0;
 
         }
 
@@ -646,6 +757,7 @@ namespace Timetable_Management_System
                 lblLecDepartmentSearch.Text = lecObj.department;
                 lblLecFacultySearch.Text = lecObj.faculty;
                 lblLecCenterSearch.Text = lecObj.center;
+                lblLecRankSearch.Text = lecObj.employeeLevel + "." + lecObj.lecturerID;
             }
             else
             {
@@ -724,6 +836,7 @@ namespace Timetable_Management_System
             lblLecDepartmentSearch.Text = "";
             lblLecFacultySearch.Text = "";
             lblLecCenterSearch.Text = "";
+            lblLecRankSearch.Text = "";
         }
 
         private void btnRefreshSearch_Click(object sender, EventArgs e)
@@ -784,6 +897,7 @@ namespace Timetable_Management_System
             lblLecDepartmentSearch.Text = dataGridViewSearchLecturer.CurrentRow.Cells[4].Value.ToString();
             lblLecCenterSearch.Text = dataGridViewSearchLecturer.CurrentRow.Cells[5].Value.ToString();
             String imagePath = dataGridViewSearchLecturer.CurrentRow.Cells[8].Value.ToString();
+            lblLecRankSearch.Text = dataGridViewSearchLecturer.CurrentRow.Cells[7].Value.ToString() + "." + lblLecIDSearch.Text;
 
             pictureBoxLecturerSearch.ImageLocation = @""+ imagePath;
             pictureBoxLecturerSearch.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -1364,10 +1478,10 @@ namespace Timetable_Management_System
         {
             fillEmployeeLevelCmb_Edit();
             fillTitleCmb_Edit();
+            
             fillFacultyCmb_Edit();
-
             fillDepartmentCmb_Edit();
-            fillCenterCmb_Edit();
+            fillCenterCmb_Edit_New();
             fillBuilding_Edit();
         }
 
@@ -1382,14 +1496,94 @@ namespace Timetable_Management_System
             cmbDepartment_Edit.Items.Add("IT");
             cmbDepartment_Edit.Items.Add("CSNE");
         }
-        private void fillCenterCmb_Edit()
+        private void fillCenterCmb_Edit_New()
         {
             cmbCenter_Edit.Items.Clear();
 
-            cmbCenter_Edit.Items.Add("Colombo");
-            cmbCenter_Edit.Items.Add("Malabe");
-            cmbCenter_Edit.Items.Add("Kandy");
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "";
+
+            stm = "SELECT centerName FROM center";
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                cmbCenter_Edit.Items.Add("" + $@"{ rdr.GetString(0),-8}".Trim());
+            }
+            cmbCenter_Edit.SelectedIndex = 0;
+
+            string selectedCenter = this.cmbCenter_Edit.GetItemText(this.cmbCenter_Edit.SelectedItem);
+            fillBuildingCmb_Edit_New(selectedCenter);
+            fillFacultyCmb_Edit_New(selectedCenter);
+
+
+            // cmbCenter_Edit.Items.Add("Colombo");
+            // cmbCenter_Edit.Items.Add("Malabe");
+            // cmbCenter_Edit.Items.Add("Kandy");
         }
+
+
+
+
+        private void fillBuildingCmb_Edit_New(string selectedCenter)
+        {
+            cmbBuilding_Edit.Items.Clear();
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "";
+
+            stm = "SELECT building FROM center_building WHERE centerName ='" + selectedCenter + "'";
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                cmbBuilding_Edit.Items.Add("" + $@"{ rdr.GetString(0),-8}".Trim());
+            }
+            cmbBuilding_Edit.SelectedIndex = 0;
+
+
+        }
+
+
+        private void fillFacultyCmb_Edit_New(string selectedCenter)
+        {
+            cmbFaculty_Edit.Items.Clear();
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "";
+
+            stm = "SELECT faculty FROM center_faculty WHERE centerName ='" + selectedCenter + "'";
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                cmbFaculty_Edit.Items.Add("" + $@"{ rdr.GetString(0),-8}".Trim());
+            }
+            cmbFaculty_Edit.SelectedIndex = 0;
+
+        }
+
+
+
+
+
+
+
         private void fillBuilding_Edit()
         {
             cmbBuilding_Edit.Items.Clear();
@@ -1594,7 +1788,7 @@ namespace Timetable_Management_System
                     "department = '" + cmbDepartment_Edit.Text + "' , " +
                     "center = '" + cmbCenter_Edit.Text + "' , " +
                     "building = '" + cmbBuilding_Edit.Text + "' , " +
-                    "employeeLevel = '" + tempEmpLevel + "' , " +
+                    "employeeLevel = '" + tempEmpLevel + "'  " +
                     "WHERE lecturerID = '" + empID + "' ";
                     cmd.ExecuteNonQuery();
 
@@ -1622,6 +1816,83 @@ namespace Timetable_Management_System
                 pictureBoxLecturer_Edit.SizeMode = PictureBoxSizeMode.StretchImage;
                 newImagePathForUpdate = open.FileName;
                 setImage = true;
+            }
+        }
+
+        private void cmbEmpLevel_Edit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string cmbtxt = this.cmbEmpLevel_Edit.GetItemText(this.cmbEmpLevel_Edit.SelectedItem);
+
+            int temp=0;
+            if (cmbtxt.Equals("1 - Professor")){
+                temp = 1;
+            }else if (cmbtxt.Equals("2 - Assistant Professor")){
+                temp = 2;
+            }else if (cmbtxt.Equals("3 - Senior Lecturer(HG)")){
+                temp = 3;
+            }else if (cmbtxt.Equals("4 - Senior Lecturer")){
+                temp = 4;
+            } else if (cmbtxt.Equals("5 - Lecturer")) {
+                temp = 5;
+            } else if (cmbtxt.Equals("6 - Assistnt Lecturer")){
+                temp = 6;
+            } else if (cmbtxt.Equals("7 - Instructors")) {
+                temp = 7;
+            }
+
+            txtEmpRank_Edit.Text = temp + "." + txtEmpID_Edit.Text;
+            
+             
+        }
+
+        private void cmbCenter_Edit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //center index changed
+            fillBuildingCmb_Edit_New(this.cmbCenter_Edit.GetItemText(this.cmbCenter_Edit.SelectedItem));
+            fillFacultyCmb_Edit_New(this.cmbCenter_Edit.GetItemText(this.cmbCenter_Edit.SelectedItem));
+            fillDepartmentCmb_Edit_New(this.cmbCenter_Edit.GetItemText(this.cmbCenter_Edit.SelectedItem), this.cmbFaculty_Edit.GetItemText(this.cmbFaculty_Edit.SelectedItem));
+
+        }
+
+        private void cmbFaculty_Edit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            fillDepartmentCmb_Edit_New(this.cmbCenter_Edit.GetItemText(this.cmbCenter_Edit.SelectedItem), this.cmbFaculty_Edit.GetItemText(this.cmbFaculty_Edit.SelectedItem));
+        }
+
+        private void fillDepartmentCmb_Edit_New(string selectedCenter, string selectedFaculty)
+        {
+            cmbDepartment_Edit.Items.Clear();
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "";
+
+            stm = "SELECT department FROM center_faculty_department WHERE centerName = '" + selectedCenter + "' AND faculty='" + selectedFaculty + "'";
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                cmbDepartment_Edit.Items.Add("" + $@"{ rdr.GetString(0),-8}".Trim());
+            }
+            cmbDepartment_Edit.SelectedIndex = 0;
+
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedTab == ViewSearchLecturers)
+            {
+                refreshLecturersSearch();
+
+                //Reset code
+                refreshLecturersSearch();
+                resetLecturerSigleView();
+                txtSearch.Text = "";
+                radFindByIdSearch.Checked = true;
             }
         }
 

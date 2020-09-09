@@ -38,6 +38,7 @@ namespace Timetable_Management_System
 
         List<Subject_Tags> gblSubjectTagsListForUpdateFind;
 
+
         public ManageSubjectsDashboard()
         {
             InitializeComponent();
@@ -53,7 +54,7 @@ namespace Timetable_Management_System
             tagsList = loadedTagsList.ToArray();
 
             fillCloseButtonClickStatus_Add();
-           
+
             drawTagsInSubject_Add(loadedTagsList);
             chkParallelSubject_Add.Checked = true;
             chkParallelSubject_Add.Checked = false;
@@ -85,7 +86,7 @@ namespace Timetable_Management_System
             gblTagNames_Remove = new List<string>();
         }
 
-      
+
 
         private void fillCloseButtonClickStatus_Add()
         {
@@ -99,7 +100,7 @@ namespace Timetable_Management_System
         private void fillCloseButtonClickStatus_Edit()
         {
             closeButtonClickStatus_Edit.Clear();
-            foreach (Subject_Tags item in gblSubjectTagsListForUpdateFind) 
+            foreach (Subject_Tags item in gblSubjectTagsListForUpdateFind)
             {
                 closeButtonClickStatus_Edit[item.tag] = true;
             }
@@ -121,13 +122,13 @@ namespace Timetable_Management_System
             yearsList.Add(3);
             yearsList.Add(4);
 
-           
+
 
             //Todo
             semestersList.Add(1);
             semestersList.Add(2);
 
-            for (int i=0;i<yearsList.Count; i++)
+            for (int i = 0; i < yearsList.Count; i++)
             {
                 cmbOfferedYear_Add.Items.Add(yearsList[i]);
             }
@@ -142,20 +143,20 @@ namespace Timetable_Management_System
 
         private void drawTagsInSubject_Add(List<string> loadedTagsList)
         {
-           
-           
+
+
             int initialLocation = 290;
-            for(int i=0;i< tagsList.Length; i++)
+            for (int i = 0; i < tagsList.Length; i++)
             {
                 Label label = new Label();
                 label.Location = new System.Drawing.Point(410, initialLocation);
                 label.Size = new System.Drawing.Size(80, 20);
-                label.Name = "lbl"+ tagsList[i]+"_Add";
-                label.Text = tagsList[i]+"";
+                label.Name = "lbl" + tagsList[i] + "_Add";
+                label.Text = tagsList[i] + "";
                 AddSubject.Controls.Add(label);
                 initialLocation = initialLocation + 30;
             }
-            
+
             initialLocation = 290;
 
             for (int i = 0; i < tagsList.Length; i++)
@@ -202,7 +203,7 @@ namespace Timetable_Management_System
 
         // String[] closedTags_Add;
         HashSet<string> closedTags_Add = new HashSet<string>();
-        
+
 
         private void button_Click(object se, EventArgs ev, string needCloseType)
         {
@@ -224,7 +225,7 @@ namespace Timetable_Management_System
             {
 
                 //item.Key
-                 if(item.Value == false)
+                if (item.Value == false)
                 {
                     string btnName = "btn" + item.Key + "Close_Add";
                     string txtName = "txt" + item.Key + "Hrs_Add";
@@ -239,7 +240,9 @@ namespace Timetable_Management_System
                         //     btn.Enabled = false;
                         txt.Enabled = false;
                     }
-                }else if (item.Value == true){
+                }
+                else if (item.Value == true)
+                {
                     string btnName = "btn" + item.Key + "Close_Add";
                     string txtName = "txt" + item.Key + "Hrs_Add";
 
@@ -364,17 +367,17 @@ namespace Timetable_Management_System
             this.Hide();
         }
 
-     
+
 
         private void btnAddSubject_Add_Click(object sender, EventArgs e)
         {
 
             Subject subjectObj = new Subject();
-            
+
             List<Subject_Tags> subjectTagsListObj = new List<Subject_Tags>();
 
 
-            int selectedYear_Add=1;
+            int selectedYear_Add = 1;
             bool yearSuccess_Add = Int32.TryParse(this.cmbOfferedYear_Add.GetItemText(this.cmbOfferedYear_Add.SelectedItem), out selectedYear_Add);
 
             int selectedSemester_Add = 1;
@@ -398,11 +401,11 @@ namespace Timetable_Management_System
 
 
 
-            
+
 
             foreach (var item in closeButtonClickStatus_Add)
             {
-                if(item.Value==true)
+                if (item.Value == true)
                 {
                     Subject_Tags subject_TagsObj = new Subject_Tags();
                     string txtName = "txt" + item.Key + "Hrs_Add";
@@ -410,13 +413,13 @@ namespace Timetable_Management_System
                     txt = AddSubject.Controls[txtName] as TextBox;
                     //txt.Text
                     //item.Key
-                    
+
                     subject_TagsObj.subjectCode = txtSubjectCode_Add.Text;
                     subject_TagsObj.tag = item.Key;
-                    subject_TagsObj.hrs = double.Parse(txt.Text, System.Globalization.CultureInfo.InvariantCulture) ;
+                    subject_TagsObj.hrs = double.Parse(txt.Text, System.Globalization.CultureInfo.InvariantCulture);
 
                     subjectTagsListObj.Add(subject_TagsObj);
-                    
+
 
                 }
             }
@@ -432,7 +435,7 @@ namespace Timetable_Management_System
             con.Open();
 
 
-    
+
 
             //Adding subject
             using var cmd = new SQLiteCommand(con);
@@ -456,7 +459,7 @@ namespace Timetable_Management_System
             cmd.Parameters.AddWithValue("@offeredSemester", subjectObj.offeredSemester);
             cmd.Parameters.AddWithValue("@isParallel", subjectObj.isParallel);
             cmd.Parameters.AddWithValue("@category", subjectObj.category.Trim());
-          
+
             cmd.Prepare();
 
             cmd.ExecuteNonQuery();
@@ -502,9 +505,12 @@ namespace Timetable_Management_System
 
         private void chkParallelSubject_Add_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkParallelSubject_Add.Checked == true){
+            if (chkParallelSubject_Add.Checked == true)
+            {
                 categorySetVisible();
-            }else if(chkParallelSubject_Add.Checked == false){
+            }
+            else if (chkParallelSubject_Add.Checked == false)
+            {
                 categorySetInvisible();
             }
 
@@ -535,7 +541,7 @@ namespace Timetable_Management_System
         private void btnFindSubject_Search_Click(object sender, EventArgs e)
         {
             string searchType = "";
-            if(radSubjectCode_Search.Checked == true)
+            if (radSubjectCode_Search.Checked == true)
             {
                 searchType = "byCode";
             }
@@ -559,11 +565,14 @@ namespace Timetable_Management_System
                 List<Subject_Tags> subjectTagslist = new List<Subject_Tags>();
 
                 bool isfound = findSubject_Search(txtSearchSubject_Search.Text, searchType);
-                
-                if(isfound == true)
+
+                if (isfound == true)
                 {
-                    setFoundSubjectData_Search();
-                    setsubjectTags();
+                    for (int i = 0; i<2; i++)
+                    {
+                        setFoundSubjectData_Search();
+                        setsubjectTags();
+                    }
                 }
                 else
                 {
@@ -586,7 +595,7 @@ namespace Timetable_Management_System
             lblTagsHoursL_Search.Visible = true;
 
             gblSubjectTagslist_Search.ToString();
-           
+
             int initialLocation = 450;
 
             foreach (Subject_Tags obj in gblSubjectTagslist_Search)
@@ -623,11 +632,11 @@ namespace Timetable_Management_System
 
         private void setFoundSubjectData_Search()
         {
-            lblSubjectCodeAns_Search.Text = gblSearchFoundObj_Search.subjectCode ;
+            lblSubjectCodeAns_Search.Text = gblSearchFoundObj_Search.subjectCode;
             lblSubjectNameAns_Search.Text = gblSearchFoundObj_Search.subjectName;
             lblYearAns_Search.Text = gblSearchFoundObj_Search.offeredYear.ToString();
             lblSemesterAns_Search.Text = gblSearchFoundObj_Search.offeredSemester.ToString();
-            if(gblSearchFoundObj_Search.isParallel == true)
+            if (gblSearchFoundObj_Search.isParallel == true)
             {
                 lblIsparallel_Search.Text = "Yes";
                 lblCategory_Search.Visible = true;
@@ -638,11 +647,11 @@ namespace Timetable_Management_System
             {
                 lblIsparallel_Search.Text = "No";
                 lblCategoryL_Search.Visible = false;
-                lblCategory_Search.Visible = false ;
+                lblCategory_Search.Visible = false;
             }
-            
 
-          
+
+
         }
 
         private bool findSubject_Search(string searchKey, string searchType)
@@ -666,7 +675,8 @@ namespace Timetable_Management_System
                     "subjects_tags.hrs AS Hours " +
 
                     "from subjects, subjects_tags" +
-                    " where subjects.subjectCode = subjects_tags.subjectCode AND subjects.subjectCode = '" + searchKey + "'";
+                    " where subjects.subjectCode = subjects_tags.subjectCode AND subjects.subjectCode = '" + searchKey + "'" +
+                    " Order by Subject_Code";
             }
             else if (searchType.Equals("byName"))
             {
@@ -680,7 +690,8 @@ namespace Timetable_Management_System
                     "subjects_tags.tag AS Tag ," +
                     "subjects_tags.hrs AS Hours " +
                     "from subjects, subjects_tags" +
-                    " where subjects.subjectCode = subjects_tags.subjectCode AND subjects.subjectName = '" + searchKey+"'";
+                    " where subjects.subjectCode = subjects_tags.subjectCode AND subjects.subjectName = '" + searchKey + "'" +
+                    " Order by Subject_Code";
             }
 
             using var cmd = new SQLiteCommand(stm, con);
@@ -689,7 +700,7 @@ namespace Timetable_Management_System
 
 
             Subject subjectObj_Search = new Subject();
-            
+
             List<Subject_Tags> subjectTagslist = new List<Subject_Tags>();
 
             while (rdr.Read())
@@ -701,22 +712,22 @@ namespace Timetable_Management_System
                 subjectObj_Search.offeredYear = Int32.Parse($@"{rdr.GetInt32(2),-3}");
                 subjectObj_Search.offeredSemester = Int32.Parse($@"{rdr.GetInt32(3),-3}");
 
-                subjectObj_Search.isParallel =  rdr.GetBoolean(rdr.GetOrdinal("Parallel_Subject"));
+                subjectObj_Search.isParallel = rdr.GetBoolean(rdr.GetOrdinal("Parallel_Subject"));
 
                 subjectObj_Search.category = $@"{ rdr.GetString(5),-8}";
 
                 subjectTagsObj_Search.subjectCode = $@"{ rdr.GetString(0),-8}";
                 subjectTagsObj_Search.tag = $@"{ rdr.GetString(6),-8}";
                 subjectTagsObj_Search.hrs = rdr.GetDouble(rdr.GetOrdinal("Hours"));
-               
+
                 subjectTagslist.Add(subjectTagsObj_Search);
-                
+
             }
 
             gblSearchFoundObj_Search = subjectObj_Search;
             gblSubjectTagslist_Search = subjectTagslist;
 
-            if(subjectObj_Search.subjectCode == null)
+            if (subjectObj_Search.subjectCode == null)
             {
                 return false;
             }
@@ -728,10 +739,15 @@ namespace Timetable_Management_System
 
         private void btnRefreshGridView_Search_Click(object sender, EventArgs e)
         {
+            refreshSubjectGrid();
+        }
+
+        private void refreshSubjectGrid()
+        {
             string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
             System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(cs);
-            
+
             System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand(
                 "select " +
                 "subjects.subjectCode AS Subject_Code ," +
@@ -745,9 +761,10 @@ namespace Timetable_Management_System
 
 
                 "from subjects, subjects_tags " +
-                "where subjects.subjectCode = subjects_tags.subjectCode"
+                "where subjects.subjectCode = subjects_tags.subjectCode"+
+                " Order by Subject_Code"
                 );
-            
+
             cmd.Connection = conn;
 
             conn.Open();
@@ -888,7 +905,7 @@ namespace Timetable_Management_System
             cmbTag_Search.Items.Clear();
 
             cmbTag_Search.Items.Add("Any");
-            for (int i=0;i< tagsList.Length; i++)
+            for (int i = 0; i < tagsList.Length; i++)
             {
                 cmbTag_Search.Items.Add(tagsList[i]);
             }
@@ -918,10 +935,11 @@ namespace Timetable_Management_System
 
         private void txtSubjectCode_Search_GotFocus(object sender, EventArgs e)
         {
-            if(txtSubjectCode_Search.Text.Equals("Any")){
+            if (txtSubjectCode_Search.Text.Equals("Any"))
+            {
                 txtSubjectCode_Search.Text = "";
             }
-           
+
         }
 
         private void btnFilter_Search_Click(object sender, EventArgs e)
@@ -936,7 +954,7 @@ namespace Timetable_Management_System
             string to = txtTo_Search.Text;
 
             string query = generateFilterString(subjectCode, subjectName, year, semester, tag, parallel, from, to);
-           // MessageBox.Show(query);
+            // MessageBox.Show(query);
             filterSubjects_Search(query);
 
         }
@@ -956,17 +974,18 @@ namespace Timetable_Management_System
 
 
               "from subjects, subjects_tags " +
-              "where subjects.subjectCode = subjects_tags.subjectCode ";
+              "where subjects.subjectCode = subjects_tags.subjectCode " +
+              " Order by Subject_Code";
 
             if (!subjectCode.Equals("Any"))
             {
-                string temp = " AND subjects.subjectCode = '" + subjectCode +"'";
+                string temp = " AND subjects.subjectCode = '" + subjectCode + "'";
                 q = q + temp;
             }
 
             if (!subjectName.Equals("Any"))
             {
-                string temp = " AND subjects.subjectName = '" + subjectName+"'";
+                string temp = " AND subjects.subjectName = '" + subjectName + "'";
                 q = q + temp;
             }
 
@@ -984,14 +1003,15 @@ namespace Timetable_Management_System
 
             if (!tag.Equals("Any"))
             {
-                string temp = " AND subjects_tags.tag = '" + tag+"' ";
+                string temp = " AND subjects_tags.tag = '" + tag + "' ";
                 q = q + temp;
             }
-            if(parallel == true)
+            if (parallel == true)
             {
                 string temp = " AND subjects.isParallel = " + true;
                 q = q + temp;
-            }else if(parallel == false)
+            }
+            else if (parallel == false)
             {
                 string temp = " AND subjects.isParallel = " + false;
                 q = q + temp;
@@ -1010,7 +1030,7 @@ namespace Timetable_Management_System
             }
             else
             {
-                string temp = " AND subjects_tags.hrs >= " + fromNumber_Search + " AND subjects_tags.hrs <= "+ toNumber_Search;
+                string temp = " AND subjects_tags.hrs >= " + fromNumber_Search + " AND subjects_tags.hrs <= " + toNumber_Search;
                 q = q + temp;
             }
 
@@ -1023,8 +1043,8 @@ namespace Timetable_Management_System
         {
 
             Console.WriteLine(query);
-            
-            
+
+
             string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
             System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(cs);
@@ -1034,7 +1054,7 @@ namespace Timetable_Management_System
             cmd.Connection = conn;
 
             conn.Open();
-            
+
 
 
 
@@ -1072,7 +1092,7 @@ namespace Timetable_Management_System
 
 
 
-           
+
 
             System.Data.SQLite.SQLiteDataAdapter da = new System.Data.SQLite.SQLiteDataAdapter(cmd);
             System.Data.DataSet ds = new System.Data.DataSet();
@@ -1090,11 +1110,15 @@ namespace Timetable_Management_System
         private void btnReset_Search_Click(object sender, EventArgs e)
         {
             resetSearchFound();
+            this.Hide();
+            ManageSubjectsDashboard obj = new ManageSubjectsDashboard();
+            obj.Show();
+            obj.tabControl1.SelectedIndex = 3;
         }
 
         private void resetSearchFound()
         {
-            
+
             lblSubjectCodeAns_Search.Text = "";
             lblSubjectNameAns_Search.Text = "";
             lblYearAns_Search.Text = "";
@@ -1176,8 +1200,11 @@ namespace Timetable_Management_System
 
                 if (isfound == true)
                 {
-                    setFoundSubjectData_Remove();
-                    setsubjectTags_Remove();
+                    for(int i = 0; i < 2; i++)
+                    {
+                        setFoundSubjectData_Remove();
+                        setsubjectTags_Remove();
+                    }
                 }
                 else
                 {
@@ -1247,7 +1274,7 @@ namespace Timetable_Management_System
 
         private void setFoundSubjectData_Remove()
         {
-            
+
 
             lblAnsSubjectCode_Remove.Visible = true;
             lblAnsSubjectName_Remove.Visible = true;
@@ -1274,13 +1301,17 @@ namespace Timetable_Management_System
                 lblIsCategoryL_Remove.Visible = false;
                 lblAnsCategory_Remove.Visible = false;
             }
-          
+
 
         }
 
         private void btnReset_Remove_Click(object sender, EventArgs e)
         {
             RemoveReset();
+            this.Hide();
+            ManageSubjectsDashboard obj = new ManageSubjectsDashboard();
+            obj.Show();
+            obj.tabControl1.SelectedIndex = 2;
         }
 
         private void RemoveReset()
@@ -1302,7 +1333,7 @@ namespace Timetable_Management_System
             lblAnsIsParallel_Remove.Text = "";
             lblAnsCategory_Remove.Text = "";
         }
- 
+
 
         public Control GetControlByName(Control ParentCntl, string NameToSearch)
         {
@@ -1331,16 +1362,16 @@ namespace Timetable_Management_System
                 {
                     MessageBox.Show("Plese enter a subject code");
                 }
-               
+
             }
             else
             {
                 string type = "";
-                if(radSubjectName_Remove.Checked == true)
+                if (radSubjectName_Remove.Checked == true)
                 {
                     type = "byName";
                 }
-                else if(radSubjectCode_Remove.Checked == true)
+                else if (radSubjectCode_Remove.Checked == true)
                 {
                     type = "byCode";
 
@@ -1401,6 +1432,11 @@ namespace Timetable_Management_System
 
             MessageBox.Show("Subject Removed Successfully", "Success");
             RemoveReset();
+
+            this.Hide();
+            ManageSubjectsDashboard obj = new ManageSubjectsDashboard();
+            obj.Show();
+            obj.tabControl1.SelectedIndex = 2;
         }
 
         private void btnFindSubject_Edit_Click(object sender, EventArgs e)
@@ -1410,30 +1446,32 @@ namespace Timetable_Management_System
                 if (radSubjectCode_Edit.Checked)
                 {
                     MessageBox.Show("Please enter subject code");
-                }else if (radSubjectName_Edit.Checked)
+                }
+                else if (radSubjectName_Edit.Checked)
                 {
                     MessageBox.Show("Please enter subject Name");
                 }
             }
             else
             {
-                string type ="";
+                string type = "";
 
-                if (radSubjectCode_Edit.Checked== true)
+                if (radSubjectCode_Edit.Checked == true)
                 {
                     type = "byCode";
                 }
                 else if (radSubjectName_Edit.Checked == true)
                 {
                     type = "byName";
-                } 
-                   Subject subObj  = getSubjectDataForUpdate(txtFindSubject_Edit.Text.ToString().Trim(), type);
-                if(subObj.subjectCode == null){
+                }
+                Subject subObj = getSubjectDataForUpdate(txtFindSubject_Edit.Text.ToString().Trim(), type);
+                if (subObj.subjectCode == null)
+                {
                     MessageBox.Show("Subject Not found");
                 }
                 else
                 {
-                   // Console.WriteLine(gblSubjectTagsListForUpdateFind);
+                    // Console.WriteLine(gblSubjectTagsListForUpdateFind);
                     fillBoxes_Edit();
                     fillFoundData_Edit(subObj);
                     drawTagsData_Edit();
@@ -1442,7 +1480,7 @@ namespace Timetable_Management_System
 
             }
 
-                
+
 
         }
 
@@ -1452,13 +1490,13 @@ namespace Timetable_Management_System
 
             foreach (SubjectEditStatus element in editTagsStatusList)
             {
-                if(element.closeClickStatus == false)
+                if (element.closeClickStatus == false)
                 {
                     Console.WriteLine(element);
                     TextBox txtBox_Edit = (TextBox)this.GetControlByName(this, element.txtName);
                     txtBox_Edit.Enabled = false;
                 }
-            
+
             }
         }
 
@@ -1537,11 +1575,11 @@ namespace Timetable_Management_System
                 int number;
                 bool success = Int32.TryParse(textbox.Text.Trim(), out number); ;
 
-                if (success==true)
+                if (success == true)
                 {
                     subjectEditStatusObj.closeClickStatus = true;
                 }
-                else if(textbox.Text.Equals("") || textbox.Text.Equals("N/A"))
+                else if (textbox.Text.Equals("") || textbox.Text.Equals("N/A"))
                 {
                     subjectEditStatusObj.closeClickStatus = false;
                 }
@@ -1560,7 +1598,7 @@ namespace Timetable_Management_System
         {
             int number;
             bool parseSuccess = Int32.TryParse(text, out number);
-            if(parseSuccess == false)
+            if (parseSuccess == false)
             {
                 MessageBox.Show("Number of hours must be desimal");
             }
@@ -1572,7 +1610,7 @@ namespace Timetable_Management_System
                     txtBox_Edit.Enabled = false;
                 }
             }
-            
+
         }
 
         private void text_Change_Edit(object se, EventArgs ev, string inputText, string tag)
@@ -1580,7 +1618,7 @@ namespace Timetable_Management_System
             int number;
             bool parseSuccess = Int32.TryParse(inputText, out number);
 
-            if (parseSuccess == true  &&  (inputText.Equals("") || inputText.Equals("N") || inputText.Equals("N/")==false  ))
+            if (parseSuccess == true && (inputText.Equals("") || inputText.Equals("N") || inputText.Equals("N/") == false))
             {
                 for (var i = 0; i < editTagsStatusList.Count; i++)
                 {
@@ -1601,9 +1639,9 @@ namespace Timetable_Management_System
             for (var i = 0; i < editTagsStatusList.Count; i++)
             {
                 TextBox txtBox_Edit = (TextBox)this.GetControlByName(this, editTagsStatusList[i].txtName);
-                
+
                 if (editTagsStatusList[i].tag.Equals(closeType))
-                { 
+                {
                     editTagsStatusList[i].closeClickStatus = !editTagsStatusList[i].closeClickStatus;
                 }
 
@@ -1618,11 +1656,12 @@ namespace Timetable_Management_System
             foreach (SubjectEditStatus element in editTagsStatusList)
             {
                 TextBox txtBox_Edit = (TextBox)this.GetControlByName(this, element.txtName);
-                
-                if(element.closeClickStatus == true)
+
+                if (element.closeClickStatus == true)
                 {
                     txtBox_Edit.Enabled = true;
-                }else if (element.closeClickStatus == false)
+                }
+                else if (element.closeClickStatus == false)
                 {
                     txtBox_Edit.Enabled = false;
                 }
@@ -1639,7 +1678,7 @@ namespace Timetable_Management_System
 
             chkIsParallel_Edit.Checked = subObj.isParallel;
 
-            if(subObj.isParallel== false)
+            if (subObj.isParallel == false)
             {
                 txtCategory_Edit.Visible = false;
                 lblCategory_Edit.Visible = false;
@@ -1685,7 +1724,6 @@ namespace Timetable_Management_System
                     "subjects.category AS Category ," +
                     "subjects_tags.tag AS Tag ," +
                     "subjects_tags.hrs AS Hours " +
-
                     "from subjects, subjects_tags" +
                     " where subjects.subjectCode = subjects_tags.subjectCode AND subjects.subjectCode = '" + subjectSearchKeyForUpdate + "'";
             }
@@ -1798,6 +1836,12 @@ namespace Timetable_Management_System
             chkIsParallel_Edit.Checked = false;
 
             txtFindSubject_Edit.Text = "";
+
+            this.Hide();
+            ManageSubjectsDashboard tempobj = new ManageSubjectsDashboard();
+            tempobj.Show();
+            tempobj.tabControl1.SelectedIndex = 1;
+
         }
 
         private void btnEditSubject_Edit_Click(object sender, EventArgs e)
@@ -1805,7 +1849,7 @@ namespace Timetable_Management_System
 
 
 
-            
+
             if (txtSubejctCode_Edit.Text.Equals(""))
             {
                 MessageBox.Show("Please select a subject first");
@@ -1813,7 +1857,7 @@ namespace Timetable_Management_System
             else
             {
                 Subject obj = new Subject();
-                
+
                 int offeredYearNumber;
                 bool success1 = Int32.TryParse(this.cmbOfferedYear_Edit.GetItemText(this.cmbOfferedYear_Edit.SelectedItem), out offeredYearNumber);
                 obj.offeredYear = offeredYearNumber;
@@ -1824,7 +1868,7 @@ namespace Timetable_Management_System
 
                 obj.subjectName = txtSubjectName_Edit.Text;
                 obj.subjectCode = txtSubejctCode_Edit.Text;
-                obj.isParallel= chkIsParallel_Edit.Checked;
+                obj.isParallel = chkIsParallel_Edit.Checked;
                 obj.category = txtCategory_Edit.Text;
 
                 Console.WriteLine(editTagsStatusList);
@@ -1832,6 +1876,13 @@ namespace Timetable_Management_System
                 Updatesubject(obj);
                 obj = null;
             }
+
+
+
+            this.Hide();
+            ManageSubjectsDashboard tempobj = new ManageSubjectsDashboard();
+            tempobj.Show();
+            tempobj.tabControl1.SelectedIndex = 1;
         }
 
         private void Updatesubject(Subject subjectObj)
@@ -1848,15 +1899,15 @@ namespace Timetable_Management_System
                 "offeredYear = " + subjectObj.offeredYear + " , " +
                 "offeredSemester = " + subjectObj.offeredSemester + " , " +
                 "isParallel = " + subjectObj.isParallel + " , " +
-                "category = '" + subjectObj.category + "' "+
+                "category = '" + subjectObj.category + "' " +
                 "WHERE subjectCode = '" + subjectObj.subjectCode + "'";
-                cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
 
 
             Console.WriteLine(editTagsStatusList);
             foreach (SubjectEditStatus element in editTagsStatusList)
             {
-                if(element.closeClickStatus == false || element.hrs== 0)
+                if (element.closeClickStatus == false || element.hrs == 0)
                 {
                     //delete
 
@@ -1887,7 +1938,7 @@ namespace Timetable_Management_System
                         //No record in DB
                         //insert query
 
-                        cmd.CommandText = @"INSERT INTO subjects_tags Values('" + subjectObj.subjectCode +"', '"+ element.tag +"', "+ element.hrs + " )";
+                        cmd.CommandText = @"INSERT INTO subjects_tags Values('" + subjectObj.subjectCode + "', '" + element.tag + "', " + element.hrs + " )";
                         cmd.ExecuteNonQuery();
 
                     }
@@ -1909,5 +1960,16 @@ namespace Timetable_Management_System
             MessageBox.Show("Update success");
 
         }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedTab == ViewSearchSubjects)
+            {
+                refreshSubjectGrid();
+            }
+        }
+
+
+
     }
 }
