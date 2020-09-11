@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace Timetable_Management_System
 {
@@ -19,10 +20,69 @@ namespace Timetable_Management_System
             this.WindowState = FormWindowState.Maximized;
         }
 
+        private SQLiteConnection sql_con;
+        private SQLiteCommand sql_cmd;
+        private SQLiteDataAdapter DB;
+        private DataSet DS = new DataSet();
+        private DataTable DT = new DataTable();
+
         private void ManageTagsDashboard_Load(object sender, EventArgs e)
         {
-
+            LoadTags();
         }
+        //set connection
+        private void setConnection()
+        {
+            sql_con = new SQLiteConnection(@"URI=file:.\timetableManagementSystemDB.db");
+        }
+        private void LoadTags()
+        {
+            setConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string CommandText = "SELECT * FROM tags";
+            DB = new SQLiteDataAdapter(CommandText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            dataGridView1.DataSource = DT;
+            sql_con.Close();
+        }
+        //set executequery
+        private void ExecuteQuery(string txtQuery)
+        {
+            setConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            sql_cmd.CommandText = txtQuery;
+            sql_cmd.ExecuteNonQuery();
+            sql_con.Close();
+        }
+
+        //add tag
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string txtQuery = "INSERT INTO tags (tag) VALUES('" + textBox1.Text + "')";
+            ExecuteQuery(txtQuery);
+            LoadTags();
+        }
+
+        //edit tag
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string txtQuery = "UPDATE tags SET year='" + lblManageTags.Text + "' WHERE id ='" + Convert.ToInt32(lblManageTags.Text) + "'";
+            ExecuteQuery(txtQuery);
+            LoadTags();
+        }
+        //del tag
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string txtQuery = "DELETE FROM tags WHERE id='" + Convert.ToInt32(lblManageTags.Text) + "'";
+            ExecuteQuery(txtQuery);
+            LoadTags();
+        }
+
+        
 
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
@@ -112,6 +172,58 @@ namespace Timetable_Management_System
             GenerateReportDashboard generateReportDashboardObj = new GenerateReportDashboard();
             generateReportDashboardObj.Show();
             this.Hide();
+
+        }
+
+        private void ManageTags_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblManageTags_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            lblManageTags.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string txtQuery = "INSERT INTO tags (tag) VALUES('" + textBox1.Text + "')";
+            ExecuteQuery(txtQuery);
+            LoadTags();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            string txtQuery = "UPDATE tags SET tag='" + textBox1.Text + "' WHERE id ='" + Convert.ToInt32(lblManageTags.Text) + "'";
+            ExecuteQuery(txtQuery);
+            LoadTags();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            string txtQuery = "DELETE FROM tags WHERE id='" + Convert.ToInt32(lblManageTags.Text) + "'";
+            ExecuteQuery(txtQuery);
+            LoadTags();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

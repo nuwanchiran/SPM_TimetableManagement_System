@@ -1619,5 +1619,10 @@ namespace Timetable_Management_System
                 setImage = true;
             }
         }
+
+        private void AddLecturer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
