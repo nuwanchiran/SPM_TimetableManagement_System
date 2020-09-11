@@ -119,7 +119,7 @@ namespace Timetable_Management_System
             setConnection();
             sql_con.Open();
             sql_cmd = sql_con.CreateCommand();
-            string CommandText = "SELECT id,year,semester,programe,group_no FROM year_semester";
+            string CommandText = "SELECT id,year,semester,programe,group_no,group_id FROM year_semester";
             DB = new SQLiteDataAdapter(CommandText, sql_con);
             DS.Reset();
             DB.Fill(DS);
@@ -215,7 +215,7 @@ namespace Timetable_Management_System
         //add programe
         private void button6_Click(object sender, EventArgs e)
         {
-            string txtQuery = "UPDATE year_semester SET year='" + label3.Text + "', semester='" + label10.Text + "', programe='" + comboBox3.Text + "' WHERE id ='" + Convert.ToInt32(label9.Text) + "'";
+            string txtQuery = "UPDATE year_semester SET programe='" + comboBox3.Text + "' WHERE id ='" + Convert.ToInt32(label9.Text) + "'";
             ExecuteQuery(txtQuery);
             LoadPrograme();
         }
@@ -224,7 +224,7 @@ namespace Timetable_Management_System
         //update programe
         private void button4_Click(object sender, EventArgs e)
         {
-            string txtQuery = "UPDATE year_semester SET year='" + label3.Text + "', semester='" + label10.Text + "', programe='" + comboBox3.Text + "' WHERE id ='" + Convert.ToInt32(label9.Text) + "'";
+            string txtQuery = "UPDATE year_semester SET programe='" + comboBox3.Text + "' WHERE id ='" + Convert.ToInt32(label9.Text) + "'";
             ExecuteQuery(txtQuery);
             LoadPrograme();
         }
@@ -233,50 +233,88 @@ namespace Timetable_Management_System
         //del programe
         private void button5_Click(object sender, EventArgs e)
         {
-            string txtQuery = "UPDATE year_semester SET year='" + label3.Text + "', semester='" + label10.Text + "', programe='" + null + "' WHERE id ='" + Convert.ToInt32(label9.Text) + "'";
+            string txtQuery = "UPDATE year_semester SET programe='" + null + "' WHERE id ='" + Convert.ToInt32(label9.Text) + "'";
             ExecuteQuery(txtQuery);
             LoadPrograme();
         }
 
+
+        //genarate id
+        private String genarateGroupID(String y, String s, String p, String g) {
+            String id = "";
+            if (y == "Year 1")
+            {
+                id = "Y1.";
+            }
+            else if (y == "Year 2")
+            {
+                id = "Y2.";
+            }
+            else if (y == "Year 3")
+            {
+                id = "Y3.";
+            }
+            else if (y == "Year 3")
+            {
+                id = "Y4.";
+            }
+
+            if (s == "Semester 1")
+            {
+                id = id + "S1.";
+            }
+            else if (s == "Semester 2")
+            {
+                id = id + "S2.";
+            }
+
+            id = id + p +"."+ g;
+
+            return id;
+        }
         //add group
         private void button9_Click(object sender, EventArgs e)
         {
-            string txtQuery = "UPDATE year_semester SET year='" + label12.Text + "', semester='" + label5.Text + "', programe='" + label13.Text + "', group_no='" + Convert.ToInt32(comboBox5.Text) + "',subgroup_no='"+ null + "' WHERE id ='" + Convert.ToInt32(label11.Text) + "'";
+            String gid = genarateGroupID(label12.Text, label5.Text, label13.Text, comboBox5.Text);
+            string txtQuery = "UPDATE year_semester SET group_no='" + Convert.ToInt32(comboBox5.Text) + "',group_id='" + gid + "' WHERE id ='" + Convert.ToInt32(label11.Text) + "'";
             ExecuteQuery(txtQuery);
             LoadGroupList();
         }
         //edit group
         private void button7_Click(object sender, EventArgs e)
         {
-            string txtQuery = "UPDATE year_semester SET year='" + label12.Text + "', semester='" + label5.Text + "', programe='" + label13.Text + "', group_no='" + Convert.ToInt32(comboBox5.Text) + "',subgroup_no='" + null + "' WHERE id ='" + Convert.ToInt32(label11.Text) + "'";
+            String gid = genarateGroupID(label12.Text, label5.Text, label13.Text, comboBox5.Text);
+            string txtQuery = "UPDATE year_semester SET group_no='" + Convert.ToInt32(comboBox5.Text) + "',group_id='" + gid + "' WHERE id ='" + Convert.ToInt32(label11.Text) + "'";
             ExecuteQuery(txtQuery);
             LoadGroupList();
         }
         //delete group
         private void button8_Click(object sender, EventArgs e)
         {
-            string txtQuery = "UPDATE year_semester SET year='" + label12.Text + "', semester='" + label5.Text + "', programe='" + label13.Text + "', group_no='" + null + "',subgroup_no='" + null + "' WHERE id ='" + Convert.ToInt32(label11.Text) + "'";
+            string txtQuery = "UPDATE year_semester SET group_no='" + null + "',group_id='" + null + "' WHERE id ='" + Convert.ToInt32(label11.Text) + "'";
             ExecuteQuery(txtQuery);
             LoadGroupList();
         }
         //add sub group
         private void button12_Click(object sender, EventArgs e)
         {
-            string txtQuery = "UPDATE year_semester SET year='" + label16.Text + "', semester='" + label4.Text + "', programe='" + label7.Text + "', group_no='" + Convert.ToInt32(label17.Text) + "',subgroup_no='"+ Convert.ToInt32(comboBox7.Text) + "' WHERE id ='" + Convert.ToInt32(label15.Text) + "'";
+            String sgid = label18.Text +"."+ comboBox7.Text;
+            string txtQuery = "UPDATE year_semester SET subgroup_no='" + Convert.ToInt32(comboBox7.Text) + "',subgroup_id='" + sgid + "' WHERE id ='" + Convert.ToInt32(label15.Text) + "'";
             ExecuteQuery(txtQuery);
             LoadSubGroupList();
         }
         //edit sub group
         private void button10_Click(object sender, EventArgs e)
         {
-            string txtQuery = "UPDATE year_semester SET year='" + label16.Text + "', semester='" + label14.Text + "', programe='" + label7.Text + "', group_no='" + Convert.ToInt32(label17.Text)  + "',subgroup_no='" + Convert.ToInt32(comboBox7.Text) + "' WHERE id ='" + Convert.ToInt32(label15.Text) + "'";
+            String sgid = label18.Text + "." + comboBox7.Text;
+            string txtQuery = "UPDATE year_semester SET subgroup_no='" + Convert.ToInt32(comboBox7.Text) + "',subgroup_id='" + sgid + "' WHERE id ='" + Convert.ToInt32(label15.Text) + "'";
             ExecuteQuery(txtQuery);
             LoadSubGroupList();
         }
         //delete sub group
         private void button11_Click(object sender, EventArgs e)
         {
-            string txtQuery = "UPDATE year_semester SET year='" + label16.Text + "', semester='" + label14.Text + "', programe='" + label7.Text + "', group_no='" + Convert.ToInt32(label17.Text) + "',subgroup_no='" + null + "' WHERE id ='" + Convert.ToInt32(label15.Text) + "'";
+            string txtQuery = "UPDATE year_semester SET subgroup_no='" + null + "',subgroup_id='" + null + "' WHERE id ='" + Convert.ToInt32(label15.Text) + "'";
             ExecuteQuery(txtQuery);
             LoadSubGroupList();
         }
@@ -314,6 +352,7 @@ namespace Timetable_Management_System
             label14.Text = dataGridView4.SelectedRows[0].Cells[2].Value.ToString();
             label7.Text = dataGridView4.SelectedRows[0].Cells[3].Value.ToString();
             label17.Text = dataGridView4.SelectedRows[0].Cells[4].Value.ToString();
+            label18.Text = dataGridView4.SelectedRows[0].Cells[6].Value.ToString();
         }
 
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
@@ -579,6 +618,36 @@ namespace Timetable_Management_System
             {
                 LoadSubGroupList();
             }
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView4_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
