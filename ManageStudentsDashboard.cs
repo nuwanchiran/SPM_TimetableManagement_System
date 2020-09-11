@@ -31,12 +31,15 @@ namespace Timetable_Management_System
             LoadYear();
             LoadSemester();
             LoadYearSemester();
-            LoadPrograme();
+           // LoadPrograme();
             LoadProgrameList();
             LoadGroup();
-            LoadGroupList();
-            LoadSubGroupList();
+          //  LoadGroupList();
+          //  LoadSubGroupList();
             LoadSubGroup();
+            
+      
+
         }
 
         //set connection
@@ -532,6 +535,26 @@ namespace Timetable_Management_System
         private void dataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedTab == YearAndSemester)
+            {
+                LoadYearSemester();
+            }
+            else if (tabControl1.SelectedTab == Program)
+            {
+                LoadPrograme();
+            }
+            else if (tabControl1.SelectedTab == GroupNumbers)
+            {
+                LoadGroupList();
+            }
+            else if (tabControl1.SelectedTab == SubGroupNumbers)
+            {
+                LoadSubGroupList();
+            }
         }
     }
 }
