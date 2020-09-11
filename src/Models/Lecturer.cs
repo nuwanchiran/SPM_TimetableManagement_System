@@ -8,18 +8,7 @@ namespace Timetable_Management_System.src.Models
 {
     class Lecturer
     {
-        /*
-        private String lecturerID;
-        private String title;
-        private String name;
-        private String faculty;
-        private String department;
-        private String center;
-        private String building;
-        private int employeeLevel;
-        private String photoPath;
-        */
-
+     
         public int lecturerID { get; set; }
         public String title { get; set; }
         public String name { get; set; }
