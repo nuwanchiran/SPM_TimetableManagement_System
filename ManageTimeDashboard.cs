@@ -7,6 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
+using System.IO;
+using Timetable_Management_System.src;
+using System.Data.SqlClient;
+using Timetable_Management_System.src.Models;
+using System.Globalization;
+using System.Runtime.InteropServices;
 
 namespace Timetable_Management_System
 {
@@ -17,7 +24,38 @@ namespace Timetable_Management_System
             InitializeComponent();
             tabControl1.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
             this.WindowState = FormWindowState.Maximized;
+            fillCombo();
         }
+
+        public class Slot
+        {
+            public String startTime { get; set; }
+
+            public String endTime { get; set; }
+        }
+        /*
+        private SQLiteConnection sql_con;
+        private SQLiteCommand sql_cmd;
+        private SQLiteDataAdapter DB;
+        private DataSet DS = new DataSet();
+        private DataTable DT = new DataTable();
+
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KEB3VJ8\SQLEXPRESS;Initial Catalog=onsys_testing;Integrated Security=True");*/
+        String monday = "";
+        String tuesday = "";
+        String wednesday = "";
+        String thursday = "";
+        String friday = "";
+        String saturday = "";
+        String sunday = "";
+
+        public List<Slot> P1 = new List<Slot>();
+        public List<String> day = new List<String>();
+        public List<String> startTime = new List<String>();
+        public List<String> endTime = new List<String>();
+
+
+        
 
         private void ManageTimeDashboard_Load(object sender, EventArgs e)
         {
@@ -111,6 +149,439 @@ namespace Timetable_Management_System
             GenerateReportDashboard generateReportDashboardObj = new GenerateReportDashboard();
             generateReportDashboardObj.Show();
             this.Hide();
+        }
+
+        private void ParallelSessions_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTableType_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (chkMon.Checked)
+            {
+                monday = "Monday";
+                day.Add(monday);
+            }
+            if (chkTue.Checked)
+            {
+                tuesday = "Tuesday";
+                day.Add(tuesday);
+            }
+            if (chkWed.Checked)
+            {
+                wednesday = "Wednesday";
+                day.Add(wednesday);
+            }
+            if (chkThur.Checked)
+            {
+                thursday = "Thursday";
+                day.Add(thursday);
+            }
+            if (chkFri.Checked)
+            {
+                friday = "Friday";
+                day.Add(friday);
+            }
+            if (chkSat.Checked)
+            {
+                saturday = "Saturday";
+                day.Add(saturday);
+            }
+            if (chkSun.Checked)
+            {
+                sunday = "Sunday";
+                day.Add(sunday);
+            }
+
+            string combindedString = string.Join(",", day);
+            string sTime = string.Join(",", startTime);
+            string eTime = string.Join(",", endTime);
+
+            /*
+            SqlCommand cmd = new SqlCommand("insert into Time_table1(tableType, noDays,days, workingTime,startTime,EndTime) values(@tableType,@noDays,@days,@workingTime,@sTime,@eTime)", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@tableType", txtTableType.Text);
+            cmd.Parameters.AddWithValue("@noDays", txtNoDays.Text);
+            cmd.Parameters.AddWithValue("@days", combindedString);
+            cmd.Parameters.AddWithValue("@workingTime", txtTotalTime.Text);
+            cmd.Parameters.AddWithValue("@sTime", sTime);
+            cmd.Parameters.AddWithValue("@eTime", eTime);
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+            */
+           
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+
+            using var cmd = new SQLiteCommand(con);
+
+            cmd.CommandText = @"CREATE TABLE  IF NOT EXISTS Time_table1 (
+                                tableID INTEGER PRIMARY KEY AUTOINCREMENT,
+                                tableType TEXT,
+                                noDays INTEGER,
+                                days TEXT,
+                                workingTime TEXT,
+                                startTime TEXT,
+                                EndTime TEXT      
+                )";
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "INSERT INTO  Time_table1( tableType, noDays, days, workingTime, startTime, EndTime)" +
+                "VALUES(@tableType, @noDays, @days, @workingTime, @startTime, @EndTime)";
+
+            cmd.Parameters.AddWithValue("@tableType", txtTableType.Text);
+            cmd.Parameters.AddWithValue("@noDays", txtNoDays.Text);
+            cmd.Parameters.AddWithValue("@days", combindedString);
+            cmd.Parameters.AddWithValue("@workingTime", txtTotalTime.Text);
+            cmd.Parameters.AddWithValue("@startTime", sTime);
+            cmd.Parameters.AddWithValue("@EndTime", eTime);
+            
+
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+
+            Console.WriteLine("row inserted");
+            cleanForm1();
+
+            MessageBox.Show("Time table info is successfuly inserted in the database", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            con.Close();
+        }
+
+        public void cleanForm1()
+        {
+            txtTableType.Text = "";
+            txtNoDays.Text = "";
+            txtTotalTime.Text = "";
+            txtSTime.Text = "";
+            txtETime.Text = "";
+
+            chkMon.Checked = false;
+            chkTue.Checked = false;
+            chkWed.Checked = false;
+            chkThur.Checked = false;
+            chkFri.Checked = false;
+            chkSat.Checked = false;
+            chkSun.Checked = false;
+
+            P1.Clear();
+        }
+
+        public void cleanForm2()
+        {
+            
+            txtNoDays2.Text = "";
+            txtTime2.Text = "";
+            
+
+            chkMon1.Checked = false;
+            chkTue2.Checked = false;
+            chkWed2.Checked = false;
+            chkThu2.Checked = false;
+            chkFri2.Checked = false;
+            chkSat2.Checked = false;
+            chkSun2.Checked = false;
+
+            P1.Clear();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
+            P1.Add(new Slot() { startTime = txtSTime.Text, endTime = txtETime.Text });
+            dataGridView1.DataSource = P1;
+
+            startTime.Add(txtSTime.Text);
+            endTime.Add(txtETime.Text);
+        }
+
+        private void comboTableType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //SqlCommand cmd = new SqlCommand("select * from Time_table1 where tableType ='" + comboTableType.Text + "'", con);
+
+            
+
+            
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            using var cmd = new SQLiteCommand(con);
+
+            cmd.CommandText = "select * from Time_table1 where tableType ='" + comboTableType.Text + "'";
+            cmd.ExecuteNonQuery();
+
+            SQLiteDataReader sdr;
+
+            cleanForm2();
+            try
+            {
+                
+                sdr = cmd.ExecuteReader();
+
+                while (sdr.Read())
+                {
+                    string workingDays = sdr.GetInt32(2).ToString();
+                    string day = sdr.GetString(3);
+                    string workingTime = sdr.GetString(4);
+                    string sTime = sdr.GetString(5);
+                    string eTime = sdr.GetString(6);
+
+                    Array workArray = day.Split(',');
+                    //Array startTime = sTime.Split(',');
+                    //Array endTime = eTime.Split(',');
+
+                    string[] startTime = sTime.Split(',');
+                    string[] endTime = sTime.Split(',');
+
+                    foreach (string value in workArray)
+                    {
+                        String check = value.ToString();
+                        if (check == "Monday")
+                        {
+                            chkMon1.Checked = true;
+                        }
+                        else if (check == "Tuesday")
+                        {
+                            chkTue2.Checked = true;
+                        }
+                        else if (check == "Wednesday")
+                        {
+                            chkWed2.Checked = true;
+                        }
+                        else if (check == "Thursday")
+                        {
+                            chkThu2.Checked = true;
+                        }
+                        else if (check == "Friday")
+                        {
+                            chkFri2.Checked = true;
+                        }
+                        else if (check == "Saturday")
+                        {
+                            chkSat2.Checked = true;
+                        }
+                        else if (check == "Sunday")
+                        {
+                            chkSun2.Checked = true;
+                        }
+
+                    }
+
+                    int length = startTime.Length;
+
+                    for (int i = 0; i < length; i++)
+                    {
+                        dataGridView2.DataSource = null;
+                        P1.Add(new Slot() { startTime = startTime[i], endTime = endTime[i] });
+                        dataGridView2.DataSource = P1;
+                    }
+
+
+
+                    txtNoDays2.Text = workingDays;
+                    txtTime2.Text = workingTime;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            con.Close();
+        }
+
+        void fillCombo()
+        {
+
+            comboTableType.Items.Clear();
+
+            //SqlCommand cmd = new SqlCommand("select * from Time_table1", con);
+
+            //SQLiteDataReader sdr;
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+
+            using var cmd = new SQLiteCommand("select * from Time_table1", con);
+            SQLiteDataReader sdr;
+
+            try
+            {
+                con.Open();
+                sdr = cmd.ExecuteReader();
+
+                while (sdr.Read())
+                {
+                    string type = sdr.GetString(1);
+                    comboTableType.Items.Add(type);
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (chkMon1.Checked)
+            {
+                monday = "Monday";
+                day.Add(monday);
+            }
+            if (chkTue2.Checked)
+            {
+                tuesday = "Tuesday";
+                day.Add(tuesday);
+            }
+            if (chkWed2.Checked)
+            {
+                wednesday = "Wednesday";
+                day.Add(wednesday);
+            }
+            if (chkThu2.Checked)
+            {
+                thursday = "Thursday";
+                day.Add(thursday);
+            }
+            if (chkFri2.Checked)
+            {
+                friday = "Friday";
+                day.Add(friday);
+            }
+            if (chkSat2.Checked)
+            {
+                saturday = "Saturday";
+                day.Add(saturday);
+            }
+            if (chkSun2.Checked)
+            {
+                sunday = "Sunday";
+                day.Add(sunday);
+            }
+
+            string combindedString = string.Join(",", day);
+
+            /*
+            SqlCommand cmd = new SqlCommand("UPDATE Time_table1 SET noDays = @noDays,days = @days,workingTime = @workingTime where tableType = @tableType", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@tableType", comboTableType.Text);
+            cmd.Parameters.AddWithValue("@noDays", txtNoDays2.Text);
+            cmd.Parameters.AddWithValue("@days", combindedString);
+            cmd.Parameters.AddWithValue("@workingTime", txtTime2.Text);
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            MessageBox.Show("Time table info is successfuly updated in the database", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            */
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+
+            using var cmd = new SQLiteCommand(con);
+
+            
+
+            cmd.CommandText = "UPDATE Time_table1 SET noDays = @noDays,days = @days,workingTime = @workingTime where tableType = @tableType";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@tableType", comboTableType.Text);
+            cmd.Parameters.AddWithValue("@noDays", txtNoDays2.Text);
+            cmd.Parameters.AddWithValue("@days", combindedString);
+            cmd.Parameters.AddWithValue("@workingTime", txtTime2.Text);
+
+
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            MessageBox.Show("Time table info is successfuly updated in the database", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            /*
+            SqlCommand cmd = new SqlCommand("DELETE from Time_table1 where tableType = @tableType", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@tableType", comboTableType.Text);
+
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            comboTableType.Items.Clear();
+            fillCombo();
+
+            MessageBox.Show("Time table is deleted from the table", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            */
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+            using var cmd = new SQLiteCommand(con);
+
+            cmd.CommandText = "DELETE from Time_table1 where tableType = @tableType";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@tableType", comboTableType.Text);
+
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            comboTableType.Items.Clear();
+            fillCombo();
+
+            MessageBox.Show("Time table is deleted from the table", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            cleanForm2();
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedTab == ParallelSessions)
+            {
+
+            }
+            else if (tabControl1.SelectedTab == tabPage1)
+            {
+                fillCombo();
+            }
+
+
+
+
+
+            
+            
+
         }
     }
 }

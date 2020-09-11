@@ -178,26 +178,29 @@ VALUES	('Malabe','Faculty of Computing','SE Department'),
 
 
 
+
+
 			using var cmd2 = new SQLiteCommand(con);
 
 			cmd2.CommandText = @"
-CREATE TABLE IF NOT EXISTS year_semester (
-id INTEGER PRIMARY KEY AUTOINCREMENT,
-year TEXT,
-semester TEXT,
-programe TEXT,
-group_no INT,
-subgroup_no INT
-);
-
-CREATE TABLE IF NOT EXISTS tags(
-id INTEGER PRIMARY KEY AUTOINCREMENT,
-tag TEXT
-);
-
-
+	CREATE TABLE  IF NOT EXISTS Time_table1(
+								tableID INTEGER PRIMARY KEY AUTOINCREMENT,
+								tableType TEXT,
+								noDays INTEGER,
+								days TEXT,
+								workingTime TEXT,
+								startTime TEXT,
+								EndTime TEXT
+				)
 ";
 			cmd2.ExecuteNonQuery();
+
+
+
+
+
+
+		
 
 
 
