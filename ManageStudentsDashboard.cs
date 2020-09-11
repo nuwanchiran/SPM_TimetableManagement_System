@@ -28,17 +28,44 @@ namespace Timetable_Management_System
 
         private void ManageStudentsDashboard_Load(object sender, EventArgs e)
         {
+            createYearSemesterTableIfEmpty();
+
             LoadYear();
             LoadSemester();
             LoadYearSemester();
-            LoadPrograme();
+           // LoadPrograme();
             LoadProgrameList();
-            LoadGroup();
-            LoadGroupList();
-            LoadSubGroupList();
-            LoadSubGroup();
-        }
 
+            LoadGroup();
+          //  LoadGroupList();
+          //  LoadSubGroupList();
+            LoadSubGroup();
+            
+      
+
+        }
+        // Create "year_semester" table if not exists
+        private void createYearSemesterTableIfEmpty()
+        {
+            string cs = @"URI=file:.\timetableManagementSystemDB.db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+            using var cmd = new SQLiteCommand(con);
+
+            cmd.CommandText = @"CREATE TABLE  IF NOT EXISTS year_semester (
+                                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                year TEXT,
+                                semester TEXT,
+                                programe TEXT,
+                                group_no INTEGER,
+                                subgroup_no INTEGER,
+                                group_id TEXT,
+                                subgroup_id TEXT
+                )";
+            cmd.ExecuteNonQuery();
+        }
         //set connection
         private void setConnection()
         {
@@ -532,6 +559,26 @@ namespace Timetable_Management_System
         private void dataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedTab == YearAndSemester)
+            {
+                LoadYearSemester();
+            }
+            else if (tabControl1.SelectedTab == Program)
+            {
+                LoadPrograme();
+            }
+            else if (tabControl1.SelectedTab == GroupNumbers)
+            {
+                LoadGroupList();
+            }
+            else if (tabControl1.SelectedTab == SubGroupNumbers)
+            {
+                LoadSubGroupList();
+            }
         }
     }
 }

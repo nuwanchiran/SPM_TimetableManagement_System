@@ -174,7 +174,34 @@ VALUES	('Malabe','Faculty of Computing','SE Department'),
 ";
             cmd1.ExecuteNonQuery();
 
-            con.Close();
+
+
+
+
+			using var cmd2 = new SQLiteCommand(con);
+
+			cmd2.CommandText = @"
+CREATE TABLE IF NOT EXISTS year_semester (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+year TEXT,
+semester TEXT,
+programe TEXT,
+group_no INT,
+subgroup_no INT
+);
+
+CREATE TABLE IF NOT EXISTS tags(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+tag TEXT
+);
+
+
+";
+			cmd2.ExecuteNonQuery();
+
+
+
+			con.Close();
            
 
         }
