@@ -1819,10 +1819,6 @@ namespace Timetable_Management_System
             }
         }
 
-        private void AddLecturer_Click(object sender, EventArgs e)
-        {
-
-        }
         private void cmbEmpLevel_Edit_SelectedIndexChanged(object sender, EventArgs e)
         {
             string cmbtxt = this.cmbEmpLevel_Edit.GetItemText(this.cmbEmpLevel_Edit.SelectedItem);
