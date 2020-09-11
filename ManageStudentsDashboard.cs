@@ -28,17 +28,43 @@ namespace Timetable_Management_System
 
         private void ManageStudentsDashboard_Load(object sender, EventArgs e)
         {
+            createYearSemesterTableIfEmpty();
+
             LoadYear();
             LoadSemester();
             LoadYearSemester();
+
             LoadPrograme();
             LoadProgrameList();
+
             LoadGroup();
             LoadGroupList();
+
             LoadSubGroupList();
             LoadSubGroup();
         }
+        // Create "year_semester" table if not exists
+        private void createYearSemesterTableIfEmpty()
+        {
+            string cs = @"URI=file:.\timetableManagementSystemDB.db";
 
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+            using var cmd = new SQLiteCommand(con);
+
+            cmd.CommandText = @"CREATE TABLE  IF NOT EXISTS year_semester (
+                                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                year TEXT,
+                                semester TEXT,
+                                programe TEXT,
+                                group_no INTEGER,
+                                subgroup_no INTEGER,
+                                group_id TEXT,
+                                subgroup_id TEXT
+                )";
+            cmd.ExecuteNonQuery();
+        }
         //set connection
         private void setConnection()
         {

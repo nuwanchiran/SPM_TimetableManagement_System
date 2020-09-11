@@ -28,7 +28,26 @@ namespace Timetable_Management_System
 
         private void ManageTagsDashboard_Load(object sender, EventArgs e)
         {
+            createTagsTableIfEmpty();
+
             LoadTags();
+        }
+
+        // Create "tags" table if not exists
+        private void createTagsTableIfEmpty()
+        {
+            string cs = @"URI=file:.\timetableManagementSystemDB.db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+            using var cmd = new SQLiteCommand(con);
+
+            cmd.CommandText = @"CREATE TABLE  IF NOT EXISTS tags (
+                                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                tag TEXT
+                )";
+            cmd.ExecuteNonQuery();
         }
         //set connection
         private void setConnection()
