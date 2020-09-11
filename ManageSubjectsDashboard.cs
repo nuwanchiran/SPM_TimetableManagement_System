@@ -675,8 +675,7 @@ namespace Timetable_Management_System
                     "subjects_tags.hrs AS Hours " +
 
                     "from subjects, subjects_tags" +
-                    " where subjects.subjectCode = subjects_tags.subjectCode AND subjects.subjectCode = '" + searchKey + "'" +
-                    " Order by Subject_Code";
+                    " where subjects.subjectCode = subjects_tags.subjectCode AND subjects.subjectCode = '" + searchKey + "'";
             }
             else if (searchType.Equals("byName"))
             {
@@ -690,8 +689,7 @@ namespace Timetable_Management_System
                     "subjects_tags.tag AS Tag ," +
                     "subjects_tags.hrs AS Hours " +
                     "from subjects, subjects_tags" +
-                    " where subjects.subjectCode = subjects_tags.subjectCode AND subjects.subjectName = '" + searchKey + "'" +
-                    " Order by Subject_Code";
+                    " where subjects.subjectCode = subjects_tags.subjectCode AND subjects.subjectName = '" + searchKey + "'";
             }
 
             using var cmd = new SQLiteCommand(stm, con);
@@ -761,8 +759,7 @@ namespace Timetable_Management_System
 
 
                 "from subjects, subjects_tags " +
-                "where subjects.subjectCode = subjects_tags.subjectCode"+
-                " Order by Subject_Code"
+                "where subjects.subjectCode = subjects_tags.subjectCode"
                 );
 
             cmd.Connection = conn;
@@ -974,8 +971,7 @@ namespace Timetable_Management_System
 
 
               "from subjects, subjects_tags " +
-              "where subjects.subjectCode = subjects_tags.subjectCode " +
-              " Order by Subject_Code";
+              "where subjects.subjectCode = subjects_tags.subjectCode ";
 
             if (!subjectCode.Equals("Any"))
             {
