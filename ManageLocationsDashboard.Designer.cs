@@ -31,8 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageLocationsDashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Buildings = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.editBuildingIdVal = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buildingDeleteBtn = new System.Windows.Forms.Button();
+            this.buildingEditBtn = new System.Windows.Forms.Button();
+            this.editBuildingNameVal = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buildingsGrid = new System.Windows.Forms.DataGridView();
+            this.addBuildingBtn = new System.Windows.Forms.Button();
+            this.buildingNameVal = new System.Windows.Forms.TextBox();
+            this.buildingName = new System.Windows.Forms.Label();
             this.lblBuildings = new System.Windows.Forms.Label();
             this.Rooms = new System.Windows.Forms.TabPage();
+            this.roomsGrid = new System.Windows.Forms.DataGridView();
             this.lblRooms = new System.Windows.Forms.Label();
             this.RoomsForTags = new System.Windows.Forms.TabPage();
             this.lblRoomsForTags = new System.Windows.Forms.Label();
@@ -57,9 +69,34 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
+            this.addRoomBtn = new System.Windows.Forms.Button();
+            this.roomNameVal = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.editRoomId = new System.Windows.Forms.TextBox();
+            this.deleteRoomBtn = new System.Windows.Forms.Button();
+            this.updateRoomBtn = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBuildings = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.roomCapacityVal = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboRoomTypes = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.editComboRoomType = new System.Windows.Forms.ComboBox();
+            this.editRoomCapacityVal = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.editComboBuildings = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.editRoomNameVal = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.Buildings.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buildingsGrid)).BeginInit();
             this.Rooms.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsGrid)).BeginInit();
             this.RoomsForTags.SuspendLayout();
             this.PrefferedRoomForASubject.SuspendLayout();
             this.PrefferedRoomForALecturer.SuspendLayout();
@@ -77,6 +114,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roomCapacityVal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editRoomCapacityVal)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -106,6 +146,11 @@
             // 
             // Buildings
             // 
+            this.Buildings.Controls.Add(this.groupBox1);
+            this.Buildings.Controls.Add(this.buildingsGrid);
+            this.Buildings.Controls.Add(this.addBuildingBtn);
+            this.Buildings.Controls.Add(this.buildingNameVal);
+            this.Buildings.Controls.Add(this.buildingName);
             this.Buildings.Controls.Add(this.lblBuildings);
             this.Buildings.Location = new System.Drawing.Point(224, 4);
             this.Buildings.Name = "Buildings";
@@ -114,18 +159,144 @@
             this.Buildings.TabIndex = 0;
             this.Buildings.Text = "Buildings";
             this.Buildings.UseVisualStyleBackColor = true;
+            this.Buildings.Click += new System.EventHandler(this.Buildings_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.editBuildingIdVal);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.buildingDeleteBtn);
+            this.groupBox1.Controls.Add(this.buildingEditBtn);
+            this.groupBox1.Controls.Add(this.editBuildingNameVal);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(1019, 18);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(303, 170);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // editBuildingIdVal
+            // 
+            this.editBuildingIdVal.HideSelection = false;
+            this.editBuildingIdVal.Location = new System.Drawing.Point(132, 33);
+            this.editBuildingIdVal.Name = "editBuildingIdVal";
+            this.editBuildingIdVal.Size = new System.Drawing.Size(150, 27);
+            this.editBuildingIdVal.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(22, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 20);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Buiding ID";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // buildingDeleteBtn
+            // 
+            this.buildingDeleteBtn.BackColor = System.Drawing.Color.Brown;
+            this.buildingDeleteBtn.Location = new System.Drawing.Point(26, 105);
+            this.buildingDeleteBtn.Name = "buildingDeleteBtn";
+            this.buildingDeleteBtn.Size = new System.Drawing.Size(127, 43);
+            this.buildingDeleteBtn.TabIndex = 8;
+            this.buildingDeleteBtn.Text = "Delete";
+            this.buildingDeleteBtn.UseVisualStyleBackColor = false;
+            this.buildingDeleteBtn.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // buildingEditBtn
+            // 
+            this.buildingEditBtn.BackColor = System.Drawing.Color.Coral;
+            this.buildingEditBtn.Location = new System.Drawing.Point(159, 105);
+            this.buildingEditBtn.Name = "buildingEditBtn";
+            this.buildingEditBtn.Size = new System.Drawing.Size(127, 43);
+            this.buildingEditBtn.TabIndex = 7;
+            this.buildingEditBtn.Text = "Update Building";
+            this.buildingEditBtn.UseVisualStyleBackColor = false;
+            this.buildingEditBtn.Click += new System.EventHandler(this.buildingEditBtn_Click);
+            // 
+            // editBuildingNameVal
+            // 
+            this.editBuildingNameVal.Location = new System.Drawing.Point(132, 72);
+            this.editBuildingNameVal.Name = "editBuildingNameVal";
+            this.editBuildingNameVal.Size = new System.Drawing.Size(150, 27);
+            this.editBuildingNameVal.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Buiding Name";
+            // 
+            // buildingsGrid
+            // 
+            this.buildingsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.buildingsGrid.Location = new System.Drawing.Point(454, 18);
+            this.buildingsGrid.Name = "buildingsGrid";
+            this.buildingsGrid.RowHeadersWidth = 51;
+            this.buildingsGrid.RowTemplate.Height = 24;
+            this.buildingsGrid.Size = new System.Drawing.Size(397, 219);
+            this.buildingsGrid.TabIndex = 4;
+            this.buildingsGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.buildingsGrid_CellClick);
+            this.buildingsGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.buildingsGrid_CellClick);
+            // 
+            // addBuildingBtn
+            // 
+            this.addBuildingBtn.BackColor = System.Drawing.Color.Coral;
+            this.addBuildingBtn.Location = new System.Drawing.Point(222, 155);
+            this.addBuildingBtn.Name = "addBuildingBtn";
+            this.addBuildingBtn.Size = new System.Drawing.Size(127, 43);
+            this.addBuildingBtn.TabIndex = 3;
+            this.addBuildingBtn.Text = "Add Building";
+            this.addBuildingBtn.UseVisualStyleBackColor = false;
+            this.addBuildingBtn.Click += new System.EventHandler(this.addBuildingBtn_Click);
+            // 
+            // buildingNameVal
+            // 
+            this.buildingNameVal.Location = new System.Drawing.Point(199, 64);
+            this.buildingNameVal.Name = "buildingNameVal";
+            this.buildingNameVal.Size = new System.Drawing.Size(150, 27);
+            this.buildingNameVal.TabIndex = 2;
+            this.buildingNameVal.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // buildingName
+            // 
+            this.buildingName.AutoSize = true;
+            this.buildingName.Location = new System.Drawing.Point(74, 67);
+            this.buildingName.Name = "buildingName";
+            this.buildingName.Size = new System.Drawing.Size(104, 20);
+            this.buildingName.TabIndex = 1;
+            this.buildingName.Text = "Buiding Name";
+            this.buildingName.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblBuildings
             // 
             this.lblBuildings.AutoSize = true;
-            this.lblBuildings.Location = new System.Drawing.Point(365, 46);
+            this.lblBuildings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuildings.Location = new System.Drawing.Point(18, 18);
             this.lblBuildings.Name = "lblBuildings";
-            this.lblBuildings.Size = new System.Drawing.Size(70, 20);
+            this.lblBuildings.Size = new System.Drawing.Size(92, 28);
             this.lblBuildings.TabIndex = 0;
             this.lblBuildings.Text = "Buildings";
+            this.lblBuildings.Click += new System.EventHandler(this.lblBuildings_Click);
             // 
             // Rooms
             // 
+            this.Rooms.Controls.Add(this.label8);
+            this.Rooms.Controls.Add(this.comboRoomTypes);
+            this.Rooms.Controls.Add(this.roomCapacityVal);
+            this.Rooms.Controls.Add(this.label7);
+            this.Rooms.Controls.Add(this.comboBuildings);
+            this.Rooms.Controls.Add(this.label6);
+            this.Rooms.Controls.Add(this.addRoomBtn);
+            this.Rooms.Controls.Add(this.roomNameVal);
+            this.Rooms.Controls.Add(this.label3);
+            this.Rooms.Controls.Add(this.groupBox2);
+            this.Rooms.Controls.Add(this.roomsGrid);
             this.Rooms.Controls.Add(this.lblRooms);
             this.Rooms.Location = new System.Drawing.Point(224, 4);
             this.Rooms.Name = "Rooms";
@@ -134,13 +305,26 @@
             this.Rooms.TabIndex = 1;
             this.Rooms.Text = "Rooms";
             this.Rooms.UseVisualStyleBackColor = true;
+            this.Rooms.Click += new System.EventHandler(this.Rooms_Click);
+            // 
+            // roomsGrid
+            // 
+            this.roomsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.roomsGrid.Location = new System.Drawing.Point(373, 74);
+            this.roomsGrid.Name = "roomsGrid";
+            this.roomsGrid.RowHeadersWidth = 51;
+            this.roomsGrid.RowTemplate.Height = 24;
+            this.roomsGrid.Size = new System.Drawing.Size(849, 217);
+            this.roomsGrid.TabIndex = 1;
+            this.roomsGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.roomsGrid_CellClick);
             // 
             // lblRooms
             // 
             this.lblRooms.AutoSize = true;
-            this.lblRooms.Location = new System.Drawing.Point(314, 64);
+            this.lblRooms.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRooms.Location = new System.Drawing.Point(25, 28);
             this.lblRooms.Name = "lblRooms";
-            this.lblRooms.Size = new System.Drawing.Size(55, 20);
+            this.lblRooms.Size = new System.Drawing.Size(87, 32);
             this.lblRooms.TabIndex = 0;
             this.lblRooms.Text = "Rooms";
             // 
@@ -385,6 +569,214 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
+            // addRoomBtn
+            // 
+            this.addRoomBtn.BackColor = System.Drawing.Color.Coral;
+            this.addRoomBtn.Location = new System.Drawing.Point(207, 293);
+            this.addRoomBtn.Name = "addRoomBtn";
+            this.addRoomBtn.Size = new System.Drawing.Size(127, 43);
+            this.addRoomBtn.TabIndex = 11;
+            this.addRoomBtn.Text = "Add Room";
+            this.addRoomBtn.UseVisualStyleBackColor = false;
+            this.addRoomBtn.Click += new System.EventHandler(this.addRoomBtn_Click);
+            // 
+            // roomNameVal
+            // 
+            this.roomNameVal.Location = new System.Drawing.Point(184, 105);
+            this.roomNameVal.Name = "roomNameVal";
+            this.roomNameVal.Size = new System.Drawing.Size(150, 27);
+            this.roomNameVal.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(59, 108);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 20);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Room Name";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(22, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Room ID";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.editRoomId);
+            this.groupBox2.Controls.Add(this.editComboRoomType);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.editRoomCapacityVal);
+            this.groupBox2.Controls.Add(this.deleteRoomBtn);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.updateRoomBtn);
+            this.groupBox2.Controls.Add(this.editComboBuildings);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.editRoomNameVal);
+            this.groupBox2.Location = new System.Drawing.Point(1255, 64);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(326, 345);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            // 
+            // editRoomId
+            // 
+            this.editRoomId.Enabled = false;
+            this.editRoomId.HideSelection = false;
+            this.editRoomId.Location = new System.Drawing.Point(147, 26);
+            this.editRoomId.Name = "editRoomId";
+            this.editRoomId.ReadOnly = true;
+            this.editRoomId.Size = new System.Drawing.Size(150, 27);
+            this.editRoomId.TabIndex = 10;
+            this.editRoomId.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // deleteRoomBtn
+            // 
+            this.deleteRoomBtn.BackColor = System.Drawing.Color.Brown;
+            this.deleteRoomBtn.Location = new System.Drawing.Point(26, 283);
+            this.deleteRoomBtn.Name = "deleteRoomBtn";
+            this.deleteRoomBtn.Size = new System.Drawing.Size(127, 43);
+            this.deleteRoomBtn.TabIndex = 8;
+            this.deleteRoomBtn.Text = "Delete";
+            this.deleteRoomBtn.UseVisualStyleBackColor = false;
+            this.deleteRoomBtn.Click += new System.EventHandler(this.deleteRoomBtn_Click);
+            // 
+            // updateRoomBtn
+            // 
+            this.updateRoomBtn.BackColor = System.Drawing.Color.Coral;
+            this.updateRoomBtn.Location = new System.Drawing.Point(177, 283);
+            this.updateRoomBtn.Name = "updateRoomBtn";
+            this.updateRoomBtn.Size = new System.Drawing.Size(127, 43);
+            this.updateRoomBtn.TabIndex = 7;
+            this.updateRoomBtn.Text = "Update Room";
+            this.updateRoomBtn.UseVisualStyleBackColor = false;
+            this.updateRoomBtn.Click += new System.EventHandler(this.updateRoomBtn_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(59, 151);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 20);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Building";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // comboBuildings
+            // 
+            this.comboBuildings.FormattingEnabled = true;
+            this.comboBuildings.Location = new System.Drawing.Point(184, 148);
+            this.comboBuildings.Name = "comboBuildings";
+            this.comboBuildings.Size = new System.Drawing.Size(150, 28);
+            this.comboBuildings.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(59, 197);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 20);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Room Capacity";
+            // 
+            // roomCapacityVal
+            // 
+            this.roomCapacityVal.Location = new System.Drawing.Point(214, 195);
+            this.roomCapacityVal.Name = "roomCapacityVal";
+            this.roomCapacityVal.Size = new System.Drawing.Size(120, 27);
+            this.roomCapacityVal.TabIndex = 17;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(59, 248);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(84, 20);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Room Type";
+            // 
+            // comboRoomTypes
+            // 
+            this.comboRoomTypes.FormattingEnabled = true;
+            this.comboRoomTypes.Location = new System.Drawing.Point(184, 245);
+            this.comboRoomTypes.Name = "comboRoomTypes";
+            this.comboRoomTypes.Size = new System.Drawing.Size(150, 28);
+            this.comboRoomTypes.TabIndex = 18;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(22, 224);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 20);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Room Type";
+            // 
+            // editComboRoomType
+            // 
+            this.editComboRoomType.FormattingEnabled = true;
+            this.editComboRoomType.Location = new System.Drawing.Point(147, 221);
+            this.editComboRoomType.Name = "editComboRoomType";
+            this.editComboRoomType.Size = new System.Drawing.Size(150, 28);
+            this.editComboRoomType.TabIndex = 26;
+            // 
+            // editRoomCapacityVal
+            // 
+            this.editRoomCapacityVal.Location = new System.Drawing.Point(177, 171);
+            this.editRoomCapacityVal.Name = "editRoomCapacityVal";
+            this.editRoomCapacityVal.Size = new System.Drawing.Size(120, 27);
+            this.editRoomCapacityVal.TabIndex = 25;
+            this.editRoomCapacityVal.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(22, 173);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(110, 20);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Room Capacity";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // editComboBuildings
+            // 
+            this.editComboBuildings.FormattingEnabled = true;
+            this.editComboBuildings.Location = new System.Drawing.Point(147, 124);
+            this.editComboBuildings.Name = "editComboBuildings";
+            this.editComboBuildings.Size = new System.Drawing.Size(150, 28);
+            this.editComboBuildings.TabIndex = 23;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(22, 127);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(64, 20);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Building";
+            // 
+            // editRoomNameVal
+            // 
+            this.editRoomNameVal.Location = new System.Drawing.Point(147, 81);
+            this.editRoomNameVal.Name = "editRoomNameVal";
+            this.editRoomNameVal.Size = new System.Drawing.Size(150, 27);
+            this.editRoomNameVal.TabIndex = 21;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(22, 84);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(93, 20);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Room Name";
+            // 
             // ManageLocationsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -404,13 +796,17 @@
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ManageLocationsDashboard";
-            this.Text = "ManageLocationsDashboard";
+            this.Text = "Manage Locations Dashboard";
             this.Load += new System.EventHandler(this.ManageLocationsDashboard_Load);
             this.tabControl1.ResumeLayout(false);
             this.Buildings.ResumeLayout(false);
             this.Buildings.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buildingsGrid)).EndInit();
             this.Rooms.ResumeLayout(false);
             this.Rooms.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsGrid)).EndInit();
             this.RoomsForTags.ResumeLayout(false);
             this.RoomsForTags.PerformLayout();
             this.PrefferedRoomForASubject.ResumeLayout(false);
@@ -434,6 +830,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roomCapacityVal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editRoomCapacityVal)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -468,5 +868,39 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox imgTime;
+        private System.Windows.Forms.Label buildingName;
+        private System.Windows.Forms.TextBox buildingNameVal;
+        private System.Windows.Forms.Button addBuildingBtn;
+        private System.Windows.Forms.DataGridView buildingsGrid;
+        private System.Windows.Forms.DataGridView roomsGrid;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button buildingEditBtn;
+        private System.Windows.Forms.TextBox editBuildingNameVal;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buildingDeleteBtn;
+        private System.Windows.Forms.TextBox editBuildingIdVal;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button addRoomBtn;
+        private System.Windows.Forms.TextBox roomNameVal;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox editRoomId;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button deleteRoomBtn;
+        private System.Windows.Forms.Button updateRoomBtn;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBuildings;
+        private System.Windows.Forms.NumericUpDown roomCapacityVal;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboRoomTypes;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox editComboRoomType;
+        private System.Windows.Forms.NumericUpDown editRoomCapacityVal;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox editComboBuildings;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox editRoomNameVal;
     }
 }
