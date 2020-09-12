@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageStatisticsDashboard));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.LecturersStatistics = new System.Windows.Forms.TabPage();
             this.lblLecturerStatistics = new System.Windows.Forms.Label();
@@ -47,6 +53,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
+            this.chart_LecturerCountByProfessionalLevel = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart_lecturersByFaculty = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.LecturersStatistics.SuspendLayout();
             this.StudentsStatistics.SuspendLayout();
@@ -62,6 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_LecturerCountByProfessionalLevel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_lecturersByFaculty)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -86,6 +97,9 @@
             // 
             // LecturersStatistics
             // 
+            this.LecturersStatistics.Controls.Add(this.label1);
+            this.LecturersStatistics.Controls.Add(this.chart_lecturersByFaculty);
+            this.LecturersStatistics.Controls.Add(this.chart_LecturerCountByProfessionalLevel);
             this.LecturersStatistics.Controls.Add(this.lblLecturerStatistics);
             this.LecturersStatistics.Location = new System.Drawing.Point(224, 4);
             this.LecturersStatistics.Name = "LecturersStatistics";
@@ -94,11 +108,12 @@
             this.LecturersStatistics.TabIndex = 0;
             this.LecturersStatistics.Text = "Lecturers";
             this.LecturersStatistics.UseVisualStyleBackColor = true;
+            this.LecturersStatistics.Click += new System.EventHandler(this.LecturersStatistics_Click);
             // 
             // lblLecturerStatistics
             // 
             this.lblLecturerStatistics.AutoSize = true;
-            this.lblLecturerStatistics.Location = new System.Drawing.Point(398, 54);
+            this.lblLecturerStatistics.Location = new System.Drawing.Point(6, 3);
             this.lblLecturerStatistics.Name = "lblLecturerStatistics";
             this.lblLecturerStatistics.Size = new System.Drawing.Size(124, 20);
             this.lblLecturerStatistics.TabIndex = 0;
@@ -270,6 +285,50 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
+            // chart_LecturerCountByProfessionalLevel
+            // 
+            chartArea6.Name = "ChartArea1";
+            this.chart_LecturerCountByProfessionalLevel.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart_LecturerCountByProfessionalLevel.Legends.Add(legend6);
+            this.chart_LecturerCountByProfessionalLevel.Location = new System.Drawing.Point(60, 65);
+            this.chart_LecturerCountByProfessionalLevel.Name = "chart_LecturerCountByProfessionalLevel";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Lecturer Count";
+            this.chart_LecturerCountByProfessionalLevel.Series.Add(series6);
+            this.chart_LecturerCountByProfessionalLevel.Size = new System.Drawing.Size(573, 300);
+            this.chart_LecturerCountByProfessionalLevel.TabIndex = 1;
+            this.chart_LecturerCountByProfessionalLevel.Text = "Lecturers by Professional Level";
+            this.chart_LecturerCountByProfessionalLevel.Click += new System.EventHandler(this.chart1_Click);
+            // 
+            // chart_lecturersByFaculty
+            // 
+            chartArea5.Name = "ChartArea1";
+            this.chart_lecturersByFaculty.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart_lecturersByFaculty.Legends.Add(legend5);
+            this.chart_lecturersByFaculty.Location = new System.Drawing.Point(639, 65);
+            this.chart_lecturersByFaculty.Name = "chart_lecturersByFaculty";
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Lecturer Count";
+            this.chart_lecturersByFaculty.Series.Add(series5);
+            this.chart_lecturersByFaculty.Size = new System.Drawing.Size(573, 300);
+            this.chart_lecturersByFaculty.TabIndex = 2;
+            this.chart_lecturersByFaculty.Text = "Lecturers by Faculty";
+            this.chart_lecturersByFaculty.Click += new System.EventHandler(this.chart_lecturersByFaculty_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(696, 463);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(500, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = " Maximum Time Allocated Lecturers of subjects  (Data is not available yet)";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // ManageStatisticsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -309,6 +368,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_LecturerCountByProfessionalLevel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_lecturersByFaculty)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -333,5 +394,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox imgTime;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_LecturerCountByProfessionalLevel;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_lecturersByFaculty;
+        private System.Windows.Forms.Label label1;
     }
 }
