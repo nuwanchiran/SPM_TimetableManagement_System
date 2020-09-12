@@ -2,27 +2,98 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Timetable_Management_System.src;
 
 namespace Timetable_Management_System
 {
     public partial class ManageStatisticsDashboard : Form
     {
+        private SQLiteConnection sql_conn;
+        private SQLiteCommand sql_cmd;
+        private SQLiteDataAdapter dbAdapter;
+
+     
         public ManageStatisticsDashboard()
         {
             InitializeComponent();
             tabControl1.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
             this.WindowState = FormWindowState.Maximized;
+
+
         }
 
         private void ManageStatisticsDashboard_Load(object sender, EventArgs e)
         {
-
+            fill_Chart_LecturerCountByProfessionalLevel();
+            fill_Chart_LecturerCountByFaculty();
         }
+
+        private void fill_Chart_LecturerCountByProfessionalLevel()
+        {
+            setConnection();
+            sql_conn.Open();
+            sql_cmd = sql_conn.CreateCommand();
+            string commandText = "SELECT employeeLevel , count(*) AS lecturerCount   FROM lecturers GROUP BY employeeLevel, name;";
+            dbAdapter = new SQLiteDataAdapter(commandText, sql_conn);
+            DataSet lectCountsByLevel = new DataSet();
+            lectCountsByLevel.Reset();
+            dbAdapter.Fill(lectCountsByLevel);
+
+            DataTable dataTable = new DataTable();
+            dataTable = lectCountsByLevel.Tables[0];
+            //dataTable.R
+            for (int count = 0; count < dataTable.Rows.Count; count++)
+            {
+                // Get individual datatables here...
+                DataRow dataRow = dataTable.Rows[count];
+                System.Diagnostics.Debug.WriteLine(dataRow.ItemArray);
+                chart_LecturerCountByProfessionalLevel.Series["Lecturer Count"].Points.AddXY(dataRow.ItemArray[0].ToString(), dataRow.ItemArray[1].ToString());
+            }
+
+            //roomsGrid.DataSource = roomsTable;
+            sql_conn.Close();
+
+ 
+            //chart title  
+            chart_LecturerCountByProfessionalLevel.Titles.Add("Lecturer Count by Professional Level");
+        }
+
+        private void fill_Chart_LecturerCountByFaculty()
+        {
+            setConnection();
+            sql_conn.Open();
+            sql_cmd = sql_conn.CreateCommand();
+            string commandText = "SELECT faculty , count(*) AS lecturerCount   FROM lecturers GROUP BY faculty";
+            dbAdapter = new SQLiteDataAdapter(commandText, sql_conn);
+            DataSet lectCountsByLevel = new DataSet();
+            lectCountsByLevel.Reset();
+            dbAdapter.Fill(lectCountsByLevel);
+
+            DataTable dataTable = new DataTable();
+            dataTable = lectCountsByLevel.Tables[0];
+            //dataTable.R
+            for (int count = 0; count < dataTable.Rows.Count; count++)
+            {
+                // Get individual datatables here...
+                DataRow dataRow = dataTable.Rows[count];
+                System.Diagnostics.Debug.WriteLine(dataRow.ItemArray);
+                chart_lecturersByFaculty.Series["Lecturer Count"].Points.AddXY(dataRow.ItemArray[0].ToString(), dataRow.ItemArray[1].ToString());
+            }
+
+            //roomsGrid.DataSource = roomsTable;
+            sql_conn.Close();
+
+
+            //chart title  
+            chart_lecturersByFaculty.Titles.Add("Lecturer Count by Faculty");
+        }
+
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -111,6 +182,39 @@ namespace Timetable_Management_System
             GenerateReportDashboard generateReportDashboardObj = new GenerateReportDashboard();
             generateReportDashboardObj.Show();
             this.Hide();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LecturersStatistics_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+
+        // Create SQLite DB Conn
+        private void setConnection()
+        {
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            sql_conn = new SQLiteConnection(cs);
+            //sql_conn.Open();
+        }
+
+        private void chart_lecturersByFaculty_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
