@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageStatisticsDashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.LecturersStatistics = new System.Windows.Forms.TabPage();
             this.lblLecturerStatistics = new System.Windows.Forms.Label();
@@ -287,16 +287,16 @@
             // 
             // chart_LecturerCountByProfessionalLevel
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart_LecturerCountByProfessionalLevel.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart_LecturerCountByProfessionalLevel.Legends.Add(legend6);
+            chartArea2.Name = "ChartArea1";
+            this.chart_LecturerCountByProfessionalLevel.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart_LecturerCountByProfessionalLevel.Legends.Add(legend2);
             this.chart_LecturerCountByProfessionalLevel.Location = new System.Drawing.Point(60, 65);
             this.chart_LecturerCountByProfessionalLevel.Name = "chart_LecturerCountByProfessionalLevel";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Lecturer Count";
-            this.chart_LecturerCountByProfessionalLevel.Series.Add(series6);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Lecturer Count";
+            this.chart_LecturerCountByProfessionalLevel.Series.Add(series2);
             this.chart_LecturerCountByProfessionalLevel.Size = new System.Drawing.Size(573, 300);
             this.chart_LecturerCountByProfessionalLevel.TabIndex = 1;
             this.chart_LecturerCountByProfessionalLevel.Text = "Lecturers by Professional Level";
@@ -304,16 +304,16 @@
             // 
             // chart_lecturersByFaculty
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart_lecturersByFaculty.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart_lecturersByFaculty.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.chart_lecturersByFaculty.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_lecturersByFaculty.Legends.Add(legend1);
             this.chart_lecturersByFaculty.Location = new System.Drawing.Point(639, 65);
             this.chart_lecturersByFaculty.Name = "chart_lecturersByFaculty";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Lecturer Count";
-            this.chart_lecturersByFaculty.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Lecturer Count";
+            this.chart_lecturersByFaculty.Series.Add(series1);
             this.chart_lecturersByFaculty.Size = new System.Drawing.Size(573, 300);
             this.chart_lecturersByFaculty.TabIndex = 2;
             this.chart_lecturersByFaculty.Text = "Lecturers by Faculty";
