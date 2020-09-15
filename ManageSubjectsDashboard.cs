@@ -1322,22 +1322,16 @@ namespace Timetable_Management_System
                                 )";
             cmd.ExecuteNonQuery();
 
-            if (type.Equals("byCode"))
-            {
-                cmd.CommandText = "DELETE FROM subjects_tags WHERE subjectCode = @subjectCode_t";
-                cmd.Parameters.AddWithValue("@subjectCode_t", SubjectCode);
-                cmd.Prepare();
-                cmd.ExecuteNonQuery();
+            cmd.CommandText = "DELETE FROM subjects_tags WHERE subjectCode = @subjectCode_t";
+            cmd.Parameters.AddWithValue("@subjectCode_t", SubjectCode);
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
 
-                cmd.CommandText = "DELETE FROM subjects WHERE subjectCode = @subjectCode_s";
-                cmd.Parameters.AddWithValue("@subjectCode_s", SubjectCode);
-                cmd.Prepare();
-                cmd.ExecuteNonQuery();
-            }
-            else if (type.Equals("byName"))
-            {
-                //Need to fill
-            }
+            cmd.CommandText = "DELETE FROM subjects WHERE subjectCode = @subjectCode_s";
+            cmd.Parameters.AddWithValue("@subjectCode_s", SubjectCode);
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+
 
             con.Close();
 
