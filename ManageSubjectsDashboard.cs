@@ -38,7 +38,6 @@ namespace Timetable_Management_System
 
         List<Subject_Tags> gblSubjectTagsListForUpdateFind;
 
-
         public ManageSubjectsDashboard()
         {
             InitializeComponent();
@@ -86,8 +85,6 @@ namespace Timetable_Management_System
             gblTagNames_Remove = new List<string>();
         }
 
-
-
         private void fillCloseButtonClickStatus_Add()
         {
             closeButtonClickStatus_Add.Clear();
@@ -106,8 +103,6 @@ namespace Timetable_Management_System
             }
         }
 
-
-
         private void loadYearAndSemester_Add()
         {
             cmbOfferedYear_Add.Items.Clear();
@@ -121,8 +116,6 @@ namespace Timetable_Management_System
             yearsList.Add(2);
             yearsList.Add(3);
             yearsList.Add(4);
-
-
 
             //Todo
             semestersList.Add(1);
@@ -143,8 +136,6 @@ namespace Timetable_Management_System
 
         private void drawTagsInSubject_Add(List<string> loadedTagsList)
         {
-
-
             int initialLocation = 290;
             for (int i = 0; i < tagsList.Length; i++)
             {
@@ -198,7 +189,6 @@ namespace Timetable_Management_System
                 AddSubject.Controls.Add(closeBtn);
                 initialLocation = initialLocation + 30;
             }
-
         }
 
         // String[] closedTags_Add;
@@ -223,7 +213,6 @@ namespace Timetable_Management_System
 
             foreach (var item in closeButtonClickStatus_Add)
             {
-
                 //item.Key
                 if (item.Value == false)
                 {
@@ -257,9 +246,7 @@ namespace Timetable_Management_System
                         txt.Enabled = true;
                     }
                 }
-
             }
-
         }
 
 
@@ -399,10 +386,6 @@ namespace Timetable_Management_System
                 subjectObj.category = "N/A";
             }
 
-
-
-
-
             foreach (var item in closeButtonClickStatus_Add)
             {
                 if (item.Value == true)
@@ -433,9 +416,6 @@ namespace Timetable_Management_System
 
             using var con = new SQLiteConnection(cs);
             con.Open();
-
-
-
 
             //Adding subject
             using var cmd = new SQLiteCommand(con);
@@ -514,7 +494,6 @@ namespace Timetable_Management_System
                 categorySetInvisible();
             }
 
-
         }
 
         private void categorySetInvisible()
@@ -527,7 +506,6 @@ namespace Timetable_Management_System
         {
             lblCategory_Add.Visible = true;
             txtCategory_Add.Visible = true;
-
 
         }
 
@@ -623,7 +601,6 @@ namespace Timetable_Management_System
 
                 initialLocation = initialLocation + 30;
 
-
                 gblSearchSubjectsAvailableTagsHrsNamesList.Add(lbl.Name);
                 gblSearchSubjectsAvailableTagsHrsNamesList.Add(lbl1.Name);
 
@@ -649,8 +626,6 @@ namespace Timetable_Management_System
                 lblCategoryL_Search.Visible = false;
                 lblCategory_Search.Visible = false;
             }
-
-
 
         }
 
@@ -694,8 +669,6 @@ namespace Timetable_Management_System
 
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
-
-
 
             Subject subjectObj_Search = new Subject();
 
@@ -778,9 +751,6 @@ namespace Timetable_Management_System
                 )";
             cmdCreateSubject.ExecuteNonQuery();
 
-
-
-
             using var cmdCreateSubjectTag = new SQLiteCommand(conn);
 
             cmdCreateSubjectTag.CommandText = @"CREATE TABLE  IF NOT EXISTS subjects_tags (
@@ -811,7 +781,6 @@ namespace Timetable_Management_System
             txtSubjectCode_Search.GotFocus += txtSubjectCode_Search_GotFocus;
             txtSubjectCode_Search.LostFocus += txtSubjectCode_Search_LostFocus;
 
-
             txtSubjectName_Search.Text = "Any";
             txtSubjectName_Search.GotFocus += txtSubjectName_Search_GotFocus;
             txtSubjectName_Search.LostFocus += txtSubjectName_Search_LostFocus;
@@ -823,7 +792,6 @@ namespace Timetable_Management_System
             txtTo_Search.Text = "∞";
             txtTo_Search.GotFocus += txtTo_Search_GotFocus;
             txtTo_Search.LostFocus += txtTo_Search_LostFocus;
-
 
             txtFrom_Search.Text = "0";
             txtFrom_Search.GotFocus += txtFrom_Search_GotFocus;
@@ -969,7 +937,6 @@ namespace Timetable_Management_System
               "subjects_tags.tag AS Tag ," +
               "subjects_tags.hrs AS Hours " +
 
-
               "from subjects, subjects_tags " +
               "where subjects.subjectCode = subjects_tags.subjectCode ";
 
@@ -1031,8 +998,6 @@ namespace Timetable_Management_System
             }
 
             return q;
-
-
         }
 
         private void filterSubjects_Search(string query)
@@ -1051,45 +1016,6 @@ namespace Timetable_Management_System
 
             conn.Open();
 
-
-
-
-
-            /*
-            using var cmdCreateSubject = new SQLiteCommand(conn);
-
-            cmdCreateSubject.CommandText = @"CREATE TABLE  IF NOT EXISTS subjects (
-                                    subjectCode STRING PRIMARY KEY,
-	                                subjectName TEXT,
-	                                offeredYear INTEGER,
-	                                offeredSemester INTEGER,
-	                                isParallel BOOLEAN,
-	                                category TEXT   
-                )";
-            cmdCreateSubject.ExecuteNonQuery();
-            
-
-
-
-            using var cmdCreateSubjectTag = new SQLiteCommand(conn);
-
-            cmdCreateSubjectTag.CommandText = @"CREATE TABLE  IF NOT EXISTS subjects_tags (
-                                        subjectCode STRING ,
-	                                    tag STRING,
-	                                    hrs DOUBLE,
-
-	                                    PRIMARY KEY (subjectCode ,tag ) 
-                )";
-            cmdCreateSubjectTag.ExecuteNonQuery();
-
-            cmd.ExecuteScalar();
-            */
-
-
-
-
-
-
             System.Data.SQLite.SQLiteDataAdapter da = new System.Data.SQLite.SQLiteDataAdapter(cmd);
             System.Data.DataSet ds = new System.Data.DataSet();
 
@@ -1098,8 +1024,6 @@ namespace Timetable_Management_System
 
             dataGridViewSubject_Search.DataSource = dt;
             conn.Close();
-
-
 
         }
 
@@ -1139,12 +1063,7 @@ namespace Timetable_Management_System
                 subjectTagLabels.Text = "";
             }
             gblTagNames_Search.Clear();
-
-
-
         }
-
-
 
         private void hideDataInRemove()
         {
@@ -1270,8 +1189,6 @@ namespace Timetable_Management_System
 
         private void setFoundSubjectData_Remove()
         {
-
-
             lblAnsSubjectCode_Remove.Visible = true;
             lblAnsSubjectName_Remove.Visible = true;
             lblAnsYear_Remove.Visible = true;
@@ -1297,8 +1214,6 @@ namespace Timetable_Management_System
                 lblIsCategoryL_Remove.Visible = false;
                 lblAnsCategory_Remove.Visible = false;
             }
-
-
         }
 
         private void btnReset_Remove_Click(object sender, EventArgs e)
@@ -1475,9 +1390,6 @@ namespace Timetable_Management_System
                 }
 
             }
-
-
-
         }
 
         private void initialBlockInTag_Edit()
@@ -1640,7 +1552,6 @@ namespace Timetable_Management_System
                 {
                     editTagsStatusList[i].closeClickStatus = !editTagsStatusList[i].closeClickStatus;
                 }
-
             }
             updateEditTagBlockingInView();
 
@@ -1701,9 +1612,6 @@ namespace Timetable_Management_System
 
         private Subject getSubjectDataForUpdate(string subjectSearchKeyForUpdate, string type)
         {
-
-
-
             string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
             using var con = new SQLiteConnection(cs);
@@ -1741,8 +1649,6 @@ namespace Timetable_Management_System
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
 
-
-
             Subject subjectObj_Search = new Subject();
 
             List<Subject_Tags> subjectTagslist = new List<Subject_Tags>();
@@ -1775,10 +1681,7 @@ namespace Timetable_Management_System
 
             gblSubjectTagsListForUpdateFind = subjectTagslist;
 
-
             return subjectObj_Search;
-
-
         }
 
         private void chkIsParallel_Edit_CheckedChanged(object sender, EventArgs e)
@@ -1842,10 +1745,6 @@ namespace Timetable_Management_System
 
         private void btnEditSubject_Edit_Click(object sender, EventArgs e)
         {
-
-
-
-
             if (txtSubejctCode_Edit.Text.Equals(""))
             {
                 MessageBox.Show("Please select a subject first");
@@ -1873,8 +1772,6 @@ namespace Timetable_Management_System
                 obj = null;
             }
 
-
-
             this.Hide();
             ManageSubjectsDashboard tempobj = new ManageSubjectsDashboard();
             tempobj.Show();
@@ -1883,7 +1780,6 @@ namespace Timetable_Management_System
 
         private void Updatesubject(Subject subjectObj)
         {
-
             string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
             using var con = new SQLiteConnection(cs);
@@ -1936,7 +1832,6 @@ namespace Timetable_Management_System
 
                         cmd.CommandText = @"INSERT INTO subjects_tags Values('" + subjectObj.subjectCode + "', '" + element.tag + "', " + element.hrs + " )";
                         cmd.ExecuteNonQuery();
-
                     }
                     else
                     {
@@ -1950,11 +1845,8 @@ namespace Timetable_Management_System
                 }
 
             }
-
-
             con.Close();
             MessageBox.Show("Update success");
-
         }
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
@@ -1964,8 +1856,6 @@ namespace Timetable_Management_System
                 refreshSubjectGrid();
             }
         }
-
-
 
     }
 }
