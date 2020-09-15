@@ -1232,7 +1232,7 @@
             // Building
             // 
             this.Building.AutoSize = true;
-            this.Building.Location = new System.Drawing.Point(683, 303);
+            this.Building.Location = new System.Drawing.Point(259, 302);
             this.Building.Name = "Building";
             this.Building.Size = new System.Drawing.Size(64, 20);
             this.Building.TabIndex = 36;
@@ -1241,7 +1241,7 @@
             // lblCenterSearch
             // 
             this.lblCenterSearch.AutoSize = true;
-            this.lblCenterSearch.Location = new System.Drawing.Point(480, 303);
+            this.lblCenterSearch.Location = new System.Drawing.Point(56, 302);
             this.lblCenterSearch.Name = "lblCenterSearch";
             this.lblCenterSearch.Size = new System.Drawing.Size(52, 20);
             this.lblCenterSearch.TabIndex = 35;
@@ -1250,7 +1250,7 @@
             // lblDepartmentSearch
             // 
             this.lblDepartmentSearch.AutoSize = true;
-            this.lblDepartmentSearch.Location = new System.Drawing.Point(248, 301);
+            this.lblDepartmentSearch.Location = new System.Drawing.Point(645, 301);
             this.lblDepartmentSearch.Name = "lblDepartmentSearch";
             this.lblDepartmentSearch.Size = new System.Drawing.Size(89, 20);
             this.lblDepartmentSearch.TabIndex = 34;
@@ -1259,7 +1259,7 @@
             // lblFacultySearch
             // 
             this.lblFacultySearch.AutoSize = true;
-            this.lblFacultySearch.Location = new System.Drawing.Point(57, 301);
+            this.lblFacultySearch.Location = new System.Drawing.Point(454, 301);
             this.lblFacultySearch.Name = "lblFacultySearch";
             this.lblFacultySearch.Size = new System.Drawing.Size(54, 20);
             this.lblFacultySearch.TabIndex = 33;
@@ -1277,7 +1277,7 @@
             // cmbBuildingSearch
             // 
             this.cmbBuildingSearch.FormattingEnabled = true;
-            this.cmbBuildingSearch.Location = new System.Drawing.Point(753, 298);
+            this.cmbBuildingSearch.Location = new System.Drawing.Point(329, 297);
             this.cmbBuildingSearch.Name = "cmbBuildingSearch";
             this.cmbBuildingSearch.Size = new System.Drawing.Size(121, 28);
             this.cmbBuildingSearch.TabIndex = 31;
@@ -1286,7 +1286,7 @@
             // cmbCenterSearch
             // 
             this.cmbCenterSearch.FormattingEnabled = true;
-            this.cmbCenterSearch.Location = new System.Drawing.Point(556, 298);
+            this.cmbCenterSearch.Location = new System.Drawing.Point(132, 297);
             this.cmbCenterSearch.Name = "cmbCenterSearch";
             this.cmbCenterSearch.Size = new System.Drawing.Size(121, 28);
             this.cmbCenterSearch.TabIndex = 30;
@@ -1295,7 +1295,7 @@
             // cmbDepartmentSearch
             // 
             this.cmbDepartmentSearch.FormattingEnabled = true;
-            this.cmbDepartmentSearch.Location = new System.Drawing.Point(343, 298);
+            this.cmbDepartmentSearch.Location = new System.Drawing.Point(740, 298);
             this.cmbDepartmentSearch.Name = "cmbDepartmentSearch";
             this.cmbDepartmentSearch.Size = new System.Drawing.Size(121, 28);
             this.cmbDepartmentSearch.TabIndex = 29;
@@ -1304,7 +1304,7 @@
             // cmbFacultySearch
             // 
             this.cmbFacultySearch.FormattingEnabled = true;
-            this.cmbFacultySearch.Location = new System.Drawing.Point(118, 298);
+            this.cmbFacultySearch.Location = new System.Drawing.Point(515, 298);
             this.cmbFacultySearch.Name = "cmbFacultySearch";
             this.cmbFacultySearch.Size = new System.Drawing.Size(121, 28);
             this.cmbFacultySearch.TabIndex = 28;
