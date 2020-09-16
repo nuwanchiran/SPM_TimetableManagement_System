@@ -31,7 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenerateReportDashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CreateSession = new System.Windows.Forms.TabPage();
-            this.lblCreateSession = new System.Windows.Forms.Label();
+            this.cmbLecturerAddSession = new System.Windows.Forms.ComboBox();
+            this.lblLecturerAddSession = new System.Windows.Forms.Label();
+            this.lblPathAddSession = new System.Windows.Forms.Label();
+            this.lblGenerateReport1 = new System.Windows.Forms.Label();
+            this.lblAddSession = new System.Windows.Forms.Label();
             this.SessionManagement = new System.Windows.Forms.TabPage();
             this.lblSessionManagement = new System.Windows.Forms.Label();
             this.TimeManagement = new System.Windows.Forms.TabPage();
@@ -94,7 +98,11 @@
             // 
             // CreateSession
             // 
-            this.CreateSession.Controls.Add(this.lblCreateSession);
+            this.CreateSession.Controls.Add(this.cmbLecturerAddSession);
+            this.CreateSession.Controls.Add(this.lblLecturerAddSession);
+            this.CreateSession.Controls.Add(this.lblPathAddSession);
+            this.CreateSession.Controls.Add(this.lblGenerateReport1);
+            this.CreateSession.Controls.Add(this.lblAddSession);
             this.CreateSession.Location = new System.Drawing.Point(224, 4);
             this.CreateSession.Name = "CreateSession";
             this.CreateSession.Padding = new System.Windows.Forms.Padding(3);
@@ -103,14 +111,52 @@
             this.CreateSession.Text = "Create Session";
             this.CreateSession.UseVisualStyleBackColor = true;
             // 
-            // lblCreateSession
+            // cmbLecturerAddSession
             // 
-            this.lblCreateSession.AutoSize = true;
-            this.lblCreateSession.Location = new System.Drawing.Point(365, 46);
-            this.lblCreateSession.Name = "lblCreateSession";
-            this.lblCreateSession.Size = new System.Drawing.Size(105, 20);
-            this.lblCreateSession.TabIndex = 0;
-            this.lblCreateSession.Text = "Create Session";
+            this.cmbLecturerAddSession.FormattingEnabled = true;
+            this.cmbLecturerAddSession.Location = new System.Drawing.Point(235, 104);
+            this.cmbLecturerAddSession.Name = "cmbLecturerAddSession";
+            this.cmbLecturerAddSession.Size = new System.Drawing.Size(209, 28);
+            this.cmbLecturerAddSession.TabIndex = 59;
+            this.cmbLecturerAddSession.SelectedIndexChanged += new System.EventHandler(this.cmbLecturerAddSession_SelectedIndexChanged);
+            // 
+            // lblLecturerAddSession
+            // 
+            this.lblLecturerAddSession.AutoSize = true;
+            this.lblLecturerAddSession.Location = new System.Drawing.Point(126, 110);
+            this.lblLecturerAddSession.Name = "lblLecturerAddSession";
+            this.lblLecturerAddSession.Size = new System.Drawing.Size(68, 20);
+            this.lblLecturerAddSession.TabIndex = 58;
+            this.lblLecturerAddSession.Text = "Lecturers";
+            // 
+            // lblPathAddSession
+            // 
+            this.lblPathAddSession.AutoSize = true;
+            this.lblPathAddSession.Location = new System.Drawing.Point(20, 20);
+            this.lblPathAddSession.Name = "lblPathAddSession";
+            this.lblPathAddSession.Size = new System.Drawing.Size(371, 20);
+            this.lblPathAddSession.TabIndex = 57;
+            this.lblPathAddSession.Text = "Admin Dashboard > Generate Report > Create Session";
+            // 
+            // lblGenerateReport1
+            // 
+            this.lblGenerateReport1.AutoSize = true;
+            this.lblGenerateReport1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenerateReport1.Location = new System.Drawing.Point(605, 21);
+            this.lblGenerateReport1.Name = "lblGenerateReport1";
+            this.lblGenerateReport1.Size = new System.Drawing.Size(250, 41);
+            this.lblGenerateReport1.TabIndex = 56;
+            this.lblGenerateReport1.Text = "Generate Report";
+            // 
+            // lblAddSession
+            // 
+            this.lblAddSession.AutoSize = true;
+            this.lblAddSession.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddSession.Location = new System.Drawing.Point(654, 79);
+            this.lblAddSession.Name = "lblAddSession";
+            this.lblAddSession.Size = new System.Drawing.Size(154, 32);
+            this.lblAddSession.TabIndex = 55;
+            this.lblAddSession.Text = "Add Session";
             // 
             // SessionManagement
             // 
@@ -367,7 +413,6 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage CreateSession;
-        private System.Windows.Forms.Label lblCreateSession;
         private System.Windows.Forms.TabPage SessionManagement;
         private System.Windows.Forms.Label lblSessionManagement;
         private System.Windows.Forms.TabPage TimeManagement;
@@ -387,5 +432,10 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox imgTime;
+        private System.Windows.Forms.Label lblPathAddSession;
+        private System.Windows.Forms.Label lblGenerateReport1;
+        private System.Windows.Forms.Label lblAddSession;
+        private System.Windows.Forms.ComboBox cmbLecturerAddSession;
+        private System.Windows.Forms.Label lblLecturerAddSession;
     }
 }
