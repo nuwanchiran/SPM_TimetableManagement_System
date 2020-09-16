@@ -145,6 +145,7 @@ namespace Timetable_Management_System
             else
             {
                 cmbLecturerAddSession.Items.Clear();
+                foundLecturersListForDisplay = refreshDataInLecturerCmb();
                 foreach (Lecturer lecObj in foundLecturersListForDisplay) // Loop through List with foreach
                 {
                     cmbLecturerAddSession.Items.Add(lecObj.lecturerID + " - " + lecObj.name);
@@ -214,7 +215,66 @@ namespace Timetable_Management_System
             fillCmbLecturerList();
 
 
+            UpdateSelectedLecturerGrid();
+        }
 
+        private void UpdateSelectedLecturerGrid()
+        {
+            selectedLecturersGridView.Columns.Clear();
+
+            selectedLecturersGridView.ColumnCount = 2;
+            selectedLecturersGridView.Columns[0].Name = "Lecturer ID";
+            selectedLecturersGridView.Columns[0].Width= 100;
+            selectedLecturersGridView.Columns[1].Name = "Lecturer Name";
+            selectedLecturersGridView.Columns[1].Width = 150;
+
+            foreach (Lecturer element in selectedLecturersListForCreateSession)
+            {
+                string[] row1 = new string[] { element.lecturerID+"", element.name };
+                selectedLecturersGridView.Rows.Add(row1);
+            }
+
+            DataGridViewButtonColumn dgvBtn = new DataGridViewButtonColumn();
+            dgvBtn.UseColumnTextForButtonValue = true;
+            dgvBtn.HeaderText = "    X";
+            dgvBtn.Name = "X";
+            dgvBtn.Text = "X";
+
+            dgvBtn.Width = 50;
+
+            selectedLecturersGridView.Columns.Add(dgvBtn);
+
+
+        }
+
+        private void selectedLecturersGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+            int rowindex = selectedLecturersGridView.CurrentCell.RowIndex;
+            int columnindex = selectedLecturersGridView.CurrentCell.ColumnIndex;
+
+           
+            string lecName = selectedLecturersGridView.Rows[rowindex].Cells[columnindex-1].Value.ToString();
+            string lecId = selectedLecturersGridView.Rows[rowindex].Cells[columnindex-2].Value.ToString();
+
+            find_And_Remove_Relevant_Lecturer_In_selectedLecturersListForCreateSession_List(lecId);
+            UpdateSelectedLecturerGrid();
+            Console.WriteLine(selectedLecturersListForCreateSession);
+            fillCmbLecturerList();
+        }
+
+        private void find_And_Remove_Relevant_Lecturer_In_selectedLecturersListForCreateSession_List( string lecId)
+        {
+            List<Lecturer> temp = new List<Lecturer>();
+            
+            foreach (Lecturer element in selectedLecturersListForCreateSession)
+            {
+                if(!lecId.Equals(element.lecturerID.ToString())){
+                    temp.Add(element);
+                }
+            }
+            selectedLecturersListForCreateSession = temp;
         }
 
         private List<Lecturer> refreshDataInLecturerCmb()
@@ -303,5 +363,8 @@ namespace Timetable_Management_System
 
             return fillCmbLecturerList;
         }
+
+
+     
     }
 }

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenerateReportDashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CreateSession = new System.Windows.Forms.TabPage();
+            this.selectedLecturersGridView = new System.Windows.Forms.DataGridView();
             this.cmbLecturerAddSession = new System.Windows.Forms.ComboBox();
             this.lblLecturerAddSession = new System.Windows.Forms.Label();
             this.lblPathAddSession = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@
             this.imgTime = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.CreateSession.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectedLecturersGridView)).BeginInit();
             this.SessionManagement.SuspendLayout();
             this.TimeManagement.SuspendLayout();
             this.RoomManagement.SuspendLayout();
@@ -98,6 +100,7 @@
             // 
             // CreateSession
             // 
+            this.CreateSession.Controls.Add(this.selectedLecturersGridView);
             this.CreateSession.Controls.Add(this.cmbLecturerAddSession);
             this.CreateSession.Controls.Add(this.lblLecturerAddSession);
             this.CreateSession.Controls.Add(this.lblPathAddSession);
@@ -110,6 +113,19 @@
             this.CreateSession.TabIndex = 0;
             this.CreateSession.Text = "Create Session";
             this.CreateSession.UseVisualStyleBackColor = true;
+            // 
+            // selectedLecturersGridView
+            // 
+            this.selectedLecturersGridView.AllowUserToAddRows = false;
+            this.selectedLecturersGridView.AllowUserToDeleteRows = false;
+            this.selectedLecturersGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.selectedLecturersGridView.Location = new System.Drawing.Point(180, 167);
+            this.selectedLecturersGridView.Name = "selectedLecturersGridView";
+            this.selectedLecturersGridView.RowHeadersWidth = 51;
+            this.selectedLecturersGridView.RowTemplate.Height = 24;
+            this.selectedLecturersGridView.Size = new System.Drawing.Size(472, 253);
+            this.selectedLecturersGridView.TabIndex = 60;
+            this.selectedLecturersGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.selectedLecturersGridView_CellClick);
             // 
             // cmbLecturerAddSession
             // 
@@ -386,6 +402,7 @@
             this.tabControl1.ResumeLayout(false);
             this.CreateSession.ResumeLayout(false);
             this.CreateSession.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectedLecturersGridView)).EndInit();
             this.SessionManagement.ResumeLayout(false);
             this.SessionManagement.PerformLayout();
             this.TimeManagement.ResumeLayout(false);
@@ -437,5 +454,6 @@
         private System.Windows.Forms.Label lblAddSession;
         private System.Windows.Forms.ComboBox cmbLecturerAddSession;
         private System.Windows.Forms.Label lblLecturerAddSession;
+        private System.Windows.Forms.DataGridView selectedLecturersGridView;
     }
 }
