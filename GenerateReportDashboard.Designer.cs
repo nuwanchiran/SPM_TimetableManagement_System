@@ -31,6 +31,25 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenerateReportDashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CreateSession = new System.Windows.Forms.TabPage();
+            this.imgDataGridView_CreateSession = new System.Windows.Forms.DataGridView();
+            this.cmbDuration_CreateSession = new System.Windows.Forms.TextBox();
+            this.cmbNoOfStudents_CreateSession = new System.Windows.Forms.TextBox();
+            this.cmbSubject_CreateSession = new System.Windows.Forms.ComboBox();
+            this.cmbSubGroup_CreateSession = new System.Windows.Forms.ComboBox();
+            this.cmbGroup_CreateSession = new System.Windows.Forms.ComboBox();
+            this.cmbProgram_CreateSession = new System.Windows.Forms.ComboBox();
+            this.cmbSemester_CreateSession = new System.Windows.Forms.ComboBox();
+            this.cmbYear_CreateSession = new System.Windows.Forms.ComboBox();
+            this.cmbTag_CreateSession = new System.Windows.Forms.ComboBox();
+            this.lblDuration_CreateSession = new System.Windows.Forms.Label();
+            this.lblNoOfStudents_CreateSession = new System.Windows.Forms.Label();
+            this.lblSubject_CreateSession = new System.Windows.Forms.Label();
+            this.lblSubGroup_CreateSession = new System.Windows.Forms.Label();
+            this.lblGroup_CreateSession = new System.Windows.Forms.Label();
+            this.lblProgram_CreateSession = new System.Windows.Forms.Label();
+            this.lblSemester_CreateSession = new System.Windows.Forms.Label();
+            this.lblYear_CreateSession = new System.Windows.Forms.Label();
+            this.lblTag_CreateSession = new System.Windows.Forms.Label();
             this.selectedLecturersGridView = new System.Windows.Forms.DataGridView();
             this.cmbLecturerAddSession = new System.Windows.Forms.ComboBox();
             this.lblLecturerAddSession = new System.Windows.Forms.Label();
@@ -56,8 +75,11 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
+            this.lblLecturerList_CreateSession = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.CreateSession.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDataGridView_CreateSession)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedLecturersGridView)).BeginInit();
             this.SessionManagement.SuspendLayout();
             this.TimeManagement.SuspendLayout();
@@ -74,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -94,12 +117,32 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1915, 528);
+            this.tabControl1.Size = new System.Drawing.Size(1915, 910);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 1;
             // 
             // CreateSession
             // 
+            this.CreateSession.Controls.Add(this.groupBox1);
+            this.CreateSession.Controls.Add(this.imgDataGridView_CreateSession);
+            this.CreateSession.Controls.Add(this.cmbDuration_CreateSession);
+            this.CreateSession.Controls.Add(this.cmbNoOfStudents_CreateSession);
+            this.CreateSession.Controls.Add(this.cmbSubject_CreateSession);
+            this.CreateSession.Controls.Add(this.cmbSubGroup_CreateSession);
+            this.CreateSession.Controls.Add(this.cmbGroup_CreateSession);
+            this.CreateSession.Controls.Add(this.cmbProgram_CreateSession);
+            this.CreateSession.Controls.Add(this.cmbSemester_CreateSession);
+            this.CreateSession.Controls.Add(this.cmbYear_CreateSession);
+            this.CreateSession.Controls.Add(this.cmbTag_CreateSession);
+            this.CreateSession.Controls.Add(this.lblDuration_CreateSession);
+            this.CreateSession.Controls.Add(this.lblNoOfStudents_CreateSession);
+            this.CreateSession.Controls.Add(this.lblSubject_CreateSession);
+            this.CreateSession.Controls.Add(this.lblSubGroup_CreateSession);
+            this.CreateSession.Controls.Add(this.lblGroup_CreateSession);
+            this.CreateSession.Controls.Add(this.lblProgram_CreateSession);
+            this.CreateSession.Controls.Add(this.lblSemester_CreateSession);
+            this.CreateSession.Controls.Add(this.lblYear_CreateSession);
+            this.CreateSession.Controls.Add(this.lblTag_CreateSession);
             this.CreateSession.Controls.Add(this.selectedLecturersGridView);
             this.CreateSession.Controls.Add(this.cmbLecturerAddSession);
             this.CreateSession.Controls.Add(this.lblLecturerAddSession);
@@ -109,10 +152,171 @@
             this.CreateSession.Location = new System.Drawing.Point(224, 4);
             this.CreateSession.Name = "CreateSession";
             this.CreateSession.Padding = new System.Windows.Forms.Padding(3);
-            this.CreateSession.Size = new System.Drawing.Size(1687, 520);
+            this.CreateSession.Size = new System.Drawing.Size(1687, 902);
             this.CreateSession.TabIndex = 0;
             this.CreateSession.Text = "Create Session";
             this.CreateSession.UseVisualStyleBackColor = true;
+            // 
+            // imgDataGridView_CreateSession
+            // 
+            this.imgDataGridView_CreateSession.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.imgDataGridView_CreateSession.Location = new System.Drawing.Point(709, 148);
+            this.imgDataGridView_CreateSession.Name = "imgDataGridView_CreateSession";
+            this.imgDataGridView_CreateSession.RowHeadersWidth = 51;
+            this.imgDataGridView_CreateSession.RowTemplate.Height = 24;
+            this.imgDataGridView_CreateSession.Size = new System.Drawing.Size(513, 390);
+            this.imgDataGridView_CreateSession.TabIndex = 79;
+            // 
+            // cmbDuration_CreateSession
+            // 
+            this.cmbDuration_CreateSession.Location = new System.Drawing.Point(227, 761);
+            this.cmbDuration_CreateSession.Name = "cmbDuration_CreateSession";
+            this.cmbDuration_CreateSession.Size = new System.Drawing.Size(337, 27);
+            this.cmbDuration_CreateSession.TabIndex = 78;
+            // 
+            // cmbNoOfStudents_CreateSession
+            // 
+            this.cmbNoOfStudents_CreateSession.Location = new System.Drawing.Point(227, 720);
+            this.cmbNoOfStudents_CreateSession.Name = "cmbNoOfStudents_CreateSession";
+            this.cmbNoOfStudents_CreateSession.Size = new System.Drawing.Size(337, 27);
+            this.cmbNoOfStudents_CreateSession.TabIndex = 77;
+            // 
+            // cmbSubject_CreateSession
+            // 
+            this.cmbSubject_CreateSession.FormattingEnabled = true;
+            this.cmbSubject_CreateSession.Location = new System.Drawing.Point(224, 672);
+            this.cmbSubject_CreateSession.Name = "cmbSubject_CreateSession";
+            this.cmbSubject_CreateSession.Size = new System.Drawing.Size(340, 28);
+            this.cmbSubject_CreateSession.TabIndex = 76;
+            // 
+            // cmbSubGroup_CreateSession
+            // 
+            this.cmbSubGroup_CreateSession.FormattingEnabled = true;
+            this.cmbSubGroup_CreateSession.Location = new System.Drawing.Point(443, 623);
+            this.cmbSubGroup_CreateSession.Name = "cmbSubGroup_CreateSession";
+            this.cmbSubGroup_CreateSession.Size = new System.Drawing.Size(121, 28);
+            this.cmbSubGroup_CreateSession.TabIndex = 75;
+            // 
+            // cmbGroup_CreateSession
+            // 
+            this.cmbGroup_CreateSession.FormattingEnabled = true;
+            this.cmbGroup_CreateSession.Location = new System.Drawing.Point(226, 623);
+            this.cmbGroup_CreateSession.Name = "cmbGroup_CreateSession";
+            this.cmbGroup_CreateSession.Size = new System.Drawing.Size(121, 28);
+            this.cmbGroup_CreateSession.TabIndex = 74;
+            // 
+            // cmbProgram_CreateSession
+            // 
+            this.cmbProgram_CreateSession.FormattingEnabled = true;
+            this.cmbProgram_CreateSession.Location = new System.Drawing.Point(226, 568);
+            this.cmbProgram_CreateSession.Name = "cmbProgram_CreateSession";
+            this.cmbProgram_CreateSession.Size = new System.Drawing.Size(338, 28);
+            this.cmbProgram_CreateSession.TabIndex = 73;
+            // 
+            // cmbSemester_CreateSession
+            // 
+            this.cmbSemester_CreateSession.FormattingEnabled = true;
+            this.cmbSemester_CreateSession.Location = new System.Drawing.Point(443, 515);
+            this.cmbSemester_CreateSession.Name = "cmbSemester_CreateSession";
+            this.cmbSemester_CreateSession.Size = new System.Drawing.Size(121, 28);
+            this.cmbSemester_CreateSession.TabIndex = 72;
+            // 
+            // cmbYear_CreateSession
+            // 
+            this.cmbYear_CreateSession.FormattingEnabled = true;
+            this.cmbYear_CreateSession.Location = new System.Drawing.Point(226, 515);
+            this.cmbYear_CreateSession.Name = "cmbYear_CreateSession";
+            this.cmbYear_CreateSession.Size = new System.Drawing.Size(121, 28);
+            this.cmbYear_CreateSession.TabIndex = 71;
+            // 
+            // cmbTag_CreateSession
+            // 
+            this.cmbTag_CreateSession.FormattingEnabled = true;
+            this.cmbTag_CreateSession.Location = new System.Drawing.Point(226, 469);
+            this.cmbTag_CreateSession.Name = "cmbTag_CreateSession";
+            this.cmbTag_CreateSession.Size = new System.Drawing.Size(338, 28);
+            this.cmbTag_CreateSession.TabIndex = 70;
+            // 
+            // lblDuration_CreateSession
+            // 
+            this.lblDuration_CreateSession.AutoSize = true;
+            this.lblDuration_CreateSession.Location = new System.Drawing.Point(143, 764);
+            this.lblDuration_CreateSession.Name = "lblDuration_CreateSession";
+            this.lblDuration_CreateSession.Size = new System.Drawing.Size(67, 20);
+            this.lblDuration_CreateSession.TabIndex = 69;
+            this.lblDuration_CreateSession.Text = "Duration";
+            // 
+            // lblNoOfStudents_CreateSession
+            // 
+            this.lblNoOfStudents_CreateSession.AutoSize = true;
+            this.lblNoOfStudents_CreateSession.Location = new System.Drawing.Point(108, 720);
+            this.lblNoOfStudents_CreateSession.Name = "lblNoOfStudents_CreateSession";
+            this.lblNoOfStudents_CreateSession.Size = new System.Drawing.Size(110, 20);
+            this.lblNoOfStudents_CreateSession.TabIndex = 68;
+            this.lblNoOfStudents_CreateSession.Text = "No Of Students";
+            // 
+            // lblSubject_CreateSession
+            // 
+            this.lblSubject_CreateSession.AutoSize = true;
+            this.lblSubject_CreateSession.Location = new System.Drawing.Point(160, 675);
+            this.lblSubject_CreateSession.Name = "lblSubject_CreateSession";
+            this.lblSubject_CreateSession.Size = new System.Drawing.Size(58, 20);
+            this.lblSubject_CreateSession.TabIndex = 67;
+            this.lblSubject_CreateSession.Text = "Subject";
+            // 
+            // lblSubGroup_CreateSession
+            // 
+            this.lblSubGroup_CreateSession.AutoSize = true;
+            this.lblSubGroup_CreateSession.Location = new System.Drawing.Point(362, 626);
+            this.lblSubGroup_CreateSession.Name = "lblSubGroup_CreateSession";
+            this.lblSubGroup_CreateSession.Size = new System.Drawing.Size(75, 20);
+            this.lblSubGroup_CreateSession.TabIndex = 66;
+            this.lblSubGroup_CreateSession.Text = "SubGroup";
+            // 
+            // lblGroup_CreateSession
+            // 
+            this.lblGroup_CreateSession.AutoSize = true;
+            this.lblGroup_CreateSession.Location = new System.Drawing.Point(160, 626);
+            this.lblGroup_CreateSession.Name = "lblGroup_CreateSession";
+            this.lblGroup_CreateSession.Size = new System.Drawing.Size(50, 20);
+            this.lblGroup_CreateSession.TabIndex = 65;
+            this.lblGroup_CreateSession.Text = "Group";
+            // 
+            // lblProgram_CreateSession
+            // 
+            this.lblProgram_CreateSession.AutoSize = true;
+            this.lblProgram_CreateSession.Location = new System.Drawing.Point(160, 571);
+            this.lblProgram_CreateSession.Name = "lblProgram_CreateSession";
+            this.lblProgram_CreateSession.Size = new System.Drawing.Size(66, 20);
+            this.lblProgram_CreateSession.TabIndex = 64;
+            this.lblProgram_CreateSession.Text = "Program";
+            // 
+            // lblSemester_CreateSession
+            // 
+            this.lblSemester_CreateSession.AutoSize = true;
+            this.lblSemester_CreateSession.Location = new System.Drawing.Point(367, 518);
+            this.lblSemester_CreateSession.Name = "lblSemester_CreateSession";
+            this.lblSemester_CreateSession.Size = new System.Drawing.Size(70, 20);
+            this.lblSemester_CreateSession.TabIndex = 63;
+            this.lblSemester_CreateSession.Text = "Semester";
+            // 
+            // lblYear_CreateSession
+            // 
+            this.lblYear_CreateSession.AutoSize = true;
+            this.lblYear_CreateSession.Location = new System.Drawing.Point(160, 518);
+            this.lblYear_CreateSession.Name = "lblYear_CreateSession";
+            this.lblYear_CreateSession.Size = new System.Drawing.Size(37, 20);
+            this.lblYear_CreateSession.TabIndex = 62;
+            this.lblYear_CreateSession.Text = "Year";
+            // 
+            // lblTag_CreateSession
+            // 
+            this.lblTag_CreateSession.AutoSize = true;
+            this.lblTag_CreateSession.Location = new System.Drawing.Point(160, 472);
+            this.lblTag_CreateSession.Name = "lblTag_CreateSession";
+            this.lblTag_CreateSession.Size = new System.Drawing.Size(32, 20);
+            this.lblTag_CreateSession.TabIndex = 61;
+            this.lblTag_CreateSession.Text = "Tag";
             // 
             // selectedLecturersGridView
             // 
@@ -180,7 +384,7 @@
             this.SessionManagement.Location = new System.Drawing.Point(224, 4);
             this.SessionManagement.Name = "SessionManagement";
             this.SessionManagement.Padding = new System.Windows.Forms.Padding(3);
-            this.SessionManagement.Size = new System.Drawing.Size(1687, 520);
+            this.SessionManagement.Size = new System.Drawing.Size(1687, 902);
             this.SessionManagement.TabIndex = 1;
             this.SessionManagement.Text = "SessionManagement";
             this.SessionManagement.UseVisualStyleBackColor = true;
@@ -199,7 +403,7 @@
             this.TimeManagement.Controls.Add(this.lblTimeManagement);
             this.TimeManagement.Location = new System.Drawing.Point(224, 4);
             this.TimeManagement.Name = "TimeManagement";
-            this.TimeManagement.Size = new System.Drawing.Size(1687, 520);
+            this.TimeManagement.Size = new System.Drawing.Size(1687, 902);
             this.TimeManagement.TabIndex = 2;
             this.TimeManagement.Text = "Time Management";
             this.TimeManagement.UseVisualStyleBackColor = true;
@@ -218,7 +422,7 @@
             this.RoomManagement.Controls.Add(this.lblRoomManagement);
             this.RoomManagement.Location = new System.Drawing.Point(224, 4);
             this.RoomManagement.Name = "RoomManagement";
-            this.RoomManagement.Size = new System.Drawing.Size(1687, 520);
+            this.RoomManagement.Size = new System.Drawing.Size(1687, 902);
             this.RoomManagement.TabIndex = 3;
             this.RoomManagement.Text = "Room Management";
             this.RoomManagement.UseVisualStyleBackColor = true;
@@ -237,7 +441,7 @@
             this.GenerateTimetable.Controls.Add(this.lblGenerateTimetable);
             this.GenerateTimetable.Location = new System.Drawing.Point(224, 4);
             this.GenerateTimetable.Name = "GenerateTimetable";
-            this.GenerateTimetable.Size = new System.Drawing.Size(1687, 520);
+            this.GenerateTimetable.Size = new System.Drawing.Size(1687, 902);
             this.GenerateTimetable.TabIndex = 4;
             this.GenerateTimetable.Text = "Generate Timetable";
             this.GenerateTimetable.UseVisualStyleBackColor = true;
@@ -378,11 +582,30 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
+            // lblLecturerList_CreateSession
+            // 
+            this.lblLecturerList_CreateSession.AutoSize = true;
+            this.lblLecturerList_CreateSession.Location = new System.Drawing.Point(46, 23);
+            this.lblLecturerList_CreateSession.Name = "lblLecturerList_CreateSession";
+            this.lblLecturerList_CreateSession.Size = new System.Drawing.Size(88, 20);
+            this.lblLecturerList_CreateSession.TabIndex = 80;
+            this.lblLecturerList_CreateSession.Text = "Lecturer List";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblLecturerList_CreateSession);
+            this.groupBox1.Location = new System.Drawing.Point(728, 574);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(251, 126);
+            this.groupBox1.TabIndex = 81;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
             // GenerateReportDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 673);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.imgTime);
             this.Controls.Add(this.imgLoggedUser);
             this.Controls.Add(this.imgGenerateReport);
@@ -402,6 +625,7 @@
             this.tabControl1.ResumeLayout(false);
             this.CreateSession.ResumeLayout(false);
             this.CreateSession.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDataGridView_CreateSession)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedLecturersGridView)).EndInit();
             this.SessionManagement.ResumeLayout(false);
             this.SessionManagement.PerformLayout();
@@ -422,6 +646,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -455,5 +681,26 @@
         private System.Windows.Forms.ComboBox cmbLecturerAddSession;
         private System.Windows.Forms.Label lblLecturerAddSession;
         private System.Windows.Forms.DataGridView selectedLecturersGridView;
+        private System.Windows.Forms.Label lblDuration_CreateSession;
+        private System.Windows.Forms.Label lblNoOfStudents_CreateSession;
+        private System.Windows.Forms.Label lblSubject_CreateSession;
+        private System.Windows.Forms.Label lblSubGroup_CreateSession;
+        private System.Windows.Forms.Label lblGroup_CreateSession;
+        private System.Windows.Forms.Label lblProgram_CreateSession;
+        private System.Windows.Forms.Label lblSemester_CreateSession;
+        private System.Windows.Forms.Label lblYear_CreateSession;
+        private System.Windows.Forms.Label lblTag_CreateSession;
+        private System.Windows.Forms.TextBox cmbDuration_CreateSession;
+        private System.Windows.Forms.TextBox cmbNoOfStudents_CreateSession;
+        private System.Windows.Forms.ComboBox cmbSubject_CreateSession;
+        private System.Windows.Forms.ComboBox cmbSubGroup_CreateSession;
+        private System.Windows.Forms.ComboBox cmbGroup_CreateSession;
+        private System.Windows.Forms.ComboBox cmbProgram_CreateSession;
+        private System.Windows.Forms.ComboBox cmbSemester_CreateSession;
+        private System.Windows.Forms.ComboBox cmbYear_CreateSession;
+        private System.Windows.Forms.ComboBox cmbTag_CreateSession;
+        private System.Windows.Forms.DataGridView imgDataGridView_CreateSession;
+        private System.Windows.Forms.Label lblLecturerList_CreateSession;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

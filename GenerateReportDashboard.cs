@@ -24,7 +24,13 @@ namespace Timetable_Management_System
             InitializeComponent();
             tabControl1.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
             this.WindowState = FormWindowState.Maximized;
+
+            //Create Session
+            fillInitialComboboxes();
+            cleanCreateSession();
         }
+
+       
 
         private void GenerateReportDashboard_Load(object sender, EventArgs e)
         {
@@ -216,6 +222,135 @@ namespace Timetable_Management_System
 
 
             UpdateSelectedLecturerGrid();
+
+            RefreshImagesWindows_CreateSession();
+
+            generateAndDisplayLecturersList_CreateSession();
+        }
+
+        private void RefreshImagesWindows_CreateSession()
+        {
+            this.imgDataGridView_CreateSession.Rows.Clear();
+
+            DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
+            //imgCol.HeaderText = "Photo";
+            //imgCol.Name = "Photo";
+            imgDataGridView_CreateSession.Columns.Add(imgCol);
+
+            DataGridViewImageColumn imgCol1 = new DataGridViewImageColumn();
+            //imgCol.HeaderText = "Photo";
+            //imgCol.Name = "Photo";
+            imgDataGridView_CreateSession.Columns.Add(imgCol1);
+
+
+            DataGridViewImageColumn imgCol2 = new DataGridViewImageColumn();
+            //imgCol.HeaderText = "Photo";
+            //imgCol.Name = "Photo";
+            imgDataGridView_CreateSession.Columns.Add(imgCol2);
+
+            imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            imgCol1.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            imgCol2.ImageLayout = DataGridViewImageCellLayout.Zoom;
+
+            
+            imgDataGridView_CreateSession.AutoSizeRowsMode =    DataGridViewAutoSizeRowsMode.AllCells;
+
+
+            /*
+            Image img = Image.FromFile(@"C:/Users/User/Desktop/SPM_TimetableManagement_System/bin/Debug/images/1.jfif");
+            Image img1 = Image.FromFile(@"C:/Users/User/Desktop/SPM_TimetableManagement_System/bin/Debug/images/2image.jpg");
+            Image img2 = Image.FromFile(@"C:/Users/User/Desktop/SPM_TimetableManagement_System/bin/Debug/images/3.jfif");
+            
+            Object[] row = new Object[] { img, img1, img2 };
+         
+            imgDataGridView_CreateSession.Rows.Add(row);
+            */
+            
+                        List<Object> temp = new List<object>();
+                        for (int i=0; i< selectedLecturersListForCreateSession.Count; i++)
+                        {
+                            if (selectedLecturersListForCreateSession.Count >= 1)
+                            {
+                                //  selectedLecturersListForCreateSession[0].name;
+                                string photoPath = selectedLecturersListForCreateSession[i].photoPath;
+                                Image img = Image.FromFile(@"" + photoPath);
+                                temp.Add(img);
+                                i++;
+                            }
+
+                            if (selectedLecturersListForCreateSession.Count >= 2)
+                            {
+                                //  selectedLecturersListForCreateSession[0].name
+                                string photoPath1 = selectedLecturersListForCreateSession[i].photoPath;
+                                Image img1 = Image.FromFile(@"" + photoPath1);
+                                temp.Add(img1);
+                                i++;
+                            }
+
+                            if (selectedLecturersListForCreateSession.Count >= 3)
+                            {
+                                //selectedLecturersListForCreateSession[0].name
+                                string photoPath2 = selectedLecturersListForCreateSession[i].photoPath;
+                                Image img2 = Image.FromFile(@"" + photoPath2);
+                                temp.Add(img2);
+                            }
+                            Object[] row = temp.Cast<object>().ToArray();
+                            imgDataGridView_CreateSession.Rows.Add(row);
+                        }
+            
+            /*
+
+            List<ImageLec> imagesList = new List<ImageLec>(); 
+            foreach (Lecturer element in selectedLecturersListForCreateSession)
+            {
+                ImageLec obj = new ImageLec();
+                obj.isDisplayed = false;
+                obj.lecturerID = element.lecturerID;
+                obj.lecturerName = element.name;
+                obj.photoPath = element.photoPath;
+                imagesList.Add(obj);
+            }
+
+
+            List<Object> temp = new List<object>();
+
+            int row_var = 0;
+            int col_var = 0;
+            foreach (DataGridViewRow row in imgDataGridView_CreateSession.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    
+                    foreach (ImageLec element in imagesList)
+                    {
+                        if(element.isDisplayed == false)
+                        {
+                            //  selectedLecturersListForCreateSession[0].name
+                            string photoPath = element.photoPath;
+                          //  Image img1 = Image.FromFile(@"" + photoPath);
+                          //  temp.Add(img1);
+
+
+                            Bitmap bmp = (Bitmap)Bitmap.FromFile(@"" + photoPath);
+
+                            DataGridViewImageCell iCell = new DataGridViewImageCell();
+                            iCell.Value = bmp;
+                            imgDataGridView_CreateSession[row_var, col_var] = iCell;
+                            
+                            element.isDisplayed = true;
+                            break;
+                        }
+                       
+                    }
+                col_var++;
+
+                }
+             row_var++;
+            }
+
+            */
+
+
         }
 
         private void UpdateSelectedLecturerGrid()
@@ -262,6 +397,7 @@ namespace Timetable_Management_System
             UpdateSelectedLecturerGrid();
             Console.WriteLine(selectedLecturersListForCreateSession);
             fillCmbLecturerList();
+            generateAndDisplayLecturersList_CreateSession();
         }
 
         private void find_And_Remove_Relevant_Lecturer_In_selectedLecturersListForCreateSession_List( string lecId)
@@ -364,7 +500,56 @@ namespace Timetable_Management_System
             return fillCmbLecturerList;
         }
 
+        private void fillTags_CreateSession()
+        {
+            cmbTag_CreateSession.Items.Clear();
 
-     
+            cmbTag_CreateSession.Items.Add("Lecture");
+            cmbTag_CreateSession.Items.Add("Tutorial");
+            cmbTag_CreateSession.Items.Add("Lab");
+            cmbTag_CreateSession.Items.Add("Evaluation");
+        }
+        private void fillYear_CreateSession()
+        {
+            cmbYear_CreateSession.Items.Add(1);
+            cmbYear_CreateSession.Items.Add(2);
+            cmbYear_CreateSession.Items.Add(3);
+            cmbYear_CreateSession.Items.Add(4);
+        }
+        private void fillSemester_CreateSession()
+        {
+            cmbSemester_CreateSession.Items.Add(1);
+            cmbSemester_CreateSession.Items.Add(2);
+        }
+
+        private void fillInitialComboboxes()
+        {
+            fillTags_CreateSession();
+            fillYear_CreateSession();
+            fillSemester_CreateSession();
+        }
+
+        private void generateAndDisplayLecturersList_CreateSession()
+        {
+            string fullLecList = "";
+            foreach (Lecturer element in selectedLecturersListForCreateSession)
+            {
+                if (fullLecList.Equals(""))
+                {
+                    fullLecList = fullLecList + element.name;
+                }
+                else
+                {
+                    fullLecList = fullLecList + " , " +element.name;
+                }
+            }
+            lblLecturerList_CreateSession.Text = fullLecList;
+        }
+
+        private void cleanCreateSession()
+        {
+            lblLecturerList_CreateSession.Text = "";
+        }
+
     }
 }

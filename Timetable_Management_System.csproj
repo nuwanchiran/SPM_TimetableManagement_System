@@ -125,6 +125,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Models\ImageLec.cs" />
     <Compile Include="src\Models\Lecturer.cs" />
     <Compile Include="src\Models\Subject.cs" />
     <Compile Include="src\Models\SubjectEditStatus.cs" />
