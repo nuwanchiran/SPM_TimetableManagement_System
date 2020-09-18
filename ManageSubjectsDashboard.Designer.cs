@@ -150,6 +150,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
+            this.lblProgram_Add = new System.Windows.Forms.Label();
+            this.cmbProgram_Add = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.AddSubject.SuspendLayout();
             this.EditSubject.SuspendLayout();
@@ -198,6 +200,8 @@
             // 
             // AddSubject
             // 
+            this.AddSubject.Controls.Add(this.cmbProgram_Add);
+            this.AddSubject.Controls.Add(this.lblProgram_Add);
             this.AddSubject.Controls.Add(this.label4);
             this.AddSubject.Controls.Add(this.btnReset_Add);
             this.AddSubject.Controls.Add(this.btnAddSubject_Add);
@@ -257,7 +261,7 @@
             // chkParallelSubject_Add
             // 
             this.chkParallelSubject_Add.AutoSize = true;
-            this.chkParallelSubject_Add.Location = new System.Drawing.Point(517, 270);
+            this.chkParallelSubject_Add.Location = new System.Drawing.Point(517, 302);
             this.chkParallelSubject_Add.Name = "chkParallelSubject_Add";
             this.chkParallelSubject_Add.Size = new System.Drawing.Size(132, 24);
             this.chkParallelSubject_Add.TabIndex = 24;
@@ -268,7 +272,7 @@
             // lblCategory_Add
             // 
             this.lblCategory_Add.AutoSize = true;
-            this.lblCategory_Add.Location = new System.Drawing.Point(513, 306);
+            this.lblCategory_Add.Location = new System.Drawing.Point(513, 338);
             this.lblCategory_Add.Name = "lblCategory_Add";
             this.lblCategory_Add.Size = new System.Drawing.Size(69, 20);
             this.lblCategory_Add.TabIndex = 23;
@@ -276,7 +280,7 @@
             // 
             // txtCategory_Add
             // 
-            this.txtCategory_Add.Location = new System.Drawing.Point(636, 306);
+            this.txtCategory_Add.Location = new System.Drawing.Point(636, 338);
             this.txtCategory_Add.Name = "txtCategory_Add";
             this.txtCategory_Add.Size = new System.Drawing.Size(222, 27);
             this.txtCategory_Add.TabIndex = 22;
@@ -314,7 +318,7 @@
             // lblSubjectCode_Add
             // 
             this.lblSubjectCode_Add.AutoSize = true;
-            this.lblSubjectCode_Add.Location = new System.Drawing.Point(494, 214);
+            this.lblSubjectCode_Add.Location = new System.Drawing.Point(494, 223);
             this.lblSubjectCode_Add.Name = "lblSubjectCode_Add";
             this.lblSubjectCode_Add.Size = new System.Drawing.Size(97, 20);
             this.lblSubjectCode_Add.TabIndex = 5;
@@ -1453,6 +1457,23 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
+            // lblProgram_Add
+            // 
+            this.lblProgram_Add.AutoSize = true;
+            this.lblProgram_Add.Location = new System.Drawing.Point(498, 265);
+            this.lblProgram_Add.Name = "lblProgram_Add";
+            this.lblProgram_Add.Size = new System.Drawing.Size(66, 20);
+            this.lblProgram_Add.TabIndex = 55;
+            this.lblProgram_Add.Text = "Program";
+            // 
+            // cmbProgram_Add
+            // 
+            this.cmbProgram_Add.FormattingEnabled = true;
+            this.cmbProgram_Add.Location = new System.Drawing.Point(622, 265);
+            this.cmbProgram_Add.Name = "cmbProgram_Add";
+            this.cmbProgram_Add.Size = new System.Drawing.Size(297, 28);
+            this.cmbProgram_Add.TabIndex = 56;
+            // 
             // ManageSubjectsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1632,5 +1653,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cmbProgram_Add;
+        private System.Windows.Forms.Label lblProgram_Add;
     }
 }
