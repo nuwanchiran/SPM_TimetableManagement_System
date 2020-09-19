@@ -232,72 +232,34 @@ namespace Timetable_Management_System
         {
             this.imgDataGridView_CreateSession.Rows.Clear();
 
-            DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
-            //imgCol.HeaderText = "Photo";
-            //imgCol.Name = "Photo";
-            imgDataGridView_CreateSession.Columns.Add(imgCol);
+            if (this.imgDataGridView_CreateSession.Columns.Count < 3)
+            {
+                DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
+                imgCol.DefaultCellStyle.NullValue = null;
+                imgDataGridView_CreateSession.Columns.Add(imgCol);
+                imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            }
 
-            DataGridViewImageColumn imgCol1 = new DataGridViewImageColumn();
-            //imgCol.HeaderText = "Photo";
-            //imgCol.Name = "Photo";
-            imgDataGridView_CreateSession.Columns.Add(imgCol1);
-
-
-            DataGridViewImageColumn imgCol2 = new DataGridViewImageColumn();
-            //imgCol.HeaderText = "Photo";
-            //imgCol.Name = "Photo";
-            imgDataGridView_CreateSession.Columns.Add(imgCol2);
-
-            imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            imgCol1.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            imgCol2.ImageLayout = DataGridViewImageCellLayout.Zoom;
-
-            
             imgDataGridView_CreateSession.AutoSizeRowsMode =    DataGridViewAutoSizeRowsMode.AllCells;
 
+            List<Object> temp = new List<object>();
+            for (int i=0; i< selectedLecturersListForCreateSession.Count; i++)
+            {
+                string photoPath = selectedLecturersListForCreateSession[i].photoPath;
+                Image img = Image.FromFile(@"" + photoPath);
+                temp.Add(img);
+                if ((i+1)%3==0)
+                {
+                    Object[] row = temp.Cast<object>().ToArray();
+                    imgDataGridView_CreateSession.Rows.Add(row);
+                    temp = new List<object>();
+                }
+            }
+            if (temp.Count > 0)
+            {
+                imgDataGridView_CreateSession.Rows.Add(temp.Cast<object>().ToArray());
+            }
 
-            /*
-            Image img = Image.FromFile(@"C:/Users/User/Desktop/SPM_TimetableManagement_System/bin/Debug/images/1.jfif");
-            Image img1 = Image.FromFile(@"C:/Users/User/Desktop/SPM_TimetableManagement_System/bin/Debug/images/2image.jpg");
-            Image img2 = Image.FromFile(@"C:/Users/User/Desktop/SPM_TimetableManagement_System/bin/Debug/images/3.jfif");
-            
-            Object[] row = new Object[] { img, img1, img2 };
-         
-            imgDataGridView_CreateSession.Rows.Add(row);
-            */
-            
-                        List<Object> temp = new List<object>();
-                        for (int i=0; i< selectedLecturersListForCreateSession.Count; i++)
-                        {
-                            if (selectedLecturersListForCreateSession.Count >= 1)
-                            {
-                                //  selectedLecturersListForCreateSession[0].name;
-                                string photoPath = selectedLecturersListForCreateSession[i].photoPath;
-                                Image img = Image.FromFile(@"" + photoPath);
-                                temp.Add(img);
-                                i++;
-                            }
-
-                            if (selectedLecturersListForCreateSession.Count >= 2)
-                            {
-                                //  selectedLecturersListForCreateSession[0].name
-                                string photoPath1 = selectedLecturersListForCreateSession[i].photoPath;
-                                Image img1 = Image.FromFile(@"" + photoPath1);
-                                temp.Add(img1);
-                                i++;
-                            }
-
-                            if (selectedLecturersListForCreateSession.Count >= 3)
-                            {
-                                //selectedLecturersListForCreateSession[0].name
-                                string photoPath2 = selectedLecturersListForCreateSession[i].photoPath;
-                                Image img2 = Image.FromFile(@"" + photoPath2);
-                                temp.Add(img2);
-                            }
-                            Object[] row = temp.Cast<object>().ToArray();
-                            imgDataGridView_CreateSession.Rows.Add(row);
-                        }
-            
             /*
 
             List<ImageLec> imagesList = new List<ImageLec>(); 
@@ -550,6 +512,7 @@ namespace Timetable_Management_System
         {
             lblLecturerList_CreateSession.Text = "";
         }
+
 
     }
 }
