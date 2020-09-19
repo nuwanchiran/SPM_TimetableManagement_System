@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Timetable_Management_System.src;
 using Timetable_Management_System.src.Models;
+using System.Data.SqlClient;
 
 namespace Timetable_Management_System
 {
@@ -485,11 +486,27 @@ namespace Timetable_Management_System
             cmbSemester_CreateSession.Items.Add(2);
         }
 
+        private void fillProgram_CreateSession()
+        {
+            cmbProgram_CreateSession.Items.Add("SE");
+            cmbProgram_CreateSession.Items.Add("IT");
+            cmbProgram_CreateSession.Items.Add("CS");
+            cmbProgram_CreateSession.Items.Add("IM");
+            cmbProgram_CreateSession.Items.Add("DS");
+        }
+
         private void fillInitialComboboxes()
         {
             fillTags_CreateSession();
             fillYear_CreateSession();
             fillSemester_CreateSession();
+            fillProgram_CreateSession();
+            fillGroup_CreateSession();
+        }
+
+        private void fillGroup_CreateSession()
+        {
+           
         }
 
         private void generateAndDisplayLecturersList_CreateSession()
@@ -514,42 +531,433 @@ namespace Timetable_Management_System
             lblLecturerList_CreateSession.Text = "";
             lblLecturerList_CreateSession.Text = "";
             lblTag_CreateSession_Summary.Text = "";
-            lblYear_CreateSession_Summary.Text = "";
-            lblSemester_CreateSession_Summary.Text = "";
-            noOfStudents_CreateSession.Text = "";
-            duration_CreateSession.Text = "";
+            lblSessionID_CreateSession_Summary.Text = "";
+            lblSubject_CreateSession_summary.Text = "";
+            lblStudentCreateSessionSummary_CreateSession.Text = "";
+            lblCountAndHrs_CreateSession.Text = "";
+
+
         }
 
-        private void cmbSemester_CreateSession_Leave(object sender, EventArgs e)
-        {
-            lblSemester_CreateSession_Summary.Text = this.cmbSemester_CreateSession.GetItemText(this.cmbSemester_CreateSession.SelectedItem);
-        }
-
-        private void cmbYear_CreateSession_Leave(object sender, EventArgs e)
-        {
-            lblYear_CreateSession_Summary.Text = this.cmbYear_CreateSession.GetItemText(this.cmbYear_CreateSession.SelectedItem);
-        }
-
-        private void cmbTag_CreateSession_Leave(object sender, EventArgs e)
-        {
-            lblTag_CreateSession_Summary.Text = this.cmbTag_CreateSession.GetItemText(this.cmbTag_CreateSession.SelectedItem);
-        }
-
-        private void cmbNoOfStudents_CreateSession_TextChanged(object sender, EventArgs e)
-        {
-            noOfStudents_CreateSession.Text = cmbNoOfStudents_CreateSession.Text;
-        }
-
-        private void cmbDuration_CreateSession_TextChanged(object sender, EventArgs e)
-        {
-            duration_CreateSession.Text = cmbDuration_CreateSession.Text;
-        }
-
+        
         private void btnReset_CreateSession_Click(object sender, EventArgs e)
         {
             this.Hide();
             GenerateReportDashboard obj = new GenerateReportDashboard();
             obj.Show();
+        }
+
+       
+        private void btnCreateSession_Click(object sender, EventArgs e)
+        {
+
+            string sessionId = txtSessionID_CreateSession.Text;
+
+            string selectedTag = this.cmbTag_CreateSession.GetItemText(this.cmbTag_CreateSession.SelectedItem);
+            string selectedYear = this.cmbYear_CreateSession.GetItemText(this.cmbYear_CreateSession.SelectedItem);
+            string selectedSemester = this.cmbSemester_CreateSession.GetItemText(this.cmbSemester_CreateSession.SelectedItem);
+            string selectedProgram = this.cmbProgram_CreateSession.GetItemText(this.cmbProgram_CreateSession.SelectedItem);
+            string selectedGroup = this.cmbGroup_CreateSession.GetItemText(this.cmbGroup_CreateSession.SelectedItem);
+            string selectedSubGroup = this.cmbSubGroup_CreateSession.GetItemText(this.cmbSubGroup_CreateSession.SelectedItem);
+            string selectedSubjectId = this.cmbSubject_CreateSession.GetItemText(this.cmbSubject_CreateSession.SelectedItem);
+
+
+            string noOfStudents = txtNoOfStudents_CreateSession.Text;
+            string sessionDuration = txtDuration_CreateSession.Text;
+
+
+            double numberDur;
+            int numberStd;
+
+            if (sessionId.Equals(""))
+            {
+                MessageBox.Show("Please enter session ID");
+            }
+            else if (selectedTag.Equals(""))
+            {
+                MessageBox.Show("Please select a tag");
+            }
+            else if (selectedYear.Equals(""))
+            {
+                MessageBox.Show("Please select the year");
+            }
+            else if (selectedSemester.Equals(""))
+            {
+                MessageBox.Show("Please select the semester");
+            }
+            else if (selectedProgram.Equals(""))
+            {
+                MessageBox.Show("Please select the program");
+            }
+            else if (selectedGroup.Equals(""))
+            {
+                MessageBox.Show("Please select the group");
+            }
+            else if (selectedSubGroup.Equals(""))
+            {
+                MessageBox.Show("Please select the sub group");
+            }
+            else if (selectedSubjectId.Equals(""))
+            {
+                MessageBox.Show("Please select the subject ");
+            }
+            else if (noOfStudents.Equals(""))
+            {
+                MessageBox.Show("Please enter number of students");
+            }else if (!Int32.TryParse(noOfStudents, out numberStd))
+            {
+                MessageBox.Show("Number of students must be a valid number");
+            }
+            else if (sessionDuration.Equals(""))
+            {
+                MessageBox.Show("Please enter session duration");
+            }
+            else if (!Double.TryParse(sessionDuration, out numberDur))
+            {
+                MessageBox.Show("Session duration must be a number");
+            }
+            else
+            {
+                //Add to db
+                addSessionToDB();
+            }
+        }
+
+        private void addSessionToDB()
+        {
+            string sessionId = txtSessionID_CreateSession.Text;
+
+            string tag = this.cmbTag_CreateSession.GetItemText(this.cmbTag_CreateSession.SelectedItem);
+            string year = this.cmbYear_CreateSession.GetItemText(this.cmbYear_CreateSession.SelectedItem);
+            string semester = this.cmbSemester_CreateSession.GetItemText(this.cmbSemester_CreateSession.SelectedItem);
+            string program = this.cmbProgram_CreateSession.GetItemText(this.cmbProgram_CreateSession.SelectedItem);
+            string group = this.cmbGroup_CreateSession.GetItemText(this.cmbGroup_CreateSession.SelectedItem);
+            string subGroup = this.cmbSubGroup_CreateSession.GetItemText(this.cmbSubGroup_CreateSession.SelectedItem);
+            string subjectId = this.cmbSubject_CreateSession.GetItemText(this.cmbSubject_CreateSession.SelectedItem);
+
+
+            string[] lines = subjectId.Split(new string[] { " - " }, StringSplitOptions.None);
+
+            subjectId = lines[0];
+
+            string noOfStudents = txtNoOfStudents_CreateSession.Text;
+            string sessionDuration = txtDuration_CreateSession.Text;
+
+            //selectedLecturersListForCreateSession
+
+            int yearNum;
+            int semesterNum;
+            int groupNum;
+            int subGroupNum;
+            int noOfStudentsNum;
+            double sessionDurationNum;
+
+            bool success1 = Int32.TryParse(year, out yearNum);
+            bool success2 = Int32.TryParse(semester, out semesterNum);
+            bool success3 = Int32.TryParse(group, out groupNum);
+            bool success4 = Int32.TryParse(subGroup, out subGroupNum);
+            bool success5 = Int32.TryParse(noOfStudents, out noOfStudentsNum);
+            bool success6 = Double.TryParse(sessionDuration, out sessionDurationNum);
+
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+            //Create session table if not exist
+            using var cmd = new SQLiteCommand(con);
+
+            cmd.CommandText = @"CREATE TABLE  IF NOT EXISTS session (
+                                    sessionId               STRING PRIMARY KEY,
+	                                tag                     TEXT,
+	                                year                    INTEGER,
+	                                semester                INTEGER,
+                                    program                 TEXT,
+                                    groupId                   INTEGER,
+                                    subGroupId                INTEGER,
+                                    subjectId               TEXT,
+                                    noOfStudents            INTEGER,
+                                    sessionDuration         DOUBLE 
+                )";
+            cmd.ExecuteNonQuery();
+
+            using var cmd1 = new SQLiteCommand(con);
+
+            cmd1.CommandText = "INSERT INTO session VALUES" +
+                "(@sessionId, @tag, @year, @semester, @program, @groupId, @subGroupId, @subjectId, @noOfStudents, @sessionDuration)";
+
+            cmd1.Parameters.AddWithValue("@sessionId", sessionId);
+            cmd1.Parameters.AddWithValue("@tag", tag);
+            cmd1.Parameters.AddWithValue("@year", yearNum);
+            cmd1.Parameters.AddWithValue("@semester", semesterNum);
+            cmd1.Parameters.AddWithValue("@program", program);
+            cmd1.Parameters.AddWithValue("@groupId", groupNum);
+            cmd1.Parameters.AddWithValue("@subGroupId", subGroupNum);
+            cmd1.Parameters.AddWithValue("@subjectId", subjectId);
+            cmd1.Parameters.AddWithValue("@noOfStudents", noOfStudentsNum);
+            cmd1.Parameters.AddWithValue("@sessionDuration", sessionDurationNum);
+
+            cmd1.Prepare();
+            bool addSessionOK = true;
+            try
+            { 
+                cmd1.ExecuteNonQuery();
+            }
+            catch (SQLiteException ex)
+            {
+                if (ex.ErrorCode == 19)
+                {
+                    MessageBox.Show("Session Already created");
+                    addSessionOK = false;
+                }
+            }
+
+
+            //Adding Lecturers
+
+            if(addSessionOK == true)
+            {
+                //Create session table if not exist
+                using var cmdLec = new SQLiteCommand(con);
+
+                cmdLec.CommandText = @"CREATE TABLE  IF NOT EXISTS session_lecturers (
+                                    sessionId   TEXT,
+	                                lecturerID  INTEGER
+                                    
+                )";
+                cmdLec.ExecuteNonQuery();
+
+                foreach (Lecturer element in selectedLecturersListForCreateSession)
+                {
+
+                    using var cmdLecAdd = new SQLiteCommand(con);
+
+                    cmdLecAdd.CommandText = "INSERT INTO session_lecturers VALUES" +
+                        "(@sessionId, @lecturerID)";
+
+                    cmdLecAdd.Parameters.AddWithValue("@sessionId", sessionId);
+                    cmdLecAdd.Parameters.AddWithValue("@lecturerID", element.lecturerID);
+
+                    cmdLecAdd.Prepare();
+                    cmdLecAdd.ExecuteNonQuery();
+                }
+                MessageBox.Show("Session Created Successfully");
+                this.Hide();
+                GenerateReportDashboard obj = new GenerateReportDashboard();
+                obj.Show();
+            }
+           
+
+           
+            con.Close();
+
+            
+
+        }
+
+        private void cmbProgram_CreateSession_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedYear = this.cmbYear_CreateSession.GetItemText(this.cmbYear_CreateSession.SelectedItem);
+            string selectedSemester = this.cmbSemester_CreateSession.GetItemText(this.cmbSemester_CreateSession.SelectedItem);
+
+            string selectedProgram = this.cmbProgram_CreateSession.GetItemText(this.cmbProgram_CreateSession.SelectedItem); ;
+            
+            fillSubjectAccordingToProgram_Year_Semester(selectedProgram, selectedYear, selectedSemester);
+            //fillGroupNumbers(selectedProgram, selectedYear, selectedSemester);
+        }
+
+        private void fillGroupNumbers(string selectedProgram, string selectedYear, string selectedSemester)
+        {
+
+            string year = "Year "+ selectedYear;
+            string semester =  "Semester "+ selectedSemester;
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "select " +
+                    "s.group_no AS Group_No " +
+                    " from year_semester s" +
+                    " where s.year = '" + year + "' AND s.semester = '" + semester + "' AND s.programe = '" + selectedProgram + "'";
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                string groupNo = $@"{ rdr.GetString(0),-8}";
+
+                cmbGroup_CreateSession.Items.Add(groupNo);
+            }
+
+            con.Close();
+        }
+
+        private void fillSubjectAccordingToProgram_Year_Semester(string selectedProgram, string selectedYear, string selectedSemester)
+        {
+
+            int selectedYearNum;
+            int selectedSemesterNum;
+
+            bool success1 = Int32.TryParse(selectedYear, out selectedYearNum);
+            bool success2 = Int32.TryParse(selectedSemester, out selectedSemesterNum);
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm  = "select " +
+                    "s.subjectCode AS Subject_Code ," +
+                    "s.subjectName AS Subject_Name " +
+                    " from subjects s" +
+                    " where s.program = '"+selectedProgram+ "' AND s.offeredYear = " + selectedYearNum + " AND s.offeredSemester = "+ selectedSemesterNum + "";
+            
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                string subjectCode = $@"{ rdr.GetString(0),-8}";
+                string subjectName = $@"{ rdr.GetString(1),-8}";
+
+                string generatedCode = subjectCode.Trim() + " - " + subjectName.Trim(); ;
+                cmbSubject_CreateSession.Items.Add(generatedCode);
+            }
+
+            //#####
+            /*
+                        string yr = "Year " + selectedYear;
+                        string sem = "Semester " + selectedSemester;
+
+                         stm = "select " +
+                                "s.group_no AS Group_No " +
+                                " from year_semester s" +
+                                " where s.year = '" + yr + "' AND s.semester = '" + sem + "' AND s.programe = '" + selectedProgram + "'";
+
+                        using var cmd1 = new SQLiteCommand(stm, con);
+                        using SQLiteDataReader rdr1 = cmd1.ExecuteReader();
+
+                        while (rdr1.Read())
+                        {
+
+                            int group = Int32.Parse($@"{rdr.GetInt32(0),-3}");
+
+
+                            cmbGroup_CreateSession.Items.Add(group.ToString());
+                        }
+            */
+            cmbGroup_CreateSession.Items.Add("1");
+            cmbGroup_CreateSession.Items.Add("2");
+            cmbGroup_CreateSession.Items.Add("3");
+
+            cmbSubGroup_CreateSession.Items.Add("1");
+            cmbSubGroup_CreateSession.Items.Add("2");
+
+            con.Close();
+        }
+
+        private void btnGenerateSummary_Click(object sender, EventArgs e)
+        {
+
+            string sessionId = txtSessionID_CreateSession.Text;
+
+            string selectedTag = this.cmbTag_CreateSession.GetItemText(this.cmbTag_CreateSession.SelectedItem);
+            string selectedYear = this.cmbYear_CreateSession.GetItemText(this.cmbYear_CreateSession.SelectedItem);
+            string selectedSemester = this.cmbSemester_CreateSession.GetItemText(this.cmbSemester_CreateSession.SelectedItem);
+            string selectedProgram = this.cmbProgram_CreateSession.GetItemText(this.cmbProgram_CreateSession.SelectedItem);
+            string selectedGroup = this.cmbGroup_CreateSession.GetItemText(this.cmbGroup_CreateSession.SelectedItem);
+            string selectedSubGroup = this.cmbSubGroup_CreateSession.GetItemText(this.cmbSubGroup_CreateSession.SelectedItem);
+            string selectedSubjectId = this.cmbSubject_CreateSession.GetItemText(this.cmbSubject_CreateSession.SelectedItem);
+
+
+            string noOfStudents = txtNoOfStudents_CreateSession.Text;
+            string sessionDuration = txtDuration_CreateSession.Text;
+
+
+            double numberDur;
+            int numberStd;
+
+            if (sessionId.Equals(""))
+            {
+                MessageBox.Show("Please enter session ID");
+            }
+            else if (selectedTag.Equals(""))
+            {
+                MessageBox.Show("Please select a tag");
+            }
+            else if (selectedYear.Equals(""))
+            {
+                MessageBox.Show("Please select the year");
+            }
+            else if (selectedSemester.Equals(""))
+            {
+                MessageBox.Show("Please select the semester");
+            }
+            else if (selectedProgram.Equals(""))
+            {
+                MessageBox.Show("Please select the program");
+            }
+            else if (selectedGroup.Equals(""))
+            {
+                MessageBox.Show("Please select the group");
+            }
+            else if (selectedSubGroup.Equals(""))
+            {
+                MessageBox.Show("Please select the sub group");
+            }
+            else if (selectedSubjectId.Equals(""))
+            {
+                MessageBox.Show("Please select the subject ");
+            }
+            else if (noOfStudents.Equals(""))
+            {
+                MessageBox.Show("Please enter number of students");
+            }
+            else if (!Int32.TryParse(noOfStudents, out numberStd))
+            {
+                MessageBox.Show("Number of students must be a valid number");
+            }
+            else if (sessionDuration.Equals(""))
+            {
+                MessageBox.Show("Please enter session duration");
+            }
+            else if (!Double.TryParse(sessionDuration, out numberDur))
+            {
+                MessageBox.Show("Session duration must be a number");
+            }else if(selectedLecturersListForCreateSession.Count == 0)
+            {
+                MessageBox.Show("Please add lecturers");
+            }
+            else
+            {
+                //set session id
+                lblSessionID_CreateSession_Summary.Text = txtSessionID_CreateSession.Text;
+
+                //set subject
+                string[] lines = this.cmbSubject_CreateSession.GetItemText(this.cmbSubject_CreateSession.SelectedItem).ToString().Split(new string[] { " - " }, StringSplitOptions.None);
+                string finalStr = lines[1] + " ( " + lines[0] + " ) ";
+                lblSubject_CreateSession_summary.Text = finalStr;
+
+                //Set tag
+                lblTag_CreateSession_Summary.Text = this.cmbTag_CreateSession.GetItemText(this.cmbTag_CreateSession.SelectedItem);
+
+                //Generate Count and Hours
+                string countAndHours = txtNoOfStudents_CreateSession.Text + " ( " + txtDuration_CreateSession.Text + " ) ";
+                lblCountAndHrs_CreateSession.Text = countAndHours;
+
+                //Generate Summary of group
+
+                string year = this.cmbYear_CreateSession.GetItemText(this.cmbYear_CreateSession.SelectedItem);
+                string semester = this.cmbSemester_CreateSession.GetItemText(this.cmbSemester_CreateSession.SelectedItem);
+                string prog = this.cmbProgram_CreateSession.GetItemText(this.cmbProgram_CreateSession.SelectedItem);
+                string gr = this.cmbGroup_CreateSession.GetItemText(this.cmbGroup_CreateSession.SelectedItem);
+
+                string fullString = "Y" + year + ".S" + semester + "." + prog + "." + gr;
+                lblStudentCreateSessionSummary_CreateSession.Text = fullString;
+            }
+
         }
     }
 }

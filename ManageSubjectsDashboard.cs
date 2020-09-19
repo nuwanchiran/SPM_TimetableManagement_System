@@ -1913,7 +1913,12 @@ namespace Timetable_Management_System
 
             cmbProgram_Add.Items.Add("SE");
             cmbProgram_Add.Items.Add("IT");
-            cmbProgram_Add.Items.Add("BM");
+            cmbProgram_Add.Items.Add("CS");
+            cmbProgram_Add.Items.Add("IM");
+            cmbProgram_Add.Items.Add("DS");
+
+
         }
+
     }
 }

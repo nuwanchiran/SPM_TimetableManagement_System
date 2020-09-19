@@ -31,11 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GenerateReportDashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CreateSession = new System.Windows.Forms.TabPage();
+            this.btnGenerateSummary = new System.Windows.Forms.Button();
+            this.btnCreateSession = new System.Windows.Forms.Button();
+            this.txtSessionID_CreateSession = new System.Windows.Forms.TextBox();
+            this.lblSessionID_CreateSession = new System.Windows.Forms.Label();
+            this.btnReset_CreateSession = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblCountAndHrs_CreateSession = new System.Windows.Forms.Label();
+            this.lblSubject_CreateSession_summary = new System.Windows.Forms.Label();
+            this.lblSessionID_CreateSession_Summary = new System.Windows.Forms.Label();
+            this.lblTag_CreateSession_Summary = new System.Windows.Forms.Label();
             this.lblLecturerList_CreateSession = new System.Windows.Forms.Label();
             this.imgDataGridView_CreateSession = new System.Windows.Forms.DataGridView();
-            this.cmbDuration_CreateSession = new System.Windows.Forms.TextBox();
-            this.cmbNoOfStudents_CreateSession = new System.Windows.Forms.TextBox();
+            this.txtDuration_CreateSession = new System.Windows.Forms.TextBox();
+            this.txtNoOfStudents_CreateSession = new System.Windows.Forms.TextBox();
             this.cmbSubject_CreateSession = new System.Windows.Forms.ComboBox();
             this.cmbSubGroup_CreateSession = new System.Windows.Forms.ComboBox();
             this.cmbGroup_CreateSession = new System.Windows.Forms.ComboBox();
@@ -77,12 +86,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
-            this.lblTag_CreateSession_Summary = new System.Windows.Forms.Label();
-            this.lblYear_CreateSession_Summary = new System.Windows.Forms.Label();
-            this.lblSemester_CreateSession_Summary = new System.Windows.Forms.Label();
-            this.noOfStudents_CreateSession = new System.Windows.Forms.Label();
-            this.duration_CreateSession = new System.Windows.Forms.Label();
-            this.btnReset_CreateSession = new System.Windows.Forms.Button();
+            this.lblStudentCreateSessionSummary_CreateSession = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.CreateSession.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -129,11 +133,15 @@
             // 
             // CreateSession
             // 
+            this.CreateSession.Controls.Add(this.btnGenerateSummary);
+            this.CreateSession.Controls.Add(this.btnCreateSession);
+            this.CreateSession.Controls.Add(this.txtSessionID_CreateSession);
+            this.CreateSession.Controls.Add(this.lblSessionID_CreateSession);
             this.CreateSession.Controls.Add(this.btnReset_CreateSession);
             this.CreateSession.Controls.Add(this.groupBox1);
             this.CreateSession.Controls.Add(this.imgDataGridView_CreateSession);
-            this.CreateSession.Controls.Add(this.cmbDuration_CreateSession);
-            this.CreateSession.Controls.Add(this.cmbNoOfStudents_CreateSession);
+            this.CreateSession.Controls.Add(this.txtDuration_CreateSession);
+            this.CreateSession.Controls.Add(this.txtNoOfStudents_CreateSession);
             this.CreateSession.Controls.Add(this.cmbSubject_CreateSession);
             this.CreateSession.Controls.Add(this.cmbSubGroup_CreateSession);
             this.CreateSession.Controls.Add(this.cmbGroup_CreateSession);
@@ -164,25 +172,112 @@
             this.CreateSession.Text = "Create Session";
             this.CreateSession.UseVisualStyleBackColor = true;
             // 
+            // btnGenerateSummary
+            // 
+            this.btnGenerateSummary.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnGenerateSummary.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerateSummary.Location = new System.Drawing.Point(590, 646);
+            this.btnGenerateSummary.Name = "btnGenerateSummary";
+            this.btnGenerateSummary.Size = new System.Drawing.Size(110, 112);
+            this.btnGenerateSummary.TabIndex = 88;
+            this.btnGenerateSummary.Text = "Generate Summary >>>";
+            this.btnGenerateSummary.UseVisualStyleBackColor = false;
+            this.btnGenerateSummary.Click += new System.EventHandler(this.btnGenerateSummary_Click);
+            // 
+            // btnCreateSession
+            // 
+            this.btnCreateSession.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCreateSession.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateSession.Location = new System.Drawing.Point(1310, 764);
+            this.btnCreateSession.Name = "btnCreateSession";
+            this.btnCreateSession.Size = new System.Drawing.Size(164, 49);
+            this.btnCreateSession.TabIndex = 87;
+            this.btnCreateSession.Text = "Create Session >>>";
+            this.btnCreateSession.UseVisualStyleBackColor = false;
+            this.btnCreateSession.Click += new System.EventHandler(this.btnCreateSession_Click);
+            // 
+            // txtSessionID_CreateSession
+            // 
+            this.txtSessionID_CreateSession.Location = new System.Drawing.Point(227, 446);
+            this.txtSessionID_CreateSession.Name = "txtSessionID_CreateSession";
+            this.txtSessionID_CreateSession.Size = new System.Drawing.Size(337, 27);
+            this.txtSessionID_CreateSession.TabIndex = 84;
+            // 
+            // lblSessionID_CreateSession
+            // 
+            this.lblSessionID_CreateSession.AutoSize = true;
+            this.lblSessionID_CreateSession.Location = new System.Drawing.Point(143, 449);
+            this.lblSessionID_CreateSession.Name = "lblSessionID_CreateSession";
+            this.lblSessionID_CreateSession.Size = new System.Drawing.Size(77, 20);
+            this.lblSessionID_CreateSession.TabIndex = 83;
+            this.lblSessionID_CreateSession.Text = "Session ID";
+            // 
+            // btnReset_CreateSession
+            // 
+            this.btnReset_CreateSession.BackColor = System.Drawing.Color.Tan;
+            this.btnReset_CreateSession.Location = new System.Drawing.Point(1490, 764);
+            this.btnReset_CreateSession.Name = "btnReset_CreateSession";
+            this.btnReset_CreateSession.Size = new System.Drawing.Size(123, 49);
+            this.btnReset_CreateSession.TabIndex = 82;
+            this.btnReset_CreateSession.Text = "Reset";
+            this.btnReset_CreateSession.UseVisualStyleBackColor = false;
+            this.btnReset_CreateSession.Click += new System.EventHandler(this.btnReset_CreateSession_Click);
+            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.duration_CreateSession);
-            this.groupBox1.Controls.Add(this.noOfStudents_CreateSession);
-            this.groupBox1.Controls.Add(this.lblSemester_CreateSession_Summary);
-            this.groupBox1.Controls.Add(this.lblYear_CreateSession_Summary);
+            this.groupBox1.Controls.Add(this.lblStudentCreateSessionSummary_CreateSession);
+            this.groupBox1.Controls.Add(this.lblCountAndHrs_CreateSession);
+            this.groupBox1.Controls.Add(this.lblSubject_CreateSession_summary);
+            this.groupBox1.Controls.Add(this.lblSessionID_CreateSession_Summary);
             this.groupBox1.Controls.Add(this.lblTag_CreateSession_Summary);
             this.groupBox1.Controls.Add(this.lblLecturerList_CreateSession);
-            this.groupBox1.Location = new System.Drawing.Point(728, 574);
+            this.groupBox1.Location = new System.Drawing.Point(728, 575);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(433, 173);
+            this.groupBox1.Size = new System.Drawing.Size(433, 216);
             this.groupBox1.TabIndex = 81;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Session Summary";
             // 
+            // lblCountAndHrs_CreateSession
+            // 
+            this.lblCountAndHrs_CreateSession.AutoSize = true;
+            this.lblCountAndHrs_CreateSession.Location = new System.Drawing.Point(48, 148);
+            this.lblCountAndHrs_CreateSession.Name = "lblCountAndHrs_CreateSession";
+            this.lblCountAndHrs_CreateSession.Size = new System.Drawing.Size(97, 20);
+            this.lblCountAndHrs_CreateSession.TabIndex = 88;
+            this.lblCountAndHrs_CreateSession.Text = "CountAndHrs";
+            // 
+            // lblSubject_CreateSession_summary
+            // 
+            this.lblSubject_CreateSession_summary.AutoSize = true;
+            this.lblSubject_CreateSession_summary.Location = new System.Drawing.Point(46, 84);
+            this.lblSubject_CreateSession_summary.Name = "lblSubject_CreateSession_summary";
+            this.lblSubject_CreateSession_summary.Size = new System.Drawing.Size(58, 20);
+            this.lblSubject_CreateSession_summary.TabIndex = 87;
+            this.lblSubject_CreateSession_summary.Text = "Subject";
+            // 
+            // lblSessionID_CreateSession_Summary
+            // 
+            this.lblSessionID_CreateSession_Summary.AutoSize = true;
+            this.lblSessionID_CreateSession_Summary.Location = new System.Drawing.Point(46, 64);
+            this.lblSessionID_CreateSession_Summary.Name = "lblSessionID_CreateSession_Summary";
+            this.lblSessionID_CreateSession_Summary.Size = new System.Drawing.Size(73, 20);
+            this.lblSessionID_CreateSession_Summary.TabIndex = 86;
+            this.lblSessionID_CreateSession_Summary.Text = "SessionID";
+            // 
+            // lblTag_CreateSession_Summary
+            // 
+            this.lblTag_CreateSession_Summary.AutoSize = true;
+            this.lblTag_CreateSession_Summary.Location = new System.Drawing.Point(48, 104);
+            this.lblTag_CreateSession_Summary.Name = "lblTag_CreateSession_Summary";
+            this.lblTag_CreateSession_Summary.Size = new System.Drawing.Size(32, 20);
+            this.lblTag_CreateSession_Summary.TabIndex = 81;
+            this.lblTag_CreateSession_Summary.Text = "Tag";
+            // 
             // lblLecturerList_CreateSession
             // 
             this.lblLecturerList_CreateSession.AutoSize = true;
-            this.lblLecturerList_CreateSession.Location = new System.Drawing.Point(46, 23);
+            this.lblLecturerList_CreateSession.Location = new System.Drawing.Point(46, 44);
             this.lblLecturerList_CreateSession.Name = "lblLecturerList_CreateSession";
             this.lblLecturerList_CreateSession.Size = new System.Drawing.Size(88, 20);
             this.lblLecturerList_CreateSession.TabIndex = 80;
@@ -200,26 +295,24 @@
             this.imgDataGridView_CreateSession.Size = new System.Drawing.Size(513, 390);
             this.imgDataGridView_CreateSession.TabIndex = 79;
             // 
-            // cmbDuration_CreateSession
+            // txtDuration_CreateSession
             // 
-            this.cmbDuration_CreateSession.Location = new System.Drawing.Point(227, 761);
-            this.cmbDuration_CreateSession.Name = "cmbDuration_CreateSession";
-            this.cmbDuration_CreateSession.Size = new System.Drawing.Size(337, 27);
-            this.cmbDuration_CreateSession.TabIndex = 78;
-            this.cmbDuration_CreateSession.TextChanged += new System.EventHandler(this.cmbDuration_CreateSession_TextChanged);
+            this.txtDuration_CreateSession.Location = new System.Drawing.Point(227, 784);
+            this.txtDuration_CreateSession.Name = "txtDuration_CreateSession";
+            this.txtDuration_CreateSession.Size = new System.Drawing.Size(337, 27);
+            this.txtDuration_CreateSession.TabIndex = 78;
             // 
-            // cmbNoOfStudents_CreateSession
+            // txtNoOfStudents_CreateSession
             // 
-            this.cmbNoOfStudents_CreateSession.Location = new System.Drawing.Point(227, 720);
-            this.cmbNoOfStudents_CreateSession.Name = "cmbNoOfStudents_CreateSession";
-            this.cmbNoOfStudents_CreateSession.Size = new System.Drawing.Size(337, 27);
-            this.cmbNoOfStudents_CreateSession.TabIndex = 77;
-            this.cmbNoOfStudents_CreateSession.TextChanged += new System.EventHandler(this.cmbNoOfStudents_CreateSession_TextChanged);
+            this.txtNoOfStudents_CreateSession.Location = new System.Drawing.Point(227, 743);
+            this.txtNoOfStudents_CreateSession.Name = "txtNoOfStudents_CreateSession";
+            this.txtNoOfStudents_CreateSession.Size = new System.Drawing.Size(337, 27);
+            this.txtNoOfStudents_CreateSession.TabIndex = 77;
             // 
             // cmbSubject_CreateSession
             // 
             this.cmbSubject_CreateSession.FormattingEnabled = true;
-            this.cmbSubject_CreateSession.Location = new System.Drawing.Point(224, 672);
+            this.cmbSubject_CreateSession.Location = new System.Drawing.Point(224, 695);
             this.cmbSubject_CreateSession.Name = "cmbSubject_CreateSession";
             this.cmbSubject_CreateSession.Size = new System.Drawing.Size(340, 28);
             this.cmbSubject_CreateSession.TabIndex = 76;
@@ -227,7 +320,7 @@
             // cmbSubGroup_CreateSession
             // 
             this.cmbSubGroup_CreateSession.FormattingEnabled = true;
-            this.cmbSubGroup_CreateSession.Location = new System.Drawing.Point(443, 623);
+            this.cmbSubGroup_CreateSession.Location = new System.Drawing.Point(443, 646);
             this.cmbSubGroup_CreateSession.Name = "cmbSubGroup_CreateSession";
             this.cmbSubGroup_CreateSession.Size = new System.Drawing.Size(121, 28);
             this.cmbSubGroup_CreateSession.TabIndex = 75;
@@ -235,7 +328,7 @@
             // cmbGroup_CreateSession
             // 
             this.cmbGroup_CreateSession.FormattingEnabled = true;
-            this.cmbGroup_CreateSession.Location = new System.Drawing.Point(226, 623);
+            this.cmbGroup_CreateSession.Location = new System.Drawing.Point(226, 646);
             this.cmbGroup_CreateSession.Name = "cmbGroup_CreateSession";
             this.cmbGroup_CreateSession.Size = new System.Drawing.Size(121, 28);
             this.cmbGroup_CreateSession.TabIndex = 74;
@@ -243,42 +336,40 @@
             // cmbProgram_CreateSession
             // 
             this.cmbProgram_CreateSession.FormattingEnabled = true;
-            this.cmbProgram_CreateSession.Location = new System.Drawing.Point(226, 568);
+            this.cmbProgram_CreateSession.Location = new System.Drawing.Point(226, 591);
             this.cmbProgram_CreateSession.Name = "cmbProgram_CreateSession";
             this.cmbProgram_CreateSession.Size = new System.Drawing.Size(338, 28);
             this.cmbProgram_CreateSession.TabIndex = 73;
+            this.cmbProgram_CreateSession.SelectedIndexChanged += new System.EventHandler(this.cmbProgram_CreateSession_SelectedIndexChanged);
             // 
             // cmbSemester_CreateSession
             // 
             this.cmbSemester_CreateSession.FormattingEnabled = true;
-            this.cmbSemester_CreateSession.Location = new System.Drawing.Point(443, 515);
+            this.cmbSemester_CreateSession.Location = new System.Drawing.Point(443, 538);
             this.cmbSemester_CreateSession.Name = "cmbSemester_CreateSession";
             this.cmbSemester_CreateSession.Size = new System.Drawing.Size(121, 28);
             this.cmbSemester_CreateSession.TabIndex = 72;
-            this.cmbSemester_CreateSession.Leave += new System.EventHandler(this.cmbSemester_CreateSession_Leave);
             // 
             // cmbYear_CreateSession
             // 
             this.cmbYear_CreateSession.FormattingEnabled = true;
-            this.cmbYear_CreateSession.Location = new System.Drawing.Point(226, 515);
+            this.cmbYear_CreateSession.Location = new System.Drawing.Point(226, 538);
             this.cmbYear_CreateSession.Name = "cmbYear_CreateSession";
             this.cmbYear_CreateSession.Size = new System.Drawing.Size(121, 28);
             this.cmbYear_CreateSession.TabIndex = 71;
-            this.cmbYear_CreateSession.Leave += new System.EventHandler(this.cmbYear_CreateSession_Leave);
             // 
             // cmbTag_CreateSession
             // 
             this.cmbTag_CreateSession.FormattingEnabled = true;
-            this.cmbTag_CreateSession.Location = new System.Drawing.Point(226, 469);
+            this.cmbTag_CreateSession.Location = new System.Drawing.Point(226, 492);
             this.cmbTag_CreateSession.Name = "cmbTag_CreateSession";
             this.cmbTag_CreateSession.Size = new System.Drawing.Size(338, 28);
             this.cmbTag_CreateSession.TabIndex = 70;
-            this.cmbTag_CreateSession.Leave += new System.EventHandler(this.cmbTag_CreateSession_Leave);
             // 
             // lblDuration_CreateSession
             // 
             this.lblDuration_CreateSession.AutoSize = true;
-            this.lblDuration_CreateSession.Location = new System.Drawing.Point(143, 764);
+            this.lblDuration_CreateSession.Location = new System.Drawing.Point(143, 787);
             this.lblDuration_CreateSession.Name = "lblDuration_CreateSession";
             this.lblDuration_CreateSession.Size = new System.Drawing.Size(67, 20);
             this.lblDuration_CreateSession.TabIndex = 69;
@@ -287,7 +378,7 @@
             // lblNoOfStudents_CreateSession
             // 
             this.lblNoOfStudents_CreateSession.AutoSize = true;
-            this.lblNoOfStudents_CreateSession.Location = new System.Drawing.Point(108, 720);
+            this.lblNoOfStudents_CreateSession.Location = new System.Drawing.Point(108, 743);
             this.lblNoOfStudents_CreateSession.Name = "lblNoOfStudents_CreateSession";
             this.lblNoOfStudents_CreateSession.Size = new System.Drawing.Size(110, 20);
             this.lblNoOfStudents_CreateSession.TabIndex = 68;
@@ -296,7 +387,7 @@
             // lblSubject_CreateSession
             // 
             this.lblSubject_CreateSession.AutoSize = true;
-            this.lblSubject_CreateSession.Location = new System.Drawing.Point(160, 675);
+            this.lblSubject_CreateSession.Location = new System.Drawing.Point(160, 698);
             this.lblSubject_CreateSession.Name = "lblSubject_CreateSession";
             this.lblSubject_CreateSession.Size = new System.Drawing.Size(58, 20);
             this.lblSubject_CreateSession.TabIndex = 67;
@@ -305,7 +396,7 @@
             // lblSubGroup_CreateSession
             // 
             this.lblSubGroup_CreateSession.AutoSize = true;
-            this.lblSubGroup_CreateSession.Location = new System.Drawing.Point(362, 626);
+            this.lblSubGroup_CreateSession.Location = new System.Drawing.Point(362, 649);
             this.lblSubGroup_CreateSession.Name = "lblSubGroup_CreateSession";
             this.lblSubGroup_CreateSession.Size = new System.Drawing.Size(75, 20);
             this.lblSubGroup_CreateSession.TabIndex = 66;
@@ -314,7 +405,7 @@
             // lblGroup_CreateSession
             // 
             this.lblGroup_CreateSession.AutoSize = true;
-            this.lblGroup_CreateSession.Location = new System.Drawing.Point(160, 626);
+            this.lblGroup_CreateSession.Location = new System.Drawing.Point(160, 649);
             this.lblGroup_CreateSession.Name = "lblGroup_CreateSession";
             this.lblGroup_CreateSession.Size = new System.Drawing.Size(50, 20);
             this.lblGroup_CreateSession.TabIndex = 65;
@@ -323,7 +414,7 @@
             // lblProgram_CreateSession
             // 
             this.lblProgram_CreateSession.AutoSize = true;
-            this.lblProgram_CreateSession.Location = new System.Drawing.Point(160, 571);
+            this.lblProgram_CreateSession.Location = new System.Drawing.Point(160, 594);
             this.lblProgram_CreateSession.Name = "lblProgram_CreateSession";
             this.lblProgram_CreateSession.Size = new System.Drawing.Size(66, 20);
             this.lblProgram_CreateSession.TabIndex = 64;
@@ -332,7 +423,7 @@
             // lblSemester_CreateSession
             // 
             this.lblSemester_CreateSession.AutoSize = true;
-            this.lblSemester_CreateSession.Location = new System.Drawing.Point(367, 518);
+            this.lblSemester_CreateSession.Location = new System.Drawing.Point(367, 541);
             this.lblSemester_CreateSession.Name = "lblSemester_CreateSession";
             this.lblSemester_CreateSession.Size = new System.Drawing.Size(70, 20);
             this.lblSemester_CreateSession.TabIndex = 63;
@@ -341,7 +432,7 @@
             // lblYear_CreateSession
             // 
             this.lblYear_CreateSession.AutoSize = true;
-            this.lblYear_CreateSession.Location = new System.Drawing.Point(160, 518);
+            this.lblYear_CreateSession.Location = new System.Drawing.Point(160, 541);
             this.lblYear_CreateSession.Name = "lblYear_CreateSession";
             this.lblYear_CreateSession.Size = new System.Drawing.Size(37, 20);
             this.lblYear_CreateSession.TabIndex = 62;
@@ -350,7 +441,7 @@
             // lblTag_CreateSession
             // 
             this.lblTag_CreateSession.AutoSize = true;
-            this.lblTag_CreateSession.Location = new System.Drawing.Point(160, 472);
+            this.lblTag_CreateSession.Location = new System.Drawing.Point(160, 495);
             this.lblTag_CreateSession.Name = "lblTag_CreateSession";
             this.lblTag_CreateSession.Size = new System.Drawing.Size(32, 20);
             this.lblTag_CreateSession.TabIndex = 61;
@@ -620,61 +711,14 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
-            // lblTag_CreateSession_Summary
+            // lblStudentCreateSessionSummary_CreateSession
             // 
-            this.lblTag_CreateSession_Summary.AutoSize = true;
-            this.lblTag_CreateSession_Summary.Location = new System.Drawing.Point(50, 47);
-            this.lblTag_CreateSession_Summary.Name = "lblTag_CreateSession_Summary";
-            this.lblTag_CreateSession_Summary.Size = new System.Drawing.Size(32, 20);
-            this.lblTag_CreateSession_Summary.TabIndex = 81;
-            this.lblTag_CreateSession_Summary.Text = "Tag";
-            // 
-            // lblYear_CreateSession_Summary
-            // 
-            this.lblYear_CreateSession_Summary.AutoSize = true;
-            this.lblYear_CreateSession_Summary.Location = new System.Drawing.Point(50, 67);
-            this.lblYear_CreateSession_Summary.Name = "lblYear_CreateSession_Summary";
-            this.lblYear_CreateSession_Summary.Size = new System.Drawing.Size(37, 20);
-            this.lblYear_CreateSession_Summary.TabIndex = 82;
-            this.lblYear_CreateSession_Summary.Text = "Year";
-            // 
-            // lblSemester_CreateSession_Summary
-            // 
-            this.lblSemester_CreateSession_Summary.AutoSize = true;
-            this.lblSemester_CreateSession_Summary.Location = new System.Drawing.Point(50, 87);
-            this.lblSemester_CreateSession_Summary.Name = "lblSemester_CreateSession_Summary";
-            this.lblSemester_CreateSession_Summary.Size = new System.Drawing.Size(70, 20);
-            this.lblSemester_CreateSession_Summary.TabIndex = 83;
-            this.lblSemester_CreateSession_Summary.Text = "Semester";
-            // 
-            // noOfStudents_CreateSession
-            // 
-            this.noOfStudents_CreateSession.AutoSize = true;
-            this.noOfStudents_CreateSession.Location = new System.Drawing.Point(57, 118);
-            this.noOfStudents_CreateSession.Name = "noOfStudents_CreateSession";
-            this.noOfStudents_CreateSession.Size = new System.Drawing.Size(102, 20);
-            this.noOfStudents_CreateSession.TabIndex = 84;
-            this.noOfStudents_CreateSession.Text = "NoOfStudents";
-            // 
-            // duration_CreateSession
-            // 
-            this.duration_CreateSession.AutoSize = true;
-            this.duration_CreateSession.Location = new System.Drawing.Point(57, 146);
-            this.duration_CreateSession.Name = "duration_CreateSession";
-            this.duration_CreateSession.Size = new System.Drawing.Size(67, 20);
-            this.duration_CreateSession.TabIndex = 85;
-            this.duration_CreateSession.Text = "Duration";
-            // 
-            // btnReset_CreateSession
-            // 
-            this.btnReset_CreateSession.BackColor = System.Drawing.Color.Tan;
-            this.btnReset_CreateSession.Location = new System.Drawing.Point(1490, 764);
-            this.btnReset_CreateSession.Name = "btnReset_CreateSession";
-            this.btnReset_CreateSession.Size = new System.Drawing.Size(123, 49);
-            this.btnReset_CreateSession.TabIndex = 82;
-            this.btnReset_CreateSession.Text = "Reset";
-            this.btnReset_CreateSession.UseVisualStyleBackColor = false;
-            this.btnReset_CreateSession.Click += new System.EventHandler(this.btnReset_CreateSession_Click);
+            this.lblStudentCreateSessionSummary_CreateSession.AutoSize = true;
+            this.lblStudentCreateSessionSummary_CreateSession.Location = new System.Drawing.Point(48, 128);
+            this.lblStudentCreateSessionSummary_CreateSession.Name = "lblStudentCreateSessionSummary_CreateSession";
+            this.lblStudentCreateSessionSummary_CreateSession.Size = new System.Drawing.Size(122, 20);
+            this.lblStudentCreateSessionSummary_CreateSession.TabIndex = 89;
+            this.lblStudentCreateSessionSummary_CreateSession.Text = "StudentSummary";
             // 
             // GenerateReportDashboard
             // 
@@ -765,8 +809,8 @@
         private System.Windows.Forms.Label lblSemester_CreateSession;
         private System.Windows.Forms.Label lblYear_CreateSession;
         private System.Windows.Forms.Label lblTag_CreateSession;
-        private System.Windows.Forms.TextBox cmbDuration_CreateSession;
-        private System.Windows.Forms.TextBox cmbNoOfStudents_CreateSession;
+        private System.Windows.Forms.TextBox txtDuration_CreateSession;
+        private System.Windows.Forms.TextBox txtNoOfStudents_CreateSession;
         private System.Windows.Forms.ComboBox cmbSubject_CreateSession;
         private System.Windows.Forms.ComboBox cmbSubGroup_CreateSession;
         private System.Windows.Forms.ComboBox cmbGroup_CreateSession;
@@ -777,11 +821,15 @@
         private System.Windows.Forms.DataGridView imgDataGridView_CreateSession;
         private System.Windows.Forms.Label lblLecturerList_CreateSession;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblSemester_CreateSession_Summary;
-        private System.Windows.Forms.Label lblYear_CreateSession_Summary;
         private System.Windows.Forms.Label lblTag_CreateSession_Summary;
-        private System.Windows.Forms.Label duration_CreateSession;
-        private System.Windows.Forms.Label noOfStudents_CreateSession;
         private System.Windows.Forms.Button btnReset_CreateSession;
+        private System.Windows.Forms.TextBox txtSessionID_CreateSession;
+        private System.Windows.Forms.Label lblSessionID_CreateSession;
+        private System.Windows.Forms.Label lblSessionID_CreateSession_Summary;
+        private System.Windows.Forms.Button btnCreateSession;
+        private System.Windows.Forms.Button btnGenerateSummary;
+        private System.Windows.Forms.Label lblSubject_CreateSession_summary;
+        private System.Windows.Forms.Label lblCountAndHrs_CreateSession;
+        private System.Windows.Forms.Label lblStudentCreateSessionSummary_CreateSession;
     }
 }
