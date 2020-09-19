@@ -360,6 +360,7 @@ namespace Timetable_Management_System
             Console.WriteLine(selectedLecturersListForCreateSession);
             fillCmbLecturerList();
             generateAndDisplayLecturersList_CreateSession();
+            RefreshImagesWindows_CreateSession();
         }
 
         private void find_And_Remove_Relevant_Lecturer_In_selectedLecturersListForCreateSession_List( string lecId)
@@ -511,8 +512,44 @@ namespace Timetable_Management_System
         private void cleanCreateSession()
         {
             lblLecturerList_CreateSession.Text = "";
+            lblLecturerList_CreateSession.Text = "";
+            lblTag_CreateSession_Summary.Text = "";
+            lblYear_CreateSession_Summary.Text = "";
+            lblSemester_CreateSession_Summary.Text = "";
+            noOfStudents_CreateSession.Text = "";
+            duration_CreateSession.Text = "";
         }
 
+        private void cmbSemester_CreateSession_Leave(object sender, EventArgs e)
+        {
+            lblSemester_CreateSession_Summary.Text = this.cmbSemester_CreateSession.GetItemText(this.cmbSemester_CreateSession.SelectedItem);
+        }
 
+        private void cmbYear_CreateSession_Leave(object sender, EventArgs e)
+        {
+            lblYear_CreateSession_Summary.Text = this.cmbYear_CreateSession.GetItemText(this.cmbYear_CreateSession.SelectedItem);
+        }
+
+        private void cmbTag_CreateSession_Leave(object sender, EventArgs e)
+        {
+            lblTag_CreateSession_Summary.Text = this.cmbTag_CreateSession.GetItemText(this.cmbTag_CreateSession.SelectedItem);
+        }
+
+        private void cmbNoOfStudents_CreateSession_TextChanged(object sender, EventArgs e)
+        {
+            noOfStudents_CreateSession.Text = cmbNoOfStudents_CreateSession.Text;
+        }
+
+        private void cmbDuration_CreateSession_TextChanged(object sender, EventArgs e)
+        {
+            duration_CreateSession.Text = cmbDuration_CreateSession.Text;
+        }
+
+        private void btnReset_CreateSession_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GenerateReportDashboard obj = new GenerateReportDashboard();
+            obj.Show();
+        }
     }
 }
