@@ -101,7 +101,7 @@ namespace Timetable_Management_System
         private void imgTime_Click(object sender, EventArgs e)
         {
             ManageTimeDashboard manageTimeDashboardObj = new ManageTimeDashboard();
-            manageTimeDashboardObj.Show(); 
+            manageTimeDashboardObj.Show();
             this.Hide();
         }
 
@@ -133,16 +133,16 @@ namespace Timetable_Management_System
             generateReportDashboardObj.Show();
             this.Hide();
         }
-        
+
         List<Lecturer> foundLecturersListForDisplay = new List<Lecturer>();
 
         private void fillCmbLecturerList()
         {
             //No items in the list. All lecturers needs be added to dropdown
-            if(selectedLecturersListForCreateSession.Count == 0)
+            if (selectedLecturersListForCreateSession.Count == 0)
             {
                 cmbLecturerAddSession.Items.Clear();
-               
+
                 foundLecturersListForDisplay = getAllLecturers();
 
                 foreach (Lecturer lecObj in foundLecturersListForDisplay) // Loop through List with foreach
@@ -177,7 +177,7 @@ namespace Timetable_Management_System
             using SQLiteDataReader rdr = cmd.ExecuteReader();
 
             List<Lecturer> foundLecturersListForDisplay = new List<Lecturer>();
-            
+
             while (rdr.Read())
             {
                 Lecturer lecObj = new Lecturer();
@@ -199,7 +199,7 @@ namespace Timetable_Management_System
 
         private void cmbLecturerAddSession_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectComboBoxText = this.cmbLecturerAddSession.GetItemText(this.cmbLecturerAddSession.SelectedItem)+"";
+            string selectComboBoxText = this.cmbLecturerAddSession.GetItemText(this.cmbLecturerAddSession.SelectedItem) + "";
             //string[] authorsList = selectComboBoxText.Split(" - ");
 
             // Split the string on line breaks.
@@ -207,7 +207,7 @@ namespace Timetable_Management_System
 
             //lines[0] = { lecturer ID}
             //lines[1] = { lecturer name}
-      
+
             List<string> temp = new List<string>();
             temp.Add(lines[0]);
 
@@ -243,15 +243,15 @@ namespace Timetable_Management_System
                 imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
             }
 
-            imgDataGridView_CreateSession.AutoSizeRowsMode =    DataGridViewAutoSizeRowsMode.AllCells;
+            imgDataGridView_CreateSession.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
             List<Object> temp = new List<object>();
-            for (int i=0; i< selectedLecturersListForCreateSession.Count; i++)
+            for (int i = 0; i < selectedLecturersListForCreateSession.Count; i++)
             {
                 string photoPath = selectedLecturersListForCreateSession[i].photoPath;
                 Image img = Image.FromFile(@"" + photoPath);
                 temp.Add(img);
-                if ((i+1)%3==0)
+                if ((i + 1) % 3 == 0)
                 {
                     Object[] row = temp.Cast<object>().ToArray();
                     imgDataGridView_CreateSession.Rows.Add(row);
@@ -324,13 +324,13 @@ namespace Timetable_Management_System
 
             selectedLecturersGridView.ColumnCount = 2;
             selectedLecturersGridView.Columns[0].Name = "Lecturer ID";
-            selectedLecturersGridView.Columns[0].Width= 100;
+            selectedLecturersGridView.Columns[0].Width = 100;
             selectedLecturersGridView.Columns[1].Name = "Lecturer Name";
             selectedLecturersGridView.Columns[1].Width = 150;
 
             foreach (Lecturer element in selectedLecturersListForCreateSession)
             {
-                string[] row1 = new string[] { element.lecturerID+"", element.name };
+                string[] row1 = new string[] { element.lecturerID + "", element.name };
                 selectedLecturersGridView.Rows.Add(row1);
             }
 
@@ -354,9 +354,9 @@ namespace Timetable_Management_System
             int rowindex = selectedLecturersGridView.CurrentCell.RowIndex;
             int columnindex = selectedLecturersGridView.CurrentCell.ColumnIndex;
 
-           
-            string lecName = selectedLecturersGridView.Rows[rowindex].Cells[columnindex-1].Value.ToString();
-            string lecId = selectedLecturersGridView.Rows[rowindex].Cells[columnindex-2].Value.ToString();
+
+            string lecName = selectedLecturersGridView.Rows[rowindex].Cells[columnindex - 1].Value.ToString();
+            string lecId = selectedLecturersGridView.Rows[rowindex].Cells[columnindex - 2].Value.ToString();
 
             find_And_Remove_Relevant_Lecturer_In_selectedLecturersListForCreateSession_List(lecId);
             UpdateSelectedLecturerGrid();
@@ -366,13 +366,13 @@ namespace Timetable_Management_System
             RefreshImagesWindows_CreateSession();
         }
 
-        private void find_And_Remove_Relevant_Lecturer_In_selectedLecturersListForCreateSession_List( string lecId)
+        private void find_And_Remove_Relevant_Lecturer_In_selectedLecturersListForCreateSession_List(string lecId)
         {
             List<Lecturer> temp = new List<Lecturer>();
-            
+
             foreach (Lecturer element in selectedLecturersListForCreateSession)
             {
-                if(!lecId.Equals(element.lecturerID.ToString())){
+                if (!lecId.Equals(element.lecturerID.ToString())) {
                     temp.Add(element);
                 }
             }
@@ -401,7 +401,7 @@ namespace Timetable_Management_System
 
             string stm = "";
             stm = "SELECT * FROM lecturers WHERE lecturerID NOT IN(" + fullLecIdString + ")";
-            using var cmd = new SQLiteCommand(stm, con); 
+            using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
 
             List<Lecturer> lecList = new List<Lecturer>();
@@ -508,7 +508,7 @@ namespace Timetable_Management_System
 
         private void fillGroup_CreateSession()
         {
-           
+
         }
 
         private void generateAndDisplayLecturersList_CreateSession()
@@ -522,7 +522,7 @@ namespace Timetable_Management_System
                 }
                 else
                 {
-                    fullLecList = fullLecList + " , " +element.name;
+                    fullLecList = fullLecList + " , " + element.name;
                 }
             }
             lblLecturerList_CreateSession.Text = fullLecList;
@@ -541,7 +541,7 @@ namespace Timetable_Management_System
 
         }
 
-        
+
         private void btnReset_CreateSession_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -549,7 +549,7 @@ namespace Timetable_Management_System
             obj.Show();
         }
 
-       
+
         private void btnCreateSession_Click(object sender, EventArgs e)
         {
 
@@ -606,7 +606,7 @@ namespace Timetable_Management_System
             else if (noOfStudents.Equals(""))
             {
                 MessageBox.Show("Please enter number of students");
-            }else if (!Int32.TryParse(noOfStudents, out numberStd))
+            } else if (!Int32.TryParse(noOfStudents, out numberStd))
             {
                 MessageBox.Show("Number of students must be a valid number");
             }
@@ -703,7 +703,7 @@ namespace Timetable_Management_System
             cmd1.Prepare();
             bool addSessionOK = true;
             try
-            { 
+            {
                 cmd1.ExecuteNonQuery();
             }
             catch (SQLiteException ex)
@@ -718,7 +718,7 @@ namespace Timetable_Management_System
 
             //Adding Lecturers
 
-            if(addSessionOK == true)
+            if (addSessionOK == true)
             {
                 //Create session table if not exist
                 using var cmdLec = new SQLiteCommand(con);
@@ -749,12 +749,12 @@ namespace Timetable_Management_System
                 GenerateReportDashboard obj = new GenerateReportDashboard();
                 obj.Show();
             }
-           
 
-           
+
+
             con.Close();
 
-            
+
 
         }
 
@@ -764,7 +764,7 @@ namespace Timetable_Management_System
             string selectedSemester = this.cmbSemester_CreateSession.GetItemText(this.cmbSemester_CreateSession.SelectedItem);
 
             string selectedProgram = this.cmbProgram_CreateSession.GetItemText(this.cmbProgram_CreateSession.SelectedItem); ;
-            
+
             fillSubjectAccordingToProgram_Year_Semester(selectedProgram, selectedYear, selectedSemester);
             //fillGroupNumbers(selectedProgram, selectedYear, selectedSemester);
         }
@@ -772,8 +772,8 @@ namespace Timetable_Management_System
         private void fillGroupNumbers(string selectedProgram, string selectedYear, string selectedSemester)
         {
 
-            string year = "Year "+ selectedYear;
-            string semester =  "Semester "+ selectedSemester;
+            string year = "Year " + selectedYear;
+            string semester = "Semester " + selectedSemester;
 
             string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
@@ -810,12 +810,12 @@ namespace Timetable_Management_System
 
             using var con = new SQLiteConnection(cs);
             con.Open();
-            string stm  = "select " +
+            string stm = "select " +
                     "s.subjectCode AS Subject_Code ," +
                     "s.subjectName AS Subject_Name " +
                     " from subjects s" +
-                    " where s.program = '"+selectedProgram+ "' AND s.offeredYear = " + selectedYearNum + " AND s.offeredSemester = "+ selectedSemesterNum + "";
-            
+                    " where s.program = '" + selectedProgram + "' AND s.offeredYear = " + selectedYearNum + " AND s.offeredSemester = " + selectedSemesterNum + "";
+
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
 
@@ -928,7 +928,7 @@ namespace Timetable_Management_System
             else if (!Double.TryParse(sessionDuration, out numberDur))
             {
                 MessageBox.Show("Session duration must be a number");
-            }else if(selectedLecturersListForCreateSession.Count == 0)
+            } else if (selectedLecturersListForCreateSession.Count == 0)
             {
                 MessageBox.Show("Please add lecturers");
             }
@@ -964,7 +964,7 @@ namespace Timetable_Management_System
 
         private void btnRefresh_SessionManagement_Click(object sender, EventArgs e)
         {
-            refreshManageSessionGrid();  
+            refreshManageSessionGrid();
         }
 
         private void refreshManageSessionGrid()
@@ -1027,13 +1027,13 @@ namespace Timetable_Management_System
             int rowindex = manageSessionGridView.CurrentCell.RowIndex;
             int columnindex = manageSessionGridView.CurrentCell.ColumnIndex;
 
-            string a  = manageSessionGridView.Rows[rowindex].Cells[columnindex].Value.ToString();
+            string a = manageSessionGridView.Rows[rowindex].Cells[columnindex].Value.ToString();
         }
 
         private void manageSessionGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowindex = manageSessionGridView.CurrentCell.RowIndex;
-          
+
             string sessionId = manageSessionGridView.Rows[rowindex].Cells[0].Value.ToString();
             sessionId = sessionId.Trim();
             loadLecturersAndFillImageGrid_SessionManagement(sessionId);
@@ -1096,31 +1096,38 @@ namespace Timetable_Management_System
 
             lecListFull = getLecturerObjectListByProvindingLecturerIDList(lecList);
 
-          //  drawLecturersInGridView_ManageSession(lecListFull);
+            drawLecturersInGridView_ManageSession(lecListFull);
         }
 
         private void drawLecturersInGridView_ManageSession(List<Lecturer> lecListFull)
         {
             this.imgLecGridView.Rows.Clear();
+            List<Object> temp = new List<object>();
+            Object[] row = null;
 
-            foreach(Lecturer element in lecListFull)
+            List<DataGridViewTextBoxCell> tempStr = new List<DataGridViewTextBoxCell>();
+            DataGridViewTextBoxCell[] rowStr = null;
+
+            foreach (Lecturer element in lecListFull)
             {
                 DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
                 imgCol.DefaultCellStyle.NullValue = null;
-                imgLecGridView.Columns.Add(imgCol);
                 imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            }
+                imgLecGridView.Columns.Add(imgCol);
 
-            List<Object> temp = new List<object>();
-            Object[] row =null;
-            foreach (Lecturer element in lecListFull)
-            {
                 string photoPath = element.photoPath;
                 Image img = Image.FromFile(@"" + photoPath);
                 temp.Add(img);
-                 row = temp.Cast<object>().ToArray();
+
+
+
             }
-            imgDataGridView_CreateSession.Rows.Add(row);
+            imgLecGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            row = temp.Cast<object>().ToArray();
+            imgLecGridView.Rows.Add(row);
+
+
 
             /*
             if (this.imgDataGridView_CreateSession.Columns.Count < 3)
@@ -1166,7 +1173,7 @@ namespace Timetable_Management_System
             con.Open();
             string stm = "";
 
-            stm = "SELECT lecturerID FROM session_lecturers WHERE sessionId='"+ sessionId + "'";
+            stm = "SELECT lecturerID FROM session_lecturers WHERE sessionId='" + sessionId + "'";
 
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -1177,7 +1184,7 @@ namespace Timetable_Management_System
             {
 
                 // Console.WriteLine($@"{rdr.GetInt32(0),-3} {rdr.GetString(1),-8} {rdr.GetInt32(2),8}");
-                string lecID = ($@"{ rdr.GetInt32(0), -8 }");
+                string lecID = ($@"{ rdr.GetInt32(0),-8 }");
 
 
                 foundLecturers.Add(lecID);
@@ -1188,27 +1195,128 @@ namespace Timetable_Management_System
 
         private void cmbSubject_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            /*
+            filterSessions_ManageSession(
+               this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
+               this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
+               this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
+               this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
+               this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
+            );
+            */
         }
 
         private void cmbLecturer_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            /*
+            filterSessions_ManageSession(
+               this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
+               this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
+               this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
+               this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
+               this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
+                );
+            */
         }
 
         private void cmbGroup_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string groupText = this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem);
+            if (!groupText.Equals("Any"))
+            {
+                refreshSubGroupAccordingToGroup(this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem));
+            }
+            /*
+            filterSessions_ManageSession(
+                this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
+                this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
+                this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
+                this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
+                this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
+                );
+            */
         }
 
         private void cmbSubGroup_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
+            
+            /*
+            filterSessions_ManageSession(
+                this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
+                this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
+                this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
+                this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
+                this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
+                );
+            */
         }
+
+
 
         private void cmbTag_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*
+            filterSessions_ManageSession(
+               this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
+               this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
+               this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
+               this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
+               this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
+                );
+            */
+        }
 
+        private void refreshSubGroupAccordingToGroup(string selectedGroup)
+        {
+
+            cmbSubGroup_ManageSession.Items.Clear();
+            cmbSubGroup_ManageSession.Items.Add("Any");
+
+            if (!selectedGroup.Equals("Any") || !selectedGroup.Trim().Equals(""))
+            {
+                string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+                using var con = new SQLiteConnection(cs);
+                con.Open();
+
+                using var cmdSubGrp = new SQLiteCommand(con);
+
+                cmdSubGrp.CommandText = @"CREATE TABLE  IF NOT EXISTS year_semester (
+                                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                    year TEXT,
+                                    semester TEXT,
+                                    programe TEXT,
+                                    group_no INTEGER,
+                                    subgroup_no INTEGER,
+                                    group_id TEXT,
+                                    subgroup_id TEXT
+                    )";
+                cmdSubGrp.ExecuteNonQuery();
+
+                int selectedGroupNum;
+                bool success = Int32.TryParse(selectedGroup, out selectedGroupNum);
+
+                string stm = "SELECT y.subgroup_no FROM year_semester y WHERE y.group_no = " + selectedGroupNum + "";
+
+
+                using var cmd = new SQLiteCommand(stm, con);
+                using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    int subGroupId = Int32.Parse($@"{rdr.GetInt32(0),-3}");
+                    cmbSubGroup_ManageSession.Items.Add(subGroupId.ToString());
+                }
+                con.Close();
+            }
+            else
+            {
+                
+            }
+
+            cmbSubGroup_ManageSession.SelectedIndex = 0;
+           
         }
 
         private void fillSessionManagementCmb()
@@ -1216,7 +1324,8 @@ namespace Timetable_Management_System
             fillSubjectCmb_ManageSession();
             fillLecturerCmb_ManageSession();
             fillGroupCmb_ManageSession();
-            fillSubGroupCmb_ManageSession();
+            //fillSubGroupCmb_ManageSession();
+            refreshSubGroupAccordingToGroup("Any");
             fillTagCmb_ManageSession();
         }
 
@@ -1287,10 +1396,6 @@ namespace Timetable_Management_System
                 )";
             cmdSub.ExecuteNonQuery();
 
-
-
-
-
             string stm = "SELECT l.lecturerID FROM lecturers l";
 
             using var cmd = new SQLiteCommand(stm, con);
@@ -1298,10 +1403,11 @@ namespace Timetable_Management_System
 
             while (rdr.Read())
             {
-                //string lecturerId = $@"{ rdr.GetString(0),-8}";
-                string lecturerId = "aaa";
+               // string lecturerId = $@"{ rdr.GetString(0),-8}";
+                int lecturerId = Int32.Parse($@"{rdr.GetInt32(0),-3}");
+                //string lecturerId = "aaa";
 
-                cmbLecturer_ManageSession.Items.Add(lecturerId);
+                cmbLecturer_ManageSession.Items.Add(lecturerId.ToString());
             }
             con.Close();
 
@@ -1312,8 +1418,42 @@ namespace Timetable_Management_System
         private void fillGroupCmb_ManageSession()
         {
             cmbGroup_ManageSession.Items.Clear();
-
             cmbGroup_ManageSession.Items.Add("Any");
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+
+            using var cmdGro = new SQLiteCommand(con);
+
+            cmdGro.CommandText = @"CREATE TABLE  IF NOT EXISTS year_semester (
+                                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                year TEXT,
+                                semester TEXT,
+                                programe TEXT,
+                                group_no INTEGER,
+                                subgroup_no INTEGER,
+                                group_id TEXT,
+                                subgroup_id TEXT
+                )";
+            cmdGro.ExecuteNonQuery();
+
+            string stm = "SELECT ys.group_no FROM year_semester ys";
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                // string lecturerId = $@"{ rdr.GetString(0),-8}";
+                int groupNo = Int32.Parse($@"{rdr.GetInt32(0),-3}");
+                
+                cmbGroup_ManageSession.Items.Add(groupNo.ToString());
+            }
+            con.Close();
+
             cmbGroup_ManageSession.SelectedIndex = 0;
         }
 
@@ -1322,7 +1462,7 @@ namespace Timetable_Management_System
             cmbSubGroup_ManageSession.Items.Clear();
 
             cmbSubGroup_ManageSession.Items.Add("Any");
-            cmbSubGroup_ManageSession.SelectedIndex = 0;
+
         }
 
         private void fillTagCmb_ManageSession()
@@ -1415,6 +1555,160 @@ namespace Timetable_Management_System
             GenerateReportDashboard obj = new GenerateReportDashboard();
             obj.Show();
             obj.tabControl1.SelectedIndex = 1;
+
+        }
+
+        private void filterSessions_ManageSession(string subject, string lecturer, string group, string subGroup, string tag)
+        {
+          
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            System.Data.SQLite.SQLiteConnection conn1 = new System.Data.SQLite.SQLiteConnection(cs);
+            using var cmdCreateSubject = new SQLiteCommand(conn1);
+
+            cmdCreateSubject.Connection = conn1;
+
+            conn1.Open();
+
+
+            cmdCreateSubject.CommandText = @"CREATE TABLE  IF NOT EXISTS session (
+                                    sessionId               STRING PRIMARY KEY,
+	                                tag                     TEXT,
+	                                year                    INTEGER,
+	                                semester                INTEGER,
+                                    program                 TEXT,
+                                    groupId                   INTEGER,
+                                    subGroupId                INTEGER,
+                                    subjectId               TEXT,
+                                    noOfStudents            INTEGER,
+                                    sessionDuration         DOUBLE 
+                )";
+            cmdCreateSubject.ExecuteNonQuery();
+
+            //Create session table if not exist
+            using var cmdLec = new SQLiteCommand(conn1);
+
+
+
+            cmdLec.CommandText = @"CREATE TABLE  IF NOT EXISTS session_lecturers (
+                                    sessionId   TEXT,
+	                                lecturerID  INTEGER
+                                    
+                )";
+            cmdLec.ExecuteNonQuery();
+
+            conn1.Close();
+
+            System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(cs);
+            
+            //Filtering start
+            string query = "";
+
+            if (lecturer.Equals("Any"))
+            {
+                query = "select " +
+               "session.sessionId AS SessionId ," +
+               "session.tag AS Tag ," +
+               "session.year AS Year ," +
+               "session.semester AS Semester ," +
+               "session.program AS Program ," +
+               "session.groupId AS Group_Id ," +
+               "session.subGroupId AS SubGroup_Id ," +
+               "session.subjectId AS Subject_Id ," +
+               "session.noOfStudents AS No_of_Students ," +
+               "session.sessionDuration AS Hours " +
+               "from session ";
+                bool whereClauseAdded = false;
+                bool havePrevCondition = false;
+
+                if (!subject.Equals("Any"))
+                {
+                    if (whereClauseAdded == false)
+                    {
+                        query = query + " WHERE ";
+                    }
+
+                    if (havePrevCondition == true)
+                    {
+                        query = query + " AND ";
+                    }
+                    query = query + "session.subjectId = '" + subject + "' ";
+                    havePrevCondition = true;
+                }
+                if (!group.Equals("Any"))
+                {
+                    if (whereClauseAdded == false)
+                    {
+                        query = query + " WHERE ";
+                    }
+                    if (havePrevCondition == true)
+                    {
+                        query = query + " AND ";
+                    }
+
+                    query = query + "session.groupId = '" + group + "' ";
+                    havePrevCondition = true;
+
+                }
+                if (!subGroup.Equals("Any"))
+                {
+                    if (whereClauseAdded == false)
+                    {
+                        query = query + " WHERE ";
+                    }
+                    if (havePrevCondition == true)
+                    {
+                        query = query + " AND ";
+                    }
+                    query = query + "session.subGroupId = '" + subGroup + "' ";
+                    havePrevCondition = true;
+
+                }
+                if (!tag.Equals("Any"))
+                {
+                    if (whereClauseAdded == false)
+                    {
+                        query = query + " WHERE ";
+                    }
+                    if (havePrevCondition == true)
+                    {
+                        query = query + " AND ";
+                    }
+                    query = query + "session.subGroupId = '" + tag + "' ";
+                    havePrevCondition = true;
+                }
+
+                Console.WriteLine(query);
+            }
+            else
+            {
+
+            }
+
+            System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand( query );
+
+            cmd.Connection = conn;
+
+            conn.Open();
+
+            System.Data.SQLite.SQLiteDataAdapter da = new System.Data.SQLite.SQLiteDataAdapter(cmd);
+            System.Data.DataSet ds = new System.Data.DataSet();
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            manageSessionGridView.DataSource = dt;
+            conn.Close();
+
+            //Filter End
+
+
+         
+
+
+
+           
+            
 
         }
     }

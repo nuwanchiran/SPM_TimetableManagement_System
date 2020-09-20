@@ -69,6 +69,29 @@
             this.lblGenerateReport1 = new System.Windows.Forms.Label();
             this.lblAddSession = new System.Windows.Forms.Label();
             this.SessionManagement = new System.Windows.Forms.TabPage();
+            this.btnResetManageSession = new System.Windows.Forms.Button();
+            this.sessionGroupBox_ManageSession = new System.Windows.Forms.GroupBox();
+            this.btnRemoveSession_ManageSession = new System.Windows.Forms.Button();
+            this.lblDuration_ManageSession = new System.Windows.Forms.Label();
+            this.lblNoOfStudents_ManageSession = new System.Windows.Forms.Label();
+            this.lblSubjectId_ManageSession = new System.Windows.Forms.Label();
+            this.lblSubGroupId_ManageSession = new System.Windows.Forms.Label();
+            this.lblGroupId_ManageSession = new System.Windows.Forms.Label();
+            this.lblProgram_ManageSession = new System.Windows.Forms.Label();
+            this.lblSemester_ManageSession = new System.Windows.Forms.Label();
+            this.lblYear_ManageSession = new System.Windows.Forms.Label();
+            this.lblTag_ManageSession = new System.Windows.Forms.Label();
+            this.lblSessionId_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_Duration_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_NoOfStudents_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_SubjectId_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_SubGroupId_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_GroupId_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_Program_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_Semester_ManageSession = new System.Windows.Forms.Label();
+            this.lblYear_SessionId_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_Tag_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_SessionId_ManageSession = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -102,35 +125,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
-            this.lblTitle_SessionId_ManageSession = new System.Windows.Forms.Label();
-            this.sessionGroupBox_ManageSession = new System.Windows.Forms.GroupBox();
-            this.lblTitle_Tag_ManageSession = new System.Windows.Forms.Label();
-            this.lblYear_SessionId_ManageSession = new System.Windows.Forms.Label();
-            this.lblTitle_Semester_ManageSession = new System.Windows.Forms.Label();
-            this.lblTitle_Program_ManageSession = new System.Windows.Forms.Label();
-            this.lblTitle_GroupId_ManageSession = new System.Windows.Forms.Label();
-            this.lblTitle_SubGroupId_ManageSession = new System.Windows.Forms.Label();
-            this.lblTitle_SubjectId_ManageSession = new System.Windows.Forms.Label();
-            this.lblTitle_NoOfStudents_ManageSession = new System.Windows.Forms.Label();
-            this.lblTitle_Duration_ManageSession = new System.Windows.Forms.Label();
-            this.lblDuration_ManageSession = new System.Windows.Forms.Label();
-            this.lblNoOfStudents_ManageSession = new System.Windows.Forms.Label();
-            this.lblSubjectId_ManageSession = new System.Windows.Forms.Label();
-            this.lblSubGroupId_ManageSession = new System.Windows.Forms.Label();
-            this.lblGroupId_ManageSession = new System.Windows.Forms.Label();
-            this.lblProgram_ManageSession = new System.Windows.Forms.Label();
-            this.lblSemester_ManageSession = new System.Windows.Forms.Label();
-            this.lblYear_ManageSession = new System.Windows.Forms.Label();
-            this.lblTag_ManageSession = new System.Windows.Forms.Label();
-            this.lblSessionId_ManageSession = new System.Windows.Forms.Label();
-            this.btnRemoveSession_ManageSession = new System.Windows.Forms.Button();
-            this.btnResetManageSession = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.CreateSession.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDataGridView_CreateSession)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedLecturersGridView)).BeginInit();
             this.SessionManagement.SuspendLayout();
+            this.sessionGroupBox_ManageSession.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLecGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.manageSessionGridView)).BeginInit();
             this.TimeManagement.SuspendLayout();
@@ -147,7 +148,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).BeginInit();
-            this.sessionGroupBox_ManageSession.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -586,6 +586,236 @@
             this.SessionManagement.Text = "SessionManagement";
             this.SessionManagement.UseVisualStyleBackColor = true;
             // 
+            // btnResetManageSession
+            // 
+            this.btnResetManageSession.Location = new System.Drawing.Point(1432, 718);
+            this.btnResetManageSession.Name = "btnResetManageSession";
+            this.btnResetManageSession.Size = new System.Drawing.Size(91, 35);
+            this.btnResetManageSession.TabIndex = 76;
+            this.btnResetManageSession.Text = "Reset";
+            this.btnResetManageSession.UseVisualStyleBackColor = true;
+            this.btnResetManageSession.Click += new System.EventHandler(this.btnResetManageSession_Click);
+            // 
+            // sessionGroupBox_ManageSession
+            // 
+            this.sessionGroupBox_ManageSession.Controls.Add(this.btnRemoveSession_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblDuration_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblNoOfStudents_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblSubjectId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblSubGroupId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblGroupId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblProgram_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblSemester_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblYear_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTag_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblSessionId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_Duration_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_NoOfStudents_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_SubjectId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_SubGroupId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_GroupId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_Program_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_Semester_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblYear_SessionId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_Tag_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_SessionId_ManageSession);
+            this.sessionGroupBox_ManageSession.Location = new System.Drawing.Point(1376, 336);
+            this.sessionGroupBox_ManageSession.Name = "sessionGroupBox_ManageSession";
+            this.sessionGroupBox_ManageSession.Size = new System.Drawing.Size(200, 337);
+            this.sessionGroupBox_ManageSession.TabIndex = 75;
+            this.sessionGroupBox_ManageSession.TabStop = false;
+            this.sessionGroupBox_ManageSession.Text = "Session Summary";
+            // 
+            // btnRemoveSession_ManageSession
+            // 
+            this.btnRemoveSession_ManageSession.Location = new System.Drawing.Point(16, 285);
+            this.btnRemoveSession_ManageSession.Name = "btnRemoveSession_ManageSession";
+            this.btnRemoveSession_ManageSession.Size = new System.Drawing.Size(149, 34);
+            this.btnRemoveSession_ManageSession.TabIndex = 94;
+            this.btnRemoveSession_ManageSession.Text = "Remove Session";
+            this.btnRemoveSession_ManageSession.UseVisualStyleBackColor = true;
+            this.btnRemoveSession_ManageSession.Click += new System.EventHandler(this.btnRemoveSession_ManageSession_Click);
+            // 
+            // lblDuration_ManageSession
+            // 
+            this.lblDuration_ManageSession.AutoSize = true;
+            this.lblDuration_ManageSession.Location = new System.Drawing.Point(123, 257);
+            this.lblDuration_ManageSession.Name = "lblDuration_ManageSession";
+            this.lblDuration_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblDuration_ManageSession.TabIndex = 93;
+            this.lblDuration_ManageSession.Text = "##";
+            // 
+            // lblNoOfStudents_ManageSession
+            // 
+            this.lblNoOfStudents_ManageSession.AutoSize = true;
+            this.lblNoOfStudents_ManageSession.Location = new System.Drawing.Point(123, 229);
+            this.lblNoOfStudents_ManageSession.Name = "lblNoOfStudents_ManageSession";
+            this.lblNoOfStudents_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblNoOfStudents_ManageSession.TabIndex = 92;
+            this.lblNoOfStudents_ManageSession.Text = "##";
+            // 
+            // lblSubjectId_ManageSession
+            // 
+            this.lblSubjectId_ManageSession.AutoSize = true;
+            this.lblSubjectId_ManageSession.Location = new System.Drawing.Point(122, 201);
+            this.lblSubjectId_ManageSession.Name = "lblSubjectId_ManageSession";
+            this.lblSubjectId_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblSubjectId_ManageSession.TabIndex = 91;
+            this.lblSubjectId_ManageSession.Text = "##";
+            // 
+            // lblSubGroupId_ManageSession
+            // 
+            this.lblSubGroupId_ManageSession.AutoSize = true;
+            this.lblSubGroupId_ManageSession.Location = new System.Drawing.Point(117, 176);
+            this.lblSubGroupId_ManageSession.Name = "lblSubGroupId_ManageSession";
+            this.lblSubGroupId_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblSubGroupId_ManageSession.TabIndex = 90;
+            this.lblSubGroupId_ManageSession.Text = "##";
+            // 
+            // lblGroupId_ManageSession
+            // 
+            this.lblGroupId_ManageSession.AutoSize = true;
+            this.lblGroupId_ManageSession.Location = new System.Drawing.Point(120, 155);
+            this.lblGroupId_ManageSession.Name = "lblGroupId_ManageSession";
+            this.lblGroupId_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblGroupId_ManageSession.TabIndex = 89;
+            this.lblGroupId_ManageSession.Text = "##";
+            // 
+            // lblProgram_ManageSession
+            // 
+            this.lblProgram_ManageSession.AutoSize = true;
+            this.lblProgram_ManageSession.Location = new System.Drawing.Point(119, 128);
+            this.lblProgram_ManageSession.Name = "lblProgram_ManageSession";
+            this.lblProgram_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblProgram_ManageSession.TabIndex = 88;
+            this.lblProgram_ManageSession.Text = "##";
+            // 
+            // lblSemester_ManageSession
+            // 
+            this.lblSemester_ManageSession.AutoSize = true;
+            this.lblSemester_ManageSession.Location = new System.Drawing.Point(116, 100);
+            this.lblSemester_ManageSession.Name = "lblSemester_ManageSession";
+            this.lblSemester_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblSemester_ManageSession.TabIndex = 87;
+            this.lblSemester_ManageSession.Text = "##";
+            // 
+            // lblYear_ManageSession
+            // 
+            this.lblYear_ManageSession.AutoSize = true;
+            this.lblYear_ManageSession.Location = new System.Drawing.Point(118, 75);
+            this.lblYear_ManageSession.Name = "lblYear_ManageSession";
+            this.lblYear_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblYear_ManageSession.TabIndex = 86;
+            this.lblYear_ManageSession.Text = "##";
+            // 
+            // lblTag_ManageSession
+            // 
+            this.lblTag_ManageSession.AutoSize = true;
+            this.lblTag_ManageSession.Location = new System.Drawing.Point(114, 50);
+            this.lblTag_ManageSession.Name = "lblTag_ManageSession";
+            this.lblTag_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblTag_ManageSession.TabIndex = 85;
+            this.lblTag_ManageSession.Text = "##";
+            // 
+            // lblSessionId_ManageSession
+            // 
+            this.lblSessionId_ManageSession.AutoSize = true;
+            this.lblSessionId_ManageSession.Location = new System.Drawing.Point(114, 23);
+            this.lblSessionId_ManageSession.Name = "lblSessionId_ManageSession";
+            this.lblSessionId_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblSessionId_ManageSession.TabIndex = 84;
+            this.lblSessionId_ManageSession.Text = "##";
+            // 
+            // lblTitle_Duration_ManageSession
+            // 
+            this.lblTitle_Duration_ManageSession.AutoSize = true;
+            this.lblTitle_Duration_ManageSession.Location = new System.Drawing.Point(15, 257);
+            this.lblTitle_Duration_ManageSession.Name = "lblTitle_Duration_ManageSession";
+            this.lblTitle_Duration_ManageSession.Size = new System.Drawing.Size(67, 20);
+            this.lblTitle_Duration_ManageSession.TabIndex = 83;
+            this.lblTitle_Duration_ManageSession.Text = "Duration";
+            // 
+            // lblTitle_NoOfStudents_ManageSession
+            // 
+            this.lblTitle_NoOfStudents_ManageSession.AutoSize = true;
+            this.lblTitle_NoOfStudents_ManageSession.Location = new System.Drawing.Point(15, 229);
+            this.lblTitle_NoOfStudents_ManageSession.Name = "lblTitle_NoOfStudents_ManageSession";
+            this.lblTitle_NoOfStudents_ManageSession.Size = new System.Drawing.Size(108, 20);
+            this.lblTitle_NoOfStudents_ManageSession.TabIndex = 82;
+            this.lblTitle_NoOfStudents_ManageSession.Text = "No of Students";
+            // 
+            // lblTitle_SubjectId_ManageSession
+            // 
+            this.lblTitle_SubjectId_ManageSession.AutoSize = true;
+            this.lblTitle_SubjectId_ManageSession.Location = new System.Drawing.Point(14, 201);
+            this.lblTitle_SubjectId_ManageSession.Name = "lblTitle_SubjectId_ManageSession";
+            this.lblTitle_SubjectId_ManageSession.Size = new System.Drawing.Size(77, 20);
+            this.lblTitle_SubjectId_ManageSession.TabIndex = 81;
+            this.lblTitle_SubjectId_ManageSession.Text = "Subject ID";
+            // 
+            // lblTitle_SubGroupId_ManageSession
+            // 
+            this.lblTitle_SubGroupId_ManageSession.AutoSize = true;
+            this.lblTitle_SubGroupId_ManageSession.Location = new System.Drawing.Point(9, 176);
+            this.lblTitle_SubGroupId_ManageSession.Name = "lblTitle_SubGroupId_ManageSession";
+            this.lblTitle_SubGroupId_ManageSession.Size = new System.Drawing.Size(94, 20);
+            this.lblTitle_SubGroupId_ManageSession.TabIndex = 80;
+            this.lblTitle_SubGroupId_ManageSession.Text = "SubGroup ID";
+            // 
+            // lblTitle_GroupId_ManageSession
+            // 
+            this.lblTitle_GroupId_ManageSession.AutoSize = true;
+            this.lblTitle_GroupId_ManageSession.Location = new System.Drawing.Point(12, 155);
+            this.lblTitle_GroupId_ManageSession.Name = "lblTitle_GroupId_ManageSession";
+            this.lblTitle_GroupId_ManageSession.Size = new System.Drawing.Size(69, 20);
+            this.lblTitle_GroupId_ManageSession.TabIndex = 79;
+            this.lblTitle_GroupId_ManageSession.Text = "Group ID";
+            // 
+            // lblTitle_Program_ManageSession
+            // 
+            this.lblTitle_Program_ManageSession.AutoSize = true;
+            this.lblTitle_Program_ManageSession.Location = new System.Drawing.Point(11, 128);
+            this.lblTitle_Program_ManageSession.Name = "lblTitle_Program_ManageSession";
+            this.lblTitle_Program_ManageSession.Size = new System.Drawing.Size(66, 20);
+            this.lblTitle_Program_ManageSession.TabIndex = 78;
+            this.lblTitle_Program_ManageSession.Text = "Program";
+            // 
+            // lblTitle_Semester_ManageSession
+            // 
+            this.lblTitle_Semester_ManageSession.AutoSize = true;
+            this.lblTitle_Semester_ManageSession.Location = new System.Drawing.Point(8, 100);
+            this.lblTitle_Semester_ManageSession.Name = "lblTitle_Semester_ManageSession";
+            this.lblTitle_Semester_ManageSession.Size = new System.Drawing.Size(70, 20);
+            this.lblTitle_Semester_ManageSession.TabIndex = 77;
+            this.lblTitle_Semester_ManageSession.Text = "Semester";
+            // 
+            // lblYear_SessionId_ManageSession
+            // 
+            this.lblYear_SessionId_ManageSession.AutoSize = true;
+            this.lblYear_SessionId_ManageSession.Location = new System.Drawing.Point(10, 75);
+            this.lblYear_SessionId_ManageSession.Name = "lblYear_SessionId_ManageSession";
+            this.lblYear_SessionId_ManageSession.Size = new System.Drawing.Size(37, 20);
+            this.lblYear_SessionId_ManageSession.TabIndex = 76;
+            this.lblYear_SessionId_ManageSession.Text = "Year";
+            // 
+            // lblTitle_Tag_ManageSession
+            // 
+            this.lblTitle_Tag_ManageSession.AutoSize = true;
+            this.lblTitle_Tag_ManageSession.Location = new System.Drawing.Point(6, 50);
+            this.lblTitle_Tag_ManageSession.Name = "lblTitle_Tag_ManageSession";
+            this.lblTitle_Tag_ManageSession.Size = new System.Drawing.Size(32, 20);
+            this.lblTitle_Tag_ManageSession.TabIndex = 75;
+            this.lblTitle_Tag_ManageSession.Text = "Tag";
+            // 
+            // lblTitle_SessionId_ManageSession
+            // 
+            this.lblTitle_SessionId_ManageSession.AutoSize = true;
+            this.lblTitle_SessionId_ManageSession.Location = new System.Drawing.Point(6, 23);
+            this.lblTitle_SessionId_ManageSession.Name = "lblTitle_SessionId_ManageSession";
+            this.lblTitle_SessionId_ManageSession.Size = new System.Drawing.Size(77, 20);
+            this.lblTitle_SessionId_ManageSession.TabIndex = 74;
+            this.lblTitle_SessionId_ManageSession.Text = "Session ID";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -678,6 +908,7 @@
             // 
             // imgLecGridView
             // 
+            this.imgLecGridView.AllowUserToAddRows = false;
             this.imgLecGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.imgLecGridView.Location = new System.Drawing.Point(370, 621);
             this.imgLecGridView.Name = "imgLecGridView";
@@ -921,236 +1152,6 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
-            // lblTitle_SessionId_ManageSession
-            // 
-            this.lblTitle_SessionId_ManageSession.AutoSize = true;
-            this.lblTitle_SessionId_ManageSession.Location = new System.Drawing.Point(6, 23);
-            this.lblTitle_SessionId_ManageSession.Name = "lblTitle_SessionId_ManageSession";
-            this.lblTitle_SessionId_ManageSession.Size = new System.Drawing.Size(77, 20);
-            this.lblTitle_SessionId_ManageSession.TabIndex = 74;
-            this.lblTitle_SessionId_ManageSession.Text = "Session ID";
-            // 
-            // sessionGroupBox_ManageSession
-            // 
-            this.sessionGroupBox_ManageSession.Controls.Add(this.btnRemoveSession_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblDuration_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblNoOfStudents_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblSubjectId_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblSubGroupId_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblGroupId_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblProgram_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblSemester_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblYear_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTag_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblSessionId_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_Duration_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_NoOfStudents_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_SubjectId_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_SubGroupId_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_GroupId_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_Program_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_Semester_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblYear_SessionId_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_Tag_ManageSession);
-            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_SessionId_ManageSession);
-            this.sessionGroupBox_ManageSession.Location = new System.Drawing.Point(1376, 336);
-            this.sessionGroupBox_ManageSession.Name = "sessionGroupBox_ManageSession";
-            this.sessionGroupBox_ManageSession.Size = new System.Drawing.Size(200, 337);
-            this.sessionGroupBox_ManageSession.TabIndex = 75;
-            this.sessionGroupBox_ManageSession.TabStop = false;
-            this.sessionGroupBox_ManageSession.Text = "Session Summary";
-            // 
-            // lblTitle_Tag_ManageSession
-            // 
-            this.lblTitle_Tag_ManageSession.AutoSize = true;
-            this.lblTitle_Tag_ManageSession.Location = new System.Drawing.Point(6, 50);
-            this.lblTitle_Tag_ManageSession.Name = "lblTitle_Tag_ManageSession";
-            this.lblTitle_Tag_ManageSession.Size = new System.Drawing.Size(32, 20);
-            this.lblTitle_Tag_ManageSession.TabIndex = 75;
-            this.lblTitle_Tag_ManageSession.Text = "Tag";
-            // 
-            // lblYear_SessionId_ManageSession
-            // 
-            this.lblYear_SessionId_ManageSession.AutoSize = true;
-            this.lblYear_SessionId_ManageSession.Location = new System.Drawing.Point(10, 75);
-            this.lblYear_SessionId_ManageSession.Name = "lblYear_SessionId_ManageSession";
-            this.lblYear_SessionId_ManageSession.Size = new System.Drawing.Size(37, 20);
-            this.lblYear_SessionId_ManageSession.TabIndex = 76;
-            this.lblYear_SessionId_ManageSession.Text = "Year";
-            // 
-            // lblTitle_Semester_ManageSession
-            // 
-            this.lblTitle_Semester_ManageSession.AutoSize = true;
-            this.lblTitle_Semester_ManageSession.Location = new System.Drawing.Point(8, 100);
-            this.lblTitle_Semester_ManageSession.Name = "lblTitle_Semester_ManageSession";
-            this.lblTitle_Semester_ManageSession.Size = new System.Drawing.Size(70, 20);
-            this.lblTitle_Semester_ManageSession.TabIndex = 77;
-            this.lblTitle_Semester_ManageSession.Text = "Semester";
-            // 
-            // lblTitle_Program_ManageSession
-            // 
-            this.lblTitle_Program_ManageSession.AutoSize = true;
-            this.lblTitle_Program_ManageSession.Location = new System.Drawing.Point(11, 128);
-            this.lblTitle_Program_ManageSession.Name = "lblTitle_Program_ManageSession";
-            this.lblTitle_Program_ManageSession.Size = new System.Drawing.Size(66, 20);
-            this.lblTitle_Program_ManageSession.TabIndex = 78;
-            this.lblTitle_Program_ManageSession.Text = "Program";
-            // 
-            // lblTitle_GroupId_ManageSession
-            // 
-            this.lblTitle_GroupId_ManageSession.AutoSize = true;
-            this.lblTitle_GroupId_ManageSession.Location = new System.Drawing.Point(12, 155);
-            this.lblTitle_GroupId_ManageSession.Name = "lblTitle_GroupId_ManageSession";
-            this.lblTitle_GroupId_ManageSession.Size = new System.Drawing.Size(69, 20);
-            this.lblTitle_GroupId_ManageSession.TabIndex = 79;
-            this.lblTitle_GroupId_ManageSession.Text = "Group ID";
-            // 
-            // lblTitle_SubGroupId_ManageSession
-            // 
-            this.lblTitle_SubGroupId_ManageSession.AutoSize = true;
-            this.lblTitle_SubGroupId_ManageSession.Location = new System.Drawing.Point(9, 176);
-            this.lblTitle_SubGroupId_ManageSession.Name = "lblTitle_SubGroupId_ManageSession";
-            this.lblTitle_SubGroupId_ManageSession.Size = new System.Drawing.Size(94, 20);
-            this.lblTitle_SubGroupId_ManageSession.TabIndex = 80;
-            this.lblTitle_SubGroupId_ManageSession.Text = "SubGroup ID";
-            // 
-            // lblTitle_SubjectId_ManageSession
-            // 
-            this.lblTitle_SubjectId_ManageSession.AutoSize = true;
-            this.lblTitle_SubjectId_ManageSession.Location = new System.Drawing.Point(14, 201);
-            this.lblTitle_SubjectId_ManageSession.Name = "lblTitle_SubjectId_ManageSession";
-            this.lblTitle_SubjectId_ManageSession.Size = new System.Drawing.Size(77, 20);
-            this.lblTitle_SubjectId_ManageSession.TabIndex = 81;
-            this.lblTitle_SubjectId_ManageSession.Text = "Subject ID";
-            // 
-            // lblTitle_NoOfStudents_ManageSession
-            // 
-            this.lblTitle_NoOfStudents_ManageSession.AutoSize = true;
-            this.lblTitle_NoOfStudents_ManageSession.Location = new System.Drawing.Point(15, 229);
-            this.lblTitle_NoOfStudents_ManageSession.Name = "lblTitle_NoOfStudents_ManageSession";
-            this.lblTitle_NoOfStudents_ManageSession.Size = new System.Drawing.Size(108, 20);
-            this.lblTitle_NoOfStudents_ManageSession.TabIndex = 82;
-            this.lblTitle_NoOfStudents_ManageSession.Text = "No of Students";
-            // 
-            // lblTitle_Duration_ManageSession
-            // 
-            this.lblTitle_Duration_ManageSession.AutoSize = true;
-            this.lblTitle_Duration_ManageSession.Location = new System.Drawing.Point(15, 257);
-            this.lblTitle_Duration_ManageSession.Name = "lblTitle_Duration_ManageSession";
-            this.lblTitle_Duration_ManageSession.Size = new System.Drawing.Size(67, 20);
-            this.lblTitle_Duration_ManageSession.TabIndex = 83;
-            this.lblTitle_Duration_ManageSession.Text = "Duration";
-            // 
-            // lblDuration_ManageSession
-            // 
-            this.lblDuration_ManageSession.AutoSize = true;
-            this.lblDuration_ManageSession.Location = new System.Drawing.Point(123, 257);
-            this.lblDuration_ManageSession.Name = "lblDuration_ManageSession";
-            this.lblDuration_ManageSession.Size = new System.Drawing.Size(27, 20);
-            this.lblDuration_ManageSession.TabIndex = 93;
-            this.lblDuration_ManageSession.Text = "##";
-            // 
-            // lblNoOfStudents_ManageSession
-            // 
-            this.lblNoOfStudents_ManageSession.AutoSize = true;
-            this.lblNoOfStudents_ManageSession.Location = new System.Drawing.Point(123, 229);
-            this.lblNoOfStudents_ManageSession.Name = "lblNoOfStudents_ManageSession";
-            this.lblNoOfStudents_ManageSession.Size = new System.Drawing.Size(27, 20);
-            this.lblNoOfStudents_ManageSession.TabIndex = 92;
-            this.lblNoOfStudents_ManageSession.Text = "##";
-            // 
-            // lblSubjectId_ManageSession
-            // 
-            this.lblSubjectId_ManageSession.AutoSize = true;
-            this.lblSubjectId_ManageSession.Location = new System.Drawing.Point(122, 201);
-            this.lblSubjectId_ManageSession.Name = "lblSubjectId_ManageSession";
-            this.lblSubjectId_ManageSession.Size = new System.Drawing.Size(27, 20);
-            this.lblSubjectId_ManageSession.TabIndex = 91;
-            this.lblSubjectId_ManageSession.Text = "##";
-            // 
-            // lblSubGroupId_ManageSession
-            // 
-            this.lblSubGroupId_ManageSession.AutoSize = true;
-            this.lblSubGroupId_ManageSession.Location = new System.Drawing.Point(117, 176);
-            this.lblSubGroupId_ManageSession.Name = "lblSubGroupId_ManageSession";
-            this.lblSubGroupId_ManageSession.Size = new System.Drawing.Size(27, 20);
-            this.lblSubGroupId_ManageSession.TabIndex = 90;
-            this.lblSubGroupId_ManageSession.Text = "##";
-            // 
-            // lblGroupId_ManageSession
-            // 
-            this.lblGroupId_ManageSession.AutoSize = true;
-            this.lblGroupId_ManageSession.Location = new System.Drawing.Point(120, 155);
-            this.lblGroupId_ManageSession.Name = "lblGroupId_ManageSession";
-            this.lblGroupId_ManageSession.Size = new System.Drawing.Size(27, 20);
-            this.lblGroupId_ManageSession.TabIndex = 89;
-            this.lblGroupId_ManageSession.Text = "##";
-            // 
-            // lblProgram_ManageSession
-            // 
-            this.lblProgram_ManageSession.AutoSize = true;
-            this.lblProgram_ManageSession.Location = new System.Drawing.Point(119, 128);
-            this.lblProgram_ManageSession.Name = "lblProgram_ManageSession";
-            this.lblProgram_ManageSession.Size = new System.Drawing.Size(27, 20);
-            this.lblProgram_ManageSession.TabIndex = 88;
-            this.lblProgram_ManageSession.Text = "##";
-            // 
-            // lblSemester_ManageSession
-            // 
-            this.lblSemester_ManageSession.AutoSize = true;
-            this.lblSemester_ManageSession.Location = new System.Drawing.Point(116, 100);
-            this.lblSemester_ManageSession.Name = "lblSemester_ManageSession";
-            this.lblSemester_ManageSession.Size = new System.Drawing.Size(27, 20);
-            this.lblSemester_ManageSession.TabIndex = 87;
-            this.lblSemester_ManageSession.Text = "##";
-            // 
-            // lblYear_ManageSession
-            // 
-            this.lblYear_ManageSession.AutoSize = true;
-            this.lblYear_ManageSession.Location = new System.Drawing.Point(118, 75);
-            this.lblYear_ManageSession.Name = "lblYear_ManageSession";
-            this.lblYear_ManageSession.Size = new System.Drawing.Size(27, 20);
-            this.lblYear_ManageSession.TabIndex = 86;
-            this.lblYear_ManageSession.Text = "##";
-            // 
-            // lblTag_ManageSession
-            // 
-            this.lblTag_ManageSession.AutoSize = true;
-            this.lblTag_ManageSession.Location = new System.Drawing.Point(114, 50);
-            this.lblTag_ManageSession.Name = "lblTag_ManageSession";
-            this.lblTag_ManageSession.Size = new System.Drawing.Size(27, 20);
-            this.lblTag_ManageSession.TabIndex = 85;
-            this.lblTag_ManageSession.Text = "##";
-            // 
-            // lblSessionId_ManageSession
-            // 
-            this.lblSessionId_ManageSession.AutoSize = true;
-            this.lblSessionId_ManageSession.Location = new System.Drawing.Point(114, 23);
-            this.lblSessionId_ManageSession.Name = "lblSessionId_ManageSession";
-            this.lblSessionId_ManageSession.Size = new System.Drawing.Size(27, 20);
-            this.lblSessionId_ManageSession.TabIndex = 84;
-            this.lblSessionId_ManageSession.Text = "##";
-            // 
-            // btnRemoveSession_ManageSession
-            // 
-            this.btnRemoveSession_ManageSession.Location = new System.Drawing.Point(16, 285);
-            this.btnRemoveSession_ManageSession.Name = "btnRemoveSession_ManageSession";
-            this.btnRemoveSession_ManageSession.Size = new System.Drawing.Size(149, 34);
-            this.btnRemoveSession_ManageSession.TabIndex = 94;
-            this.btnRemoveSession_ManageSession.Text = "Remove Session";
-            this.btnRemoveSession_ManageSession.UseVisualStyleBackColor = true;
-            this.btnRemoveSession_ManageSession.Click += new System.EventHandler(this.btnRemoveSession_ManageSession_Click);
-            // 
-            // btnResetManageSession
-            // 
-            this.btnResetManageSession.Location = new System.Drawing.Point(1432, 718);
-            this.btnResetManageSession.Name = "btnResetManageSession";
-            this.btnResetManageSession.Size = new System.Drawing.Size(91, 35);
-            this.btnResetManageSession.TabIndex = 76;
-            this.btnResetManageSession.Text = "Reset";
-            this.btnResetManageSession.UseVisualStyleBackColor = true;
-            this.btnResetManageSession.Click += new System.EventHandler(this.btnResetManageSession_Click);
-            // 
             // GenerateReportDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1181,6 +1182,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.selectedLecturersGridView)).EndInit();
             this.SessionManagement.ResumeLayout(false);
             this.SessionManagement.PerformLayout();
+            this.sessionGroupBox_ManageSession.ResumeLayout(false);
+            this.sessionGroupBox_ManageSession.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLecGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.manageSessionGridView)).EndInit();
             this.TimeManagement.ResumeLayout(false);
@@ -1200,8 +1203,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).EndInit();
-            this.sessionGroupBox_ManageSession.ResumeLayout(false);
-            this.sessionGroupBox_ManageSession.PerformLayout();
             this.ResumeLayout(false);
 
         }
