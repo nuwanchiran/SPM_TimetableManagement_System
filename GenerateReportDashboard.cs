@@ -29,9 +29,11 @@ namespace Timetable_Management_System
             //Create Session
             fillInitialComboboxes();
             cleanCreateSession();
-        }
 
-       
+            //Manage Session
+            fillSessionManagementCmb();
+            setSummaryVisibleOrHidden_ManageSession(false);
+        }
 
         private void GenerateReportDashboard_Load(object sender, EventArgs e)
         {
@@ -1032,6 +1034,54 @@ namespace Timetable_Management_System
             string sessionId = manageSessionGridView.Rows[rowindex].Cells[0].Value.ToString();
             sessionId = sessionId.Trim();
             loadLecturersAndFillImageGrid_SessionManagement(sessionId);
+            setSummaryVisibleOrHidden_ManageSession(true);
+
+            fillsetSummaryManageSession(sessionId);
+            setSummaryVisibleOrHidden_ManageSession(true);
+        }
+
+        private void fillsetSummaryManageSession(string sessionId)
+        {
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "";
+
+            stm = "select session.sessionId AS SessionId ,session.tag AS Tag ,session.year AS Year ,session.semester AS Semester ,session.program AS Program ,session.groupId AS Group_Id ,session.subGroupId AS SubGroup_Id ,session.subjectId AS Subject_Id ,session.noOfStudents AS No_of_Students ,session.sessionDuration AS Hours from session WHERE session.sessionId='" + sessionId + "'";
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                // Console.WriteLine($@"{rdr.GetInt32(0),-3} {rdr.GetString(1),-8} {rdr.GetInt32(2),8}");
+                string SessionId = $@"{ rdr.GetString(0),-8}".Trim();
+                string tag = $@"{ rdr.GetString(1),-8}".Trim();
+                int year = Int32.Parse($@"{rdr.GetInt32(2),-3}");
+                int semester = Int32.Parse($@"{rdr.GetInt32(3),-3}");
+                string program = $@"{ rdr.GetString(4),-8}".Trim();
+                int groupId = Int32.Parse($@"{rdr.GetInt32(5),-3}");
+                int subGroupId = Int32.Parse($@"{rdr.GetInt32(6),-3}");
+                string subjectId = $@"{ rdr.GetString(7),-8}".Trim();
+                int noOfStudents = Int32.Parse($@"{rdr.GetInt32(8),-3}");
+                double duration = Double.Parse($@"{rdr.GetDouble(9),-3}");
+
+
+
+                lblSessionId_ManageSession.Text = SessionId;
+                lblTag_ManageSession.Text = tag;
+                lblYear_ManageSession.Text = year.ToString();
+                lblSemester_ManageSession.Text = semester.ToString();
+                lblProgram_ManageSession.Text = program;
+                lblGroupId_ManageSession.Text = groupId.ToString();
+                lblSubGroupId_ManageSession.Text = subGroupId.ToString();
+                lblSubjectId_ManageSession.Text = subjectId;
+                lblNoOfStudents_ManageSession.Text = noOfStudents.ToString();
+                lblDuration_ManageSession.Text = duration.ToString();
+
+            }
+            con.Close();
         }
 
         private void loadLecturersAndFillImageGrid_SessionManagement(string sessionId)
@@ -1043,7 +1093,7 @@ namespace Timetable_Management_System
 
             lecListFull = getLecturerObjectListByProvindingLecturerIDList(lecList);
 
-            drawLecturersInGridView_ManageSession(lecListFull);
+          //  drawLecturersInGridView_ManageSession(lecListFull);
         }
 
         private void drawLecturersInGridView_ManageSession(List<Lecturer> lecListFull)
@@ -1059,15 +1109,15 @@ namespace Timetable_Management_System
             }
 
             List<Object> temp = new List<object>();
+            Object[] row =null;
             foreach (Lecturer element in lecListFull)
             {
                 string photoPath = element.photoPath;
                 Image img = Image.FromFile(@"" + photoPath);
                 temp.Add(img);
-                Object[] row = temp.Cast<object>().ToArray();
-                imgDataGridView_CreateSession.Rows.Add(row);
+                 row = temp.Cast<object>().ToArray();
             }
-
+            imgDataGridView_CreateSession.Rows.Add(row);
 
             /*
             if (this.imgDataGridView_CreateSession.Columns.Count < 3)
@@ -1133,7 +1183,185 @@ namespace Timetable_Management_System
             return foundLecturers;
         }
 
-       
+        private void cmbSubject_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void cmbLecturer_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbGroup_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbSubGroup_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbTag_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fillSessionManagementCmb()
+        {
+            fillSubjectCmb_ManageSession();
+            fillLecturerCmb_ManageSession();
+            fillGroupCmb_ManageSession();
+            fillSubGroupCmb_ManageSession();
+            fillTagCmb_ManageSession();
+        }
+
+        private void fillSubjectCmb_ManageSession()
+        {
+            cmbSubject_ManageSession.Items.Clear();
+            cmbSubject_ManageSession.Items.Add("Any");
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+            using var cmdSub = new SQLiteCommand(con);
+
+            cmdSub.CommandText = @"CREATE TABLE  IF NOT EXISTS subjects (
+                                    subjectCode STRING PRIMARY KEY,
+	                                subjectName TEXT,
+	                                offeredYear INTEGER,
+	                                offeredSemester INTEGER,
+                                    program TEXT,
+	                                isParallel BOOLEAN,
+	                                category TEXT
+                )";
+            cmdSub.ExecuteNonQuery();
+
+
+
+            string stm = "SELECT s.subjectCode FROM subjects s";
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                string subjectCode = $@"{ rdr.GetString(0),-8}".Trim();
+                cmbSubject_ManageSession.Items.Add(subjectCode);
+            }
+            con.Close();
+
+            
+            cmbSubject_ManageSession.SelectedIndex = 0;
+        }
+
+        private void fillLecturerCmb_ManageSession()
+        {
+            cmbLecturer_ManageSession.Items.Clear();
+            cmbLecturer_ManageSession.Items.Add("Any");
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+
+            using var cmdSub = new SQLiteCommand(con);
+
+            cmdSub.CommandText = @"CREATE TABLE  IF NOT EXISTS lecturers (
+                                lecturerID INTEGER PRIMARY KEY,
+                                title TEXT,
+                                name TEXT,
+                                faculty TEXT,
+                                department TEXT,
+                                center TEXT,
+                                building TEXT,
+                                employeeLevel INT,
+                                photoPath TEXT        
+                )";
+            cmdSub.ExecuteNonQuery();
+
+
+
+
+
+            string stm = "SELECT l.lecturerID FROM lecturers l";
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                //string lecturerId = $@"{ rdr.GetString(0),-8}";
+                string lecturerId = "aaa";
+
+                cmbLecturer_ManageSession.Items.Add(lecturerId);
+            }
+            con.Close();
+
+            
+            cmbLecturer_ManageSession.SelectedIndex = 0;
+        }
+
+        private void fillGroupCmb_ManageSession()
+        {
+            cmbGroup_ManageSession.Items.Clear();
+
+            cmbGroup_ManageSession.Items.Add("Any");
+            cmbGroup_ManageSession.SelectedIndex = 0;
+        }
+
+        private void fillSubGroupCmb_ManageSession()
+        {
+            cmbSubGroup_ManageSession.Items.Clear();
+
+            cmbSubGroup_ManageSession.Items.Add("Any");
+            cmbSubGroup_ManageSession.SelectedIndex = 0;
+        }
+
+        private void fillTagCmb_ManageSession()
+        {
+            cmbTag_ManageSession.Items.Clear();
+
+            cmbTag_ManageSession.Items.Add("Any");
+            cmbTag_ManageSession.Items.Add("Lecture");
+            cmbTag_ManageSession.Items.Add("Tutorial");
+            cmbTag_ManageSession.Items.Add("Lab");
+            cmbTag_ManageSession.Items.Add("Evaluation");
+
+            cmbTag_ManageSession.SelectedIndex = 0;
+        }
+
+        private void setSummaryVisibleOrHidden_ManageSession(bool status)
+        {
+            sessionGroupBox_ManageSession.Visible = status;
+
+            lblTitle_SessionId_ManageSession.Visible = status;
+            lblTitle_Tag_ManageSession.Visible = status;
+            lblYear_SessionId_ManageSession.Visible = status;
+            lblTitle_Semester_ManageSession.Visible = status;
+            lblTitle_Program_ManageSession.Visible = status;
+            lblTitle_GroupId_ManageSession.Visible = status;
+            lblTitle_SubGroupId_ManageSession.Visible = status;
+            lblTitle_SubjectId_ManageSession.Visible = status;
+            lblTitle_NoOfStudents_ManageSession.Visible = status;
+            lblTitle_Duration_ManageSession.Visible = status;
+
+            lblSessionId_ManageSession.Visible = status;
+            lblTag_ManageSession.Visible = status;
+            lblYear_ManageSession.Visible = status;
+            lblSemester_ManageSession.Visible = status;
+            lblProgram_ManageSession.Visible = status;
+            lblGroupId_ManageSession.Visible = status;
+            lblSubGroupId_ManageSession.Visible = status;
+            lblSubjectId_ManageSession.Visible = status;
+            lblNoOfStudents_ManageSession.Visible = status;
+            lblDuration_ManageSession.Visible = status;
+
+            btnRemoveSession_ManageSession.Visible = status;
+        }
     }
 }

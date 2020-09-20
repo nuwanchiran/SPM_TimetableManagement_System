@@ -69,6 +69,19 @@
             this.lblGenerateReport1 = new System.Windows.Forms.Label();
             this.lblAddSession = new System.Windows.Forms.Label();
             this.SessionManagement = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbTag_ManageSession = new System.Windows.Forms.ComboBox();
+            this.cmbSubGroup_ManageSession = new System.Windows.Forms.ComboBox();
+            this.cmbGroup_ManageSession = new System.Windows.Forms.ComboBox();
+            this.cmbLecturer_ManageSession = new System.Windows.Forms.ComboBox();
+            this.cmbSubject_ManageSession = new System.Windows.Forms.ComboBox();
+            this.imgLecGridView = new System.Windows.Forms.DataGridView();
+            this.btnRefresh_SessionManagement = new System.Windows.Forms.Button();
+            this.manageSessionGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -89,15 +102,36 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
-            this.manageSessionGridView = new System.Windows.Forms.DataGridView();
-            this.btnRefresh_SessionManagement = new System.Windows.Forms.Button();
-            this.imgLecGridView = new System.Windows.Forms.DataGridView();
+            this.lblTitle_SessionId_ManageSession = new System.Windows.Forms.Label();
+            this.sessionGroupBox_ManageSession = new System.Windows.Forms.GroupBox();
+            this.lblTitle_Tag_ManageSession = new System.Windows.Forms.Label();
+            this.lblYear_SessionId_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_Semester_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_Program_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_GroupId_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_SubGroupId_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_SubjectId_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_NoOfStudents_ManageSession = new System.Windows.Forms.Label();
+            this.lblTitle_Duration_ManageSession = new System.Windows.Forms.Label();
+            this.lblDuration_ManageSession = new System.Windows.Forms.Label();
+            this.lblNoOfStudents_ManageSession = new System.Windows.Forms.Label();
+            this.lblSubjectId_ManageSession = new System.Windows.Forms.Label();
+            this.lblSubGroupId_ManageSession = new System.Windows.Forms.Label();
+            this.lblGroupId_ManageSession = new System.Windows.Forms.Label();
+            this.lblProgram_ManageSession = new System.Windows.Forms.Label();
+            this.lblSemester_ManageSession = new System.Windows.Forms.Label();
+            this.lblYear_ManageSession = new System.Windows.Forms.Label();
+            this.lblTag_ManageSession = new System.Windows.Forms.Label();
+            this.lblSessionId_ManageSession = new System.Windows.Forms.Label();
+            this.btnRemoveSession_ManageSession = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.CreateSession.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDataGridView_CreateSession)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedLecturersGridView)).BeginInit();
             this.SessionManagement.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLecGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manageSessionGridView)).BeginInit();
             this.TimeManagement.SuspendLayout();
             this.RoomManagement.SuspendLayout();
             this.GenerateTimetable.SuspendLayout();
@@ -112,8 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.manageSessionGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLecGridView)).BeginInit();
+            this.sessionGroupBox_ManageSession.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -525,6 +558,17 @@
             // 
             // SessionManagement
             // 
+            this.SessionManagement.Controls.Add(this.sessionGroupBox_ManageSession);
+            this.SessionManagement.Controls.Add(this.label8);
+            this.SessionManagement.Controls.Add(this.label7);
+            this.SessionManagement.Controls.Add(this.label6);
+            this.SessionManagement.Controls.Add(this.label5);
+            this.SessionManagement.Controls.Add(this.label4);
+            this.SessionManagement.Controls.Add(this.cmbTag_ManageSession);
+            this.SessionManagement.Controls.Add(this.cmbSubGroup_ManageSession);
+            this.SessionManagement.Controls.Add(this.cmbGroup_ManageSession);
+            this.SessionManagement.Controls.Add(this.cmbLecturer_ManageSession);
+            this.SessionManagement.Controls.Add(this.cmbSubject_ManageSession);
             this.SessionManagement.Controls.Add(this.imgLecGridView);
             this.SessionManagement.Controls.Add(this.btnRefresh_SessionManagement);
             this.SessionManagement.Controls.Add(this.manageSessionGridView);
@@ -538,6 +582,128 @@
             this.SessionManagement.TabIndex = 1;
             this.SessionManagement.Text = "SessionManagement";
             this.SessionManagement.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1417, 191);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(32, 20);
+            this.label8.TabIndex = 73;
+            this.label8.Text = "Tag";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1204, 191);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 20);
+            this.label7.TabIndex = 72;
+            this.label7.Text = "SubGroup";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1021, 199);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 20);
+            this.label6.TabIndex = 71;
+            this.label6.Text = "Group";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(826, 199);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 20);
+            this.label5.TabIndex = 70;
+            this.label5.Text = "Lecturer";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(601, 188);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 20);
+            this.label4.TabIndex = 69;
+            this.label4.Text = "Subject";
+            // 
+            // cmbTag_ManageSession
+            // 
+            this.cmbTag_ManageSession.FormattingEnabled = true;
+            this.cmbTag_ManageSession.Location = new System.Drawing.Point(1455, 185);
+            this.cmbTag_ManageSession.Name = "cmbTag_ManageSession";
+            this.cmbTag_ManageSession.Size = new System.Drawing.Size(121, 28);
+            this.cmbTag_ManageSession.TabIndex = 68;
+            this.cmbTag_ManageSession.SelectedIndexChanged += new System.EventHandler(this.cmbTag_ManageSession_SelectedIndexChanged);
+            // 
+            // cmbSubGroup_ManageSession
+            // 
+            this.cmbSubGroup_ManageSession.FormattingEnabled = true;
+            this.cmbSubGroup_ManageSession.Location = new System.Drawing.Point(1290, 188);
+            this.cmbSubGroup_ManageSession.Name = "cmbSubGroup_ManageSession";
+            this.cmbSubGroup_ManageSession.Size = new System.Drawing.Size(121, 28);
+            this.cmbSubGroup_ManageSession.TabIndex = 67;
+            this.cmbSubGroup_ManageSession.SelectedIndexChanged += new System.EventHandler(this.cmbSubGroup_ManageSession_SelectedIndexChanged);
+            // 
+            // cmbGroup_ManageSession
+            // 
+            this.cmbGroup_ManageSession.FormattingEnabled = true;
+            this.cmbGroup_ManageSession.Location = new System.Drawing.Point(1077, 188);
+            this.cmbGroup_ManageSession.Name = "cmbGroup_ManageSession";
+            this.cmbGroup_ManageSession.Size = new System.Drawing.Size(121, 28);
+            this.cmbGroup_ManageSession.TabIndex = 66;
+            this.cmbGroup_ManageSession.SelectedIndexChanged += new System.EventHandler(this.cmbGroup_ManageSession_SelectedIndexChanged);
+            // 
+            // cmbLecturer_ManageSession
+            // 
+            this.cmbLecturer_ManageSession.FormattingEnabled = true;
+            this.cmbLecturer_ManageSession.Location = new System.Drawing.Point(894, 193);
+            this.cmbLecturer_ManageSession.Name = "cmbLecturer_ManageSession";
+            this.cmbLecturer_ManageSession.Size = new System.Drawing.Size(121, 28);
+            this.cmbLecturer_ManageSession.TabIndex = 65;
+            this.cmbLecturer_ManageSession.SelectedIndexChanged += new System.EventHandler(this.cmbLecturer_ManageSession_SelectedIndexChanged);
+            // 
+            // cmbSubject_ManageSession
+            // 
+            this.cmbSubject_ManageSession.FormattingEnabled = true;
+            this.cmbSubject_ManageSession.Location = new System.Drawing.Point(678, 193);
+            this.cmbSubject_ManageSession.Name = "cmbSubject_ManageSession";
+            this.cmbSubject_ManageSession.Size = new System.Drawing.Size(121, 28);
+            this.cmbSubject_ManageSession.TabIndex = 64;
+            this.cmbSubject_ManageSession.SelectedIndexChanged += new System.EventHandler(this.cmbSubject_ManageSession_SelectedIndexChanged);
+            // 
+            // imgLecGridView
+            // 
+            this.imgLecGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.imgLecGridView.Location = new System.Drawing.Point(370, 621);
+            this.imgLecGridView.Name = "imgLecGridView";
+            this.imgLecGridView.RowHeadersWidth = 51;
+            this.imgLecGridView.RowTemplate.Height = 24;
+            this.imgLecGridView.Size = new System.Drawing.Size(937, 203);
+            this.imgLecGridView.TabIndex = 63;
+            // 
+            // btnRefresh_SessionManagement
+            // 
+            this.btnRefresh_SessionManagement.Location = new System.Drawing.Point(1582, 204);
+            this.btnRefresh_SessionManagement.Name = "btnRefresh_SessionManagement";
+            this.btnRefresh_SessionManagement.Size = new System.Drawing.Size(75, 32);
+            this.btnRefresh_SessionManagement.TabIndex = 62;
+            this.btnRefresh_SessionManagement.Text = "Refresh";
+            this.btnRefresh_SessionManagement.UseVisualStyleBackColor = true;
+            this.btnRefresh_SessionManagement.Click += new System.EventHandler(this.btnRefresh_SessionManagement_Click);
+            // 
+            // manageSessionGridView
+            // 
+            this.manageSessionGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.manageSessionGridView.Location = new System.Drawing.Point(370, 248);
+            this.manageSessionGridView.Name = "manageSessionGridView";
+            this.manageSessionGridView.RowHeadersWidth = 51;
+            this.manageSessionGridView.RowTemplate.Height = 24;
+            this.manageSessionGridView.Size = new System.Drawing.Size(937, 355);
+            this.manageSessionGridView.TabIndex = 61;
+            this.manageSessionGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.manageSessionGridView_CellClick);
+            this.manageSessionGridView.SelectionChanged += new System.EventHandler(this.manageSessionGridView_SelectionChanged);
             // 
             // label1
             // 
@@ -752,37 +918,224 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
-            // manageSessionGridView
+            // lblTitle_SessionId_ManageSession
             // 
-            this.manageSessionGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.manageSessionGridView.Location = new System.Drawing.Point(720, 242);
-            this.manageSessionGridView.Name = "manageSessionGridView";
-            this.manageSessionGridView.RowHeadersWidth = 51;
-            this.manageSessionGridView.RowTemplate.Height = 24;
-            this.manageSessionGridView.Size = new System.Drawing.Size(937, 355);
-            this.manageSessionGridView.TabIndex = 61;
-            this.manageSessionGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.manageSessionGridView_CellClick);
-            this.manageSessionGridView.SelectionChanged += new System.EventHandler(this.manageSessionGridView_SelectionChanged);
+            this.lblTitle_SessionId_ManageSession.AutoSize = true;
+            this.lblTitle_SessionId_ManageSession.Location = new System.Drawing.Point(6, 23);
+            this.lblTitle_SessionId_ManageSession.Name = "lblTitle_SessionId_ManageSession";
+            this.lblTitle_SessionId_ManageSession.Size = new System.Drawing.Size(77, 20);
+            this.lblTitle_SessionId_ManageSession.TabIndex = 74;
+            this.lblTitle_SessionId_ManageSession.Text = "Session ID";
             // 
-            // btnRefresh_SessionManagement
+            // sessionGroupBox_ManageSession
             // 
-            this.btnRefresh_SessionManagement.Location = new System.Drawing.Point(1582, 204);
-            this.btnRefresh_SessionManagement.Name = "btnRefresh_SessionManagement";
-            this.btnRefresh_SessionManagement.Size = new System.Drawing.Size(75, 32);
-            this.btnRefresh_SessionManagement.TabIndex = 62;
-            this.btnRefresh_SessionManagement.Text = "Refresh";
-            this.btnRefresh_SessionManagement.UseVisualStyleBackColor = true;
-            this.btnRefresh_SessionManagement.Click += new System.EventHandler(this.btnRefresh_SessionManagement_Click);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.btnRemoveSession_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblDuration_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblNoOfStudents_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblSubjectId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblSubGroupId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblGroupId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblProgram_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblSemester_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblYear_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTag_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblSessionId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_Duration_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_NoOfStudents_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_SubjectId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_SubGroupId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_GroupId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_Program_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_Semester_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblYear_SessionId_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_Tag_ManageSession);
+            this.sessionGroupBox_ManageSession.Controls.Add(this.lblTitle_SessionId_ManageSession);
+            this.sessionGroupBox_ManageSession.Location = new System.Drawing.Point(1376, 336);
+            this.sessionGroupBox_ManageSession.Name = "sessionGroupBox_ManageSession";
+            this.sessionGroupBox_ManageSession.Size = new System.Drawing.Size(200, 337);
+            this.sessionGroupBox_ManageSession.TabIndex = 75;
+            this.sessionGroupBox_ManageSession.TabStop = false;
+            this.sessionGroupBox_ManageSession.Text = "Session Summary";
             // 
-            // imgLecGridView
+            // lblTitle_Tag_ManageSession
             // 
-            this.imgLecGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.imgLecGridView.Location = new System.Drawing.Point(720, 627);
-            this.imgLecGridView.Name = "imgLecGridView";
-            this.imgLecGridView.RowHeadersWidth = 51;
-            this.imgLecGridView.RowTemplate.Height = 24;
-            this.imgLecGridView.Size = new System.Drawing.Size(937, 203);
-            this.imgLecGridView.TabIndex = 63;
+            this.lblTitle_Tag_ManageSession.AutoSize = true;
+            this.lblTitle_Tag_ManageSession.Location = new System.Drawing.Point(6, 50);
+            this.lblTitle_Tag_ManageSession.Name = "lblTitle_Tag_ManageSession";
+            this.lblTitle_Tag_ManageSession.Size = new System.Drawing.Size(32, 20);
+            this.lblTitle_Tag_ManageSession.TabIndex = 75;
+            this.lblTitle_Tag_ManageSession.Text = "Tag";
+            // 
+            // lblYear_SessionId_ManageSession
+            // 
+            this.lblYear_SessionId_ManageSession.AutoSize = true;
+            this.lblYear_SessionId_ManageSession.Location = new System.Drawing.Point(10, 75);
+            this.lblYear_SessionId_ManageSession.Name = "lblYear_SessionId_ManageSession";
+            this.lblYear_SessionId_ManageSession.Size = new System.Drawing.Size(37, 20);
+            this.lblYear_SessionId_ManageSession.TabIndex = 76;
+            this.lblYear_SessionId_ManageSession.Text = "Year";
+            // 
+            // lblTitle_Semester_ManageSession
+            // 
+            this.lblTitle_Semester_ManageSession.AutoSize = true;
+            this.lblTitle_Semester_ManageSession.Location = new System.Drawing.Point(8, 100);
+            this.lblTitle_Semester_ManageSession.Name = "lblTitle_Semester_ManageSession";
+            this.lblTitle_Semester_ManageSession.Size = new System.Drawing.Size(70, 20);
+            this.lblTitle_Semester_ManageSession.TabIndex = 77;
+            this.lblTitle_Semester_ManageSession.Text = "Semester";
+            // 
+            // lblTitle_Program_ManageSession
+            // 
+            this.lblTitle_Program_ManageSession.AutoSize = true;
+            this.lblTitle_Program_ManageSession.Location = new System.Drawing.Point(11, 128);
+            this.lblTitle_Program_ManageSession.Name = "lblTitle_Program_ManageSession";
+            this.lblTitle_Program_ManageSession.Size = new System.Drawing.Size(66, 20);
+            this.lblTitle_Program_ManageSession.TabIndex = 78;
+            this.lblTitle_Program_ManageSession.Text = "Program";
+            // 
+            // lblTitle_GroupId_ManageSession
+            // 
+            this.lblTitle_GroupId_ManageSession.AutoSize = true;
+            this.lblTitle_GroupId_ManageSession.Location = new System.Drawing.Point(12, 155);
+            this.lblTitle_GroupId_ManageSession.Name = "lblTitle_GroupId_ManageSession";
+            this.lblTitle_GroupId_ManageSession.Size = new System.Drawing.Size(69, 20);
+            this.lblTitle_GroupId_ManageSession.TabIndex = 79;
+            this.lblTitle_GroupId_ManageSession.Text = "Group ID";
+            // 
+            // lblTitle_SubGroupId_ManageSession
+            // 
+            this.lblTitle_SubGroupId_ManageSession.AutoSize = true;
+            this.lblTitle_SubGroupId_ManageSession.Location = new System.Drawing.Point(9, 176);
+            this.lblTitle_SubGroupId_ManageSession.Name = "lblTitle_SubGroupId_ManageSession";
+            this.lblTitle_SubGroupId_ManageSession.Size = new System.Drawing.Size(94, 20);
+            this.lblTitle_SubGroupId_ManageSession.TabIndex = 80;
+            this.lblTitle_SubGroupId_ManageSession.Text = "SubGroup ID";
+            // 
+            // lblTitle_SubjectId_ManageSession
+            // 
+            this.lblTitle_SubjectId_ManageSession.AutoSize = true;
+            this.lblTitle_SubjectId_ManageSession.Location = new System.Drawing.Point(14, 201);
+            this.lblTitle_SubjectId_ManageSession.Name = "lblTitle_SubjectId_ManageSession";
+            this.lblTitle_SubjectId_ManageSession.Size = new System.Drawing.Size(77, 20);
+            this.lblTitle_SubjectId_ManageSession.TabIndex = 81;
+            this.lblTitle_SubjectId_ManageSession.Text = "Subject ID";
+            // 
+            // lblTitle_NoOfStudents_ManageSession
+            // 
+            this.lblTitle_NoOfStudents_ManageSession.AutoSize = true;
+            this.lblTitle_NoOfStudents_ManageSession.Location = new System.Drawing.Point(15, 229);
+            this.lblTitle_NoOfStudents_ManageSession.Name = "lblTitle_NoOfStudents_ManageSession";
+            this.lblTitle_NoOfStudents_ManageSession.Size = new System.Drawing.Size(108, 20);
+            this.lblTitle_NoOfStudents_ManageSession.TabIndex = 82;
+            this.lblTitle_NoOfStudents_ManageSession.Text = "No of Students";
+            // 
+            // lblTitle_Duration_ManageSession
+            // 
+            this.lblTitle_Duration_ManageSession.AutoSize = true;
+            this.lblTitle_Duration_ManageSession.Location = new System.Drawing.Point(15, 257);
+            this.lblTitle_Duration_ManageSession.Name = "lblTitle_Duration_ManageSession";
+            this.lblTitle_Duration_ManageSession.Size = new System.Drawing.Size(67, 20);
+            this.lblTitle_Duration_ManageSession.TabIndex = 83;
+            this.lblTitle_Duration_ManageSession.Text = "Duration";
+            // 
+            // lblDuration_ManageSession
+            // 
+            this.lblDuration_ManageSession.AutoSize = true;
+            this.lblDuration_ManageSession.Location = new System.Drawing.Point(123, 257);
+            this.lblDuration_ManageSession.Name = "lblDuration_ManageSession";
+            this.lblDuration_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblDuration_ManageSession.TabIndex = 93;
+            this.lblDuration_ManageSession.Text = "##";
+            // 
+            // lblNoOfStudents_ManageSession
+            // 
+            this.lblNoOfStudents_ManageSession.AutoSize = true;
+            this.lblNoOfStudents_ManageSession.Location = new System.Drawing.Point(123, 229);
+            this.lblNoOfStudents_ManageSession.Name = "lblNoOfStudents_ManageSession";
+            this.lblNoOfStudents_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblNoOfStudents_ManageSession.TabIndex = 92;
+            this.lblNoOfStudents_ManageSession.Text = "##";
+            // 
+            // lblSubjectId_ManageSession
+            // 
+            this.lblSubjectId_ManageSession.AutoSize = true;
+            this.lblSubjectId_ManageSession.Location = new System.Drawing.Point(122, 201);
+            this.lblSubjectId_ManageSession.Name = "lblSubjectId_ManageSession";
+            this.lblSubjectId_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblSubjectId_ManageSession.TabIndex = 91;
+            this.lblSubjectId_ManageSession.Text = "##";
+            // 
+            // lblSubGroupId_ManageSession
+            // 
+            this.lblSubGroupId_ManageSession.AutoSize = true;
+            this.lblSubGroupId_ManageSession.Location = new System.Drawing.Point(117, 176);
+            this.lblSubGroupId_ManageSession.Name = "lblSubGroupId_ManageSession";
+            this.lblSubGroupId_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblSubGroupId_ManageSession.TabIndex = 90;
+            this.lblSubGroupId_ManageSession.Text = "##";
+            // 
+            // lblGroupId_ManageSession
+            // 
+            this.lblGroupId_ManageSession.AutoSize = true;
+            this.lblGroupId_ManageSession.Location = new System.Drawing.Point(120, 155);
+            this.lblGroupId_ManageSession.Name = "lblGroupId_ManageSession";
+            this.lblGroupId_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblGroupId_ManageSession.TabIndex = 89;
+            this.lblGroupId_ManageSession.Text = "##";
+            // 
+            // lblProgram_ManageSession
+            // 
+            this.lblProgram_ManageSession.AutoSize = true;
+            this.lblProgram_ManageSession.Location = new System.Drawing.Point(119, 128);
+            this.lblProgram_ManageSession.Name = "lblProgram_ManageSession";
+            this.lblProgram_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblProgram_ManageSession.TabIndex = 88;
+            this.lblProgram_ManageSession.Text = "##";
+            // 
+            // lblSemester_ManageSession
+            // 
+            this.lblSemester_ManageSession.AutoSize = true;
+            this.lblSemester_ManageSession.Location = new System.Drawing.Point(116, 100);
+            this.lblSemester_ManageSession.Name = "lblSemester_ManageSession";
+            this.lblSemester_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblSemester_ManageSession.TabIndex = 87;
+            this.lblSemester_ManageSession.Text = "##";
+            // 
+            // lblYear_ManageSession
+            // 
+            this.lblYear_ManageSession.AutoSize = true;
+            this.lblYear_ManageSession.Location = new System.Drawing.Point(118, 75);
+            this.lblYear_ManageSession.Name = "lblYear_ManageSession";
+            this.lblYear_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblYear_ManageSession.TabIndex = 86;
+            this.lblYear_ManageSession.Text = "##";
+            // 
+            // lblTag_ManageSession
+            // 
+            this.lblTag_ManageSession.AutoSize = true;
+            this.lblTag_ManageSession.Location = new System.Drawing.Point(114, 50);
+            this.lblTag_ManageSession.Name = "lblTag_ManageSession";
+            this.lblTag_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblTag_ManageSession.TabIndex = 85;
+            this.lblTag_ManageSession.Text = "##";
+            // 
+            // lblSessionId_ManageSession
+            // 
+            this.lblSessionId_ManageSession.AutoSize = true;
+            this.lblSessionId_ManageSession.Location = new System.Drawing.Point(114, 23);
+            this.lblSessionId_ManageSession.Name = "lblSessionId_ManageSession";
+            this.lblSessionId_ManageSession.Size = new System.Drawing.Size(27, 20);
+            this.lblSessionId_ManageSession.TabIndex = 84;
+            this.lblSessionId_ManageSession.Text = "##";
+            // 
+            // btnRemoveSession_ManageSession
+            // 
+            this.btnRemoveSession_ManageSession.Location = new System.Drawing.Point(16, 285);
+            this.btnRemoveSession_ManageSession.Name = "btnRemoveSession_ManageSession";
+            this.btnRemoveSession_ManageSession.Size = new System.Drawing.Size(149, 34);
+            this.btnRemoveSession_ManageSession.TabIndex = 94;
+            this.btnRemoveSession_ManageSession.Text = "Remove Session";
+            this.btnRemoveSession_ManageSession.UseVisualStyleBackColor = true;
             // 
             // GenerateReportDashboard
             // 
@@ -814,6 +1167,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.selectedLecturersGridView)).EndInit();
             this.SessionManagement.ResumeLayout(false);
             this.SessionManagement.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLecGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manageSessionGridView)).EndInit();
             this.TimeManagement.ResumeLayout(false);
             this.TimeManagement.PerformLayout();
             this.RoomManagement.ResumeLayout(false);
@@ -831,8 +1186,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.manageSessionGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLecGridView)).EndInit();
+            this.sessionGroupBox_ManageSession.ResumeLayout(false);
+            this.sessionGroupBox_ManageSession.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -902,5 +1257,37 @@
         private System.Windows.Forms.DataGridView manageSessionGridView;
         private System.Windows.Forms.Button btnRefresh_SessionManagement;
         private System.Windows.Forms.DataGridView imgLecGridView;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbTag_ManageSession;
+        private System.Windows.Forms.ComboBox cmbSubGroup_ManageSession;
+        private System.Windows.Forms.ComboBox cmbGroup_ManageSession;
+        private System.Windows.Forms.ComboBox cmbLecturer_ManageSession;
+        private System.Windows.Forms.ComboBox cmbSubject_ManageSession;
+        private System.Windows.Forms.GroupBox sessionGroupBox_ManageSession;
+        private System.Windows.Forms.Label lblTitle_SessionId_ManageSession;
+        private System.Windows.Forms.Label lblDuration_ManageSession;
+        private System.Windows.Forms.Label lblNoOfStudents_ManageSession;
+        private System.Windows.Forms.Label lblSubjectId_ManageSession;
+        private System.Windows.Forms.Label lblSubGroupId_ManageSession;
+        private System.Windows.Forms.Label lblGroupId_ManageSession;
+        private System.Windows.Forms.Label lblProgram_ManageSession;
+        private System.Windows.Forms.Label lblSemester_ManageSession;
+        private System.Windows.Forms.Label lblYear_ManageSession;
+        private System.Windows.Forms.Label lblTag_ManageSession;
+        private System.Windows.Forms.Label lblSessionId_ManageSession;
+        private System.Windows.Forms.Label lblTitle_Duration_ManageSession;
+        private System.Windows.Forms.Label lblTitle_NoOfStudents_ManageSession;
+        private System.Windows.Forms.Label lblTitle_SubjectId_ManageSession;
+        private System.Windows.Forms.Label lblTitle_SubGroupId_ManageSession;
+        private System.Windows.Forms.Label lblTitle_GroupId_ManageSession;
+        private System.Windows.Forms.Label lblTitle_Program_ManageSession;
+        private System.Windows.Forms.Label lblTitle_Semester_ManageSession;
+        private System.Windows.Forms.Label lblYear_SessionId_ManageSession;
+        private System.Windows.Forms.Label lblTitle_Tag_ManageSession;
+        private System.Windows.Forms.Button btnRemoveSession_ManageSession;
     }
 }
