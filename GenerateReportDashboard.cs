@@ -283,7 +283,7 @@ namespace Timetable_Management_System
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    
+                    FROM lecturers WHERE
                     foreach (ImageLec element in imagesList)
                     {
                         if(element.isDisplayed == false)
@@ -959,5 +959,181 @@ namespace Timetable_Management_System
             }
 
         }
+
+        private void btnRefresh_SessionManagement_Click(object sender, EventArgs e)
+        {
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(cs);
+
+            System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand(
+                "select session.sessionId AS SessionId ,session.tag AS Tag ,session.year AS Year ,session.semester AS Semester ,session.program AS Program ,session.groupId AS Group_Id ,session.subGroupId AS SubGroup_Id ,session.subjectId AS Subject_Id ,session.noOfStudents AS No_of_Students ,session.sessionDuration AS Hours from session"
+                );
+
+            cmd.Connection = conn;
+
+            conn.Open();
+
+            System.Data.SQLite.SQLiteDataAdapter da = new System.Data.SQLite.SQLiteDataAdapter(cmd);
+            System.Data.DataSet ds = new System.Data.DataSet();
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            manageSessionGridView.DataSource = dt;
+ 
+
+
+            using var cmdCreateSubject = new SQLiteCommand(conn);
+
+            cmdCreateSubject.CommandText = @"CREATE TABLE  IF NOT EXISTS session (
+                                    sessionId               STRING PRIMARY KEY,
+	                                tag                     TEXT,
+	                                year                    INTEGER,
+	                                semester                INTEGER,
+                                    program                 TEXT,
+                                    groupId                   INTEGER,
+                                    subGroupId                INTEGER,
+                                    subjectId               TEXT,
+                                    noOfStudents            INTEGER,
+                                    sessionDuration         DOUBLE 
+                )";
+            cmdCreateSubject.ExecuteNonQuery();
+
+
+
+            //Create session table if not exist
+            using var cmdLec = new SQLiteCommand(conn);
+
+            cmdLec.CommandText = @"CREATE TABLE  IF NOT EXISTS session_lecturers (
+                                    sessionId   TEXT,
+	                                lecturerID  INTEGER
+                                    
+                )";
+            cmdLec.ExecuteNonQuery();
+            conn.Close();
+
+           
+        }
+
+        private void manageSessionGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            int rowindex = manageSessionGridView.CurrentCell.RowIndex;
+            int columnindex = manageSessionGridView.CurrentCell.ColumnIndex;
+
+            string a  = manageSessionGridView.Rows[rowindex].Cells[columnindex].Value.ToString();
+        }
+
+        private void manageSessionGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowindex = manageSessionGridView.CurrentCell.RowIndex;
+          
+            string sessionId = manageSessionGridView.Rows[rowindex].Cells[0].Value.ToString();
+            sessionId = sessionId.Trim();
+            loadLecturersAndFillImageGrid_SessionManagement(sessionId);
+        }
+
+        private void loadLecturersAndFillImageGrid_SessionManagement(string sessionId)
+        {
+            List<string> lecList = new List<string>();
+            lecList = loadLecturerIdsBysessionID(sessionId);
+
+            List<Lecturer> lecListFull = new List<Lecturer>();
+
+            lecListFull = getLecturerObjectListByProvindingLecturerIDList(lecList);
+
+            drawLecturersInGridView_ManageSession(lecListFull);
+        }
+
+        private void drawLecturersInGridView_ManageSession(List<Lecturer> lecListFull)
+        {
+            this.imgLecGridView.Rows.Clear();
+
+            foreach(Lecturer element in lecListFull)
+            {
+                DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
+                imgCol.DefaultCellStyle.NullValue = null;
+                imgLecGridView.Columns.Add(imgCol);
+                imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            }
+
+            List<Object> temp = new List<object>();
+            foreach (Lecturer element in lecListFull)
+            {
+                string photoPath = element.photoPath;
+                Image img = Image.FromFile(@"" + photoPath);
+                temp.Add(img);
+                Object[] row = temp.Cast<object>().ToArray();
+                imgDataGridView_CreateSession.Rows.Add(row);
+            }
+
+
+            /*
+            if (this.imgDataGridView_CreateSession.Columns.Count < 3)
+            {
+                DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
+                imgCol.DefaultCellStyle.NullValue = null;
+                imgDataGridView_CreateSession.Columns.Add(imgCol);
+                imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            }
+
+            imgDataGridView_CreateSession.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            List<Object> temp = new List<object>();
+            for (int i = 0; i < selectedLecturersListForCreateSession.Count; i++)
+            {
+                string photoPath = selectedLecturersListForCreateSession[i].photoPath;
+                Image img = Image.FromFile(@"" + photoPath);
+                temp.Add(img);
+                if ((i + 1) % 3 == 0)
+                {
+                    Object[] row = temp.Cast<object>().ToArray();
+                    imgDataGridView_CreateSession.Rows.Add(row);
+                    temp = new List<object>();
+                }
+            }
+            if (temp.Count > 0)
+            {
+                imgDataGridView_CreateSession.Rows.Add(temp.Cast<object>().ToArray());
+            }
+
+            */
+
+
+
+
+        }
+
+        private List<string> loadLecturerIdsBysessionID(string sessionId)
+        {
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "";
+
+            stm = "SELECT lecturerID FROM session_lecturers WHERE sessionId='"+ sessionId + "'";
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            List<string> foundLecturers = new List<string>();
+
+            while (rdr.Read())
+            {
+
+                // Console.WriteLine($@"{rdr.GetInt32(0),-3} {rdr.GetString(1),-8} {rdr.GetInt32(2),8}");
+                string lecID = ($@"{ rdr.GetInt32(0), -8 }");
+
+
+                foundLecturers.Add(lecID);
+            }
+            con.Close();
+            return foundLecturers;
+        }
+
+       
+
     }
 }

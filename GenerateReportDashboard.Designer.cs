@@ -37,6 +37,7 @@
             this.lblSessionID_CreateSession = new System.Windows.Forms.Label();
             this.btnReset_CreateSession = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblStudentCreateSessionSummary_CreateSession = new System.Windows.Forms.Label();
             this.lblCountAndHrs_CreateSession = new System.Windows.Forms.Label();
             this.lblSubject_CreateSession_summary = new System.Windows.Forms.Label();
             this.lblSessionID_CreateSession_Summary = new System.Windows.Forms.Label();
@@ -68,7 +69,9 @@
             this.lblGenerateReport1 = new System.Windows.Forms.Label();
             this.lblAddSession = new System.Windows.Forms.Label();
             this.SessionManagement = new System.Windows.Forms.TabPage();
-            this.lblSessionManagement = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.TimeManagement = new System.Windows.Forms.TabPage();
             this.lblTimeManagement = new System.Windows.Forms.Label();
             this.RoomManagement = new System.Windows.Forms.TabPage();
@@ -86,7 +89,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
-            this.lblStudentCreateSessionSummary_CreateSession = new System.Windows.Forms.Label();
+            this.manageSessionGridView = new System.Windows.Forms.DataGridView();
+            this.btnRefresh_SessionManagement = new System.Windows.Forms.Button();
+            this.imgLecGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.CreateSession.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -107,6 +112,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manageSessionGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLecGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -237,6 +244,15 @@
             this.groupBox1.TabIndex = 81;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Session Summary";
+            // 
+            // lblStudentCreateSessionSummary_CreateSession
+            // 
+            this.lblStudentCreateSessionSummary_CreateSession.AutoSize = true;
+            this.lblStudentCreateSessionSummary_CreateSession.Location = new System.Drawing.Point(48, 128);
+            this.lblStudentCreateSessionSummary_CreateSession.Name = "lblStudentCreateSessionSummary_CreateSession";
+            this.lblStudentCreateSessionSummary_CreateSession.Size = new System.Drawing.Size(122, 20);
+            this.lblStudentCreateSessionSummary_CreateSession.TabIndex = 89;
+            this.lblStudentCreateSessionSummary_CreateSession.Text = "StudentSummary";
             // 
             // lblCountAndHrs_CreateSession
             // 
@@ -509,7 +525,12 @@
             // 
             // SessionManagement
             // 
-            this.SessionManagement.Controls.Add(this.lblSessionManagement);
+            this.SessionManagement.Controls.Add(this.imgLecGridView);
+            this.SessionManagement.Controls.Add(this.btnRefresh_SessionManagement);
+            this.SessionManagement.Controls.Add(this.manageSessionGridView);
+            this.SessionManagement.Controls.Add(this.label1);
+            this.SessionManagement.Controls.Add(this.label2);
+            this.SessionManagement.Controls.Add(this.label3);
             this.SessionManagement.Location = new System.Drawing.Point(224, 4);
             this.SessionManagement.Name = "SessionManagement";
             this.SessionManagement.Padding = new System.Windows.Forms.Padding(3);
@@ -518,14 +539,34 @@
             this.SessionManagement.Text = "SessionManagement";
             this.SessionManagement.UseVisualStyleBackColor = true;
             // 
-            // lblSessionManagement
+            // label1
             // 
-            this.lblSessionManagement.AutoSize = true;
-            this.lblSessionManagement.Location = new System.Drawing.Point(314, 64);
-            this.lblSessionManagement.Name = "lblSessionManagement";
-            this.lblSessionManagement.Size = new System.Drawing.Size(150, 20);
-            this.lblSessionManagement.TabIndex = 0;
-            this.lblSessionManagement.Text = "Session Management";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(371, 20);
+            this.label1.TabIndex = 60;
+            this.label1.Text = "Admin Dashboard > Generate Report > Create Session";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(651, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(250, 41);
+            this.label2.TabIndex = 59;
+            this.label2.Text = "Generate Report";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(672, 94);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(199, 32);
+            this.label3.TabIndex = 58;
+            this.label3.Text = "Manage Session";
             // 
             // TimeManagement
             // 
@@ -711,14 +752,37 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
-            // lblStudentCreateSessionSummary_CreateSession
+            // manageSessionGridView
             // 
-            this.lblStudentCreateSessionSummary_CreateSession.AutoSize = true;
-            this.lblStudentCreateSessionSummary_CreateSession.Location = new System.Drawing.Point(48, 128);
-            this.lblStudentCreateSessionSummary_CreateSession.Name = "lblStudentCreateSessionSummary_CreateSession";
-            this.lblStudentCreateSessionSummary_CreateSession.Size = new System.Drawing.Size(122, 20);
-            this.lblStudentCreateSessionSummary_CreateSession.TabIndex = 89;
-            this.lblStudentCreateSessionSummary_CreateSession.Text = "StudentSummary";
+            this.manageSessionGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.manageSessionGridView.Location = new System.Drawing.Point(720, 242);
+            this.manageSessionGridView.Name = "manageSessionGridView";
+            this.manageSessionGridView.RowHeadersWidth = 51;
+            this.manageSessionGridView.RowTemplate.Height = 24;
+            this.manageSessionGridView.Size = new System.Drawing.Size(937, 355);
+            this.manageSessionGridView.TabIndex = 61;
+            this.manageSessionGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.manageSessionGridView_CellClick);
+            this.manageSessionGridView.SelectionChanged += new System.EventHandler(this.manageSessionGridView_SelectionChanged);
+            // 
+            // btnRefresh_SessionManagement
+            // 
+            this.btnRefresh_SessionManagement.Location = new System.Drawing.Point(1582, 204);
+            this.btnRefresh_SessionManagement.Name = "btnRefresh_SessionManagement";
+            this.btnRefresh_SessionManagement.Size = new System.Drawing.Size(75, 32);
+            this.btnRefresh_SessionManagement.TabIndex = 62;
+            this.btnRefresh_SessionManagement.Text = "Refresh";
+            this.btnRefresh_SessionManagement.UseVisualStyleBackColor = true;
+            this.btnRefresh_SessionManagement.Click += new System.EventHandler(this.btnRefresh_SessionManagement_Click);
+            // 
+            // imgLecGridView
+            // 
+            this.imgLecGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.imgLecGridView.Location = new System.Drawing.Point(720, 627);
+            this.imgLecGridView.Name = "imgLecGridView";
+            this.imgLecGridView.RowHeadersWidth = 51;
+            this.imgLecGridView.RowTemplate.Height = 24;
+            this.imgLecGridView.Size = new System.Drawing.Size(937, 203);
+            this.imgLecGridView.TabIndex = 63;
             // 
             // GenerateReportDashboard
             // 
@@ -767,6 +831,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manageSessionGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgLecGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -776,7 +842,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage CreateSession;
         private System.Windows.Forms.TabPage SessionManagement;
-        private System.Windows.Forms.Label lblSessionManagement;
         private System.Windows.Forms.TabPage TimeManagement;
         private System.Windows.Forms.Label lblTimeManagement;
         private System.Windows.Forms.TabPage RoomManagement;
@@ -831,5 +896,11 @@
         private System.Windows.Forms.Label lblSubject_CreateSession_summary;
         private System.Windows.Forms.Label lblCountAndHrs_CreateSession;
         private System.Windows.Forms.Label lblStudentCreateSessionSummary_CreateSession;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView manageSessionGridView;
+        private System.Windows.Forms.Button btnRefresh_SessionManagement;
+        private System.Windows.Forms.DataGridView imgLecGridView;
     }
 }
