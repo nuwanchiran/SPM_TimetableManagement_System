@@ -964,6 +964,11 @@ namespace Timetable_Management_System
 
         private void btnRefresh_SessionManagement_Click(object sender, EventArgs e)
         {
+            refreshManageSessionGrid();  
+        }
+
+        private void refreshManageSessionGrid()
+        {
 
             string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
@@ -984,7 +989,7 @@ namespace Timetable_Management_System
             da.Fill(dt);
 
             manageSessionGridView.DataSource = dt;
- 
+
 
 
             using var cmdCreateSubject = new SQLiteCommand(conn);
@@ -1015,8 +1020,6 @@ namespace Timetable_Management_System
                 )";
             cmdLec.ExecuteNonQuery();
             conn.Close();
-
-           
         }
 
         private void manageSessionGridView_SelectionChanged(object sender, EventArgs e)
@@ -1362,6 +1365,57 @@ namespace Timetable_Management_System
             lblDuration_ManageSession.Visible = status;
 
             btnRemoveSession_ManageSession.Visible = status;
+        }
+
+        private void btnResetManageSession_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GenerateReportDashboard obj = new GenerateReportDashboard();
+            obj.Show();
+            obj.tabControl1.SelectedIndex = 1;
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedTab == SessionManagement)
+            {
+                refreshManageSessionGrid();
+            }
+        }
+
+        private void btnRemoveSession_ManageSession_Click(object sender, EventArgs e)
+        {
+            removeSession_ManageSession();
+        }
+
+        private void removeSession_ManageSession()
+        {
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+            
+            //delete from session lecturers table
+            using var cmd = new SQLiteCommand(con);
+
+            cmd.CommandText = @"DELETE FROM session_lecturers WHERE sessionId = '"+ lblSessionId_ManageSession.Text.Trim()+"'";
+            cmd.ExecuteNonQuery();
+
+            //delete from session lecturers table
+            using var cmd1 = new SQLiteCommand(con);
+
+            cmd1.CommandText = @"DELETE FROM session WHERE sessionId = '" + lblSessionId_ManageSession.Text.Trim()+"'";
+            cmd1.ExecuteNonQuery();
+
+
+            con.Close();
+            MessageBox.Show("Session deleted successfully");
+            this.Hide();
+            GenerateReportDashboard obj = new GenerateReportDashboard();
+            obj.Show();
+            obj.tabControl1.SelectedIndex = 1;
+
         }
     }
 }

@@ -124,6 +124,7 @@
             this.lblTag_ManageSession = new System.Windows.Forms.Label();
             this.lblSessionId_ManageSession = new System.Windows.Forms.Label();
             this.btnRemoveSession_ManageSession = new System.Windows.Forms.Button();
+            this.btnResetManageSession = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.CreateSession.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -170,6 +171,7 @@
             this.tabControl1.Size = new System.Drawing.Size(1915, 910);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // CreateSession
             // 
@@ -558,6 +560,7 @@
             // 
             // SessionManagement
             // 
+            this.SessionManagement.Controls.Add(this.btnResetManageSession);
             this.SessionManagement.Controls.Add(this.sessionGroupBox_ManageSession);
             this.SessionManagement.Controls.Add(this.label8);
             this.SessionManagement.Controls.Add(this.label7);
@@ -1136,6 +1139,17 @@
             this.btnRemoveSession_ManageSession.TabIndex = 94;
             this.btnRemoveSession_ManageSession.Text = "Remove Session";
             this.btnRemoveSession_ManageSession.UseVisualStyleBackColor = true;
+            this.btnRemoveSession_ManageSession.Click += new System.EventHandler(this.btnRemoveSession_ManageSession_Click);
+            // 
+            // btnResetManageSession
+            // 
+            this.btnResetManageSession.Location = new System.Drawing.Point(1432, 718);
+            this.btnResetManageSession.Name = "btnResetManageSession";
+            this.btnResetManageSession.Size = new System.Drawing.Size(91, 35);
+            this.btnResetManageSession.TabIndex = 76;
+            this.btnResetManageSession.Text = "Reset";
+            this.btnResetManageSession.UseVisualStyleBackColor = true;
+            this.btnResetManageSession.Click += new System.EventHandler(this.btnResetManageSession_Click);
             // 
             // GenerateReportDashboard
             // 
@@ -1289,5 +1303,6 @@
         private System.Windows.Forms.Label lblYear_SessionId_ManageSession;
         private System.Windows.Forms.Label lblTitle_Tag_ManageSession;
         private System.Windows.Forms.Button btnRemoveSession_ManageSession;
+        private System.Windows.Forms.Button btnResetManageSession;
     }
 }
