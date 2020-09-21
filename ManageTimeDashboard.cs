@@ -575,13 +575,13 @@ namespace Timetable_Management_System
                 fillCombo();
             }
 
+        }
 
-
-
-
-            
-            
-
+        private void imgLoggedUser_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login obj = new Login();
+            obj.Show();
         }
     }
 }

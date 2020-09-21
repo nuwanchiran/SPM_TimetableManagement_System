@@ -125,6 +125,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.CreateSession.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -589,12 +590,14 @@
             // 
             // btnResetManageSession
             // 
-            this.btnResetManageSession.Location = new System.Drawing.Point(1432, 718);
+            this.btnResetManageSession.BackColor = System.Drawing.Color.Tan;
+            this.btnResetManageSession.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetManageSession.Location = new System.Drawing.Point(1411, 709);
             this.btnResetManageSession.Name = "btnResetManageSession";
-            this.btnResetManageSession.Size = new System.Drawing.Size(91, 35);
+            this.btnResetManageSession.Size = new System.Drawing.Size(144, 52);
             this.btnResetManageSession.TabIndex = 76;
             this.btnResetManageSession.Text = "Reset";
-            this.btnResetManageSession.UseVisualStyleBackColor = true;
+            this.btnResetManageSession.UseVisualStyleBackColor = false;
             this.btnResetManageSession.Click += new System.EventHandler(this.btnResetManageSession_Click);
             // 
             // sessionGroupBox_ManageSession
@@ -629,12 +632,13 @@
             // 
             // btnRemoveSession_ManageSession
             // 
+            this.btnRemoveSession_ManageSession.BackColor = System.Drawing.Color.LightCoral;
             this.btnRemoveSession_ManageSession.Location = new System.Drawing.Point(16, 285);
             this.btnRemoveSession_ManageSession.Name = "btnRemoveSession_ManageSession";
             this.btnRemoveSession_ManageSession.Size = new System.Drawing.Size(149, 34);
             this.btnRemoveSession_ManageSession.TabIndex = 94;
             this.btnRemoveSession_ManageSession.Text = "Remove Session";
-            this.btnRemoveSession_ManageSession.UseVisualStyleBackColor = true;
+            this.btnRemoveSession_ManageSession.UseVisualStyleBackColor = false;
             this.btnRemoveSession_ManageSession.Click += new System.EventHandler(this.btnRemoveSession_ManageSession_Click);
             // 
             // lblDuration_ManageSession
@@ -820,7 +824,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1417, 191);
+            this.label8.Location = new System.Drawing.Point(1122, 204);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 20);
             this.label8.TabIndex = 73;
@@ -829,7 +833,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1204, 191);
+            this.label7.Location = new System.Drawing.Point(886, 204);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 20);
             this.label7.TabIndex = 72;
@@ -838,7 +842,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1021, 199);
+            this.label6.Location = new System.Drawing.Point(684, 204);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 20);
             this.label6.TabIndex = 71;
@@ -847,7 +851,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(826, 199);
+            this.label5.Location = new System.Drawing.Point(469, 207);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 20);
             this.label5.TabIndex = 70;
@@ -856,7 +860,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(601, 188);
+            this.label4.Location = new System.Drawing.Point(264, 210);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 20);
             this.label4.TabIndex = 69;
@@ -865,7 +869,7 @@
             // cmbTag_ManageSession
             // 
             this.cmbTag_ManageSession.FormattingEnabled = true;
-            this.cmbTag_ManageSession.Location = new System.Drawing.Point(1455, 185);
+            this.cmbTag_ManageSession.Location = new System.Drawing.Point(1186, 201);
             this.cmbTag_ManageSession.Name = "cmbTag_ManageSession";
             this.cmbTag_ManageSession.Size = new System.Drawing.Size(121, 28);
             this.cmbTag_ManageSession.TabIndex = 68;
@@ -874,7 +878,7 @@
             // cmbSubGroup_ManageSession
             // 
             this.cmbSubGroup_ManageSession.FormattingEnabled = true;
-            this.cmbSubGroup_ManageSession.Location = new System.Drawing.Point(1290, 188);
+            this.cmbSubGroup_ManageSession.Location = new System.Drawing.Point(980, 202);
             this.cmbSubGroup_ManageSession.Name = "cmbSubGroup_ManageSession";
             this.cmbSubGroup_ManageSession.Size = new System.Drawing.Size(121, 28);
             this.cmbSubGroup_ManageSession.TabIndex = 67;
@@ -883,7 +887,7 @@
             // cmbGroup_ManageSession
             // 
             this.cmbGroup_ManageSession.FormattingEnabled = true;
-            this.cmbGroup_ManageSession.Location = new System.Drawing.Point(1077, 188);
+            this.cmbGroup_ManageSession.Location = new System.Drawing.Point(740, 202);
             this.cmbGroup_ManageSession.Name = "cmbGroup_ManageSession";
             this.cmbGroup_ManageSession.Size = new System.Drawing.Size(121, 28);
             this.cmbGroup_ManageSession.TabIndex = 66;
@@ -892,7 +896,7 @@
             // cmbLecturer_ManageSession
             // 
             this.cmbLecturer_ManageSession.FormattingEnabled = true;
-            this.cmbLecturer_ManageSession.Location = new System.Drawing.Point(894, 193);
+            this.cmbLecturer_ManageSession.Location = new System.Drawing.Point(537, 202);
             this.cmbLecturer_ManageSession.Name = "cmbLecturer_ManageSession";
             this.cmbLecturer_ManageSession.Size = new System.Drawing.Size(121, 28);
             this.cmbLecturer_ManageSession.TabIndex = 65;
@@ -901,7 +905,7 @@
             // cmbSubject_ManageSession
             // 
             this.cmbSubject_ManageSession.FormattingEnabled = true;
-            this.cmbSubject_ManageSession.Location = new System.Drawing.Point(678, 193);
+            this.cmbSubject_ManageSession.Location = new System.Drawing.Point(328, 204);
             this.cmbSubject_ManageSession.Name = "cmbSubject_ManageSession";
             this.cmbSubject_ManageSession.Size = new System.Drawing.Size(121, 28);
             this.cmbSubject_ManageSession.TabIndex = 64;
@@ -911,7 +915,7 @@
             // 
             this.imgLecGridView.AllowUserToAddRows = false;
             this.imgLecGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.imgLecGridView.Location = new System.Drawing.Point(370, 621);
+            this.imgLecGridView.Location = new System.Drawing.Point(333, 660);
             this.imgLecGridView.Name = "imgLecGridView";
             this.imgLecGridView.RowHeadersWidth = 51;
             this.imgLecGridView.RowTemplate.Height = 24;
@@ -920,7 +924,7 @@
             // 
             // btnRefresh_SessionManagement
             // 
-            this.btnRefresh_SessionManagement.Location = new System.Drawing.Point(1582, 204);
+            this.btnRefresh_SessionManagement.Location = new System.Drawing.Point(1232, 237);
             this.btnRefresh_SessionManagement.Name = "btnRefresh_SessionManagement";
             this.btnRefresh_SessionManagement.Size = new System.Drawing.Size(75, 32);
             this.btnRefresh_SessionManagement.TabIndex = 62;
@@ -930,12 +934,13 @@
             // 
             // manageSessionGridView
             // 
+            this.manageSessionGridView.AllowUserToAddRows = false;
             this.manageSessionGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.manageSessionGridView.Location = new System.Drawing.Point(370, 248);
+            this.manageSessionGridView.Location = new System.Drawing.Point(268, 275);
             this.manageSessionGridView.Name = "manageSessionGridView";
             this.manageSessionGridView.RowHeadersWidth = 51;
             this.manageSessionGridView.RowTemplate.Height = 24;
-            this.manageSessionGridView.Size = new System.Drawing.Size(937, 355);
+            this.manageSessionGridView.Size = new System.Drawing.Size(1039, 355);
             this.manageSessionGridView.TabIndex = 61;
             this.manageSessionGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.manageSessionGridView_CellClick);
             this.manageSessionGridView.SelectionChanged += new System.EventHandler(this.manageSessionGridView_SelectionChanged);
@@ -1030,11 +1035,13 @@
             // 
             this.imgLoggedUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgLoggedUser.BackgroundImage")));
             this.imgLoggedUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgLoggedUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.imgLoggedUser.Location = new System.Drawing.Point(1790, 0);
             this.imgLoggedUser.Name = "imgLoggedUser";
             this.imgLoggedUser.Size = new System.Drawing.Size(121, 134);
             this.imgLoggedUser.TabIndex = 43;
             this.imgLoggedUser.TabStop = false;
+            this.imgLoggedUser.Click += new System.EventHandler(this.imgLoggedUser_Click);
             // 
             // imgGenerateReport
             // 
@@ -1053,7 +1060,7 @@
             this.imgStatistics.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgStatistics.BackgroundImage")));
             this.imgStatistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.imgStatistics.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.imgStatistics.Location = new System.Drawing.Point(1105, 0);
+            this.imgStatistics.Location = new System.Drawing.Point(1105, 1);
             this.imgStatistics.Name = "imgStatistics";
             this.imgStatistics.Size = new System.Drawing.Size(130, 130);
             this.imgStatistics.TabIndex = 41;
@@ -1153,11 +1160,24 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label9.Location = new System.Drawing.Point(1803, 85);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 17);
+            this.label9.TabIndex = 77;
+            this.label9.Text = "Logout";
+            // 
             // GenerateReportDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.imgTime);
             this.Controls.Add(this.imgLoggedUser);
             this.Controls.Add(this.imgGenerateReport);
@@ -1205,6 +1225,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1306,5 +1327,6 @@
         private System.Windows.Forms.Label lblTitle_Tag_ManageSession;
         private System.Windows.Forms.Button btnRemoveSession_ManageSession;
         private System.Windows.Forms.Button btnResetManageSession;
+        private System.Windows.Forms.Label label9;
     }
 }

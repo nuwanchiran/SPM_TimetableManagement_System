@@ -838,15 +838,15 @@ namespace Timetable_Management_System
                         string yr = "Year " + selectedYear;
                         string sem = "Semester " + selectedSemester;
 
-                         string stm1 = "select " +
+                         string stm1 = "select DISTINCT " +
                                 "s.group_no AS Group_No " +
                                 " from year_semester s" +
-                                " where s.year = '" + yr + "' AND s.semester = '" + sem + "' AND s.programe = '" + selectedProgram + "'";
+                                " where s.year = '" + yr + "' AND s.semester = '" + sem + "' AND s.programe = '" + selectedProgram + "' ORDER BY s.group_no ";
 
                         using var cmd1 = new SQLiteCommand(stm1, con);
                         using SQLiteDataReader rdr1 = cmd1.ExecuteReader();
 
-            
+            cmbGroup_CreateSession.Items.Clear();
             while (rdr1.Read())
             {
                 int group = Int32.Parse($@"{rdr1.GetInt32(0),-3}");
@@ -969,7 +969,7 @@ namespace Timetable_Management_System
 
         private void refreshManageSessionGrid()
         {
-
+            createSessionIfNotExist();
             string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
             System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(cs);
@@ -1019,6 +1019,31 @@ namespace Timetable_Management_System
                                     
                 )";
             cmdLec.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        private void createSessionIfNotExist()
+        {
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(cs);
+            using var cmdCreateSubject = new SQLiteCommand(conn);
+
+            conn.Open();
+
+            cmdCreateSubject.CommandText = @"CREATE TABLE  IF NOT EXISTS session (
+                                    sessionId               STRING PRIMARY KEY,
+	                                tag                     TEXT,
+	                                year                    INTEGER,
+	                                semester                INTEGER,
+                                    program                 TEXT,
+                                    groupId                   INTEGER,
+                                    subGroupId                INTEGER,
+                                    subjectId               TEXT,
+                                    noOfStudents            INTEGER,
+                                    sessionDuration         DOUBLE 
+                )";
+            cmdCreateSubject.ExecuteNonQuery();
             conn.Close();
         }
 
@@ -1310,7 +1335,7 @@ namespace Timetable_Management_System
                 int selectedGroupNum;
                 bool success = Int32.TryParse(selectedGroup, out selectedGroupNum);
 
-                string stm = "SELECT y.subgroup_no FROM year_semester y WHERE y.group_no = " + selectedGroupNum + "";
+                string stm = "SELECT DISTINCT y.subgroup_no FROM year_semester y WHERE y.group_no = " + selectedGroupNum + " ORDER BY y.subgroup_no ";
 
 
                 using var cmd = new SQLiteCommand(stm, con);
@@ -1452,8 +1477,8 @@ namespace Timetable_Management_System
                                 subgroup_id TEXT
                 )";
             cmdGro.ExecuteNonQuery();
-
-            string stm = "SELECT ys.group_no FROM year_semester ys";
+            
+            string stm = "SELECT DISTINCT  ys.group_no FROM year_semester ys ORDER BY ys.group_no";
 
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -1644,6 +1669,7 @@ namespace Timetable_Management_System
                     if (whereClauseAdded == false)
                     {
                         query = query + " WHERE ";
+                        whereClauseAdded = true;
                     }
 
                     
@@ -1659,6 +1685,7 @@ namespace Timetable_Management_System
                     if (whereClauseAdded == false)
                     {
                         query = query + " WHERE ";
+                        whereClauseAdded = true;
                     }
                     
                     query = query + "session.groupId = '" + group + "' ";
@@ -1674,6 +1701,7 @@ namespace Timetable_Management_System
                     if (whereClauseAdded == false)
                     {
                         query = query + " WHERE ";
+                        whereClauseAdded = true;
                     }
                   
                     query = query + "session.subGroupId = '" + subGroup + "' ";
@@ -1689,6 +1717,7 @@ namespace Timetable_Management_System
                     if (whereClauseAdded == false)
                     {
                         query = query + " WHERE ";
+                        whereClauseAdded = true;
                     }
                     
                     query = query + "session.tag = '" + tag + "' ";
@@ -1832,15 +1861,15 @@ namespace Timetable_Management_System
             string sem = "Semester " + selectedSemester;
            
 
-            string stm1 = "select " +
+            string stm1 = "select DISTINCT " +
                    "s.subgroup_no AS SubGroup_No " +
                    " from year_semester s" +
-                   " where s.year = '" + yr + "' AND s.semester = '" + sem + "' AND s.programe = '" + selectedProgram + "' AND s.group_no= '" + selectedGroup + "'";
+                   " where s.year = '" + yr + "' AND s.semester = '" + sem + "' AND s.programe = '" + selectedProgram + "' AND s.group_no= '" + selectedGroup + "' ORDER BY s.subgroup_no ";
 
             using var cmd1 = new SQLiteCommand(stm1, con);
             using SQLiteDataReader rdr1 = cmd1.ExecuteReader();
 
-
+            cmbSubGroup_CreateSession.Items.Clear();
             while (rdr1.Read())
             {
                 int subgroup = Int32.Parse($@"{rdr1.GetInt32(0),-3}");
@@ -1856,6 +1885,13 @@ namespace Timetable_Management_System
 
 
 
+        }
+
+        private void imgLoggedUser_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login obj = new Login();
+            obj.Show();
         }
     }
 }

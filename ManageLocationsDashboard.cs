@@ -439,5 +439,12 @@ namespace Timetable_Management_System
                 loadRoomData();
             }
         }
+
+        private void imgLoggedUser_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login obj = new Login();
+            obj.Show();
+        }
     }
 }

@@ -1461,7 +1461,7 @@ namespace Timetable_Management_System
             gblTagNames_text_Edit.Clear();
             gblTagNames_button_Edit.Clear();
 
-            int initialLocation = 390;
+            int initialLocation = 410;
             List<SubjectEditStatus> tempArr = new List<SubjectEditStatus>();
 
             for (int i = 0; i < tagsList.Length; i++)
@@ -1470,7 +1470,7 @@ namespace Timetable_Management_System
 
                 //Label
                 Label label = new Label();
-                label.Location = new System.Drawing.Point(410, initialLocation);
+                label.Location = new System.Drawing.Point(430, initialLocation);
                 label.Size = new System.Drawing.Size(80, 20);
                 label.Name = "lbl" + tagsList[i] + "_Edit";
                 label.Text = tagsList[i].Trim() + "";
@@ -1480,7 +1480,7 @@ namespace Timetable_Management_System
 
                 //Textbox
                 TextBox textbox = new TextBox();
-                textbox.Location = new System.Drawing.Point(500, initialLocation);
+                textbox.Location = new System.Drawing.Point(520, initialLocation);
                 textbox.Size = new System.Drawing.Size(80, 20);
                 textbox.Name = "txt" + tagsList[i] + "Hrs_Edit";
                 string temp = tagsList[i];
@@ -1505,7 +1505,7 @@ namespace Timetable_Management_System
 
                 //hrs Label
                 Label lbl = new Label();
-                lbl.Location = new System.Drawing.Point(600, initialLocation);
+                lbl.Location = new System.Drawing.Point(620, initialLocation);
                 lbl.Size = new System.Drawing.Size(50, 20);
                 lbl.Name = "lbl" + tagsList[i] + "Hours_Edit";
                 lbl.Text = "hours";
@@ -1514,7 +1514,7 @@ namespace Timetable_Management_System
 
                 //Close button
                 Button closeBtn = new Button();
-                closeBtn.Location = new System.Drawing.Point(720, initialLocation);
+                closeBtn.Location = new System.Drawing.Point(740, initialLocation);
                 closeBtn.Size = new System.Drawing.Size(20, 20);
                 closeBtn.Name = "btn" + tagsList[i] + "Close_Edit";
                 string temp1 = tagsList[i] + "";
@@ -1625,6 +1625,9 @@ namespace Timetable_Management_System
 
             cmbOfferedYear_Edit.Text = subObj.offeredYear.ToString();
             cmbOfferedSemester_Edit.Text = subObj.offeredSemester.ToString();
+            fillcmbProgram_Edit();
+
+            cmbProgram_Edit.SelectedIndex = cmbProgram_Edit.FindString(subObj.program.Trim());
 
             chkIsParallel_Edit.Checked = subObj.isParallel;
 
@@ -1640,6 +1643,17 @@ namespace Timetable_Management_System
             }
 
             txtCategory_Edit.Text = subObj.category;
+        }
+
+        private void fillcmbProgram_Edit()
+        {
+            cmbProgram_Edit.Items.Clear();
+
+            cmbProgram_Edit.Items.Add("SE");
+            cmbProgram_Edit.Items.Add("IT");
+            cmbProgram_Edit.Items.Add("CS");
+            cmbProgram_Edit.Items.Add("IM");
+            cmbProgram_Edit.Items.Add("DS");
         }
 
         private void fillBoxes_Edit()
@@ -1814,6 +1828,7 @@ namespace Timetable_Management_System
                 obj.subjectCode = txtSubejctCode_Edit.Text;
                 obj.isParallel = chkIsParallel_Edit.Checked;
                 obj.category = txtCategory_Edit.Text;
+                obj.program = this.cmbProgram_Edit.GetItemText(this.cmbProgram_Edit.SelectedItem);
 
                 Console.WriteLine(editTagsStatusList);
 
@@ -1839,6 +1854,7 @@ namespace Timetable_Management_System
             cmd.CommandText = @"UPDATE subjects SET subjectName= '" + subjectObj.subjectName + "' , " +
                 "offeredYear = " + subjectObj.offeredYear + " , " +
                 "offeredSemester = " + subjectObj.offeredSemester + " , " +
+                "program = '" + subjectObj.program + "' , " +
                 "isParallel = " + subjectObj.isParallel + " , " +
                 "category = '" + subjectObj.category + "' " +
                 "WHERE subjectCode = '" + subjectObj.subjectCode + "'";
@@ -1920,5 +1936,11 @@ namespace Timetable_Management_System
 
         }
 
+        private void imgLoggedUser_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login obj = new Login();
+            obj.Show();
+        }
     }
 }
