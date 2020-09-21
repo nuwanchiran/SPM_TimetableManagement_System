@@ -768,7 +768,7 @@ namespace Timetable_Management_System
             string selectedYear = this.cmbYear_CreateSession.GetItemText(this.cmbYear_CreateSession.SelectedItem);
             string selectedSemester = this.cmbSemester_CreateSession.GetItemText(this.cmbSemester_CreateSession.SelectedItem);
 
-            string selectedProgram = this.cmbProgram_CreateSession.GetItemText(this.cmbProgram_CreateSession.SelectedItem); ;
+            string selectedProgram = this.cmbProgram_CreateSession.GetItemText(this.cmbProgram_CreateSession.SelectedItem);
 
             fillSubjectAccordingToProgram_Year_Semester(selectedProgram, selectedYear, selectedSemester);
             //fillGroupNumbers(selectedProgram, selectedYear, selectedSemester);
@@ -834,33 +834,28 @@ namespace Timetable_Management_System
             }
 
             //#####
-            /*
+            
                         string yr = "Year " + selectedYear;
                         string sem = "Semester " + selectedSemester;
 
-                         stm = "select " +
+                         string stm1 = "select " +
                                 "s.group_no AS Group_No " +
                                 " from year_semester s" +
                                 " where s.year = '" + yr + "' AND s.semester = '" + sem + "' AND s.programe = '" + selectedProgram + "'";
 
-                        using var cmd1 = new SQLiteCommand(stm, con);
+                        using var cmd1 = new SQLiteCommand(stm1, con);
                         using SQLiteDataReader rdr1 = cmd1.ExecuteReader();
 
-                        while (rdr1.Read())
-                        {
+            
+            while (rdr1.Read())
+            {
+                int group = Int32.Parse($@"{rdr1.GetInt32(0),-3}");
+                cmbGroup_CreateSession.Items.Add(group.ToString());
+            }
+            
 
-                            int group = Int32.Parse($@"{rdr.GetInt32(0),-3}");
-
-
-                            cmbGroup_CreateSession.Items.Add(group.ToString());
-                        }
-            */
-            cmbGroup_CreateSession.Items.Add("1");
-            cmbGroup_CreateSession.Items.Add("2");
-            cmbGroup_CreateSession.Items.Add("3");
-
-            cmbSubGroup_CreateSession.Items.Add("1");
-            cmbSubGroup_CreateSession.Items.Add("2");
+          //  cmbSubGroup_CreateSession.Items.Add("1");
+          //  cmbSubGroup_CreateSession.Items.Add("2");
 
             con.Close();
         }
@@ -1801,12 +1796,65 @@ namespace Timetable_Management_System
             //Filter End
 
 
-         
+        }
 
+        private void cmbGroup_CreateSession_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedYear = this.cmbYear_CreateSession.GetItemText(this.cmbYear_CreateSession.SelectedItem);
+            string selectedSemester = this.cmbSemester_CreateSession.GetItemText(this.cmbSemester_CreateSession.SelectedItem);
 
+            string selectedProgram = this.cmbProgram_CreateSession.GetItemText(this.cmbProgram_CreateSession.SelectedItem);
 
-           
+            string selectedGroup = this.cmbGroup_CreateSession.GetItemText(this.cmbGroup_CreateSession.SelectedItem);
             
+            fillSubGroupAccordingToProgram_Year_Semester_Group(selectedProgram, selectedYear, selectedSemester, selectedGroup);
+        }
+
+        private void fillSubGroupAccordingToProgram_Year_Semester_Group(string selectedProgram, string selectedYear, string selectedSemester, string selectedGroup)
+        {
+
+
+            int selectedYearNum;
+            int selectedSemesterNum;
+
+            bool success1 = Int32.TryParse(selectedYear, out selectedYearNum);
+            bool success2 = Int32.TryParse(selectedSemester, out selectedSemesterNum);
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+           
+
+            //#####
+
+            string yr = "Year " + selectedYear;
+            string sem = "Semester " + selectedSemester;
+           
+
+            string stm1 = "select " +
+                   "s.subgroup_no AS SubGroup_No " +
+                   " from year_semester s" +
+                   " where s.year = '" + yr + "' AND s.semester = '" + sem + "' AND s.programe = '" + selectedProgram + "' AND s.group_no= '" + selectedGroup + "'";
+
+            using var cmd1 = new SQLiteCommand(stm1, con);
+            using SQLiteDataReader rdr1 = cmd1.ExecuteReader();
+
+
+            while (rdr1.Read())
+            {
+                int subgroup = Int32.Parse($@"{rdr1.GetInt32(0),-3}");
+                cmbSubGroup_CreateSession.Items.Add(subgroup.ToString());
+            }
+
+
+            //  cmbSubGroup_CreateSession.Items.Add("1");
+            //  cmbSubGroup_CreateSession.Items.Add("2");
+
+            con.Close();
+
+
+
 
         }
     }

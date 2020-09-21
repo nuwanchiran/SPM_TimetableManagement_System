@@ -383,6 +383,7 @@
             this.cmbGroup_CreateSession.Name = "cmbGroup_CreateSession";
             this.cmbGroup_CreateSession.Size = new System.Drawing.Size(121, 28);
             this.cmbGroup_CreateSession.TabIndex = 74;
+            this.cmbGroup_CreateSession.SelectedIndexChanged += new System.EventHandler(this.cmbGroup_CreateSession_SelectedIndexChanged);
             // 
             // cmbProgram_CreateSession
             // 
