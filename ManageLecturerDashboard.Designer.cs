@@ -165,6 +165,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.AddLecturer.SuspendLayout();
             this.groupBoxLecturer.SuspendLayout();
@@ -1502,11 +1503,13 @@
             // 
             this.imgLoggedUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgLoggedUser.BackgroundImage")));
             this.imgLoggedUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgLoggedUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.imgLoggedUser.Location = new System.Drawing.Point(1791, 0);
             this.imgLoggedUser.Name = "imgLoggedUser";
             this.imgLoggedUser.Size = new System.Drawing.Size(121, 134);
             this.imgLoggedUser.TabIndex = 53;
             this.imgLoggedUser.TabStop = false;
+            this.imgLoggedUser.Click += new System.EventHandler(this.imgLoggedUser_Click);
             // 
             // imgGenerateReport
             // 
@@ -1625,11 +1628,24 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label9.Location = new System.Drawing.Point(1805, 87);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 17);
+            this.label9.TabIndex = 114;
+            this.label9.Text = "Logout";
+            // 
             // ManageLecturerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.imgTime);
             this.Controls.Add(this.imgLoggedUser);
             this.Controls.Add(this.imgGenerateReport);
@@ -1687,6 +1703,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1828,5 +1845,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblLecRankSearch;
+        private System.Windows.Forms.Label label9;
     }
 }

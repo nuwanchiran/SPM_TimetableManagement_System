@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageSubjectsDashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AddSubject = new System.Windows.Forms.TabPage();
+            this.cmbProgram_Add = new System.Windows.Forms.ComboBox();
+            this.lblProgram_Add = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnReset_Add = new System.Windows.Forms.Button();
             this.btnAddSubject_Add = new System.Windows.Forms.Button();
@@ -150,6 +152,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
+            this.cmbProgram_Edit = new System.Windows.Forms.ComboBox();
+            this.lblProgram_Edit = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.AddSubject.SuspendLayout();
             this.EditSubject.SuspendLayout();
@@ -198,6 +203,8 @@
             // 
             // AddSubject
             // 
+            this.AddSubject.Controls.Add(this.cmbProgram_Add);
+            this.AddSubject.Controls.Add(this.lblProgram_Add);
             this.AddSubject.Controls.Add(this.label4);
             this.AddSubject.Controls.Add(this.btnReset_Add);
             this.AddSubject.Controls.Add(this.btnAddSubject_Add);
@@ -221,6 +228,23 @@
             this.AddSubject.TabIndex = 0;
             this.AddSubject.Text = "Add Subject";
             this.AddSubject.UseVisualStyleBackColor = true;
+            // 
+            // cmbProgram_Add
+            // 
+            this.cmbProgram_Add.FormattingEnabled = true;
+            this.cmbProgram_Add.Location = new System.Drawing.Point(622, 265);
+            this.cmbProgram_Add.Name = "cmbProgram_Add";
+            this.cmbProgram_Add.Size = new System.Drawing.Size(297, 28);
+            this.cmbProgram_Add.TabIndex = 56;
+            // 
+            // lblProgram_Add
+            // 
+            this.lblProgram_Add.AutoSize = true;
+            this.lblProgram_Add.Location = new System.Drawing.Point(498, 265);
+            this.lblProgram_Add.Name = "lblProgram_Add";
+            this.lblProgram_Add.Size = new System.Drawing.Size(66, 20);
+            this.lblProgram_Add.TabIndex = 55;
+            this.lblProgram_Add.Text = "Program";
             // 
             // label4
             // 
@@ -257,7 +281,7 @@
             // chkParallelSubject_Add
             // 
             this.chkParallelSubject_Add.AutoSize = true;
-            this.chkParallelSubject_Add.Location = new System.Drawing.Point(517, 270);
+            this.chkParallelSubject_Add.Location = new System.Drawing.Point(517, 302);
             this.chkParallelSubject_Add.Name = "chkParallelSubject_Add";
             this.chkParallelSubject_Add.Size = new System.Drawing.Size(132, 24);
             this.chkParallelSubject_Add.TabIndex = 24;
@@ -268,7 +292,7 @@
             // lblCategory_Add
             // 
             this.lblCategory_Add.AutoSize = true;
-            this.lblCategory_Add.Location = new System.Drawing.Point(513, 306);
+            this.lblCategory_Add.Location = new System.Drawing.Point(513, 338);
             this.lblCategory_Add.Name = "lblCategory_Add";
             this.lblCategory_Add.Size = new System.Drawing.Size(69, 20);
             this.lblCategory_Add.TabIndex = 23;
@@ -276,7 +300,7 @@
             // 
             // txtCategory_Add
             // 
-            this.txtCategory_Add.Location = new System.Drawing.Point(636, 306);
+            this.txtCategory_Add.Location = new System.Drawing.Point(636, 338);
             this.txtCategory_Add.Name = "txtCategory_Add";
             this.txtCategory_Add.Size = new System.Drawing.Size(222, 27);
             this.txtCategory_Add.TabIndex = 22;
@@ -314,7 +338,7 @@
             // lblSubjectCode_Add
             // 
             this.lblSubjectCode_Add.AutoSize = true;
-            this.lblSubjectCode_Add.Location = new System.Drawing.Point(494, 214);
+            this.lblSubjectCode_Add.Location = new System.Drawing.Point(494, 223);
             this.lblSubjectCode_Add.Name = "lblSubjectCode_Add";
             this.lblSubjectCode_Add.Size = new System.Drawing.Size(97, 20);
             this.lblSubjectCode_Add.TabIndex = 5;
@@ -369,6 +393,8 @@
             // 
             // EditSubject
             // 
+            this.EditSubject.Controls.Add(this.cmbProgram_Edit);
+            this.EditSubject.Controls.Add(this.lblProgram_Edit);
             this.EditSubject.Controls.Add(this.label3);
             this.EditSubject.Controls.Add(this.groupBox5);
             this.EditSubject.Controls.Add(this.btnEditSubject_Edit);
@@ -482,7 +508,7 @@
             // chkIsParallel_Edit
             // 
             this.chkIsParallel_Edit.AutoSize = true;
-            this.chkIsParallel_Edit.Location = new System.Drawing.Point(501, 411);
+            this.chkIsParallel_Edit.Location = new System.Drawing.Point(501, 420);
             this.chkIsParallel_Edit.Name = "chkIsParallel_Edit";
             this.chkIsParallel_Edit.Size = new System.Drawing.Size(132, 24);
             this.chkIsParallel_Edit.TabIndex = 50;
@@ -493,7 +519,7 @@
             // lblCategory_Edit
             // 
             this.lblCategory_Edit.AutoSize = true;
-            this.lblCategory_Edit.Location = new System.Drawing.Point(497, 447);
+            this.lblCategory_Edit.Location = new System.Drawing.Point(497, 456);
             this.lblCategory_Edit.Name = "lblCategory_Edit";
             this.lblCategory_Edit.Size = new System.Drawing.Size(69, 20);
             this.lblCategory_Edit.TabIndex = 49;
@@ -501,7 +527,7 @@
             // 
             // txtCategory_Edit
             // 
-            this.txtCategory_Edit.Location = new System.Drawing.Point(620, 447);
+            this.txtCategory_Edit.Location = new System.Drawing.Point(620, 456);
             this.txtCategory_Edit.Name = "txtCategory_Edit";
             this.txtCategory_Edit.Size = new System.Drawing.Size(222, 27);
             this.txtCategory_Edit.TabIndex = 48;
@@ -1330,11 +1356,13 @@
             // 
             this.imgLoggedUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgLoggedUser.BackgroundImage")));
             this.imgLoggedUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgLoggedUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.imgLoggedUser.Location = new System.Drawing.Point(1791, 1);
             this.imgLoggedUser.Name = "imgLoggedUser";
             this.imgLoggedUser.Size = new System.Drawing.Size(121, 134);
             this.imgLoggedUser.TabIndex = 53;
             this.imgLoggedUser.TabStop = false;
+            this.imgLoggedUser.Click += new System.EventHandler(this.imgLoggedUser_Click);
             // 
             // imgGenerateReport
             // 
@@ -1453,11 +1481,41 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
+            // cmbProgram_Edit
+            // 
+            this.cmbProgram_Edit.FormattingEnabled = true;
+            this.cmbProgram_Edit.Location = new System.Drawing.Point(621, 388);
+            this.cmbProgram_Edit.Name = "cmbProgram_Edit";
+            this.cmbProgram_Edit.Size = new System.Drawing.Size(297, 28);
+            this.cmbProgram_Edit.TabIndex = 58;
+            // 
+            // lblProgram_Edit
+            // 
+            this.lblProgram_Edit.AutoSize = true;
+            this.lblProgram_Edit.Location = new System.Drawing.Point(497, 392);
+            this.lblProgram_Edit.Name = "lblProgram_Edit";
+            this.lblProgram_Edit.Size = new System.Drawing.Size(66, 20);
+            this.lblProgram_Edit.TabIndex = 57;
+            this.lblProgram_Edit.Text = "Program";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label12.Location = new System.Drawing.Point(1806, 86);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(58, 17);
+            this.label12.TabIndex = 78;
+            this.label12.Text = "Logout";
+            // 
             // ManageSubjectsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.imgTime);
             this.Controls.Add(this.imgLoggedUser);
             this.Controls.Add(this.imgGenerateReport);
@@ -1506,6 +1564,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1632,5 +1691,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cmbProgram_Add;
+        private System.Windows.Forms.Label lblProgram_Add;
+        private System.Windows.Forms.ComboBox cmbProgram_Edit;
+        private System.Windows.Forms.Label lblProgram_Edit;
+        private System.Windows.Forms.Label label12;
     }
 }
