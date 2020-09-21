@@ -19,6 +19,7 @@ namespace Timetable_Management_System
     {
 
         List<Lecturer> selectedLecturersListForCreateSession;
+        bool dashboardLoaded = false;
 
         public GenerateReportDashboard()
         {
@@ -33,6 +34,7 @@ namespace Timetable_Management_System
             //Manage Session
             fillSessionManagementCmb();
             setSummaryVisibleOrHidden_ManageSession(false);
+
         }
 
         private void GenerateReportDashboard_Load(object sender, EventArgs e)
@@ -41,6 +43,9 @@ namespace Timetable_Management_System
             selectedLecturersListForCreateSession = new List<Lecturer>();
 
             fillCmbLecturerList();
+
+            //this should be always last statement in GenerateReportDashboard_Load
+            dashboardLoaded = true;
         }
 
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
@@ -1195,38 +1200,47 @@ namespace Timetable_Management_System
 
         private void cmbSubject_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            filterSessions_ManageSession(
+            if(dashboardLoaded == true)
+            {
+                filterSessions_ManageSession(
                this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
                this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
                this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
                this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
                this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
             );
-            */
+            }
+            
+            
+            
         }
 
         private void cmbLecturer_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            filterSessions_ManageSession(
-               this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
-               this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
-               this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
-               this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
-               this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
-                );
-            */
+            if (dashboardLoaded == true)
+            {
+                filterSessions_ManageSession(
+                   this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
+                   this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
+                   this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
+                   this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
+                   this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
+                    );
+            }
+            
+            
         }
 
         private void cmbGroup_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string groupText = this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem);
+            if (dashboardLoaded == true)
+            {
+                            string groupText = this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem);
             if (!groupText.Equals("Any"))
             {
                 refreshSubGroupAccordingToGroup(this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem));
             }
-            /*
+            
             filterSessions_ManageSession(
                 this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
                 this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
@@ -1234,37 +1248,41 @@ namespace Timetable_Management_System
                 this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
                 this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
                 );
-            */
+            }
+
+            
         }
 
         private void cmbSubGroup_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            
-            /*
-            filterSessions_ManageSession(
-                this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
-                this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
-                this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
-                this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
-                this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
-                );
-            */
+            if (dashboardLoaded == true)
+            {
+                filterSessions_ManageSession(
+                                this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
+                                this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
+                                this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
+                                this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
+                                this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
+                                );
+            }
+
         }
 
 
 
         private void cmbTag_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            filterSessions_ManageSession(
+            if (dashboardLoaded == true)
+            {
+                filterSessions_ManageSession(
                this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
                this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
                this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
                this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
                this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
                 );
-            */
+            }
+
         }
 
         private void refreshSubGroupAccordingToGroup(string selectedGroup)
@@ -1623,27 +1641,109 @@ namespace Timetable_Management_System
 
                 if (!subject.Equals("Any"))
                 {
+                    if (havePrevCondition == true)
+                    {
+                        query = query + " AND ";
+                    }
+
                     if (whereClauseAdded == false)
                     {
                         query = query + " WHERE ";
                     }
 
-                    if (havePrevCondition == true)
-                    {
-                        query = query + " AND ";
-                    }
+                    
                     query = query + "session.subjectId = '" + subject + "' ";
                     havePrevCondition = true;
                 }
                 if (!group.Equals("Any"))
                 {
+                    if (havePrevCondition == true)
+                    {
+                        query = query + " AND ";
+                    }
                     if (whereClauseAdded == false)
                     {
                         query = query + " WHERE ";
                     }
+                    
+                    query = query + "session.groupId = '" + group + "' ";
+                    havePrevCondition = true;
+
+                }
+                if (!subGroup.Equals("Any"))
+                {
                     if (havePrevCondition == true)
                     {
                         query = query + " AND ";
+                    }
+                    if (whereClauseAdded == false)
+                    {
+                        query = query + " WHERE ";
+                    }
+                  
+                    query = query + "session.subGroupId = '" + subGroup + "' ";
+                    havePrevCondition = true;
+
+                }
+                if (!tag.Equals("Any"))
+                {
+                    if (havePrevCondition == true)
+                    {
+                        query = query + " AND ";
+                    }
+                    if (whereClauseAdded == false)
+                    {
+                        query = query + " WHERE ";
+                    }
+                    
+                    query = query + "session.tag = '" + tag + "' ";
+                    havePrevCondition = true;
+                }
+
+                Console.WriteLine(query);
+            }
+            else
+            {
+                query = "select " +
+           "s.sessionId AS SessionId ," +
+           "s.tag AS Tag ," +
+           "s.year AS Year ," +
+           "s.semester AS Semester ," +
+           "s.program AS Program ," +
+           "s.groupId AS Group_Id ," +
+           "s.subGroupId AS SubGroup_Id ," +
+           "s.subjectId AS Subject_Id ," +
+           "s.noOfStudents AS No_of_Students ," +
+           "s.sessionDuration AS Hours " +
+           "from session s , session_lecturers l WHERE s.sessionId= l.sessionId AND l.lecturerID = '" + lecturer + "'" ;
+                bool whereClauseAdded = false;
+                bool havePrevCondition = false;
+
+                if (!subject.Equals("Any"))
+                {
+                    if (havePrevCondition == true)
+                    {
+                        query = query + " AND ";
+                    }
+
+                    if (whereClauseAdded == false)
+                    {
+                        query = query + " WHERE ";
+                    }
+
+
+                    query = query + "session.subjectId = '" + subject + "' ";
+                    havePrevCondition = true;
+                }
+                if (!group.Equals("Any"))
+                {
+                    if (havePrevCondition == true)
+                    {
+                        query = query + " AND ";
+                    }
+                    if (whereClauseAdded == false)
+                    {
+                        query = query + " WHERE ";
                     }
 
                     query = query + "session.groupId = '" + group + "' ";
@@ -1652,37 +1752,35 @@ namespace Timetable_Management_System
                 }
                 if (!subGroup.Equals("Any"))
                 {
-                    if (whereClauseAdded == false)
-                    {
-                        query = query + " WHERE ";
-                    }
                     if (havePrevCondition == true)
                     {
                         query = query + " AND ";
                     }
+                    if (whereClauseAdded == false)
+                    {
+                        query = query + " WHERE ";
+                    }
+
                     query = query + "session.subGroupId = '" + subGroup + "' ";
                     havePrevCondition = true;
 
                 }
                 if (!tag.Equals("Any"))
                 {
-                    if (whereClauseAdded == false)
-                    {
-                        query = query + " WHERE ";
-                    }
                     if (havePrevCondition == true)
                     {
                         query = query + " AND ";
                     }
-                    query = query + "session.subGroupId = '" + tag + "' ";
+                    if (whereClauseAdded == false)
+                    {
+                        query = query + " WHERE ";
+                    }
+
+                    query = query + "session.tag = '" + tag + "' ";
                     havePrevCondition = true;
                 }
 
                 Console.WriteLine(query);
-            }
-            else
-            {
-
             }
 
             System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand( query );
