@@ -31,30 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageSubjectsDashboard));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AddSubject = new System.Windows.Forms.TabPage();
-            this.lblEvaluationHrsHours_Add = new System.Windows.Forms.Label();
-            this.lblLabHrsHours_Add = new System.Windows.Forms.Label();
-            this.lblTutorialHrsHours_Add = new System.Windows.Forms.Label();
-            this.lblLectureHrsHours_Add = new System.Windows.Forms.Label();
+            this.cmbProgram_Add = new System.Windows.Forms.ComboBox();
+            this.lblProgram_Add = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnReset_Add = new System.Windows.Forms.Button();
             this.btnAddSubject_Add = new System.Windows.Forms.Button();
             this.chkParallelSubject_Add = new System.Windows.Forms.CheckBox();
             this.lblCategory_Add = new System.Windows.Forms.Label();
-            this.txtParallelSubject_Add = new System.Windows.Forms.TextBox();
-            this.txtEvaluationHrs_Add = new System.Windows.Forms.TextBox();
-            this.txtLabHrs_Add = new System.Windows.Forms.TextBox();
-            this.txtTutorialHrs_Add = new System.Windows.Forms.TextBox();
-            this.txtLectureHrs_Add = new System.Windows.Forms.TextBox();
+            this.txtCategory_Add = new System.Windows.Forms.TextBox();
             this.txtSubjectCode_Add = new System.Windows.Forms.TextBox();
             this.txtSubjectName_Add = new System.Windows.Forms.TextBox();
             this.cmbSemester_Add = new System.Windows.Forms.ComboBox();
             this.cmbOfferedYear_Add = new System.Windows.Forms.ComboBox();
-            this.lblEvaluationHrs_Add = new System.Windows.Forms.Label();
-            this.lblLabHrs_Add = new System.Windows.Forms.Label();
-            this.lblTutorialHrs_Add = new System.Windows.Forms.Label();
-            this.lblLectureHrs_Add = new System.Windows.Forms.Label();
-            this.chkEvaluationAdd = new System.Windows.Forms.CheckBox();
-            this.chkLab_Add = new System.Windows.Forms.CheckBox();
-            this.chkTutorial_Add = new System.Windows.Forms.CheckBox();
-            this.chkLecture_Add = new System.Windows.Forms.CheckBox();
             this.lblSubjectCode_Add = new System.Windows.Forms.Label();
             this.lblSubjectName_Add = new System.Windows.Forms.Label();
             this.lblSemester_Add = new System.Windows.Forms.Label();
@@ -62,6 +50,7 @@
             this.lblManageSubjects_Add = new System.Windows.Forms.Label();
             this.lblAddSubjects_Add = new System.Windows.Forms.Label();
             this.EditSubject = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnResetSubject_Edit = new System.Windows.Forms.Button();
             this.btnFindSubject_Edit = new System.Windows.Forms.Button();
@@ -69,25 +58,13 @@
             this.radSubjectName_Edit = new System.Windows.Forms.RadioButton();
             this.radSubjectCode_Edit = new System.Windows.Forms.RadioButton();
             this.btnEditSubject_Edit = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.chkIsParallel_Edit = new System.Windows.Forms.CheckBox();
+            this.lblCategory_Edit = new System.Windows.Forms.Label();
+            this.txtCategory_Edit = new System.Windows.Forms.TextBox();
+            this.txtSubejctCode_Edit = new System.Windows.Forms.TextBox();
+            this.txtSubjectName_Edit = new System.Windows.Forms.TextBox();
+            this.cmbOfferedSemester_Edit = new System.Windows.Forms.ComboBox();
+            this.cmbOfferedYear_Edit = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -95,35 +72,52 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblEditSubject = new System.Windows.Forms.Label();
             this.RemoveSubject = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblHours_Remove = new System.Windows.Forms.Label();
+            this.lblAnsCategory_Remove = new System.Windows.Forms.Label();
+            this.lblTags_Remove = new System.Windows.Forms.Label();
+            this.lblSubjectCodeL_Remove = new System.Windows.Forms.Label();
+            this.lblAnsIsParallel_Remove = new System.Windows.Forms.Label();
+            this.lblSubjectNameL_Remove = new System.Windows.Forms.Label();
+            this.lblYearL_Remove = new System.Windows.Forms.Label();
+            this.lblAnsSemester_Remove = new System.Windows.Forms.Label();
+            this.lblSemesterL_Remove = new System.Windows.Forms.Label();
+            this.lblIsCategoryL_Remove = new System.Windows.Forms.Label();
+            this.lblAnsYear_Remove = new System.Windows.Forms.Label();
+            this.lblIsParallelL_Remove = new System.Windows.Forms.Label();
+            this.lblAnsSubjectCode_Remove = new System.Windows.Forms.Label();
+            this.lblAnsSubjectName_Remove = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnReset_Remove = new System.Windows.Forms.Button();
+            this.btnFindSubject_Remove = new System.Windows.Forms.Button();
+            this.txtKeyword_Remove = new System.Windows.Forms.TextBox();
+            this.radSubjectName_Remove = new System.Windows.Forms.RadioButton();
+            this.radSubjectCode_Remove = new System.Windows.Forms.RadioButton();
+            this.btnRemoveSubject_Remove = new System.Windows.Forms.Button();
             this.lblRemoveSubject = new System.Windows.Forms.Label();
             this.ViewSearchSubjects = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnFilter_Search = new System.Windows.Forms.Button();
+            this.lblTo_Search = new System.Windows.Forms.Label();
+            this.lblFrom_Search = new System.Windows.Forms.Label();
+            this.txtTo_Search = new System.Windows.Forms.TextBox();
+            this.txtFrom_Search = new System.Windows.Forms.TextBox();
+            this.chkParallel_Search = new System.Windows.Forms.CheckBox();
+            this.cmbTag_Search = new System.Windows.Forms.ComboBox();
+            this.cmbYear_Search = new System.Windows.Forms.ComboBox();
+            this.cmbSemester_Search = new System.Windows.Forms.ComboBox();
+            this.txtSubjectName_Search = new System.Windows.Forms.TextBox();
+            this.lblHours_Search = new System.Windows.Forms.Label();
+            this.lblTag_Search = new System.Windows.Forms.Label();
+            this.lblSemester_Search = new System.Windows.Forms.Label();
+            this.lblYear_Search = new System.Windows.Forms.Label();
+            this.lblSubjectName_Search = new System.Windows.Forms.Label();
+            this.lblSubjectCode_Search = new System.Windows.Forms.Label();
+            this.txtSubjectCode_Search = new System.Windows.Forms.TextBox();
+            this.btnRefreshGridView_Search = new System.Windows.Forms.Button();
             this.dataGridViewSubject_Search = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnReset_Search = new System.Windows.Forms.Button();
@@ -132,6 +126,21 @@
             this.radSubjectName_Search = new System.Windows.Forms.RadioButton();
             this.radSubjectCode_Search = new System.Windows.Forms.RadioButton();
             this.lblViewSearchSubjects = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblTagsHoursL_Search = new System.Windows.Forms.Label();
+            this.lblCategory_Search = new System.Windows.Forms.Label();
+            this.lblTagsL_Search = new System.Windows.Forms.Label();
+            this.lblSubjectCodeL_Search = new System.Windows.Forms.Label();
+            this.lblIsparallel_Search = new System.Windows.Forms.Label();
+            this.lblSubjectNameL_Search = new System.Windows.Forms.Label();
+            this.lblYearL_Search = new System.Windows.Forms.Label();
+            this.lblSemesterAns_Search = new System.Windows.Forms.Label();
+            this.lblSemesterL_Search = new System.Windows.Forms.Label();
+            this.lblCategoryL_Search = new System.Windows.Forms.Label();
+            this.lblYearAns_Search = new System.Windows.Forms.Label();
+            this.lblIsParallelL_Search = new System.Windows.Forms.Label();
+            this.lblSubjectCodeAns_Search = new System.Windows.Forms.Label();
+            this.lblSubjectNameAns_Search = new System.Windows.Forms.Label();
             this.imgLoggedUser = new System.Windows.Forms.PictureBox();
             this.imgGenerateReport = new System.Windows.Forms.PictureBox();
             this.imgStatistics = new System.Windows.Forms.PictureBox();
@@ -143,42 +152,20 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
+            this.cmbProgram_Edit = new System.Windows.Forms.ComboBox();
+            this.lblProgram_Edit = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.AddSubject.SuspendLayout();
             this.EditSubject.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.RemoveSubject.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.ViewSearchSubjects.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubject_Search)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoggedUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgGenerateReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStatistics)).BeginInit();
@@ -212,33 +199,22 @@
             this.tabControl1.Size = new System.Drawing.Size(1915, 915);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // AddSubject
             // 
-            this.AddSubject.Controls.Add(this.lblEvaluationHrsHours_Add);
-            this.AddSubject.Controls.Add(this.lblLabHrsHours_Add);
-            this.AddSubject.Controls.Add(this.lblTutorialHrsHours_Add);
-            this.AddSubject.Controls.Add(this.lblLectureHrsHours_Add);
+            this.AddSubject.Controls.Add(this.cmbProgram_Add);
+            this.AddSubject.Controls.Add(this.lblProgram_Add);
+            this.AddSubject.Controls.Add(this.label4);
+            this.AddSubject.Controls.Add(this.btnReset_Add);
             this.AddSubject.Controls.Add(this.btnAddSubject_Add);
             this.AddSubject.Controls.Add(this.chkParallelSubject_Add);
             this.AddSubject.Controls.Add(this.lblCategory_Add);
-            this.AddSubject.Controls.Add(this.txtParallelSubject_Add);
-            this.AddSubject.Controls.Add(this.txtEvaluationHrs_Add);
-            this.AddSubject.Controls.Add(this.txtLabHrs_Add);
-            this.AddSubject.Controls.Add(this.txtTutorialHrs_Add);
-            this.AddSubject.Controls.Add(this.txtLectureHrs_Add);
+            this.AddSubject.Controls.Add(this.txtCategory_Add);
             this.AddSubject.Controls.Add(this.txtSubjectCode_Add);
             this.AddSubject.Controls.Add(this.txtSubjectName_Add);
             this.AddSubject.Controls.Add(this.cmbSemester_Add);
             this.AddSubject.Controls.Add(this.cmbOfferedYear_Add);
-            this.AddSubject.Controls.Add(this.lblEvaluationHrs_Add);
-            this.AddSubject.Controls.Add(this.lblLabHrs_Add);
-            this.AddSubject.Controls.Add(this.lblTutorialHrs_Add);
-            this.AddSubject.Controls.Add(this.lblLectureHrs_Add);
-            this.AddSubject.Controls.Add(this.chkEvaluationAdd);
-            this.AddSubject.Controls.Add(this.chkLab_Add);
-            this.AddSubject.Controls.Add(this.chkTutorial_Add);
-            this.AddSubject.Controls.Add(this.chkLecture_Add);
             this.AddSubject.Controls.Add(this.lblSubjectCode_Add);
             this.AddSubject.Controls.Add(this.lblSubjectName_Add);
             this.AddSubject.Controls.Add(this.lblSemester_Add);
@@ -253,115 +229,92 @@
             this.AddSubject.Text = "Add Subject";
             this.AddSubject.UseVisualStyleBackColor = true;
             // 
-            // lblEvaluationHrsHours_Add
+            // cmbProgram_Add
             // 
-            this.lblEvaluationHrsHours_Add.AutoSize = true;
-            this.lblEvaluationHrsHours_Add.Location = new System.Drawing.Point(458, 367);
-            this.lblEvaluationHrsHours_Add.Name = "lblEvaluationHrsHours_Add";
-            this.lblEvaluationHrsHours_Add.Size = new System.Drawing.Size(45, 20);
-            this.lblEvaluationHrsHours_Add.TabIndex = 29;
-            this.lblEvaluationHrsHours_Add.Text = "hours";
+            this.cmbProgram_Add.FormattingEnabled = true;
+            this.cmbProgram_Add.Location = new System.Drawing.Point(622, 265);
+            this.cmbProgram_Add.Name = "cmbProgram_Add";
+            this.cmbProgram_Add.Size = new System.Drawing.Size(297, 28);
+            this.cmbProgram_Add.TabIndex = 56;
             // 
-            // lblLabHrsHours_Add
+            // lblProgram_Add
             // 
-            this.lblLabHrsHours_Add.AutoSize = true;
-            this.lblLabHrsHours_Add.Location = new System.Drawing.Point(458, 333);
-            this.lblLabHrsHours_Add.Name = "lblLabHrsHours_Add";
-            this.lblLabHrsHours_Add.Size = new System.Drawing.Size(45, 20);
-            this.lblLabHrsHours_Add.TabIndex = 28;
-            this.lblLabHrsHours_Add.Text = "hours";
+            this.lblProgram_Add.AutoSize = true;
+            this.lblProgram_Add.Location = new System.Drawing.Point(498, 265);
+            this.lblProgram_Add.Name = "lblProgram_Add";
+            this.lblProgram_Add.Size = new System.Drawing.Size(66, 20);
+            this.lblProgram_Add.TabIndex = 55;
+            this.lblProgram_Add.Text = "Program";
             // 
-            // lblTutorialHrsHours_Add
+            // label4
             // 
-            this.lblTutorialHrsHours_Add.AutoSize = true;
-            this.lblTutorialHrsHours_Add.Location = new System.Drawing.Point(458, 295);
-            this.lblTutorialHrsHours_Add.Name = "lblTutorialHrsHours_Add";
-            this.lblTutorialHrsHours_Add.Size = new System.Drawing.Size(45, 20);
-            this.lblTutorialHrsHours_Add.TabIndex = 27;
-            this.lblTutorialHrsHours_Add.Text = "hours";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(20, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(221, 20);
+            this.label4.TabIndex = 54;
+            this.label4.Text = "Manage Subjects > Add Subject";
             // 
-            // lblLectureHrsHours_Add
+            // btnReset_Add
             // 
-            this.lblLectureHrsHours_Add.AutoSize = true;
-            this.lblLectureHrsHours_Add.Location = new System.Drawing.Point(458, 255);
-            this.lblLectureHrsHours_Add.Name = "lblLectureHrsHours_Add";
-            this.lblLectureHrsHours_Add.Size = new System.Drawing.Size(45, 20);
-            this.lblLectureHrsHours_Add.TabIndex = 26;
-            this.lblLectureHrsHours_Add.Text = "hours";
+            this.btnReset_Add.BackColor = System.Drawing.Color.Tan;
+            this.btnReset_Add.Location = new System.Drawing.Point(844, 602);
+            this.btnReset_Add.Name = "btnReset_Add";
+            this.btnReset_Add.Size = new System.Drawing.Size(110, 43);
+            this.btnReset_Add.TabIndex = 26;
+            this.btnReset_Add.Text = "Reset";
+            this.btnReset_Add.UseVisualStyleBackColor = false;
+            this.btnReset_Add.Click += new System.EventHandler(this.btnReset_Add_Click);
             // 
             // btnAddSubject_Add
             // 
-            this.btnAddSubject_Add.Location = new System.Drawing.Point(607, 409);
+            this.btnAddSubject_Add.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAddSubject_Add.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSubject_Add.Location = new System.Drawing.Point(607, 602);
             this.btnAddSubject_Add.Name = "btnAddSubject_Add";
-            this.btnAddSubject_Add.Size = new System.Drawing.Size(212, 35);
+            this.btnAddSubject_Add.Size = new System.Drawing.Size(212, 50);
             this.btnAddSubject_Add.TabIndex = 25;
             this.btnAddSubject_Add.Text = "Add Subject >>>";
-            this.btnAddSubject_Add.UseVisualStyleBackColor = true;
+            this.btnAddSubject_Add.UseVisualStyleBackColor = false;
+            this.btnAddSubject_Add.Click += new System.EventHandler(this.btnAddSubject_Add_Click);
             // 
             // chkParallelSubject_Add
             // 
             this.chkParallelSubject_Add.AutoSize = true;
-            this.chkParallelSubject_Add.Location = new System.Drawing.Point(97, 409);
+            this.chkParallelSubject_Add.Location = new System.Drawing.Point(517, 302);
             this.chkParallelSubject_Add.Name = "chkParallelSubject_Add";
             this.chkParallelSubject_Add.Size = new System.Drawing.Size(132, 24);
             this.chkParallelSubject_Add.TabIndex = 24;
             this.chkParallelSubject_Add.Text = "Parallel Subject";
             this.chkParallelSubject_Add.UseVisualStyleBackColor = true;
+            this.chkParallelSubject_Add.CheckedChanged += new System.EventHandler(this.chkParallelSubject_Add_CheckedChanged);
             // 
             // lblCategory_Add
             // 
             this.lblCategory_Add.AutoSize = true;
-            this.lblCategory_Add.Location = new System.Drawing.Point(93, 445);
+            this.lblCategory_Add.Location = new System.Drawing.Point(513, 338);
             this.lblCategory_Add.Name = "lblCategory_Add";
             this.lblCategory_Add.Size = new System.Drawing.Size(69, 20);
             this.lblCategory_Add.TabIndex = 23;
             this.lblCategory_Add.Text = "Category";
             // 
-            // txtParallelSubject_Add
+            // txtCategory_Add
             // 
-            this.txtParallelSubject_Add.Location = new System.Drawing.Point(216, 445);
-            this.txtParallelSubject_Add.Name = "txtParallelSubject_Add";
-            this.txtParallelSubject_Add.Size = new System.Drawing.Size(222, 27);
-            this.txtParallelSubject_Add.TabIndex = 22;
-            // 
-            // txtEvaluationHrs_Add
-            // 
-            this.txtEvaluationHrs_Add.Location = new System.Drawing.Point(213, 360);
-            this.txtEvaluationHrs_Add.Name = "txtEvaluationHrs_Add";
-            this.txtEvaluationHrs_Add.Size = new System.Drawing.Size(225, 27);
-            this.txtEvaluationHrs_Add.TabIndex = 21;
-            // 
-            // txtLabHrs_Add
-            // 
-            this.txtLabHrs_Add.Location = new System.Drawing.Point(213, 326);
-            this.txtLabHrs_Add.Name = "txtLabHrs_Add";
-            this.txtLabHrs_Add.Size = new System.Drawing.Size(225, 27);
-            this.txtLabHrs_Add.TabIndex = 20;
-            // 
-            // txtTutorialHrs_Add
-            // 
-            this.txtTutorialHrs_Add.Location = new System.Drawing.Point(213, 292);
-            this.txtTutorialHrs_Add.Name = "txtTutorialHrs_Add";
-            this.txtTutorialHrs_Add.Size = new System.Drawing.Size(225, 27);
-            this.txtTutorialHrs_Add.TabIndex = 19;
-            // 
-            // txtLectureHrs_Add
-            // 
-            this.txtLectureHrs_Add.Location = new System.Drawing.Point(213, 253);
-            this.txtLectureHrs_Add.Name = "txtLectureHrs_Add";
-            this.txtLectureHrs_Add.Size = new System.Drawing.Size(225, 27);
-            this.txtLectureHrs_Add.TabIndex = 18;
+            this.txtCategory_Add.Location = new System.Drawing.Point(636, 338);
+            this.txtCategory_Add.Name = "txtCategory_Add";
+            this.txtCategory_Add.Size = new System.Drawing.Size(222, 27);
+            this.txtCategory_Add.TabIndex = 22;
             // 
             // txtSubjectCode_Add
             // 
-            this.txtSubjectCode_Add.Location = new System.Drawing.Point(213, 179);
+            this.txtSubjectCode_Add.Location = new System.Drawing.Point(622, 214);
             this.txtSubjectCode_Add.Name = "txtSubjectCode_Add";
             this.txtSubjectCode_Add.Size = new System.Drawing.Size(297, 27);
             this.txtSubjectCode_Add.TabIndex = 17;
             // 
             // txtSubjectName_Add
             // 
-            this.txtSubjectName_Add.Location = new System.Drawing.Point(213, 136);
+            this.txtSubjectName_Add.Location = new System.Drawing.Point(622, 171);
             this.txtSubjectName_Add.Name = "txtSubjectName_Add";
             this.txtSubjectName_Add.Size = new System.Drawing.Size(297, 27);
             this.txtSubjectName_Add.TabIndex = 16;
@@ -369,7 +322,7 @@
             // cmbSemester_Add
             // 
             this.cmbSemester_Add.FormattingEnabled = true;
-            this.cmbSemester_Add.Location = new System.Drawing.Point(389, 97);
+            this.cmbSemester_Add.Location = new System.Drawing.Point(798, 132);
             this.cmbSemester_Add.Name = "cmbSemester_Add";
             this.cmbSemester_Add.Size = new System.Drawing.Size(121, 28);
             this.cmbSemester_Add.TabIndex = 15;
@@ -377,91 +330,15 @@
             // cmbOfferedYear_Add
             // 
             this.cmbOfferedYear_Add.FormattingEnabled = true;
-            this.cmbOfferedYear_Add.Location = new System.Drawing.Point(160, 97);
+            this.cmbOfferedYear_Add.Location = new System.Drawing.Point(569, 132);
             this.cmbOfferedYear_Add.Name = "cmbOfferedYear_Add";
             this.cmbOfferedYear_Add.Size = new System.Drawing.Size(121, 28);
             this.cmbOfferedYear_Add.TabIndex = 14;
             // 
-            // lblEvaluationHrs_Add
-            // 
-            this.lblEvaluationHrs_Add.AutoSize = true;
-            this.lblEvaluationHrs_Add.Location = new System.Drawing.Point(93, 363);
-            this.lblEvaluationHrs_Add.Name = "lblEvaluationHrs_Add";
-            this.lblEvaluationHrs_Add.Size = new System.Drawing.Size(78, 20);
-            this.lblEvaluationHrs_Add.TabIndex = 13;
-            this.lblEvaluationHrs_Add.Text = "Evaluation";
-            // 
-            // lblLabHrs_Add
-            // 
-            this.lblLabHrs_Add.AutoSize = true;
-            this.lblLabHrs_Add.Location = new System.Drawing.Point(97, 329);
-            this.lblLabHrs_Add.Name = "lblLabHrs_Add";
-            this.lblLabHrs_Add.Size = new System.Drawing.Size(33, 20);
-            this.lblLabHrs_Add.TabIndex = 12;
-            this.lblLabHrs_Add.Text = "Lab";
-            // 
-            // lblTutorialHrs_Add
-            // 
-            this.lblTutorialHrs_Add.AutoSize = true;
-            this.lblTutorialHrs_Add.Location = new System.Drawing.Point(100, 292);
-            this.lblTutorialHrs_Add.Name = "lblTutorialHrs_Add";
-            this.lblTutorialHrs_Add.Size = new System.Drawing.Size(60, 20);
-            this.lblTutorialHrs_Add.TabIndex = 11;
-            this.lblTutorialHrs_Add.Text = "Tutorial";
-            // 
-            // lblLectureHrs_Add
-            // 
-            this.lblLectureHrs_Add.AutoSize = true;
-            this.lblLectureHrs_Add.Location = new System.Drawing.Point(97, 253);
-            this.lblLectureHrs_Add.Name = "lblLectureHrs_Add";
-            this.lblLectureHrs_Add.Size = new System.Drawing.Size(57, 20);
-            this.lblLectureHrs_Add.TabIndex = 10;
-            this.lblLectureHrs_Add.Text = "Lecture";
-            // 
-            // chkEvaluationAdd
-            // 
-            this.chkEvaluationAdd.AutoSize = true;
-            this.chkEvaluationAdd.Location = new System.Drawing.Point(410, 213);
-            this.chkEvaluationAdd.Name = "chkEvaluationAdd";
-            this.chkEvaluationAdd.Size = new System.Drawing.Size(100, 24);
-            this.chkEvaluationAdd.TabIndex = 9;
-            this.chkEvaluationAdd.Text = "Evaluation";
-            this.chkEvaluationAdd.UseVisualStyleBackColor = true;
-            // 
-            // chkLab_Add
-            // 
-            this.chkLab_Add.AutoSize = true;
-            this.chkLab_Add.Location = new System.Drawing.Point(322, 212);
-            this.chkLab_Add.Name = "chkLab_Add";
-            this.chkLab_Add.Size = new System.Drawing.Size(55, 24);
-            this.chkLab_Add.TabIndex = 8;
-            this.chkLab_Add.Text = "Lab";
-            this.chkLab_Add.UseVisualStyleBackColor = true;
-            // 
-            // chkTutorial_Add
-            // 
-            this.chkTutorial_Add.AutoSize = true;
-            this.chkTutorial_Add.Location = new System.Drawing.Point(216, 213);
-            this.chkTutorial_Add.Name = "chkTutorial_Add";
-            this.chkTutorial_Add.Size = new System.Drawing.Size(82, 24);
-            this.chkTutorial_Add.TabIndex = 7;
-            this.chkTutorial_Add.Text = "Tutorial";
-            this.chkTutorial_Add.UseVisualStyleBackColor = true;
-            // 
-            // chkLecture_Add
-            // 
-            this.chkLecture_Add.AutoSize = true;
-            this.chkLecture_Add.Location = new System.Drawing.Point(104, 213);
-            this.chkLecture_Add.Name = "chkLecture_Add";
-            this.chkLecture_Add.Size = new System.Drawing.Size(79, 24);
-            this.chkLecture_Add.TabIndex = 6;
-            this.chkLecture_Add.Text = "Lecture";
-            this.chkLecture_Add.UseVisualStyleBackColor = true;
-            // 
             // lblSubjectCode_Add
             // 
             this.lblSubjectCode_Add.AutoSize = true;
-            this.lblSubjectCode_Add.Location = new System.Drawing.Point(85, 179);
+            this.lblSubjectCode_Add.Location = new System.Drawing.Point(494, 223);
             this.lblSubjectCode_Add.Name = "lblSubjectCode_Add";
             this.lblSubjectCode_Add.Size = new System.Drawing.Size(97, 20);
             this.lblSubjectCode_Add.TabIndex = 5;
@@ -470,7 +347,7 @@
             // lblSubjectName_Add
             // 
             this.lblSubjectName_Add.AutoSize = true;
-            this.lblSubjectName_Add.Location = new System.Drawing.Point(89, 143);
+            this.lblSubjectName_Add.Location = new System.Drawing.Point(498, 178);
             this.lblSubjectName_Add.Name = "lblSubjectName_Add";
             this.lblSubjectName_Add.Size = new System.Drawing.Size(102, 20);
             this.lblSubjectName_Add.TabIndex = 4;
@@ -479,7 +356,7 @@
             // lblSemester_Add
             // 
             this.lblSemester_Add.AutoSize = true;
-            this.lblSemester_Add.Location = new System.Drawing.Point(298, 97);
+            this.lblSemester_Add.Location = new System.Drawing.Point(707, 132);
             this.lblSemester_Add.Name = "lblSemester_Add";
             this.lblSemester_Add.Size = new System.Drawing.Size(70, 20);
             this.lblSemester_Add.TabIndex = 3;
@@ -488,7 +365,7 @@
             // lblOfferedYear_Add
             // 
             this.lblOfferedYear_Add.AutoSize = true;
-            this.lblOfferedYear_Add.Location = new System.Drawing.Point(62, 97);
+            this.lblOfferedYear_Add.Location = new System.Drawing.Point(471, 132);
             this.lblOfferedYear_Add.Name = "lblOfferedYear_Add";
             this.lblOfferedYear_Add.Size = new System.Drawing.Size(92, 20);
             this.lblOfferedYear_Add.TabIndex = 2;
@@ -497,45 +374,37 @@
             // lblManageSubjects_Add
             // 
             this.lblManageSubjects_Add.AutoSize = true;
-            this.lblManageSubjects_Add.Location = new System.Drawing.Point(536, 27);
+            this.lblManageSubjects_Add.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManageSubjects_Add.Location = new System.Drawing.Point(605, 21);
             this.lblManageSubjects_Add.Name = "lblManageSubjects_Add";
-            this.lblManageSubjects_Add.Size = new System.Drawing.Size(122, 20);
+            this.lblManageSubjects_Add.Size = new System.Drawing.Size(258, 41);
             this.lblManageSubjects_Add.TabIndex = 1;
             this.lblManageSubjects_Add.Text = "Manage Subjects";
-            this.lblManageSubjects_Add.Click += new System.EventHandler(this.lblManageSubjects_Add_Click);
             // 
             // lblAddSubjects_Add
             // 
             this.lblAddSubjects_Add.AutoSize = true;
-            this.lblAddSubjects_Add.Location = new System.Drawing.Point(279, 58);
+            this.lblAddSubjects_Add.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddSubjects_Add.Location = new System.Drawing.Point(654, 79);
             this.lblAddSubjects_Add.Name = "lblAddSubjects_Add";
-            this.lblAddSubjects_Add.Size = new System.Drawing.Size(89, 20);
+            this.lblAddSubjects_Add.Size = new System.Drawing.Size(152, 32);
             this.lblAddSubjects_Add.TabIndex = 0;
             this.lblAddSubjects_Add.Text = "Add Subjets";
             // 
             // EditSubject
             // 
+            this.EditSubject.Controls.Add(this.cmbProgram_Edit);
+            this.EditSubject.Controls.Add(this.lblProgram_Edit);
+            this.EditSubject.Controls.Add(this.label3);
             this.EditSubject.Controls.Add(this.groupBox5);
             this.EditSubject.Controls.Add(this.btnEditSubject_Edit);
-            this.EditSubject.Controls.Add(this.checkBox1);
-            this.EditSubject.Controls.Add(this.label1);
-            this.EditSubject.Controls.Add(this.textBox1);
-            this.EditSubject.Controls.Add(this.textBox2);
-            this.EditSubject.Controls.Add(this.textBox3);
-            this.EditSubject.Controls.Add(this.textBox4);
-            this.EditSubject.Controls.Add(this.textBox5);
-            this.EditSubject.Controls.Add(this.textBox6);
-            this.EditSubject.Controls.Add(this.textBox7);
-            this.EditSubject.Controls.Add(this.comboBox1);
-            this.EditSubject.Controls.Add(this.comboBox2);
-            this.EditSubject.Controls.Add(this.label2);
-            this.EditSubject.Controls.Add(this.label3);
-            this.EditSubject.Controls.Add(this.label4);
-            this.EditSubject.Controls.Add(this.label5);
-            this.EditSubject.Controls.Add(this.checkBox2);
-            this.EditSubject.Controls.Add(this.checkBox3);
-            this.EditSubject.Controls.Add(this.checkBox4);
-            this.EditSubject.Controls.Add(this.checkBox5);
+            this.EditSubject.Controls.Add(this.chkIsParallel_Edit);
+            this.EditSubject.Controls.Add(this.lblCategory_Edit);
+            this.EditSubject.Controls.Add(this.txtCategory_Edit);
+            this.EditSubject.Controls.Add(this.txtSubejctCode_Edit);
+            this.EditSubject.Controls.Add(this.txtSubjectName_Edit);
+            this.EditSubject.Controls.Add(this.cmbOfferedSemester_Edit);
+            this.EditSubject.Controls.Add(this.cmbOfferedYear_Edit);
             this.EditSubject.Controls.Add(this.label6);
             this.EditSubject.Controls.Add(this.label7);
             this.EditSubject.Controls.Add(this.label8);
@@ -550,6 +419,15 @@
             this.EditSubject.Text = "Edit Subject";
             this.EditSubject.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(219, 20);
+            this.label3.TabIndex = 53;
+            this.label3.Text = "Manage Subjects > Edit Subject";
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.btnResetSubject_Edit);
@@ -557,7 +435,7 @@
             this.groupBox5.Controls.Add(this.txtFindSubject_Edit);
             this.groupBox5.Controls.Add(this.radSubjectName_Edit);
             this.groupBox5.Controls.Add(this.radSubjectCode_Edit);
-            this.groupBox5.Location = new System.Drawing.Point(560, 102);
+            this.groupBox5.Location = new System.Drawing.Point(379, 116);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(811, 115);
             this.groupBox5.TabIndex = 52;
@@ -565,21 +443,26 @@
             // 
             // btnResetSubject_Edit
             // 
+            this.btnResetSubject_Edit.BackColor = System.Drawing.Color.Tan;
             this.btnResetSubject_Edit.Location = new System.Drawing.Point(709, 43);
             this.btnResetSubject_Edit.Name = "btnResetSubject_Edit";
             this.btnResetSubject_Edit.Size = new System.Drawing.Size(75, 39);
             this.btnResetSubject_Edit.TabIndex = 4;
             this.btnResetSubject_Edit.Text = "Reset";
-            this.btnResetSubject_Edit.UseVisualStyleBackColor = true;
+            this.btnResetSubject_Edit.UseVisualStyleBackColor = false;
+            this.btnResetSubject_Edit.Click += new System.EventHandler(this.btnResetSubject_Edit_Click);
             // 
             // btnFindSubject_Edit
             // 
+            this.btnFindSubject_Edit.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnFindSubject_Edit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFindSubject_Edit.Location = new System.Drawing.Point(519, 41);
             this.btnFindSubject_Edit.Name = "btnFindSubject_Edit";
             this.btnFindSubject_Edit.Size = new System.Drawing.Size(169, 41);
             this.btnFindSubject_Edit.TabIndex = 3;
             this.btnFindSubject_Edit.Text = "Find Subject >>>";
-            this.btnFindSubject_Edit.UseVisualStyleBackColor = true;
+            this.btnFindSubject_Edit.UseVisualStyleBackColor = false;
+            this.btnFindSubject_Edit.Click += new System.EventHandler(this.btnFindSubject_Edit_Click);
             // 
             // txtFindSubject_Edit
             // 
@@ -612,177 +495,78 @@
             // 
             // btnEditSubject_Edit
             // 
-            this.btnEditSubject_Edit.Location = new System.Drawing.Point(560, 589);
+            this.btnEditSubject_Edit.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnEditSubject_Edit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditSubject_Edit.Location = new System.Drawing.Point(950, 739);
             this.btnEditSubject_Edit.Name = "btnEditSubject_Edit";
-            this.btnEditSubject_Edit.Size = new System.Drawing.Size(188, 35);
+            this.btnEditSubject_Edit.Size = new System.Drawing.Size(204, 55);
             this.btnEditSubject_Edit.TabIndex = 51;
             this.btnEditSubject_Edit.Text = "Edit Subject >>>";
-            this.btnEditSubject_Edit.UseVisualStyleBackColor = true;
+            this.btnEditSubject_Edit.UseVisualStyleBackColor = false;
+            this.btnEditSubject_Edit.Click += new System.EventHandler(this.btnEditSubject_Edit_Click);
             // 
-            // checkBox1
+            // chkIsParallel_Edit
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(111, 482);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(132, 24);
-            this.checkBox1.TabIndex = 50;
-            this.checkBox1.Text = "Parallel Subject";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkIsParallel_Edit.AutoSize = true;
+            this.chkIsParallel_Edit.Location = new System.Drawing.Point(501, 420);
+            this.chkIsParallel_Edit.Name = "chkIsParallel_Edit";
+            this.chkIsParallel_Edit.Size = new System.Drawing.Size(132, 24);
+            this.chkIsParallel_Edit.TabIndex = 50;
+            this.chkIsParallel_Edit.Text = "Parallel Subject";
+            this.chkIsParallel_Edit.UseVisualStyleBackColor = true;
+            this.chkIsParallel_Edit.CheckedChanged += new System.EventHandler(this.chkIsParallel_Edit_CheckedChanged);
             // 
-            // label1
+            // lblCategory_Edit
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(107, 518);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 49;
-            this.label1.Text = "Category";
+            this.lblCategory_Edit.AutoSize = true;
+            this.lblCategory_Edit.Location = new System.Drawing.Point(497, 456);
+            this.lblCategory_Edit.Name = "lblCategory_Edit";
+            this.lblCategory_Edit.Size = new System.Drawing.Size(69, 20);
+            this.lblCategory_Edit.TabIndex = 49;
+            this.lblCategory_Edit.Text = "Category";
             // 
-            // textBox1
+            // txtCategory_Edit
             // 
-            this.textBox1.Location = new System.Drawing.Point(230, 518);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 27);
-            this.textBox1.TabIndex = 48;
+            this.txtCategory_Edit.Location = new System.Drawing.Point(620, 456);
+            this.txtCategory_Edit.Name = "txtCategory_Edit";
+            this.txtCategory_Edit.Size = new System.Drawing.Size(222, 27);
+            this.txtCategory_Edit.TabIndex = 48;
             // 
-            // textBox2
+            // txtSubejctCode_Edit
             // 
-            this.textBox2.Location = new System.Drawing.Point(227, 433);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(225, 27);
-            this.textBox2.TabIndex = 47;
+            this.txtSubejctCode_Edit.Enabled = false;
+            this.txtSubejctCode_Edit.Location = new System.Drawing.Point(621, 353);
+            this.txtSubejctCode_Edit.Name = "txtSubejctCode_Edit";
+            this.txtSubejctCode_Edit.Size = new System.Drawing.Size(297, 27);
+            this.txtSubejctCode_Edit.TabIndex = 43;
             // 
-            // textBox3
+            // txtSubjectName_Edit
             // 
-            this.textBox3.Location = new System.Drawing.Point(227, 399);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(225, 27);
-            this.textBox3.TabIndex = 46;
+            this.txtSubjectName_Edit.Location = new System.Drawing.Point(621, 317);
+            this.txtSubjectName_Edit.Name = "txtSubjectName_Edit";
+            this.txtSubjectName_Edit.Size = new System.Drawing.Size(297, 27);
+            this.txtSubjectName_Edit.TabIndex = 42;
             // 
-            // textBox4
+            // cmbOfferedSemester_Edit
             // 
-            this.textBox4.Location = new System.Drawing.Point(227, 365);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(225, 27);
-            this.textBox4.TabIndex = 45;
+            this.cmbOfferedSemester_Edit.FormattingEnabled = true;
+            this.cmbOfferedSemester_Edit.Location = new System.Drawing.Point(797, 271);
+            this.cmbOfferedSemester_Edit.Name = "cmbOfferedSemester_Edit";
+            this.cmbOfferedSemester_Edit.Size = new System.Drawing.Size(121, 28);
+            this.cmbOfferedSemester_Edit.TabIndex = 41;
             // 
-            // textBox5
+            // cmbOfferedYear_Edit
             // 
-            this.textBox5.Location = new System.Drawing.Point(227, 326);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(225, 27);
-            this.textBox5.TabIndex = 44;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(227, 252);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(297, 27);
-            this.textBox6.TabIndex = 43;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(227, 209);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(297, 27);
-            this.textBox7.TabIndex = 42;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(403, 170);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
-            this.comboBox1.TabIndex = 41;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(174, 170);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 28);
-            this.comboBox2.TabIndex = 40;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(107, 436);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 20);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Evaluation";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(111, 402);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 20);
-            this.label3.TabIndex = 38;
-            this.label3.Text = "Lab";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(114, 365);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 20);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "Tutorial";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(111, 326);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 20);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "Lecture";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(424, 286);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(100, 24);
-            this.checkBox2.TabIndex = 35;
-            this.checkBox2.Text = "Evaluation";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(336, 285);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(55, 24);
-            this.checkBox3.TabIndex = 34;
-            this.checkBox3.Text = "Lab";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(230, 286);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(82, 24);
-            this.checkBox4.TabIndex = 33;
-            this.checkBox4.Text = "Tutorial";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(118, 286);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(79, 24);
-            this.checkBox5.TabIndex = 32;
-            this.checkBox5.Text = "Lecture";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.cmbOfferedYear_Edit.FormattingEnabled = true;
+            this.cmbOfferedYear_Edit.Location = new System.Drawing.Point(568, 271);
+            this.cmbOfferedYear_Edit.Name = "cmbOfferedYear_Edit";
+            this.cmbOfferedYear_Edit.Size = new System.Drawing.Size(121, 28);
+            this.cmbOfferedYear_Edit.TabIndex = 40;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(99, 252);
+            this.label6.Location = new System.Drawing.Point(493, 353);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(97, 20);
             this.label6.TabIndex = 31;
@@ -791,7 +575,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(103, 216);
+            this.label7.Location = new System.Drawing.Point(497, 317);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(102, 20);
             this.label7.TabIndex = 30;
@@ -800,7 +584,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(312, 170);
+            this.label8.Location = new System.Drawing.Point(706, 271);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 20);
             this.label8.TabIndex = 29;
@@ -809,7 +593,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(76, 170);
+            this.label9.Location = new System.Drawing.Point(470, 271);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(92, 20);
             this.label9.TabIndex = 28;
@@ -818,51 +602,30 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(542, 32);
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(605, 21);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(122, 20);
+            this.label10.Size = new System.Drawing.Size(258, 41);
             this.label10.TabIndex = 27;
             this.label10.Text = "Manage Subjects";
             // 
             // lblEditSubject
             // 
             this.lblEditSubject.AutoSize = true;
-            this.lblEditSubject.Location = new System.Drawing.Point(312, 123);
+            this.lblEditSubject.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditSubject.Location = new System.Drawing.Point(675, 81);
             this.lblEditSubject.Name = "lblEditSubject";
-            this.lblEditSubject.Size = new System.Drawing.Size(88, 20);
+            this.lblEditSubject.Size = new System.Drawing.Size(150, 32);
             this.lblEditSubject.TabIndex = 0;
             this.lblEditSubject.Text = "Edit Subject";
             // 
             // RemoveSubject
             // 
-            this.RemoveSubject.Controls.Add(this.label24);
-            this.RemoveSubject.Controls.Add(this.label25);
-            this.RemoveSubject.Controls.Add(this.label26);
-            this.RemoveSubject.Controls.Add(this.label27);
-            this.RemoveSubject.Controls.Add(this.button1);
-            this.RemoveSubject.Controls.Add(this.checkBox11);
-            this.RemoveSubject.Controls.Add(this.label28);
-            this.RemoveSubject.Controls.Add(this.textBox15);
-            this.RemoveSubject.Controls.Add(this.textBox16);
-            this.RemoveSubject.Controls.Add(this.textBox17);
-            this.RemoveSubject.Controls.Add(this.textBox18);
-            this.RemoveSubject.Controls.Add(this.textBox19);
-            this.RemoveSubject.Controls.Add(this.textBox20);
-            this.RemoveSubject.Controls.Add(this.textBox21);
-            this.RemoveSubject.Controls.Add(this.comboBox5);
-            this.RemoveSubject.Controls.Add(this.comboBox6);
-            this.RemoveSubject.Controls.Add(this.label29);
-            this.RemoveSubject.Controls.Add(this.label30);
-            this.RemoveSubject.Controls.Add(this.label31);
-            this.RemoveSubject.Controls.Add(this.label32);
-            this.RemoveSubject.Controls.Add(this.checkBox12);
-            this.RemoveSubject.Controls.Add(this.checkBox13);
-            this.RemoveSubject.Controls.Add(this.checkBox14);
-            this.RemoveSubject.Controls.Add(this.checkBox15);
-            this.RemoveSubject.Controls.Add(this.label33);
-            this.RemoveSubject.Controls.Add(this.label34);
-            this.RemoveSubject.Controls.Add(this.label35);
-            this.RemoveSubject.Controls.Add(this.label36);
+            this.RemoveSubject.Controls.Add(this.label5);
+            this.RemoveSubject.Controls.Add(this.label1);
+            this.RemoveSubject.Controls.Add(this.groupBox4);
+            this.RemoveSubject.Controls.Add(this.groupBox3);
+            this.RemoveSubject.Controls.Add(this.btnRemoveSubject_Remove);
             this.RemoveSubject.Controls.Add(this.lblRemoveSubject);
             this.RemoveSubject.Location = new System.Drawing.Point(224, 4);
             this.RemoveSubject.Name = "RemoveSubject";
@@ -871,47 +634,296 @@
             this.RemoveSubject.Text = "Remove Subject";
             this.RemoveSubject.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(247, 20);
+            this.label5.TabIndex = 112;
+            this.label5.Text = "Manage Subjects > Remove Subject";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(605, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(258, 41);
+            this.label1.TabIndex = 111;
+            this.label1.Text = "Manage Subjects";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.lblHours_Remove);
+            this.groupBox4.Controls.Add(this.lblAnsCategory_Remove);
+            this.groupBox4.Controls.Add(this.lblTags_Remove);
+            this.groupBox4.Controls.Add(this.lblSubjectCodeL_Remove);
+            this.groupBox4.Controls.Add(this.lblAnsIsParallel_Remove);
+            this.groupBox4.Controls.Add(this.lblSubjectNameL_Remove);
+            this.groupBox4.Controls.Add(this.lblYearL_Remove);
+            this.groupBox4.Controls.Add(this.lblAnsSemester_Remove);
+            this.groupBox4.Controls.Add(this.lblSemesterL_Remove);
+            this.groupBox4.Controls.Add(this.lblIsCategoryL_Remove);
+            this.groupBox4.Controls.Add(this.lblAnsYear_Remove);
+            this.groupBox4.Controls.Add(this.lblIsParallelL_Remove);
+            this.groupBox4.Controls.Add(this.lblAnsSubjectCode_Remove);
+            this.groupBox4.Controls.Add(this.lblAnsSubjectName_Remove);
+            this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(626, 256);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(264, 420);
+            this.groupBox4.TabIndex = 110;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Subject";
+            // 
+            // lblHours_Remove
+            // 
+            this.lblHours_Remove.AutoSize = true;
+            this.lblHours_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHours_Remove.Location = new System.Drawing.Point(138, 223);
+            this.lblHours_Remove.Name = "lblHours_Remove";
+            this.lblHours_Remove.Size = new System.Drawing.Size(51, 20);
+            this.lblHours_Remove.TabIndex = 109;
+            this.lblHours_Remove.Text = "Hours";
+            // 
+            // lblAnsCategory_Remove
+            // 
+            this.lblAnsCategory_Remove.AutoSize = true;
+            this.lblAnsCategory_Remove.Location = new System.Drawing.Point(154, 189);
+            this.lblAnsCategory_Remove.Name = "lblAnsCategory_Remove";
+            this.lblAnsCategory_Remove.Size = new System.Drawing.Size(16, 20);
+            this.lblAnsCategory_Remove.TabIndex = 108;
+            this.lblAnsCategory_Remove.Text = "*";
+            // 
+            // lblTags_Remove
+            // 
+            this.lblTags_Remove.AutoSize = true;
+            this.lblTags_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTags_Remove.Location = new System.Drawing.Point(40, 223);
+            this.lblTags_Remove.Name = "lblTags_Remove";
+            this.lblTags_Remove.Size = new System.Drawing.Size(41, 20);
+            this.lblTags_Remove.TabIndex = 102;
+            this.lblTags_Remove.Text = "Tags";
+            // 
+            // lblSubjectCodeL_Remove
+            // 
+            this.lblSubjectCodeL_Remove.AutoSize = true;
+            this.lblSubjectCodeL_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubjectCodeL_Remove.Location = new System.Drawing.Point(17, 41);
+            this.lblSubjectCodeL_Remove.Name = "lblSubjectCodeL_Remove";
+            this.lblSubjectCodeL_Remove.Size = new System.Drawing.Size(99, 20);
+            this.lblSubjectCodeL_Remove.TabIndex = 98;
+            this.lblSubjectCodeL_Remove.Text = "Subject Code";
+            // 
+            // lblAnsIsParallel_Remove
+            // 
+            this.lblAnsIsParallel_Remove.AutoSize = true;
+            this.lblAnsIsParallel_Remove.Location = new System.Drawing.Point(154, 157);
+            this.lblAnsIsParallel_Remove.Name = "lblAnsIsParallel_Remove";
+            this.lblAnsIsParallel_Remove.Size = new System.Drawing.Size(16, 20);
+            this.lblAnsIsParallel_Remove.TabIndex = 107;
+            this.lblAnsIsParallel_Remove.Text = "*";
+            // 
+            // lblSubjectNameL_Remove
+            // 
+            this.lblSubjectNameL_Remove.AutoSize = true;
+            this.lblSubjectNameL_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubjectNameL_Remove.Location = new System.Drawing.Point(17, 73);
+            this.lblSubjectNameL_Remove.Name = "lblSubjectNameL_Remove";
+            this.lblSubjectNameL_Remove.Size = new System.Drawing.Size(106, 20);
+            this.lblSubjectNameL_Remove.TabIndex = 99;
+            this.lblSubjectNameL_Remove.Text = "Subject Name";
+            // 
+            // lblYearL_Remove
+            // 
+            this.lblYearL_Remove.AutoSize = true;
+            this.lblYearL_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYearL_Remove.Location = new System.Drawing.Point(17, 103);
+            this.lblYearL_Remove.Name = "lblYearL_Remove";
+            this.lblYearL_Remove.Size = new System.Drawing.Size(39, 20);
+            this.lblYearL_Remove.TabIndex = 98;
+            this.lblYearL_Remove.Text = "Year";
+            // 
+            // lblAnsSemester_Remove
+            // 
+            this.lblAnsSemester_Remove.AutoSize = true;
+            this.lblAnsSemester_Remove.Location = new System.Drawing.Point(154, 133);
+            this.lblAnsSemester_Remove.Name = "lblAnsSemester_Remove";
+            this.lblAnsSemester_Remove.Size = new System.Drawing.Size(16, 20);
+            this.lblAnsSemester_Remove.TabIndex = 106;
+            this.lblAnsSemester_Remove.Text = "*";
+            // 
+            // lblSemesterL_Remove
+            // 
+            this.lblSemesterL_Remove.AutoSize = true;
+            this.lblSemesterL_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSemesterL_Remove.Location = new System.Drawing.Point(17, 133);
+            this.lblSemesterL_Remove.Name = "lblSemesterL_Remove";
+            this.lblSemesterL_Remove.Size = new System.Drawing.Size(74, 20);
+            this.lblSemesterL_Remove.TabIndex = 98;
+            this.lblSemesterL_Remove.Text = "Semester";
+            // 
+            // lblIsCategoryL_Remove
+            // 
+            this.lblIsCategoryL_Remove.AutoSize = true;
+            this.lblIsCategoryL_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIsCategoryL_Remove.Location = new System.Drawing.Point(18, 189);
+            this.lblIsCategoryL_Remove.Name = "lblIsCategoryL_Remove";
+            this.lblIsCategoryL_Remove.Size = new System.Drawing.Size(73, 20);
+            this.lblIsCategoryL_Remove.TabIndex = 101;
+            this.lblIsCategoryL_Remove.Text = "Category";
+            // 
+            // lblAnsYear_Remove
+            // 
+            this.lblAnsYear_Remove.AutoSize = true;
+            this.lblAnsYear_Remove.Location = new System.Drawing.Point(154, 103);
+            this.lblAnsYear_Remove.Name = "lblAnsYear_Remove";
+            this.lblAnsYear_Remove.Size = new System.Drawing.Size(16, 20);
+            this.lblAnsYear_Remove.TabIndex = 105;
+            this.lblAnsYear_Remove.Text = "*";
+            // 
+            // lblIsParallelL_Remove
+            // 
+            this.lblIsParallelL_Remove.AutoSize = true;
+            this.lblIsParallelL_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIsParallelL_Remove.Location = new System.Drawing.Point(17, 157);
+            this.lblIsParallelL_Remove.Name = "lblIsParallelL_Remove";
+            this.lblIsParallelL_Remove.Size = new System.Drawing.Size(80, 20);
+            this.lblIsParallelL_Remove.TabIndex = 100;
+            this.lblIsParallelL_Remove.Text = "Is Parallel:";
+            // 
+            // lblAnsSubjectCode_Remove
+            // 
+            this.lblAnsSubjectCode_Remove.AutoSize = true;
+            this.lblAnsSubjectCode_Remove.Location = new System.Drawing.Point(154, 41);
+            this.lblAnsSubjectCode_Remove.Name = "lblAnsSubjectCode_Remove";
+            this.lblAnsSubjectCode_Remove.Size = new System.Drawing.Size(16, 20);
+            this.lblAnsSubjectCode_Remove.TabIndex = 103;
+            this.lblAnsSubjectCode_Remove.Text = "*";
+            // 
+            // lblAnsSubjectName_Remove
+            // 
+            this.lblAnsSubjectName_Remove.AutoSize = true;
+            this.lblAnsSubjectName_Remove.Location = new System.Drawing.Point(154, 73);
+            this.lblAnsSubjectName_Remove.Name = "lblAnsSubjectName_Remove";
+            this.lblAnsSubjectName_Remove.Size = new System.Drawing.Size(16, 20);
+            this.lblAnsSubjectName_Remove.TabIndex = 104;
+            this.lblAnsSubjectName_Remove.Text = "*";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnReset_Remove);
+            this.groupBox3.Controls.Add(this.btnFindSubject_Remove);
+            this.groupBox3.Controls.Add(this.txtKeyword_Remove);
+            this.groupBox3.Controls.Add(this.radSubjectName_Remove);
+            this.groupBox3.Controls.Add(this.radSubjectCode_Remove);
+            this.groupBox3.Location = new System.Drawing.Point(379, 116);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(811, 115);
+            this.groupBox3.TabIndex = 55;
+            this.groupBox3.TabStop = false;
+            // 
+            // btnReset_Remove
+            // 
+            this.btnReset_Remove.BackColor = System.Drawing.Color.Tan;
+            this.btnReset_Remove.Location = new System.Drawing.Point(709, 43);
+            this.btnReset_Remove.Name = "btnReset_Remove";
+            this.btnReset_Remove.Size = new System.Drawing.Size(75, 39);
+            this.btnReset_Remove.TabIndex = 4;
+            this.btnReset_Remove.Text = "Reset";
+            this.btnReset_Remove.UseVisualStyleBackColor = false;
+            this.btnReset_Remove.Click += new System.EventHandler(this.btnReset_Remove_Click);
+            // 
+            // btnFindSubject_Remove
+            // 
+            this.btnFindSubject_Remove.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnFindSubject_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFindSubject_Remove.Location = new System.Drawing.Point(519, 41);
+            this.btnFindSubject_Remove.Name = "btnFindSubject_Remove";
+            this.btnFindSubject_Remove.Size = new System.Drawing.Size(169, 41);
+            this.btnFindSubject_Remove.TabIndex = 3;
+            this.btnFindSubject_Remove.Text = "Find Subject >>>";
+            this.btnFindSubject_Remove.UseVisualStyleBackColor = false;
+            this.btnFindSubject_Remove.Click += new System.EventHandler(this.btnFindSubject_Remove_Click);
+            // 
+            // txtKeyword_Remove
+            // 
+            this.txtKeyword_Remove.Location = new System.Drawing.Point(195, 48);
+            this.txtKeyword_Remove.Name = "txtKeyword_Remove";
+            this.txtKeyword_Remove.Size = new System.Drawing.Size(301, 27);
+            this.txtKeyword_Remove.TabIndex = 2;
+            // 
+            // radSubjectName_Remove
+            // 
+            this.radSubjectName_Remove.AutoSize = true;
+            this.radSubjectName_Remove.Location = new System.Drawing.Point(49, 58);
+            this.radSubjectName_Remove.Name = "radSubjectName_Remove";
+            this.radSubjectName_Remove.Size = new System.Drawing.Size(123, 24);
+            this.radSubjectName_Remove.TabIndex = 1;
+            this.radSubjectName_Remove.TabStop = true;
+            this.radSubjectName_Remove.Text = "Subject Name";
+            this.radSubjectName_Remove.UseVisualStyleBackColor = true;
+            // 
+            // radSubjectCode_Remove
+            // 
+            this.radSubjectCode_Remove.AutoSize = true;
+            this.radSubjectCode_Remove.Location = new System.Drawing.Point(49, 27);
+            this.radSubjectCode_Remove.Name = "radSubjectCode_Remove";
+            this.radSubjectCode_Remove.Size = new System.Drawing.Size(118, 24);
+            this.radSubjectCode_Remove.TabIndex = 0;
+            this.radSubjectCode_Remove.TabStop = true;
+            this.radSubjectCode_Remove.Text = "Subject Code";
+            this.radSubjectCode_Remove.UseVisualStyleBackColor = true;
+            // 
+            // btnRemoveSubject_Remove
+            // 
+            this.btnRemoveSubject_Remove.BackColor = System.Drawing.Color.LightCoral;
+            this.btnRemoveSubject_Remove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveSubject_Remove.Location = new System.Drawing.Point(1015, 643);
+            this.btnRemoveSubject_Remove.Name = "btnRemoveSubject_Remove";
+            this.btnRemoveSubject_Remove.Size = new System.Drawing.Size(212, 51);
+            this.btnRemoveSubject_Remove.TabIndex = 54;
+            this.btnRemoveSubject_Remove.Text = "Remove Subject >>>";
+            this.btnRemoveSubject_Remove.UseVisualStyleBackColor = false;
+            this.btnRemoveSubject_Remove.Click += new System.EventHandler(this.btnRemoveSubject_Remove_Click);
+            // 
             // lblRemoveSubject
             // 
             this.lblRemoveSubject.AutoSize = true;
-            this.lblRemoveSubject.Location = new System.Drawing.Point(522, 49);
+            this.lblRemoveSubject.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRemoveSubject.Location = new System.Drawing.Point(653, 81);
             this.lblRemoveSubject.Name = "lblRemoveSubject";
-            this.lblRemoveSubject.Size = new System.Drawing.Size(116, 20);
+            this.lblRemoveSubject.Size = new System.Drawing.Size(197, 32);
             this.lblRemoveSubject.TabIndex = 0;
             this.lblRemoveSubject.Text = "Remove Subject";
             // 
             // ViewSearchSubjects
             // 
             this.ViewSearchSubjects.Controls.Add(this.label11);
-            this.ViewSearchSubjects.Controls.Add(this.label12);
-            this.ViewSearchSubjects.Controls.Add(this.label13);
-            this.ViewSearchSubjects.Controls.Add(this.label14);
-            this.ViewSearchSubjects.Controls.Add(this.checkBox6);
-            this.ViewSearchSubjects.Controls.Add(this.label15);
-            this.ViewSearchSubjects.Controls.Add(this.textBox8);
-            this.ViewSearchSubjects.Controls.Add(this.textBox9);
-            this.ViewSearchSubjects.Controls.Add(this.textBox10);
-            this.ViewSearchSubjects.Controls.Add(this.textBox11);
-            this.ViewSearchSubjects.Controls.Add(this.textBox12);
-            this.ViewSearchSubjects.Controls.Add(this.textBox13);
-            this.ViewSearchSubjects.Controls.Add(this.textBox14);
-            this.ViewSearchSubjects.Controls.Add(this.comboBox3);
-            this.ViewSearchSubjects.Controls.Add(this.comboBox4);
-            this.ViewSearchSubjects.Controls.Add(this.label16);
-            this.ViewSearchSubjects.Controls.Add(this.label17);
-            this.ViewSearchSubjects.Controls.Add(this.label18);
-            this.ViewSearchSubjects.Controls.Add(this.label19);
-            this.ViewSearchSubjects.Controls.Add(this.checkBox7);
-            this.ViewSearchSubjects.Controls.Add(this.checkBox8);
-            this.ViewSearchSubjects.Controls.Add(this.checkBox9);
-            this.ViewSearchSubjects.Controls.Add(this.checkBox10);
-            this.ViewSearchSubjects.Controls.Add(this.label20);
-            this.ViewSearchSubjects.Controls.Add(this.label21);
-            this.ViewSearchSubjects.Controls.Add(this.label22);
-            this.ViewSearchSubjects.Controls.Add(this.label23);
+            this.ViewSearchSubjects.Controls.Add(this.label2);
+            this.ViewSearchSubjects.Controls.Add(this.btnFilter_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblTo_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblFrom_Search);
+            this.ViewSearchSubjects.Controls.Add(this.txtTo_Search);
+            this.ViewSearchSubjects.Controls.Add(this.txtFrom_Search);
+            this.ViewSearchSubjects.Controls.Add(this.chkParallel_Search);
+            this.ViewSearchSubjects.Controls.Add(this.cmbTag_Search);
+            this.ViewSearchSubjects.Controls.Add(this.cmbYear_Search);
+            this.ViewSearchSubjects.Controls.Add(this.cmbSemester_Search);
+            this.ViewSearchSubjects.Controls.Add(this.txtSubjectName_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblHours_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblTag_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblSemester_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblYear_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblSubjectName_Search);
+            this.ViewSearchSubjects.Controls.Add(this.lblSubjectCode_Search);
+            this.ViewSearchSubjects.Controls.Add(this.txtSubjectCode_Search);
+            this.ViewSearchSubjects.Controls.Add(this.btnRefreshGridView_Search);
             this.ViewSearchSubjects.Controls.Add(this.dataGridViewSubject_Search);
             this.ViewSearchSubjects.Controls.Add(this.groupBox1);
             this.ViewSearchSubjects.Controls.Add(this.lblViewSearchSubjects);
+            this.ViewSearchSubjects.Controls.Add(this.groupBox2);
             this.ViewSearchSubjects.Location = new System.Drawing.Point(224, 4);
             this.ViewSearchSubjects.Name = "ViewSearchSubjects";
             this.ViewSearchSubjects.Size = new System.Drawing.Size(1687, 907);
@@ -922,243 +934,189 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1271, 534);
+            this.label11.Location = new System.Drawing.Point(20, 20);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(45, 20);
-            this.label11.TabIndex = 81;
-            this.label11.Text = "hours";
+            this.label11.Size = new System.Drawing.Size(225, 20);
+            this.label11.TabIndex = 111;
+            this.label11.Text = "Manage Subjects > View Subject";
             // 
-            // label12
+            // label2
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1271, 500);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(45, 20);
-            this.label12.TabIndex = 80;
-            this.label12.Text = "hours";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(605, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(258, 41);
+            this.label2.TabIndex = 110;
+            this.label2.Text = "Manage Subjects";
             // 
-            // label13
+            // btnFilter_Search
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1271, 462);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(45, 20);
-            this.label13.TabIndex = 79;
-            this.label13.Text = "hours";
+            this.btnFilter_Search.BackColor = System.Drawing.Color.Tan;
+            this.btnFilter_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilter_Search.Location = new System.Drawing.Point(1087, 261);
+            this.btnFilter_Search.Name = "btnFilter_Search";
+            this.btnFilter_Search.Size = new System.Drawing.Size(172, 91);
+            this.btnFilter_Search.TabIndex = 96;
+            this.btnFilter_Search.Text = "Filter >>";
+            this.btnFilter_Search.UseVisualStyleBackColor = false;
+            this.btnFilter_Search.Click += new System.EventHandler(this.btnFilter_Search_Click);
             // 
-            // label14
+            // lblTo_Search
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(1271, 422);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(45, 20);
-            this.label14.TabIndex = 78;
-            this.label14.Text = "hours";
+            this.lblTo_Search.AutoSize = true;
+            this.lblTo_Search.Location = new System.Drawing.Point(879, 330);
+            this.lblTo_Search.Name = "lblTo_Search";
+            this.lblTo_Search.Size = new System.Drawing.Size(25, 20);
+            this.lblTo_Search.TabIndex = 95;
+            this.lblTo_Search.Text = "To";
             // 
-            // checkBox6
+            // lblFrom_Search
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(910, 576);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(132, 24);
-            this.checkBox6.TabIndex = 77;
-            this.checkBox6.Text = "Parallel Subject";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.lblFrom_Search.AutoSize = true;
+            this.lblFrom_Search.Location = new System.Drawing.Point(703, 326);
+            this.lblFrom_Search.Name = "lblFrom_Search";
+            this.lblFrom_Search.Size = new System.Drawing.Size(43, 20);
+            this.lblFrom_Search.TabIndex = 94;
+            this.lblFrom_Search.Text = "From";
             // 
-            // label15
+            // txtTo_Search
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(906, 612);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(69, 20);
-            this.label15.TabIndex = 76;
-            this.label15.Text = "Category";
+            this.txtTo_Search.Location = new System.Drawing.Point(931, 325);
+            this.txtTo_Search.Name = "txtTo_Search";
+            this.txtTo_Search.Size = new System.Drawing.Size(100, 27);
+            this.txtTo_Search.TabIndex = 93;
+            this.txtTo_Search.Text = "∞";
             // 
-            // textBox8
+            // txtFrom_Search
             // 
-            this.textBox8.Location = new System.Drawing.Point(1029, 612);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(222, 27);
-            this.textBox8.TabIndex = 75;
+            this.txtFrom_Search.Location = new System.Drawing.Point(763, 326);
+            this.txtFrom_Search.Name = "txtFrom_Search";
+            this.txtFrom_Search.Size = new System.Drawing.Size(100, 27);
+            this.txtFrom_Search.TabIndex = 92;
+            this.txtFrom_Search.Text = "0";
             // 
-            // textBox9
+            // chkParallel_Search
             // 
-            this.textBox9.Location = new System.Drawing.Point(1026, 527);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(225, 27);
-            this.textBox9.TabIndex = 74;
+            this.chkParallel_Search.AutoSize = true;
+            this.chkParallel_Search.Location = new System.Drawing.Point(404, 322);
+            this.chkParallel_Search.Name = "chkParallel_Search";
+            this.chkParallel_Search.Size = new System.Drawing.Size(79, 24);
+            this.chkParallel_Search.TabIndex = 91;
+            this.chkParallel_Search.Text = "Parallel";
+            this.chkParallel_Search.UseVisualStyleBackColor = true;
             // 
-            // textBox10
+            // cmbTag_Search
             // 
-            this.textBox10.Location = new System.Drawing.Point(1026, 493);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(225, 27);
-            this.textBox10.TabIndex = 73;
+            this.cmbTag_Search.FormattingEnabled = true;
+            this.cmbTag_Search.Location = new System.Drawing.Point(228, 314);
+            this.cmbTag_Search.Name = "cmbTag_Search";
+            this.cmbTag_Search.Size = new System.Drawing.Size(138, 28);
+            this.cmbTag_Search.TabIndex = 90;
             // 
-            // textBox11
+            // cmbYear_Search
             // 
-            this.textBox11.Location = new System.Drawing.Point(1026, 459);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(225, 27);
-            this.textBox11.TabIndex = 72;
+            this.cmbYear_Search.FormattingEnabled = true;
+            this.cmbYear_Search.Location = new System.Drawing.Point(709, 270);
+            this.cmbYear_Search.Name = "cmbYear_Search";
+            this.cmbYear_Search.Size = new System.Drawing.Size(121, 28);
+            this.cmbYear_Search.TabIndex = 89;
             // 
-            // textBox12
+            // cmbSemester_Search
             // 
-            this.textBox12.Location = new System.Drawing.Point(1026, 420);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(225, 27);
-            this.textBox12.TabIndex = 71;
+            this.cmbSemester_Search.FormattingEnabled = true;
+            this.cmbSemester_Search.Location = new System.Drawing.Point(912, 269);
+            this.cmbSemester_Search.Name = "cmbSemester_Search";
+            this.cmbSemester_Search.Size = new System.Drawing.Size(121, 28);
+            this.cmbSemester_Search.TabIndex = 88;
             // 
-            // textBox13
+            // txtSubjectName_Search
             // 
-            this.textBox13.Location = new System.Drawing.Point(1026, 346);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(297, 27);
-            this.textBox13.TabIndex = 70;
+            this.txtSubjectName_Search.Location = new System.Drawing.Point(495, 269);
+            this.txtSubjectName_Search.Name = "txtSubjectName_Search";
+            this.txtSubjectName_Search.Size = new System.Drawing.Size(152, 27);
+            this.txtSubjectName_Search.TabIndex = 87;
             // 
-            // textBox14
+            // lblHours_Search
             // 
-            this.textBox14.Location = new System.Drawing.Point(1026, 303);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(297, 27);
-            this.textBox14.TabIndex = 69;
+            this.lblHours_Search.AutoSize = true;
+            this.lblHours_Search.Location = new System.Drawing.Point(609, 326);
+            this.lblHours_Search.Name = "lblHours_Search";
+            this.lblHours_Search.Size = new System.Drawing.Size(51, 20);
+            this.lblHours_Search.TabIndex = 86;
+            this.lblHours_Search.Text = "Hours:";
             // 
-            // comboBox3
+            // lblTag_Search
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(1202, 264);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 28);
-            this.comboBox3.TabIndex = 68;
+            this.lblTag_Search.AutoSize = true;
+            this.lblTag_Search.Location = new System.Drawing.Point(136, 317);
+            this.lblTag_Search.Name = "lblTag_Search";
+            this.lblTag_Search.Size = new System.Drawing.Size(32, 20);
+            this.lblTag_Search.TabIndex = 85;
+            this.lblTag_Search.Text = "Tag";
             // 
-            // comboBox4
+            // lblSemester_Search
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(973, 264);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 28);
-            this.comboBox4.TabIndex = 67;
+            this.lblSemester_Search.AutoSize = true;
+            this.lblSemester_Search.Location = new System.Drawing.Point(836, 273);
+            this.lblSemester_Search.Name = "lblSemester_Search";
+            this.lblSemester_Search.Size = new System.Drawing.Size(70, 20);
+            this.lblSemester_Search.TabIndex = 83;
+            this.lblSemester_Search.Text = "Semester";
             // 
-            // label16
+            // lblYear_Search
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(906, 530);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(78, 20);
-            this.label16.TabIndex = 66;
-            this.label16.Text = "Evaluation";
+            this.lblYear_Search.AutoSize = true;
+            this.lblYear_Search.Location = new System.Drawing.Point(666, 273);
+            this.lblYear_Search.Name = "lblYear_Search";
+            this.lblYear_Search.Size = new System.Drawing.Size(37, 20);
+            this.lblYear_Search.TabIndex = 82;
+            this.lblYear_Search.Text = "Year";
             // 
-            // label17
+            // lblSubjectName_Search
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(910, 496);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(33, 20);
-            this.label17.TabIndex = 65;
-            this.label17.Text = "Lab";
+            this.lblSubjectName_Search.AutoSize = true;
+            this.lblSubjectName_Search.Location = new System.Drawing.Point(391, 274);
+            this.lblSubjectName_Search.Name = "lblSubjectName_Search";
+            this.lblSubjectName_Search.Size = new System.Drawing.Size(102, 20);
+            this.lblSubjectName_Search.TabIndex = 81;
+            this.lblSubjectName_Search.Text = "Subject Name";
             // 
-            // label18
+            // lblSubjectCode_Search
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(913, 459);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(60, 20);
-            this.label18.TabIndex = 64;
-            this.label18.Text = "Tutorial";
+            this.lblSubjectCode_Search.AutoSize = true;
+            this.lblSubjectCode_Search.Location = new System.Drawing.Point(125, 270);
+            this.lblSubjectCode_Search.Name = "lblSubjectCode_Search";
+            this.lblSubjectCode_Search.Size = new System.Drawing.Size(97, 20);
+            this.lblSubjectCode_Search.TabIndex = 80;
+            this.lblSubjectCode_Search.Text = "Subject Code";
             // 
-            // label19
+            // txtSubjectCode_Search
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(910, 420);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(57, 20);
-            this.label19.TabIndex = 63;
-            this.label19.Text = "Lecture";
+            this.txtSubjectCode_Search.Location = new System.Drawing.Point(228, 267);
+            this.txtSubjectCode_Search.Name = "txtSubjectCode_Search";
+            this.txtSubjectCode_Search.Size = new System.Drawing.Size(138, 27);
+            this.txtSubjectCode_Search.TabIndex = 79;
             // 
-            // checkBox7
+            // btnRefreshGridView_Search
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(1223, 380);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(100, 24);
-            this.checkBox7.TabIndex = 62;
-            this.checkBox7.Text = "Evaluation";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(1135, 379);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(55, 24);
-            this.checkBox8.TabIndex = 61;
-            this.checkBox8.Text = "Lab";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(1029, 380);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(82, 24);
-            this.checkBox9.TabIndex = 60;
-            this.checkBox9.Text = "Tutorial";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox10
-            // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(917, 380);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(79, 24);
-            this.checkBox10.TabIndex = 59;
-            this.checkBox10.Text = "Lecture";
-            this.checkBox10.UseVisualStyleBackColor = true;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(898, 346);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(97, 20);
-            this.label20.TabIndex = 58;
-            this.label20.Text = "Subject Code";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(902, 310);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(102, 20);
-            this.label21.TabIndex = 57;
-            this.label21.Text = "Subject Name";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(1111, 264);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(70, 20);
-            this.label22.TabIndex = 56;
-            this.label22.Text = "Semester";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(875, 264);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(92, 20);
-            this.label23.TabIndex = 55;
-            this.label23.Text = "Offered Year";
+            this.btnRefreshGridView_Search.Location = new System.Drawing.Point(1184, 370);
+            this.btnRefreshGridView_Search.Name = "btnRefreshGridView_Search";
+            this.btnRefreshGridView_Search.Size = new System.Drawing.Size(75, 29);
+            this.btnRefreshGridView_Search.TabIndex = 78;
+            this.btnRefreshGridView_Search.Text = "refresh";
+            this.btnRefreshGridView_Search.UseVisualStyleBackColor = true;
+            this.btnRefreshGridView_Search.Click += new System.EventHandler(this.btnRefreshGridView_Search_Click);
             // 
             // dataGridViewSubject_Search
             // 
+            this.dataGridViewSubject_Search.AllowUserToAddRows = false;
             this.dataGridViewSubject_Search.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSubject_Search.Location = new System.Drawing.Point(34, 215);
+            this.dataGridViewSubject_Search.Location = new System.Drawing.Point(140, 405);
             this.dataGridViewSubject_Search.Name = "dataGridViewSubject_Search";
             this.dataGridViewSubject_Search.RowHeadersWidth = 51;
             this.dataGridViewSubject_Search.RowTemplate.Height = 24;
-            this.dataGridViewSubject_Search.Size = new System.Drawing.Size(541, 329);
+            this.dataGridViewSubject_Search.Size = new System.Drawing.Size(1130, 331);
             this.dataGridViewSubject_Search.TabIndex = 54;
             // 
             // groupBox1
@@ -1168,7 +1126,7 @@
             this.groupBox1.Controls.Add(this.txtSearchSubject_Search);
             this.groupBox1.Controls.Add(this.radSubjectName_Search);
             this.groupBox1.Controls.Add(this.radSubjectCode_Search);
-            this.groupBox1.Location = new System.Drawing.Point(152, 94);
+            this.groupBox1.Location = new System.Drawing.Point(379, 116);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(811, 115);
             this.groupBox1.TabIndex = 53;
@@ -1176,21 +1134,26 @@
             // 
             // btnReset_Search
             // 
+            this.btnReset_Search.BackColor = System.Drawing.Color.Tan;
             this.btnReset_Search.Location = new System.Drawing.Point(709, 43);
             this.btnReset_Search.Name = "btnReset_Search";
             this.btnReset_Search.Size = new System.Drawing.Size(75, 39);
             this.btnReset_Search.TabIndex = 4;
             this.btnReset_Search.Text = "Reset";
-            this.btnReset_Search.UseVisualStyleBackColor = true;
+            this.btnReset_Search.UseVisualStyleBackColor = false;
+            this.btnReset_Search.Click += new System.EventHandler(this.btnReset_Search_Click);
             // 
             // btnFindSubject_Search
             // 
+            this.btnFindSubject_Search.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnFindSubject_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFindSubject_Search.Location = new System.Drawing.Point(519, 41);
             this.btnFindSubject_Search.Name = "btnFindSubject_Search";
             this.btnFindSubject_Search.Size = new System.Drawing.Size(169, 41);
             this.btnFindSubject_Search.TabIndex = 3;
             this.btnFindSubject_Search.Text = "Find Subject >>>";
-            this.btnFindSubject_Search.UseVisualStyleBackColor = true;
+            this.btnFindSubject_Search.UseVisualStyleBackColor = false;
+            this.btnFindSubject_Search.Click += new System.EventHandler(this.btnFindSubject_Search_Click);
             // 
             // txtSearchSubject_Search
             // 
@@ -1224,21 +1187,182 @@
             // lblViewSearchSubjects
             // 
             this.lblViewSearchSubjects.AutoSize = true;
-            this.lblViewSearchSubjects.Location = new System.Drawing.Point(433, 50);
+            this.lblViewSearchSubjects.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblViewSearchSubjects.Location = new System.Drawing.Point(620, 81);
             this.lblViewSearchSubjects.Name = "lblViewSearchSubjects";
-            this.lblViewSearchSubjects.Size = new System.Drawing.Size(142, 20);
+            this.lblViewSearchSubjects.Size = new System.Drawing.Size(254, 32);
             this.lblViewSearchSubjects.TabIndex = 0;
-            this.lblViewSearchSubjects.Text = "View Search Subject";
+            this.lblViewSearchSubjects.Text = "View/ Search Subject";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblTagsHoursL_Search);
+            this.groupBox2.Controls.Add(this.lblCategory_Search);
+            this.groupBox2.Controls.Add(this.lblTagsL_Search);
+            this.groupBox2.Controls.Add(this.lblSubjectCodeL_Search);
+            this.groupBox2.Controls.Add(this.lblIsparallel_Search);
+            this.groupBox2.Controls.Add(this.lblSubjectNameL_Search);
+            this.groupBox2.Controls.Add(this.lblYearL_Search);
+            this.groupBox2.Controls.Add(this.lblSemesterAns_Search);
+            this.groupBox2.Controls.Add(this.lblSemesterL_Search);
+            this.groupBox2.Controls.Add(this.lblCategoryL_Search);
+            this.groupBox2.Controls.Add(this.lblYearAns_Search);
+            this.groupBox2.Controls.Add(this.lblIsParallelL_Search);
+            this.groupBox2.Controls.Add(this.lblSubjectCodeAns_Search);
+            this.groupBox2.Controls.Add(this.lblSubjectNameAns_Search);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(1421, 267);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(258, 442);
+            this.groupBox2.TabIndex = 109;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Subject";
+            // 
+            // lblTagsHoursL_Search
+            // 
+            this.lblTagsHoursL_Search.AutoSize = true;
+            this.lblTagsHoursL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTagsHoursL_Search.Location = new System.Drawing.Point(138, 223);
+            this.lblTagsHoursL_Search.Name = "lblTagsHoursL_Search";
+            this.lblTagsHoursL_Search.Size = new System.Drawing.Size(51, 20);
+            this.lblTagsHoursL_Search.TabIndex = 109;
+            this.lblTagsHoursL_Search.Text = "Hours";
+            // 
+            // lblCategory_Search
+            // 
+            this.lblCategory_Search.AutoSize = true;
+            this.lblCategory_Search.Location = new System.Drawing.Point(154, 189);
+            this.lblCategory_Search.Name = "lblCategory_Search";
+            this.lblCategory_Search.Size = new System.Drawing.Size(16, 20);
+            this.lblCategory_Search.TabIndex = 108;
+            this.lblCategory_Search.Text = "*";
+            // 
+            // lblTagsL_Search
+            // 
+            this.lblTagsL_Search.AutoSize = true;
+            this.lblTagsL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTagsL_Search.Location = new System.Drawing.Point(40, 223);
+            this.lblTagsL_Search.Name = "lblTagsL_Search";
+            this.lblTagsL_Search.Size = new System.Drawing.Size(41, 20);
+            this.lblTagsL_Search.TabIndex = 102;
+            this.lblTagsL_Search.Text = "Tags";
+            // 
+            // lblSubjectCodeL_Search
+            // 
+            this.lblSubjectCodeL_Search.AutoSize = true;
+            this.lblSubjectCodeL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubjectCodeL_Search.Location = new System.Drawing.Point(17, 41);
+            this.lblSubjectCodeL_Search.Name = "lblSubjectCodeL_Search";
+            this.lblSubjectCodeL_Search.Size = new System.Drawing.Size(99, 20);
+            this.lblSubjectCodeL_Search.TabIndex = 98;
+            this.lblSubjectCodeL_Search.Text = "Subject Code";
+            // 
+            // lblIsparallel_Search
+            // 
+            this.lblIsparallel_Search.AutoSize = true;
+            this.lblIsparallel_Search.Location = new System.Drawing.Point(154, 157);
+            this.lblIsparallel_Search.Name = "lblIsparallel_Search";
+            this.lblIsparallel_Search.Size = new System.Drawing.Size(16, 20);
+            this.lblIsparallel_Search.TabIndex = 107;
+            this.lblIsparallel_Search.Text = "*";
+            // 
+            // lblSubjectNameL_Search
+            // 
+            this.lblSubjectNameL_Search.AutoSize = true;
+            this.lblSubjectNameL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubjectNameL_Search.Location = new System.Drawing.Point(17, 73);
+            this.lblSubjectNameL_Search.Name = "lblSubjectNameL_Search";
+            this.lblSubjectNameL_Search.Size = new System.Drawing.Size(106, 20);
+            this.lblSubjectNameL_Search.TabIndex = 99;
+            this.lblSubjectNameL_Search.Text = "Subject Name";
+            // 
+            // lblYearL_Search
+            // 
+            this.lblYearL_Search.AutoSize = true;
+            this.lblYearL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYearL_Search.Location = new System.Drawing.Point(17, 103);
+            this.lblYearL_Search.Name = "lblYearL_Search";
+            this.lblYearL_Search.Size = new System.Drawing.Size(39, 20);
+            this.lblYearL_Search.TabIndex = 98;
+            this.lblYearL_Search.Text = "Year";
+            // 
+            // lblSemesterAns_Search
+            // 
+            this.lblSemesterAns_Search.AutoSize = true;
+            this.lblSemesterAns_Search.Location = new System.Drawing.Point(154, 133);
+            this.lblSemesterAns_Search.Name = "lblSemesterAns_Search";
+            this.lblSemesterAns_Search.Size = new System.Drawing.Size(16, 20);
+            this.lblSemesterAns_Search.TabIndex = 106;
+            this.lblSemesterAns_Search.Text = "*";
+            // 
+            // lblSemesterL_Search
+            // 
+            this.lblSemesterL_Search.AutoSize = true;
+            this.lblSemesterL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSemesterL_Search.Location = new System.Drawing.Point(17, 133);
+            this.lblSemesterL_Search.Name = "lblSemesterL_Search";
+            this.lblSemesterL_Search.Size = new System.Drawing.Size(74, 20);
+            this.lblSemesterL_Search.TabIndex = 98;
+            this.lblSemesterL_Search.Text = "Semester";
+            // 
+            // lblCategoryL_Search
+            // 
+            this.lblCategoryL_Search.AutoSize = true;
+            this.lblCategoryL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoryL_Search.Location = new System.Drawing.Point(18, 189);
+            this.lblCategoryL_Search.Name = "lblCategoryL_Search";
+            this.lblCategoryL_Search.Size = new System.Drawing.Size(73, 20);
+            this.lblCategoryL_Search.TabIndex = 101;
+            this.lblCategoryL_Search.Text = "Category";
+            // 
+            // lblYearAns_Search
+            // 
+            this.lblYearAns_Search.AutoSize = true;
+            this.lblYearAns_Search.Location = new System.Drawing.Point(154, 103);
+            this.lblYearAns_Search.Name = "lblYearAns_Search";
+            this.lblYearAns_Search.Size = new System.Drawing.Size(16, 20);
+            this.lblYearAns_Search.TabIndex = 105;
+            this.lblYearAns_Search.Text = "*";
+            // 
+            // lblIsParallelL_Search
+            // 
+            this.lblIsParallelL_Search.AutoSize = true;
+            this.lblIsParallelL_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIsParallelL_Search.Location = new System.Drawing.Point(17, 157);
+            this.lblIsParallelL_Search.Name = "lblIsParallelL_Search";
+            this.lblIsParallelL_Search.Size = new System.Drawing.Size(80, 20);
+            this.lblIsParallelL_Search.TabIndex = 100;
+            this.lblIsParallelL_Search.Text = "Is Parallel:";
+            // 
+            // lblSubjectCodeAns_Search
+            // 
+            this.lblSubjectCodeAns_Search.AutoSize = true;
+            this.lblSubjectCodeAns_Search.Location = new System.Drawing.Point(154, 41);
+            this.lblSubjectCodeAns_Search.Name = "lblSubjectCodeAns_Search";
+            this.lblSubjectCodeAns_Search.Size = new System.Drawing.Size(16, 20);
+            this.lblSubjectCodeAns_Search.TabIndex = 103;
+            this.lblSubjectCodeAns_Search.Text = "*";
+            // 
+            // lblSubjectNameAns_Search
+            // 
+            this.lblSubjectNameAns_Search.AutoSize = true;
+            this.lblSubjectNameAns_Search.Location = new System.Drawing.Point(154, 73);
+            this.lblSubjectNameAns_Search.Name = "lblSubjectNameAns_Search";
+            this.lblSubjectNameAns_Search.Size = new System.Drawing.Size(16, 20);
+            this.lblSubjectNameAns_Search.TabIndex = 104;
+            this.lblSubjectNameAns_Search.Text = "*";
             // 
             // imgLoggedUser
             // 
             this.imgLoggedUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgLoggedUser.BackgroundImage")));
             this.imgLoggedUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgLoggedUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.imgLoggedUser.Location = new System.Drawing.Point(1791, 1);
             this.imgLoggedUser.Name = "imgLoggedUser";
             this.imgLoggedUser.Size = new System.Drawing.Size(121, 134);
             this.imgLoggedUser.TabIndex = 53;
             this.imgLoggedUser.TabStop = false;
+            this.imgLoggedUser.Click += new System.EventHandler(this.imgLoggedUser_Click);
             // 
             // imgGenerateReport
             // 
@@ -1357,252 +1481,41 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
-            // label24
+            // cmbProgram_Edit
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(861, 555);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(45, 20);
-            this.label24.TabIndex = 58;
-            this.label24.Text = "hours";
+            this.cmbProgram_Edit.FormattingEnabled = true;
+            this.cmbProgram_Edit.Location = new System.Drawing.Point(621, 388);
+            this.cmbProgram_Edit.Name = "cmbProgram_Edit";
+            this.cmbProgram_Edit.Size = new System.Drawing.Size(297, 28);
+            this.cmbProgram_Edit.TabIndex = 58;
             // 
-            // label25
+            // lblProgram_Edit
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(861, 521);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(45, 20);
-            this.label25.TabIndex = 57;
-            this.label25.Text = "hours";
+            this.lblProgram_Edit.AutoSize = true;
+            this.lblProgram_Edit.Location = new System.Drawing.Point(497, 392);
+            this.lblProgram_Edit.Name = "lblProgram_Edit";
+            this.lblProgram_Edit.Size = new System.Drawing.Size(66, 20);
+            this.lblProgram_Edit.TabIndex = 57;
+            this.lblProgram_Edit.Text = "Program";
             // 
-            // label26
+            // label12
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(861, 483);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(45, 20);
-            this.label26.TabIndex = 56;
-            this.label26.Text = "hours";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(861, 443);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(45, 20);
-            this.label27.TabIndex = 55;
-            this.label27.Text = "hours";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1010, 597);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(212, 35);
-            this.button1.TabIndex = 54;
-            this.button1.Text = "Remove Subject >>>";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox11
-            // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(500, 597);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(132, 24);
-            this.checkBox11.TabIndex = 53;
-            this.checkBox11.Text = "Parallel Subject";
-            this.checkBox11.UseVisualStyleBackColor = true;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(496, 633);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(69, 20);
-            this.label28.TabIndex = 52;
-            this.label28.Text = "Category";
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(619, 633);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(222, 27);
-            this.textBox15.TabIndex = 51;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(616, 548);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(225, 27);
-            this.textBox16.TabIndex = 50;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(616, 514);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(225, 27);
-            this.textBox17.TabIndex = 49;
-            // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(616, 480);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(225, 27);
-            this.textBox18.TabIndex = 48;
-            // 
-            // textBox19
-            // 
-            this.textBox19.Location = new System.Drawing.Point(616, 441);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(225, 27);
-            this.textBox19.TabIndex = 47;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(616, 367);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(297, 27);
-            this.textBox20.TabIndex = 46;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Location = new System.Drawing.Point(616, 324);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(297, 27);
-            this.textBox21.TabIndex = 45;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(792, 285);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 28);
-            this.comboBox5.TabIndex = 44;
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(563, 285);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 28);
-            this.comboBox6.TabIndex = 43;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(496, 551);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(78, 20);
-            this.label29.TabIndex = 42;
-            this.label29.Text = "Evaluation";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(500, 517);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(33, 20);
-            this.label30.TabIndex = 41;
-            this.label30.Text = "Lab";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(503, 480);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(60, 20);
-            this.label31.TabIndex = 40;
-            this.label31.Text = "Tutorial";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(500, 441);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(57, 20);
-            this.label32.TabIndex = 39;
-            this.label32.Text = "Lecture";
-            // 
-            // checkBox12
-            // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(813, 401);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(100, 24);
-            this.checkBox12.TabIndex = 38;
-            this.checkBox12.Text = "Evaluation";
-            this.checkBox12.UseVisualStyleBackColor = true;
-            // 
-            // checkBox13
-            // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(725, 400);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(55, 24);
-            this.checkBox13.TabIndex = 37;
-            this.checkBox13.Text = "Lab";
-            this.checkBox13.UseVisualStyleBackColor = true;
-            // 
-            // checkBox14
-            // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Location = new System.Drawing.Point(619, 401);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(82, 24);
-            this.checkBox14.TabIndex = 36;
-            this.checkBox14.Text = "Tutorial";
-            this.checkBox14.UseVisualStyleBackColor = true;
-            // 
-            // checkBox15
-            // 
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.Location = new System.Drawing.Point(507, 401);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(79, 24);
-            this.checkBox15.TabIndex = 35;
-            this.checkBox15.Text = "Lecture";
-            this.checkBox15.UseVisualStyleBackColor = true;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(488, 367);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(97, 20);
-            this.label33.TabIndex = 34;
-            this.label33.Text = "Subject Code";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(492, 331);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(102, 20);
-            this.label34.TabIndex = 33;
-            this.label34.Text = "Subject Name";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(701, 285);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(70, 20);
-            this.label35.TabIndex = 32;
-            this.label35.Text = "Semester";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(465, 285);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(92, 20);
-            this.label36.TabIndex = 31;
-            this.label36.Text = "Offered Year";
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label12.Location = new System.Drawing.Point(1806, 86);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(58, 17);
+            this.label12.TabIndex = 78;
+            this.label12.Text = "Logout";
             // 
             // ManageSubjectsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.imgTime);
             this.Controls.Add(this.imgLoggedUser);
             this.Controls.Add(this.imgGenerateReport);
@@ -1628,11 +1541,17 @@
             this.groupBox5.PerformLayout();
             this.RemoveSubject.ResumeLayout(false);
             this.RemoveSubject.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ViewSearchSubjects.ResumeLayout(false);
             this.ViewSearchSubjects.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubject_Search)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoggedUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgGenerateReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStatistics)).EndInit();
@@ -1645,6 +1564,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1673,48 +1593,24 @@
         private System.Windows.Forms.Button btnAddSubject_Add;
         private System.Windows.Forms.CheckBox chkParallelSubject_Add;
         private System.Windows.Forms.Label lblCategory_Add;
-        private System.Windows.Forms.TextBox txtParallelSubject_Add;
-        private System.Windows.Forms.TextBox txtEvaluationHrs_Add;
-        private System.Windows.Forms.TextBox txtLabHrs_Add;
-        private System.Windows.Forms.TextBox txtTutorialHrs_Add;
-        private System.Windows.Forms.TextBox txtLectureHrs_Add;
+        private System.Windows.Forms.TextBox txtCategory_Add;
         private System.Windows.Forms.TextBox txtSubjectCode_Add;
         private System.Windows.Forms.TextBox txtSubjectName_Add;
         private System.Windows.Forms.ComboBox cmbSemester_Add;
         private System.Windows.Forms.ComboBox cmbOfferedYear_Add;
-        private System.Windows.Forms.Label lblEvaluationHrs_Add;
-        private System.Windows.Forms.Label lblLabHrs_Add;
-        private System.Windows.Forms.Label lblTutorialHrs_Add;
-        private System.Windows.Forms.Label lblLectureHrs_Add;
-        private System.Windows.Forms.CheckBox chkEvaluationAdd;
-        private System.Windows.Forms.CheckBox chkLab_Add;
-        private System.Windows.Forms.CheckBox chkTutorial_Add;
-        private System.Windows.Forms.CheckBox chkLecture_Add;
         private System.Windows.Forms.Label lblSubjectCode_Add;
         private System.Windows.Forms.Label lblSubjectName_Add;
         private System.Windows.Forms.Label lblSemester_Add;
         private System.Windows.Forms.Label lblOfferedYear_Add;
         private System.Windows.Forms.Label lblManageSubjects_Add;
         private System.Windows.Forms.Button btnEditSubject_Edit;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox chkIsParallel_Edit;
+        private System.Windows.Forms.Label lblCategory_Edit;
+        private System.Windows.Forms.TextBox txtCategory_Edit;
+        private System.Windows.Forms.TextBox txtSubejctCode_Edit;
+        private System.Windows.Forms.TextBox txtSubjectName_Edit;
+        private System.Windows.Forms.ComboBox cmbOfferedSemester_Edit;
+        private System.Windows.Forms.ComboBox cmbOfferedYear_Edit;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -1726,71 +1622,79 @@
         private System.Windows.Forms.TextBox txtFindSubject_Edit;
         private System.Windows.Forms.RadioButton radSubjectName_Edit;
         private System.Windows.Forms.RadioButton radSubjectCode_Edit;
-        private System.Windows.Forms.Label lblEvaluationHrsHours_Add;
-        private System.Windows.Forms.Label lblLabHrsHours_Add;
-        private System.Windows.Forms.Label lblTutorialHrsHours_Add;
-        private System.Windows.Forms.Label lblLectureHrsHours_Add;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnReset_Search;
         private System.Windows.Forms.Button btnFindSubject_Search;
         private System.Windows.Forms.TextBox txtSearchSubject_Search;
         private System.Windows.Forms.RadioButton radSubjectName_Search;
         private System.Windows.Forms.RadioButton radSubjectCode_Search;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.DataGridView dataGridViewSubject_Search;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.CheckBox checkBox13;
-        private System.Windows.Forms.CheckBox checkBox14;
-        private System.Windows.Forms.CheckBox checkBox15;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Button btnRemoveSubject_Remove;
+        private System.Windows.Forms.Button btnReset_Add;
+        private System.Windows.Forms.Button btnRefreshGridView_Search;
+        private System.Windows.Forms.TextBox txtSubjectCode_Search;
+        private System.Windows.Forms.Label lblYear_Search;
+        private System.Windows.Forms.Label lblSubjectName_Search;
+        private System.Windows.Forms.Label lblSubjectCode_Search;
+        private System.Windows.Forms.TextBox txtTo_Search;
+        private System.Windows.Forms.TextBox txtFrom_Search;
+        private System.Windows.Forms.CheckBox chkParallel_Search;
+        private System.Windows.Forms.ComboBox cmbTag_Search;
+        private System.Windows.Forms.ComboBox cmbYear_Search;
+        private System.Windows.Forms.ComboBox cmbSemester_Search;
+        private System.Windows.Forms.TextBox txtSubjectName_Search;
+        private System.Windows.Forms.Label lblHours_Search;
+        private System.Windows.Forms.Label lblTag_Search;
+        private System.Windows.Forms.Label lblSemester_Search;
+        private System.Windows.Forms.Button btnFilter_Search;
+        private System.Windows.Forms.Label lblTo_Search;
+        private System.Windows.Forms.Label lblFrom_Search;
+        private System.Windows.Forms.Label lblCategory_Search;
+        private System.Windows.Forms.Label lblIsparallel_Search;
+        private System.Windows.Forms.Label lblSemesterAns_Search;
+        private System.Windows.Forms.Label lblYearAns_Search;
+        private System.Windows.Forms.Label lblSubjectNameAns_Search;
+        private System.Windows.Forms.Label lblSubjectCodeAns_Search;
+        private System.Windows.Forms.Label lblTagsL_Search;
+        private System.Windows.Forms.Label lblCategoryL_Search;
+        private System.Windows.Forms.Label lblIsParallelL_Search;
+        private System.Windows.Forms.Label lblSemesterL_Search;
+        private System.Windows.Forms.Label lblYearL_Search;
+        private System.Windows.Forms.Label lblSubjectNameL_Search;
+        private System.Windows.Forms.Label lblSubjectCodeL_Search;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblTagsHoursL_Search;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label lblHours_Remove;
+        private System.Windows.Forms.Label lblAnsCategory_Remove;
+        private System.Windows.Forms.Label lblTags_Remove;
+        private System.Windows.Forms.Label lblSubjectCodeL_Remove;
+        private System.Windows.Forms.Label lblAnsIsParallel_Remove;
+        private System.Windows.Forms.Label lblSubjectNameL_Remove;
+        private System.Windows.Forms.Label lblYearL_Remove;
+        private System.Windows.Forms.Label lblAnsSemester_Remove;
+        private System.Windows.Forms.Label lblSemesterL_Remove;
+        private System.Windows.Forms.Label lblIsCategoryL_Remove;
+        private System.Windows.Forms.Label lblAnsYear_Remove;
+        private System.Windows.Forms.Label lblIsParallelL_Remove;
+        private System.Windows.Forms.Label lblAnsSubjectCode_Remove;
+        private System.Windows.Forms.Label lblAnsSubjectName_Remove;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnReset_Remove;
+        private System.Windows.Forms.Button btnFindSubject_Remove;
+        private System.Windows.Forms.TextBox txtKeyword_Remove;
+        private System.Windows.Forms.RadioButton radSubjectName_Remove;
+        private System.Windows.Forms.RadioButton radSubjectCode_Remove;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cmbProgram_Add;
+        private System.Windows.Forms.Label lblProgram_Add;
+        private System.Windows.Forms.ComboBox cmbProgram_Edit;
+        private System.Windows.Forms.Label lblProgram_Edit;
+        private System.Windows.Forms.Label label12;
     }
 }
