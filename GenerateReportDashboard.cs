@@ -1236,7 +1236,7 @@ namespace Timetable_Management_System
                this.cmbIsUsed_ManageSession.GetItemText(this.cmbIsUsed_ManageSession.SelectedItem).Trim()
             );
             }
-            
+             
             
             
         }
