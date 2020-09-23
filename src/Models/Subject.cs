@@ -12,6 +12,7 @@ namespace Timetable_Management_System.src.Models
         public String subjectName { get; set; }
         public int offeredYear { get; set; }
         public int offeredSemester { get; set; }
+        public String program { get; set; }
 
         public bool isParallel { get; set; }
         public String category { get; set; }

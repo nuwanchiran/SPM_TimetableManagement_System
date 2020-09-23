@@ -71,9 +71,6 @@ namespace Timetable_Management_System
 
             //Edit tab
 
-          //  pictureBoxLecturer_Edit.Image = Image.FromFile(@"\Timetable_Management_System\images\lecturerDefaultImage.png");
-          //  pictureBoxLecturer_Edit.SizeMode = PictureBoxSizeMode.StretchImage;
-
             string workingDirectory1 = Environment.CurrentDirectory;
             string projectDirectory1 = Directory.GetParent(workingDirectory).Parent.FullName;
             string completePath1 = projectDirectory1 = projectDirectory1 + "\\images\\lecturerDefaultImage.png";
@@ -94,9 +91,6 @@ namespace Timetable_Management_System
 
             pictureBoxLecturer_Edit.Image = Image.FromFile(@"" + completePath);
             pictureBoxLecturer_Edit.SizeMode = PictureBoxSizeMode.StretchImage;
-
-           // pictureBoxLecturer_Edit.Image = Image.FromFile(@"\Timetable_Management_System\images\lecturerDefaultImage.png");
-           // pictureBoxLecturer_Edit.SizeMode = PictureBoxSizeMode.StretchImage;
 
             lblSelectedImg_Edit.Text = "";
             txtEmpRank_Edit.Text = "";
@@ -131,7 +125,6 @@ namespace Timetable_Management_System
 
             chooseImageButtonTouched = false;
 
-            
         }
 
         private void cleanLecturerSummaryAndSetInitialImage_Remove()
@@ -142,10 +135,6 @@ namespace Timetable_Management_System
             lblLecDepartment_Remove.Text = "";
             lblLecFaculty_Remove.Text = "";
             lblLecturerCenter.Text = "";
-
-
-          //  pictureBoxLecturer_Remove.Image = Image.FromFile(@"\Timetable_Management_System\images\lecturerDefaultImage.png");
-          //  pictureBoxLecturer_Remove.SizeMode = PictureBoxSizeMode.StretchImage;
 
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
@@ -165,17 +154,12 @@ namespace Timetable_Management_System
             lblLecCenterSearch.Text = "";
             lblLecRankSearch.Text = "";
 
-           // pictureBoxLecturerSearch.Image = Image.FromFile(@"\Timetable_Management_System\images\lecturerDefaultImage.png");
-           // pictureBoxLecturerSearch.SizeMode = PictureBoxSizeMode.StretchImage;
-
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
             string completePath = projectDirectory = projectDirectory + "\\images\\lecturerDefaultImage.png";
 
             pictureBoxLecturerSearch.Image = Image.FromFile(@"" + completePath);
             pictureBoxLecturerSearch.SizeMode = PictureBoxSizeMode.StretchImage;
-
-
 
         }
 
@@ -204,10 +188,10 @@ namespace Timetable_Management_System
             string selectedCenter = this.cmbCenter.GetItemText(this.cmbCenter.SelectedItem);
             fillBuildingCmb_New(selectedCenter);
             fillFacultyCmb_New(selectedCenter);
-       
+ 
         }
 
-      
+
 
         private void fillBuildingCmb_New(string selectedCenter)
         {
@@ -229,7 +213,6 @@ namespace Timetable_Management_System
                 cmbBuilding.Items.Add("" + $@"{ rdr.GetString(0),-8}".Trim());
             }
             cmbBuilding.SelectedIndex = 0;
-
 
         }
 
@@ -256,9 +239,6 @@ namespace Timetable_Management_System
             cmbFaculty.SelectedIndex = 0;
 
         }
-
-
-
 
         private void fillTitleCmb()
         {
@@ -306,8 +286,6 @@ namespace Timetable_Management_System
             }
             String rank = levelNumber + "."+ txtEmpID.Text;
             txtEmpRank.Text = rank;
-            
-          
         
         }
 
@@ -344,8 +322,6 @@ namespace Timetable_Management_System
             _stringFlags.LineAlignment = StringAlignment.Center;
             g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
         }
-
-      
 
         private void cmbEmpLevel_Changed(object sender, EventArgs e)
         {
@@ -395,10 +371,8 @@ namespace Timetable_Management_System
             }
             else
             {
-                
                 saveImage();
                 addEmployee();  
-               
             }
             loading1.Visible = false;
         }
@@ -473,9 +447,6 @@ namespace Timetable_Management_System
                 {
                     MessageBox.Show("Same lecturer Id already in the system!");
 
-
-                    
-
                     try
                     {
                         // Check if file exists with its full path    
@@ -494,11 +465,6 @@ namespace Timetable_Management_System
                     {
                         MessageBox.Show(ioExp.Message);
                     }
-
-
-
-
-
 
                 }
             }
@@ -617,11 +583,6 @@ namespace Timetable_Management_System
             txtEmpRank.Text = "";
 
 
-
-            //   pictureBoxLecturer.ImageLocation = @"D:\Timetable_Management_System\images\lecturerDefaultImage.png";
-            //   pictureBoxLecturer.Image = Image.FromFile(@"\Timetable_Management_System\images\lecturerDefaultImage.png");
-            //   pictureBoxLecturer.SizeMode = PictureBoxSizeMode.StretchImage;
-
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
             string completePath = projectDirectory = projectDirectory + "\\images\\lecturerDefaultImage.png";
@@ -692,7 +653,7 @@ namespace Timetable_Management_System
             con.Open();
             string stm = "";
 
-            stm = "SELECT department FROM center_faculty_department WHERE centerName = '"+ selectedCenter + "' AND faculty='"+ selectedFaculty + "'";
+            stm = "SELECT department FROM center_faculty_department WHERE centerName = '" + selectedCenter + "' AND faculty='" + selectedFaculty + "'";
 
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
@@ -744,8 +705,7 @@ namespace Timetable_Management_System
             }
             Lecturer lecObj = new Lecturer();
             lecObj = findEmployeeData(keywordForSearch, searchType);
-            //MessageBox.Show(lecObj.lecturerID + lecObj.title+ lecObj.name+ lecObj.faculty + lecObj.department + lecObj.center + lecObj.building + lecObj.employeeLevel + lecObj.photoPath);
-
+          
             if (lecObj.name != null)
             {
                 pictureBoxLecturerSearch.ImageLocation = @"" + lecObj.photoPath;
@@ -783,9 +743,6 @@ namespace Timetable_Management_System
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
 
-
-       //     Console.WriteLine($"{rdr.GetName(0),-3} {rdr.GetName(1),-8} {rdr.GetName(2),8}");
-
             Lecturer lecObj = new Lecturer();
             while (rdr.Read())
             {
@@ -804,7 +761,6 @@ namespace Timetable_Management_System
 
             return lecObj;
 
-
         }
 
         private void btnResetSearch_Click(object sender, EventArgs e)
@@ -817,11 +773,6 @@ namespace Timetable_Management_System
 
         private void resetLecturerSigleView()
         {
-
-           // pictureBoxLecturerSearch.ImageLocation = @"D:\Timetable_Management_System\images\lecturerDefaultImage.png";
-//            pictureBoxLecturerSearch.Image = Image.FromFile(@"\Timetable_Management_System\images\lecturerDefaultImage.png");
-
-  //          pictureBoxLecturerSearch.SizeMode = PictureBoxSizeMode.StretchImage;
 
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
@@ -841,8 +792,9 @@ namespace Timetable_Management_System
 
         private void btnRefreshSearch_Click(object sender, EventArgs e)
         {
-            refreshLecturersSearch();
+            fillComboBoxesInSearch();
 
+            refreshLecturersSearch();
 
             //Reset code
             refreshLecturersSearch();
@@ -906,65 +858,109 @@ namespace Timetable_Management_System
 
         private void fillComboBoxesInSearch()
         {
-            fillFacultySearch();
-            fillDepartmentSearch();
-            fillCenterSearch();
-            fillBuildingSearch();
+            fillCenterCmb_SearchNew();
+
             fillEmployeeLevelSearch();
-
-            setDropdownSearchSelected();
         }
 
-        private void setDropdownSearchSelected()
-        {
-            cmbFacultySearch.SelectedIndex = 0;
-            cmbDepartmentSearch.SelectedIndex = 0;
-            cmbCenterSearch.SelectedIndex = 0;
-            cmbBuildingSearch.SelectedIndex = 0;
-            cmbEmpLevelSearch.SelectedIndex = 0;
-        }
-
-        private void fillFacultySearch()
-        {
-            cmbFacultySearch.Items.Clear();
-
-            cmbFacultySearch.Items.Add("Any");
-
-            cmbFacultySearch.Items.Add("Faculty of Computing");
-            cmbFacultySearch.Items.Add("Faculty of Engineering");
-            cmbFacultySearch.Items.Add("Faculty of Business");
-        }
-
-        private void fillDepartmentSearch()
-        {
-            cmbDepartmentSearch.Items.Clear();
-
-            cmbDepartmentSearch.Items.Add("Any");
-
-            cmbDepartmentSearch.Items.Add("SE");
-            cmbDepartmentSearch.Items.Add("IT");
-            cmbDepartmentSearch.Items.Add("CSNE");
-        }
-
-        private void fillCenterSearch()
+        private void fillCenterCmb_SearchNew()
         {
             cmbCenterSearch.Items.Clear();
-
             cmbCenterSearch.Items.Add("Any");
 
-            cmbCenterSearch.Items.Add("Colombo");
-            cmbCenterSearch.Items.Add("Malabe");
-            cmbCenterSearch.Items.Add("Kandy");
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+            string stm = "";
+
+            stm = "SELECT centerName FROM center";
+
+            using var cmd = new SQLiteCommand(stm, con);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                cmbCenterSearch.Items.Add("" + $@"{ rdr.GetString(0),-8}".Trim());
+            }
+            cmbCenterSearch.SelectedIndex = 0;
+
+            string selectedCenter = this.cmbCenterSearch.GetItemText(this.cmbCenterSearch.SelectedItem);
+            fillBuildingCmb_SearchNew(selectedCenter);
+            fillFacultyCmb_SearchNew(selectedCenter);
+            fillDepartmentCmbAny_New();
+
         }
 
-        private void fillBuildingSearch()
+        private void fillBuildingCmb_SearchNew(string selectedCenter)
         {
             cmbBuildingSearch.Items.Clear();
-
             cmbBuildingSearch.Items.Add("Any");
 
-            cmbBuildingSearch.Items.Add("Main building");
-            cmbBuildingSearch.Items.Add("New building");
+            if (selectedCenter.Equals("Any"))
+            {
+                cmbBuildingSearch.SelectedIndex = 0;
+            }
+            else
+            {
+                string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+                using var con = new SQLiteConnection(cs);
+                con.Open();
+                string stm = "";
+
+                stm = "SELECT building FROM center_building WHERE centerName ='" + selectedCenter + "'";
+
+                using var cmd = new SQLiteCommand(stm, con);
+                using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    cmbBuildingSearch.Items.Add("" + $@"{ rdr.GetString(0),-8}".Trim());
+                }
+                cmbBuildingSearch.SelectedIndex = 0;
+            }
+
+        }
+
+
+        private void fillFacultyCmb_SearchNew(string selectedCenter)
+        {
+            cmbFacultySearch.Items.Clear();
+            cmbFacultySearch.Items.Add("Any");
+
+            if (selectedCenter.Equals("Any"))
+            {
+                cmbFacultySearch.SelectedIndex = 0;
+            }
+            else
+            {
+                string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+                using var con = new SQLiteConnection(cs);
+                con.Open();
+                string stm = "";
+
+                stm = "SELECT faculty FROM center_faculty WHERE centerName ='" + selectedCenter + "'";
+
+                using var cmd = new SQLiteCommand(stm, con);
+                using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    cmbFacultySearch.Items.Add("" + $@"{ rdr.GetString(0),-8}".Trim());
+                }
+                cmbFacultySearch.SelectedIndex = 0;
+            }
+        }
+
+
+        private void fillDepartmentCmbAny_New()
+        {
+            cmbDepartmentSearch.Items.Clear();
+            cmbDepartmentSearch.Items.Add("Any");
+            cmbDepartmentSearch.SelectedIndex = 0;
+                
         }
 
         private void fillEmployeeLevelSearch()
@@ -980,10 +976,14 @@ namespace Timetable_Management_System
             cmbEmpLevelSearch.Items.Add("5 - Lecturer");
             cmbEmpLevelSearch.Items.Add("6 - Assistnt Lecturer");
             cmbEmpLevelSearch.Items.Add("7 - Instructors");
+
+            cmbEmpLevelSearch.SelectedIndex = 0;
         }
 
         private void cmbFacultySearch_SelectedIndexChanged(object sender, EventArgs e)
         {
+            fillDepartmentCmb_SearchNew(this.cmbCenterSearch.GetItemText(this.cmbCenterSearch.SelectedItem), this.cmbFacultySearch.GetItemText(this.cmbFacultySearch.SelectedItem));
+
             filterLecturerByDropdown();
         }
 
@@ -995,7 +995,44 @@ namespace Timetable_Management_System
 
         private void cmbCenterSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
+            fillBuildingCmb_SearchNew(this.cmbCenterSearch.GetItemText(this.cmbCenterSearch.SelectedItem));
+            fillFacultyCmb_SearchNew(this.cmbCenterSearch.GetItemText(this.cmbCenterSearch.SelectedItem));
+            fillDepartmentCmb_SearchNew(this.cmbCenterSearch.GetItemText(this.cmbCenterSearch.SelectedItem), this.cmbFacultySearch.GetItemText(this.cmbFacultySearch.SelectedItem));
+
+
             filterLecturerByDropdown();
+        }
+
+        private void fillDepartmentCmb_SearchNew(string selectedCenter, string selectedFaculty)
+        {
+            cmbDepartmentSearch.Items.Clear();
+            cmbDepartmentSearch.Items.Add("Any");
+
+            if ( !selectedCenter.Equals("Any") && !selectedFaculty.Equals("Any"))
+            {
+                string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+                using var con = new SQLiteConnection(cs);
+                con.Open();
+                string stm = "";
+
+
+                stm = "SELECT department FROM center_faculty_department WHERE centerName = '" + selectedCenter + "' AND faculty='" + selectedFaculty + "'";
+
+                using var cmd = new SQLiteCommand(stm, con);
+                using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    cmbDepartmentSearch.Items.Add("" + $@"{ rdr.GetString(0),-8}".Trim());
+                }
+                cmbDepartmentSearch.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbDepartmentSearch.SelectedIndex = 0;
+            }
+
         }
 
         private void cmbBuildingSearch_SelectedIndexChanged(object sender, EventArgs e)
@@ -1016,8 +1053,6 @@ namespace Timetable_Management_System
 
             string query = genarateQueryForSearchInComboBoxSelection();
 
-           
-            
             System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand(query);
             cmd.Connection = conn;
 
@@ -1048,7 +1083,6 @@ namespace Timetable_Management_System
             dataGridViewSearchLecturer.DataSource = dt;
             conn.Close();
             
-
         }
 
         private String genarateQueryForSearchInComboBoxSelection()
@@ -1077,15 +1111,7 @@ namespace Timetable_Management_System
             }else if (selectedLevel.Equals("7 - Instructors")){
                 selectedLevelNumber = 7;
             }
-/*
-            string q = "SELECT * " +
-                "FROM lecturers " +
-                "WHERE "+"faculty = '"+selectedFaculty +"'"+
-                "AND department = '"+selectedDepartment+"'" +
-                "AND center = '"+ selectedCenter+"'" +
-                "AND building = '"+selectedBuilding+"'" +
-                "AND employeeLevel = '"+ selectedLevelNumber+"'";
-*/
+
             string query = "SELECT * FROM lecturers ";
 
             //Append selected Faculty
@@ -1208,9 +1234,6 @@ namespace Timetable_Management_System
 
                 cmd.CommandText = "DELETE FROM lecturers WHERE lecturerID = @lecturerID"; 
 
-               // cmd.CommandText = "INSERT INTO lecturers VALUES" +
-                 //   "(@lecturerID, @title, @name, @faculty, @department, @center, @building, @employeeLevel, @photoPath)";
-
                 cmd.Parameters.AddWithValue("@lecturerID", lblLecID_Remove.Text);
                 
                 cmd.Prepare();
@@ -1222,8 +1245,6 @@ namespace Timetable_Management_System
                 MessageBox.Show("Employee Deleted successfully.", "Success");
                 cleanLecturerData_Remove();
                 
-
-
             }
         }
 
@@ -1257,11 +1278,6 @@ namespace Timetable_Management_System
 
         private void cleanLecturerData_Remove()
         {
-            //pictureBoxLecturer_Remove.ImageLocation = @"D:\Timetable_Management_System\images\lecturerDefaultImage.png";
-            //pictureBoxLecturer_Remove.Image = Image.FromFile(@"\Timetable_Management_System\images\lecturerDefaultImage.png");
-            //pictureBoxLecturer_Remove.SizeMode = PictureBoxSizeMode.StretchImage;
-
-
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
             string completePath = projectDirectory = projectDirectory + "\\images\\lecturerDefaultImage.png";
@@ -1338,7 +1354,6 @@ namespace Timetable_Management_System
 
                 imagePathForRemove = lecObj.photoPath;
 
-
             }
             else
             {
@@ -1395,9 +1410,6 @@ namespace Timetable_Management_System
 
             if (lecObj.name != null)
             {
-                //pictureBoxLecturer_Edit.ImageLocation = @"" + lecObj.photoPath;
-                //pictureBoxLecturer_Edit.SizeMode = PictureBoxSizeMode.StretchImage;
-
                 string workingDirectory = Environment.CurrentDirectory;
                 string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
                 string completePath = projectDirectory = projectDirectory + "\\images\\lecturerDefaultImage.png";
@@ -1438,9 +1450,6 @@ namespace Timetable_Management_System
             }
 
             pictureBoxLecturer_Edit.Image = imgRemoveLecturer;
-
-        //    pictureBoxLecturer_Edit.Image = Image.FromFile(@"" + lecObj.photoPath);
-        //    pictureBoxLecturer_Edit.SizeMode = PictureBoxSizeMode.StretchImage;
 
         }
 
@@ -1485,9 +1494,6 @@ namespace Timetable_Management_System
             fillBuilding_Edit();
         }
 
-
-
-
         private void fillDepartmentCmb_Edit()
         {
             cmbDepartment_Edit.Items.Clear();
@@ -1496,6 +1502,7 @@ namespace Timetable_Management_System
             cmbDepartment_Edit.Items.Add("IT");
             cmbDepartment_Edit.Items.Add("CSNE");
         }
+
         private void fillCenterCmb_Edit_New()
         {
             cmbCenter_Edit.Items.Clear();
@@ -1521,14 +1528,7 @@ namespace Timetable_Management_System
             fillBuildingCmb_Edit_New(selectedCenter);
             fillFacultyCmb_Edit_New(selectedCenter);
 
-
-            // cmbCenter_Edit.Items.Add("Colombo");
-            // cmbCenter_Edit.Items.Add("Malabe");
-            // cmbCenter_Edit.Items.Add("Kandy");
         }
-
-
-
 
         private void fillBuildingCmb_Edit_New(string selectedCenter)
         {
@@ -1550,7 +1550,6 @@ namespace Timetable_Management_System
                 cmbBuilding_Edit.Items.Add("" + $@"{ rdr.GetString(0),-8}".Trim());
             }
             cmbBuilding_Edit.SelectedIndex = 0;
-
 
         }
 
@@ -1577,12 +1576,6 @@ namespace Timetable_Management_System
             cmbFaculty_Edit.SelectedIndex = 0;
 
         }
-
-
-
-
-
-
 
         private void fillBuilding_Edit()
         {
@@ -1632,9 +1625,6 @@ namespace Timetable_Management_System
             Int32.TryParse(txtEmpID_Edit.Text, out tempEmpId);
 
             int tempEmpLevel = 0;
-
-            
-          //  MessageBox.Show(""+ this.cmbEmpLevel_Edit.GetItemText(this.cmbEmpLevel_Edit.SelectedItem));
 
             if (cmbEmpLevel_Edit.Text.Equals("1 - Professor")){
                 tempEmpLevel = 1;
@@ -1743,8 +1733,6 @@ namespace Timetable_Management_System
                     }
                    
                 }
-
-
 
                 string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
@@ -1896,6 +1884,11 @@ namespace Timetable_Management_System
             }
         }
 
-
+        private void imgLoggedUser_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login obj = new Login();
+            obj.Show();
+        }
     }
 }

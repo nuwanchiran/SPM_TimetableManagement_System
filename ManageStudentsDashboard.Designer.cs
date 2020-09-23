@@ -62,6 +62,7 @@
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.SubGroupNumbers = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -84,6 +85,7 @@
             this.imgManageStudent = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.YearAndSemester.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -515,6 +517,7 @@
             // 
             // SubGroupNumbers
             // 
+            this.SubGroupNumbers.Controls.Add(this.label18);
             this.SubGroupNumbers.Controls.Add(this.label17);
             this.SubGroupNumbers.Controls.Add(this.label7);
             this.SubGroupNumbers.Controls.Add(this.label14);
@@ -535,6 +538,17 @@
             this.SubGroupNumbers.UseVisualStyleBackColor = true;
             this.SubGroupNumbers.Click += new System.EventHandler(this.SubGroupNumbers_Click);
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(845, 17);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(111, 32);
+            this.label18.TabIndex = 93;
+            this.label18.Text = "Group ID";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -544,6 +558,7 @@
             this.label17.Size = new System.Drawing.Size(120, 32);
             this.label17.TabIndex = 92;
             this.label17.Text = "Group No";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // label7
             // 
@@ -554,6 +569,7 @@
             this.label7.Size = new System.Drawing.Size(119, 32);
             this.label7.TabIndex = 91;
             this.label7.Text = "programe";
+            this.label7.Click += new System.EventHandler(this.label7_Click_1);
             // 
             // label14
             // 
@@ -564,6 +580,7 @@
             this.label14.Size = new System.Drawing.Size(114, 32);
             this.label14.TabIndex = 90;
             this.label14.Text = "Semester";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // label15
             // 
@@ -584,6 +601,7 @@
             this.label16.Size = new System.Drawing.Size(59, 32);
             this.label16.TabIndex = 88;
             this.label16.Text = "Year";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // dataGridView4
             // 
@@ -595,6 +613,7 @@
             this.dataGridView4.Size = new System.Drawing.Size(677, 335);
             this.dataGridView4.TabIndex = 87;
             this.dataGridView4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
+            this.dataGridView4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick_2);
             // 
             // button10
             // 
@@ -672,12 +691,14 @@
             // 
             this.imgLoggedUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgLoggedUser.BackgroundImage")));
             this.imgLoggedUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgLoggedUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.imgLoggedUser.Location = new System.Drawing.Point(1792, 1);
             this.imgLoggedUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.imgLoggedUser.Name = "imgLoggedUser";
             this.imgLoggedUser.Size = new System.Drawing.Size(121, 134);
             this.imgLoggedUser.TabIndex = 64;
             this.imgLoggedUser.TabStop = false;
+            this.imgLoggedUser.Click += new System.EventHandler(this.imgLoggedUser_Click);
             // 
             // imgGenerateReport
             // 
@@ -793,11 +814,24 @@
             this.pictureBox1.TabIndex = 54;
             this.pictureBox1.TabStop = false;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label19.Location = new System.Drawing.Point(1803, 88);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(58, 17);
+            this.label19.TabIndex = 78;
+            this.label19.Text = "Logout";
+            // 
             // ManageStudentsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 673);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.imgTime);
             this.Controls.Add(this.imgLoggedUser);
             this.Controls.Add(this.imgGenerateReport);
@@ -840,6 +874,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -900,5 +935,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
     }
 }
