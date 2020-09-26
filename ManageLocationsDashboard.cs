@@ -24,6 +24,9 @@ namespace Timetable_Management_System
         private DataSet roomDataSet = new DataSet();
         private DataTable roomsTable = new DataTable();
 
+        private DataSet suitableRoomTypeTagsDataSet = new DataSet();
+        private DataTable suitableRoomTypeTagsTable = new DataTable();
+
         public class RoomType
         {
             public string Name { get; set; }
@@ -43,11 +46,17 @@ namespace Timetable_Management_System
 
             createBuildingTableIfEmpty();
             createRoomsTableIfEmpty();
+            createSuitableRoomTypesForTagsTableIfEmpty();
 
             loadBuildingsData();
             loadRoomData();
             loadBuildingsToComboBox(); 
             loadRoomsToComboBox();
+            loadRoomTypeTagsData();
+
+            // Suitable Rooms for tags
+            loadTagsToCombo();
+            
         }
 
 
@@ -200,6 +209,23 @@ namespace Timetable_Management_System
             cmd.ExecuteNonQuery();
         }
 
+        private void createSuitableRoomTypesForTagsTableIfEmpty()
+        {
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+            using var cmd = new SQLiteCommand(con);
+
+            cmd.CommandText = @"CREATE TABLE  IF NOT EXISTS suitable_roomtype_tags (
+                                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                roomType TEXT,
+                                tagId INTEGER,
+                                FOREIGN KEY(tagId) REFERENCES tags(id)
+                )";
+            cmd.ExecuteNonQuery();
+        }
         // Create SQLite DB Conn
         private void setConnection()
         {
@@ -233,6 +259,20 @@ namespace Timetable_Management_System
             sql_conn.Close();
         }
 
+
+        private void loadRoomTypeTagsData()
+        {
+            setConnection();
+            sql_conn.Open();
+            sql_cmd = sql_conn.CreateCommand();
+            string commandText = "select * from suitable_roomtype_tags";
+            dbAdapter = new SQLiteDataAdapter(commandText, sql_conn);
+            suitableRoomTypeTagsDataSet.Reset();
+            dbAdapter.Fill(suitableRoomTypeTagsDataSet);
+            suitableRoomTypeTagsTable = suitableRoomTypeTagsDataSet.Tables[0];
+            suitableRoomTypeTagsGrid.DataSource = suitableRoomTypeTagsTable;
+            sql_conn.Close();
+        }
         private void loadBuildingsData()
         {
             setConnection();
@@ -404,6 +444,39 @@ namespace Timetable_Management_System
             editComboRoomType.DisplayMember = "Name";
             editComboRoomType.ValueMember = "Value";
             editComboRoomType.DataSource = dataSource;
+
+
+            nav3comboRoomTypes.DisplayMember = "Name";
+            nav3comboRoomTypes.ValueMember = "Value";
+            nav3comboRoomTypes.DataSource = dataSource;
+        }
+
+
+
+        private void loadTagsToCombo()
+        {
+            setConnection();
+            sql_conn.Open();
+            sql_cmd = sql_conn.CreateCommand();
+            string commandText = "select * from tags";
+            dbAdapter = new SQLiteDataAdapter(commandText, sql_conn);
+
+            //Fill the DataTable with records from Table.
+            DataSet dt = new DataSet();
+            dbAdapter.Fill(dt, "Fleet");
+
+            //Insert the Default Item to DataTable.
+            /*DataRow row = dt.NewRow();
+            row[0] = 0;
+            row[1] = "Please select";
+            dt.Rows.InsertAt(row, 0);
+            */
+
+            comboBoxTags.DisplayMember = "tag";
+            comboBoxTags.ValueMember = "id";
+            comboBoxTags.DataSource = dt.Tables["Fleet"];
+
+            sql_conn.Close();
         }
 
         private void roomsGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -445,6 +518,41 @@ namespace Timetable_Management_System
             this.Hide();
             Login obj = new Login();
             obj.Show();
+        }
+
+        private void lblRoomsForTags_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RoomsForTags_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(true)
+            {
+                // Insert Room
+                string insertQ = "insert into suitable_roomtype_tags (roomType, tagId ) VALUES('" + nav3comboRoomTypes.SelectedText + "', '" + comboBoxTags.SelectedValue + "')";
+                executeQuery(insertQ);
+                loadRoomTypeTagsData();
+            }
+            else
+            {
+                MessageBox.Show(" Form has some errors !");
+            }
         }
     }
 }
