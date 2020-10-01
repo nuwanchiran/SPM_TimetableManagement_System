@@ -113,6 +113,10 @@
             this.RoomManagement = new System.Windows.Forms.TabPage();
             this.lblRoomManagement = new System.Windows.Forms.Label();
             this.GenerateTimetable = new System.Windows.Forms.TabPage();
+            this.simpleGrid = new System.Windows.Forms.DataGridView();
+            this.btnGenarate = new System.Windows.Forms.Button();
+            this.comboTableType = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.lblGenerateTimetable = new System.Windows.Forms.Label();
             this.imgLoggedUser = new System.Windows.Forms.PictureBox();
             this.imgGenerateReport = new System.Windows.Forms.PictureBox();
@@ -126,6 +130,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.combolecName = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.CreateSession.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -138,6 +144,7 @@
             this.TimeManagement.SuspendLayout();
             this.RoomManagement.SuspendLayout();
             this.GenerateTimetable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoggedUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgGenerateReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStatistics)).BeginInit();
@@ -149,6 +156,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1014,6 +1022,11 @@
             // 
             // GenerateTimetable
             // 
+            this.GenerateTimetable.Controls.Add(this.groupBox2);
+            this.GenerateTimetable.Controls.Add(this.simpleGrid);
+            this.GenerateTimetable.Controls.Add(this.btnGenarate);
+            this.GenerateTimetable.Controls.Add(this.comboTableType);
+            this.GenerateTimetable.Controls.Add(this.label10);
             this.GenerateTimetable.Controls.Add(this.lblGenerateTimetable);
             this.GenerateTimetable.Location = new System.Drawing.Point(224, 4);
             this.GenerateTimetable.Name = "GenerateTimetable";
@@ -1022,14 +1035,54 @@
             this.GenerateTimetable.Text = "Generate Timetable";
             this.GenerateTimetable.UseVisualStyleBackColor = true;
             // 
+            // simpleGrid
+            // 
+            this.simpleGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.simpleGrid.Location = new System.Drawing.Point(94, 318);
+            this.simpleGrid.Name = "simpleGrid";
+            this.simpleGrid.RowHeadersWidth = 51;
+            this.simpleGrid.RowTemplate.Height = 24;
+            this.simpleGrid.Size = new System.Drawing.Size(1254, 237);
+            this.simpleGrid.TabIndex = 64;
+            // 
+            // btnGenarate
+            // 
+            this.btnGenarate.Location = new System.Drawing.Point(784, 127);
+            this.btnGenarate.Name = "btnGenarate";
+            this.btnGenarate.Size = new System.Drawing.Size(301, 35);
+            this.btnGenarate.TabIndex = 63;
+            this.btnGenarate.Text = "Genarate";
+            this.btnGenarate.UseVisualStyleBackColor = true;
+            this.btnGenarate.Click += new System.EventHandler(this.btnGenarate_Click);
+            // 
+            // comboTableType
+            // 
+            this.comboTableType.FormattingEnabled = true;
+            this.comboTableType.Location = new System.Drawing.Point(420, 131);
+            this.comboTableType.Name = "comboTableType";
+            this.comboTableType.Size = new System.Drawing.Size(259, 28);
+            this.comboTableType.TabIndex = 62;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(205, 127);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(182, 32);
+            this.label10.TabIndex = 61;
+            this.label10.Text = "Time table type";
+            // 
             // lblGenerateTimetable
             // 
             this.lblGenerateTimetable.AutoSize = true;
+            this.lblGenerateTimetable.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenerateTimetable.Location = new System.Drawing.Point(320, 36);
             this.lblGenerateTimetable.Name = "lblGenerateTimetable";
-            this.lblGenerateTimetable.Size = new System.Drawing.Size(140, 20);
+            this.lblGenerateTimetable.Size = new System.Drawing.Size(395, 59);
             this.lblGenerateTimetable.TabIndex = 0;
             this.lblGenerateTimetable.Text = "Generate Timetable";
+            this.lblGenerateTimetable.Click += new System.EventHandler(this.lblGenerateTimetable_Click);
             // 
             // imgLoggedUser
             // 
@@ -1172,6 +1225,26 @@
             this.label9.TabIndex = 77;
             this.label9.Text = "Logout";
             // 
+            // combolecName
+            // 
+            this.combolecName.FormattingEnabled = true;
+            this.combolecName.Location = new System.Drawing.Point(29, 55);
+            this.combolecName.Name = "combolecName";
+            this.combolecName.Size = new System.Drawing.Size(252, 28);
+            this.combolecName.TabIndex = 65;
+            this.combolecName.SelectedIndexChanged += new System.EventHandler(this.combolecName_SelectedIndexChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.combolecName);
+            this.groupBox2.Location = new System.Drawing.Point(94, 212);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(301, 100);
+            this.groupBox2.TabIndex = 66;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Lecture Name";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
             // GenerateReportDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1213,6 +1286,7 @@
             this.RoomManagement.PerformLayout();
             this.GenerateTimetable.ResumeLayout(false);
             this.GenerateTimetable.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgLoggedUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgGenerateReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgStatistics)).EndInit();
@@ -1224,6 +1298,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1328,5 +1403,11 @@
         private System.Windows.Forms.Button btnRemoveSession_ManageSession;
         private System.Windows.Forms.Button btnResetManageSession;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboTableType;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnGenarate;
+        private System.Windows.Forms.DataGridView simpleGrid;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox combolecName;
     }
 }
