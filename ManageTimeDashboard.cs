@@ -15,6 +15,7 @@ using Timetable_Management_System.src.Models;
 using System.Globalization;
 using System.Runtime.InteropServices;
 
+
 namespace Timetable_Management_System
 {
     public partial class ManageTimeDashboard : Form
@@ -27,6 +28,7 @@ namespace Timetable_Management_System
             fillCombo();
         }
 
+
         public class Slot
         {
             public String startTime { get; set; }
@@ -35,14 +37,11 @@ namespace Timetable_Management_System
 
             public String fullSlot { get; set; }
         }
-        /*
-        private SQLiteConnection sql_con;
-        private SQLiteCommand sql_cmd;
-        private SQLiteDataAdapter DB;
-        private DataSet DS = new DataSet();
-        private DataTable DT = new DataTable();
+  
 
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KEB3VJ8\SQLEXPRESS;Initial Catalog=onsys_testing;Integrated Security=True");*/
+
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KEB3VJ8\SQLEXPRESS;Initial Catalog=onsys_testing;Integrated Security=True");
+        
         String monday = "";
         String tuesday = "";
         String wednesday = "";
@@ -71,6 +70,8 @@ namespace Timetable_Management_System
         {
 
         }
+
+        
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
             Graphics g = e.Graphics;

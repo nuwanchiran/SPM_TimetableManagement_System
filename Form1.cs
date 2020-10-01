@@ -27,16 +27,16 @@ namespace Timetable_Management_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-			if(txtUsername.Text.Equals("admin") && txtPassword.Text.Equals("admin"))
-           {
+			//if(txtUsername.Text.Equals("admin") && txtPassword.Text.Equals("admin"))
+           //{
 				this.Hide();
 				ManageStudentsDashboard obj = new ManageStudentsDashboard();
 				obj.Show();
-			}
-            else
-            {
-				MessageBox.Show("Incorrent Username or password");
-            }
+			//}
+            //else
+           // {
+			//	MessageBox.Show("Incorrent Username or password");
+            //}
 
         }
 

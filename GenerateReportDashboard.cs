@@ -701,14 +701,15 @@ namespace Timetable_Management_System
                                     subGroupId                INTEGER,
                                     subjectId               TEXT,
                                     noOfStudents            INTEGER,
-                                    sessionDuration         DOUBLE 
+                                    sessionDuration         DOUBLE,
+                                    isUsed                  BOOLEAN
                 )";
             cmd.ExecuteNonQuery();
 
             using var cmd1 = new SQLiteCommand(con);
 
             cmd1.CommandText = "INSERT INTO session VALUES" +
-                "(@sessionId, @tag, @year, @semester, @program, @groupId, @subGroupId, @subjectId, @noOfStudents, @sessionDuration)";
+                "(@sessionId, @tag, @year, @semester, @program, @groupId, @subGroupId, @subjectId, @noOfStudents, @sessionDuration,@isUsed)";
 
             cmd1.Parameters.AddWithValue("@sessionId", sessionId);
             cmd1.Parameters.AddWithValue("@tag", tag);
@@ -720,6 +721,8 @@ namespace Timetable_Management_System
             cmd1.Parameters.AddWithValue("@subjectId", subjectId);
             cmd1.Parameters.AddWithValue("@noOfStudents", noOfStudentsNum);
             cmd1.Parameters.AddWithValue("@sessionDuration", sessionDurationNum);
+            cmd1.Parameters.AddWithValue("@isUsed", false);
+            
 
             cmd1.Prepare();
             bool addSessionOK = true;
@@ -991,7 +994,7 @@ namespace Timetable_Management_System
             System.Data.SQLite.SQLiteConnection conn = new System.Data.SQLite.SQLiteConnection(cs);
 
             System.Data.SQLite.SQLiteCommand cmd = new System.Data.SQLite.SQLiteCommand(
-                "select session.sessionId AS SessionId ,session.tag AS Tag ,session.year AS Year ,session.semester AS Semester ,session.program AS Program ,session.groupId AS Group_Id ,session.subGroupId AS SubGroup_Id ,session.subjectId AS Subject_Id ,session.noOfStudents AS No_of_Students ,session.sessionDuration AS Hours from session"
+                "select session.sessionId AS SessionId ,session.tag AS Tag ,session.year AS Year ,session.semester AS Semester ,session.program AS Program ,session.groupId AS Group_Id ,session.subGroupId AS SubGroup_Id ,session.subjectId AS Subject_Id ,session.noOfStudents AS No_of_Students ,session.sessionDuration AS Hours, session.isUsed AS IS_Used from session"
                 );
 
             cmd.Connection = conn;
@@ -1020,7 +1023,8 @@ namespace Timetable_Management_System
                                     subGroupId                INTEGER,
                                     subjectId               TEXT,
                                     noOfStudents            INTEGER,
-                                    sessionDuration         DOUBLE 
+                                    sessionDuration         DOUBLE,
+                                    isUsed                  BOOLEAN
                 )";
             cmdCreateSubject.ExecuteNonQuery();
 
@@ -1057,7 +1061,8 @@ namespace Timetable_Management_System
                                     subGroupId                INTEGER,
                                     subjectId               TEXT,
                                     noOfStudents            INTEGER,
-                                    sessionDuration         DOUBLE 
+                                    sessionDuration         DOUBLE,
+                                    isUsed                  BOOLEAN
                 )";
             cmdCreateSubject.ExecuteNonQuery();
             conn.Close();
@@ -1243,10 +1248,11 @@ namespace Timetable_Management_System
                this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
                this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
                this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
-               this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
+               this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem),
+               this.cmbIsUsed_ManageSession.GetItemText(this.cmbIsUsed_ManageSession.SelectedItem).Trim()
             );
             }
-            
+             
             
             
         }
@@ -1256,12 +1262,13 @@ namespace Timetable_Management_System
             if (dashboardLoaded == true)
             {
                 filterSessions_ManageSession(
-                   this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
-                   this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
-                   this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
-                   this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
-                   this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
-                    );
+                this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
+                this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
+                this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
+                this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
+                this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem),
+                this.cmbIsUsed_ManageSession.GetItemText(this.cmbIsUsed_ManageSession.SelectedItem).Trim()
+            );
             }
             
             
@@ -1282,7 +1289,8 @@ namespace Timetable_Management_System
                 this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
                 this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
                 this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
-                this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
+                this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem),
+                this.cmbIsUsed_ManageSession.GetItemText(this.cmbIsUsed_ManageSession.SelectedItem).Trim()
                 );
             }
 
@@ -1294,12 +1302,13 @@ namespace Timetable_Management_System
             if (dashboardLoaded == true)
             {
                 filterSessions_ManageSession(
-                                this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
-                                this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
-                                this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
-                                this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
-                                this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
-                                );
+                    this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
+                    this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
+                    this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
+                    this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
+                    this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem),
+                    this.cmbIsUsed_ManageSession.GetItemText(this.cmbIsUsed_ManageSession.SelectedItem).Trim()
+            );
             }
 
         }
@@ -1315,10 +1324,26 @@ namespace Timetable_Management_System
                this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
                this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
                this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
-               this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem)
+               this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem),
+               this.cmbIsUsed_ManageSession.GetItemText(this.cmbIsUsed_ManageSession.SelectedItem).Trim()
                 );
             }
 
+        }
+
+        private void cmbIsUsed_ManageSession_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (dashboardLoaded == true)
+            {
+                filterSessions_ManageSession(
+               this.cmbSubject_ManageSession.GetItemText(this.cmbSubject_ManageSession.SelectedItem),
+               this.cmbLecturer_ManageSession.GetItemText(this.cmbLecturer_ManageSession.SelectedItem),
+               this.cmbGroup_ManageSession.GetItemText(this.cmbGroup_ManageSession.SelectedItem),
+               this.cmbSubGroup_ManageSession.GetItemText(this.cmbSubGroup_ManageSession.SelectedItem),
+               this.cmbTag_ManageSession.GetItemText(this.cmbTag_ManageSession.SelectedItem),
+               this.cmbIsUsed_ManageSession.GetItemText(this.cmbIsUsed_ManageSession.SelectedItem).Trim()
+                );
+            }
         }
 
         private void refreshSubGroupAccordingToGroup(string selectedGroup)
@@ -1381,6 +1406,7 @@ namespace Timetable_Management_System
             //fillSubGroupCmb_ManageSession();
             refreshSubGroupAccordingToGroup("Any");
             fillTagCmb_ManageSession();
+            fillUsedCmb_ManageSession();
         }
 
         private void fillSubjectCmb_ManageSession()
@@ -1467,6 +1493,15 @@ namespace Timetable_Management_System
 
             
             cmbLecturer_ManageSession.SelectedIndex = 0;
+        }
+
+        private void fillUsedCmb_ManageSession()
+        {
+            cmbIsUsed_ManageSession.Items.Clear();
+            cmbIsUsed_ManageSession.Items.Add("Any");
+            cmbIsUsed_ManageSession.Items.Add("Used");
+            cmbIsUsed_ManageSession.Items.Add("Not Used");
+            cmbIsUsed_ManageSession.SelectedIndex = 0;
         }
 
         private void fillGroupCmb_ManageSession()
@@ -1612,7 +1647,7 @@ namespace Timetable_Management_System
 
         }
 
-        private void filterSessions_ManageSession(string subject, string lecturer, string group, string subGroup, string tag)
+        private void filterSessions_ManageSession(string subject, string lecturer, string group, string subGroup, string tag, string isUsed)
         {
           
             string cs = @"URI=file:.\" + Utils.dbName + ".db";
@@ -1635,7 +1670,8 @@ namespace Timetable_Management_System
                                     subGroupId                INTEGER,
                                     subjectId               TEXT,
                                     noOfStudents            INTEGER,
-                                    sessionDuration         DOUBLE 
+                                    sessionDuration         DOUBLE,
+                                    isUsed                  BOOLEAN
                 )";
             cmdCreateSubject.ExecuteNonQuery();
 
@@ -1670,7 +1706,8 @@ namespace Timetable_Management_System
                "session.subGroupId AS SubGroup_Id ," +
                "session.subjectId AS Subject_Id ," +
                "session.noOfStudents AS No_of_Students ," +
-               "session.sessionDuration AS Hours " +
+               "session.sessionDuration AS Hours ," +
+               "session.isUsed AS isUsed " +
                "from session ";
                 bool whereClauseAdded = false;
                 bool havePrevCondition = false;
@@ -1737,6 +1774,33 @@ namespace Timetable_Management_System
                     }
                     
                     query = query + "session.tag = '" + tag + "' ";
+                    havePrevCondition = true;
+                }
+                if (!isUsed.Equals("Any"))
+                {
+                    if (havePrevCondition == true)
+                    {
+                        query = query + " AND ";
+                    }
+                    if (whereClauseAdded == false)
+                    {
+                        query = query + " WHERE ";
+                        whereClauseAdded = true;
+                    }
+
+                    bool boolIsUsed = false;
+                    if (isUsed.Equals("Used"))
+                    {
+                        boolIsUsed = true;
+                    }
+                    else if (isUsed.Equals("Not Used"))
+                    {
+                        boolIsUsed = false;
+                    }
+
+                    
+
+                    query = query + "session.isUsed = " + boolIsUsed + " ";
                     havePrevCondition = true;
                 }
 
