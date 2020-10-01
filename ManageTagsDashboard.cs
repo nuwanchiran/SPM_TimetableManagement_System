@@ -28,9 +28,11 @@ namespace Timetable_Management_System
 
         private void ManageTagsDashboard_Load(object sender, EventArgs e)
         {
-            createTagsTableIfEmpty();
 
+            createTagsTableIfEmpty();
             LoadTags();
+            insertInitialTags();
+
         }
 
         // Create "tags" table if not exists
@@ -49,6 +51,25 @@ namespace Timetable_Management_System
                 )";
             cmd.ExecuteNonQuery();
         }
+
+        private void insertInitialTags()
+        {
+            string cs = @"URI=file:.\timetableManagementSystemDB.db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+            using var cmd = new SQLiteCommand(con);
+            if (DT.Rows.Count == 0)
+            {
+                cmd.CommandText = @"INSERT INTO  tags(tag) VALUES 
+                                    ( 'Lecture'),
+                                    ( 'Tutorial' ),
+                                    ( 'Practical')
+                ;";
+                cmd.ExecuteNonQuery();
+            }
+        }
         //set connection
         private void setConnection()
         {
@@ -64,6 +85,7 @@ namespace Timetable_Management_System
             DS.Reset();
             DB.Fill(DS);
             DT = DS.Tables[0];
+            
             dataGridView1.DataSource = DT;
             sql_con.Close();
         }
@@ -244,6 +266,13 @@ namespace Timetable_Management_System
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void imgLoggedUser_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login obj = new Login();
+            obj.Show();
         }
     }
 }

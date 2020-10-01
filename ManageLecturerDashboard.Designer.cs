@@ -165,6 +165,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imgTime = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.AddLecturer.SuspendLayout();
             this.groupBoxLecturer.SuspendLayout();
@@ -1232,7 +1233,7 @@
             // Building
             // 
             this.Building.AutoSize = true;
-            this.Building.Location = new System.Drawing.Point(683, 303);
+            this.Building.Location = new System.Drawing.Point(259, 302);
             this.Building.Name = "Building";
             this.Building.Size = new System.Drawing.Size(64, 20);
             this.Building.TabIndex = 36;
@@ -1241,7 +1242,7 @@
             // lblCenterSearch
             // 
             this.lblCenterSearch.AutoSize = true;
-            this.lblCenterSearch.Location = new System.Drawing.Point(480, 303);
+            this.lblCenterSearch.Location = new System.Drawing.Point(56, 302);
             this.lblCenterSearch.Name = "lblCenterSearch";
             this.lblCenterSearch.Size = new System.Drawing.Size(52, 20);
             this.lblCenterSearch.TabIndex = 35;
@@ -1250,7 +1251,7 @@
             // lblDepartmentSearch
             // 
             this.lblDepartmentSearch.AutoSize = true;
-            this.lblDepartmentSearch.Location = new System.Drawing.Point(248, 301);
+            this.lblDepartmentSearch.Location = new System.Drawing.Point(645, 301);
             this.lblDepartmentSearch.Name = "lblDepartmentSearch";
             this.lblDepartmentSearch.Size = new System.Drawing.Size(89, 20);
             this.lblDepartmentSearch.TabIndex = 34;
@@ -1259,7 +1260,7 @@
             // lblFacultySearch
             // 
             this.lblFacultySearch.AutoSize = true;
-            this.lblFacultySearch.Location = new System.Drawing.Point(57, 301);
+            this.lblFacultySearch.Location = new System.Drawing.Point(454, 301);
             this.lblFacultySearch.Name = "lblFacultySearch";
             this.lblFacultySearch.Size = new System.Drawing.Size(54, 20);
             this.lblFacultySearch.TabIndex = 33;
@@ -1277,7 +1278,7 @@
             // cmbBuildingSearch
             // 
             this.cmbBuildingSearch.FormattingEnabled = true;
-            this.cmbBuildingSearch.Location = new System.Drawing.Point(753, 298);
+            this.cmbBuildingSearch.Location = new System.Drawing.Point(329, 297);
             this.cmbBuildingSearch.Name = "cmbBuildingSearch";
             this.cmbBuildingSearch.Size = new System.Drawing.Size(121, 28);
             this.cmbBuildingSearch.TabIndex = 31;
@@ -1286,7 +1287,7 @@
             // cmbCenterSearch
             // 
             this.cmbCenterSearch.FormattingEnabled = true;
-            this.cmbCenterSearch.Location = new System.Drawing.Point(556, 298);
+            this.cmbCenterSearch.Location = new System.Drawing.Point(132, 297);
             this.cmbCenterSearch.Name = "cmbCenterSearch";
             this.cmbCenterSearch.Size = new System.Drawing.Size(121, 28);
             this.cmbCenterSearch.TabIndex = 30;
@@ -1295,7 +1296,7 @@
             // cmbDepartmentSearch
             // 
             this.cmbDepartmentSearch.FormattingEnabled = true;
-            this.cmbDepartmentSearch.Location = new System.Drawing.Point(343, 298);
+            this.cmbDepartmentSearch.Location = new System.Drawing.Point(740, 298);
             this.cmbDepartmentSearch.Name = "cmbDepartmentSearch";
             this.cmbDepartmentSearch.Size = new System.Drawing.Size(121, 28);
             this.cmbDepartmentSearch.TabIndex = 29;
@@ -1304,7 +1305,7 @@
             // cmbFacultySearch
             // 
             this.cmbFacultySearch.FormattingEnabled = true;
-            this.cmbFacultySearch.Location = new System.Drawing.Point(118, 298);
+            this.cmbFacultySearch.Location = new System.Drawing.Point(515, 298);
             this.cmbFacultySearch.Name = "cmbFacultySearch";
             this.cmbFacultySearch.Size = new System.Drawing.Size(121, 28);
             this.cmbFacultySearch.TabIndex = 28;
@@ -1502,11 +1503,13 @@
             // 
             this.imgLoggedUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgLoggedUser.BackgroundImage")));
             this.imgLoggedUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgLoggedUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.imgLoggedUser.Location = new System.Drawing.Point(1791, 0);
             this.imgLoggedUser.Name = "imgLoggedUser";
             this.imgLoggedUser.Size = new System.Drawing.Size(121, 134);
             this.imgLoggedUser.TabIndex = 53;
             this.imgLoggedUser.TabStop = false;
+            this.imgLoggedUser.Click += new System.EventHandler(this.imgLoggedUser_Click);
             // 
             // imgGenerateReport
             // 
@@ -1625,11 +1628,24 @@
             this.imgTime.TabStop = false;
             this.imgTime.Click += new System.EventHandler(this.imgTime_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label9.Location = new System.Drawing.Point(1805, 87);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 17);
+            this.label9.TabIndex = 114;
+            this.label9.Text = "Logout";
+            // 
             // ManageLecturerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.imgTime);
             this.Controls.Add(this.imgLoggedUser);
             this.Controls.Add(this.imgGenerateReport);
@@ -1687,6 +1703,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgTime)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1828,5 +1845,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblLecRankSearch;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -229,7 +229,7 @@ namespace Timetable_Management_System
             LoadPrograme();
         }
 
-
+        //genarateGroupID
         //del programe
         private void button5_Click(object sender, EventArgs e)
         {
@@ -322,41 +322,66 @@ namespace Timetable_Management_System
         //set year and semester
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try{
+            try
+            {
                 label8.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 comboBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 comboBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            }catch(Exception e){
-                MessageBox.Show("message")
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select the corner");
             }
         }
 
         //show year,semester and program
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            label9.Text = dataGridView2.SelectedRows[0].Cells[0].Value.ToString();
-            label3.Text = dataGridView2.SelectedRows[0].Cells[1].Value.ToString();
-            label10.Text = dataGridView2.SelectedRows[0].Cells[2].Value.ToString();
-            comboBox3.Text = dataGridView2.SelectedRows[0].Cells[3].Value.ToString();
+            try
+            {
+                label9.Text = dataGridView2.SelectedRows[0].Cells[0].Value.ToString();
+                label3.Text = dataGridView2.SelectedRows[0].Cells[1].Value.ToString();
+                label10.Text = dataGridView2.SelectedRows[0].Cells[2].Value.ToString();
+                comboBox3.Text = dataGridView2.SelectedRows[0].Cells[3].Value.ToString();
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Please select the corner");
+            }
         }
 
         //show year,semester,program and group no
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+
             label11.Text = dataGridView3.SelectedRows[0].Cells[0].Value.ToString();
             label12.Text = dataGridView3.SelectedRows[0].Cells[1].Value.ToString();
             label5.Text = dataGridView3.SelectedRows[0].Cells[2].Value.ToString();
             label13.Text = dataGridView3.SelectedRows[0].Cells[3].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select the corner");
+            }
         }
         //show year,semester,program,group no and sub group no
         private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+
             label15.Text = dataGridView4.SelectedRows[0].Cells[0].Value.ToString();
             label16.Text = dataGridView4.SelectedRows[0].Cells[1].Value.ToString();
             label14.Text = dataGridView4.SelectedRows[0].Cells[2].Value.ToString();
             label7.Text = dataGridView4.SelectedRows[0].Cells[3].Value.ToString();
             label17.Text = dataGridView4.SelectedRows[0].Cells[4].Value.ToString();
             label18.Text = dataGridView4.SelectedRows[0].Cells[6].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select the corner");
+            }
         }
 
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
@@ -544,26 +569,6 @@ namespace Timetable_Management_System
 
         }
 
-        private void dataGridView4_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView3_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void label11_Click(object sender, EventArgs e)
         {
 
@@ -595,11 +600,6 @@ namespace Timetable_Management_System
         }
 
         private void SubGroupNumbers_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -652,6 +652,13 @@ namespace Timetable_Management_System
         private void dataGridView4_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void imgLoggedUser_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login obj = new Login();
+            obj.Show();
         }
     }
 }
