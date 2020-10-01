@@ -330,7 +330,7 @@ namespace Timetable_Management_System
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please select the coner");
+                MessageBox.Show("Please select the corner");
             }
 
         }
@@ -346,7 +346,7 @@ namespace Timetable_Management_System
                 comboBox3.Text = dataGridView2.SelectedRows[0].Cells[3].Value.ToString();
             }catch(Exception ex)
             {
-                MessageBox.Show("Please select the coner");
+                MessageBox.Show("Please select the corner");
             }
         }
 
@@ -363,7 +363,7 @@ namespace Timetable_Management_System
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please select the coner");
+                MessageBox.Show("Please select the corner");
             }
         }
         //show year,semester,program,group no and sub group no
@@ -381,7 +381,7 @@ namespace Timetable_Management_System
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Please select the coner");
+                MessageBox.Show("Please select the corner");
             }
         }
 
