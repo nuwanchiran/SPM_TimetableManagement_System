@@ -332,7 +332,6 @@ namespace Timetable_Management_System
             {
                 MessageBox.Show("Please select the corner");
             }
-
         }
 
         //show year,semester and program
