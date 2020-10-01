@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace Timetable_Management_System
 {
@@ -19,10 +20,39 @@ namespace Timetable_Management_System
             this.WindowState = FormWindowState.Maximized;
         }
 
+        /*private SQLiteConnection sql_con;
+        private SQLiteCommand sql_cmd;
+        private SQLiteDataAdapter DB;
+        private DataSet DS = new DataSet();
+        private DataTable DT = new DataTable();
+        */
         private void ManageTimeDashboard_Load(object sender, EventArgs e)
         {
 
         }
+
+        /*private void createParallelSessionTable()
+        {
+            string cs = @"URI=file:.\timetableManagementSystemDB.db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+            using var cmd = new SQLiteCommand(con);
+
+            cmd.CommandText = @"CREATE TABLE  IF NOT EXISTS parallel_sessions (
+                                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                group_id TEXT,
+                                subgroup_id TEXT,
+                                session_id TEXT,
+                                lecturer_id TEXT,
+                                time_slot TEXT,
+                                FOREIGN KEY (group_id) REFERENCES year_semester(group_id),
+                                FOREIGN KEY (subgroup_id) REFERENCES year_semester(subgroup_id),
+                                FOREIGN KEY (lecturer_id) REFERENCES year_semester(lecturerID))";
+            cmd.ExecuteNonQuery();
+        }*/
+
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
             Graphics g = e.Graphics;

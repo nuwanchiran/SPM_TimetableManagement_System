@@ -322,9 +322,13 @@ namespace Timetable_Management_System
         //set year and semester
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            label8.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            comboBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            comboBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            try{
+                label8.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                comboBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                comboBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            }catch(Exception e){
+                MessageBox.Show("message")
+            }
         }
 
         //show year,semester and program
