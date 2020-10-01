@@ -19,5 +19,6 @@ namespace Timetable_Management_System.src.Models
         public string subjectId { get; set; }
         public int noOfStudents { get; set; }
         public int sessionDuration { get; set; }
-}
+        public bool isUsed { get; set; } 
+    }
 }
