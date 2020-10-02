@@ -27,16 +27,16 @@ namespace Timetable_Management_System
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-			//if(txtUsername.Text.Equals("admin") && txtPassword.Text.Equals("admin"))
-           //{
+			if(txtUsername.Text.Equals("admin") && txtPassword.Text.Equals("admin"))
+           {
 				this.Hide();
 				ManageStudentsDashboard obj = new ManageStudentsDashboard();
 				obj.Show();
-			//}
-            //else
-           // {
-			//	MessageBox.Show("Incorrent Username or password");
-            //}
+			}
+            else
+            {
+				MessageBox.Show("Incorrent Username or password");
+            }
 
         }
 
@@ -204,13 +204,28 @@ VALUES	('Malabe','Faculty of Computing','SE Department'),
 			cmd2.ExecuteNonQuery();
 
 
+			//ravindu insert
+			using var cmd3 = new SQLiteCommand(con);
 
+			cmd3.CommandText = @"
+	CREATE TABLE  IF NOT EXISTS Days(
+								dayID INTEGER PRIMARY KEY,
+								day TEXT
+				)
+";
 
+			cmd3.ExecuteNonQuery();
 
+			using var cmd4 = new SQLiteCommand(con);
 
-		
+			cmd4.CommandText = @"
 
+INSERT OR IGNORE INTO Days
+VALUES ('1','Monday'),('2','Tuesday'),('3','Wednesday'),('4','Thursday'),
+		('5','Froday'),('6','Saturday'),('7','Sunday');
+";
 
+			cmd4.ExecuteNonQuery();
 
 			con.Close();
            

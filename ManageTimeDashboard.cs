@@ -34,17 +34,13 @@ namespace Timetable_Management_System
             public String startTime { get; set; }
 
             public String endTime { get; set; }
+
+            public String fullSlot { get; set; }
         }
   
 
-        private SQLiteConnection sql_con;
-        private SQLiteCommand sql_cmd;
-        private SQLiteDataAdapter DB;
-        private DataSet DS = new DataSet();
-        private DataTable DT = new DataTable();
 
-
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KEB3VJ8\SQLEXPRESS;Initial Catalog=onsys_testing;Integrated Security=True");*/
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KEB3VJ8\SQLEXPRESS;Initial Catalog=onsys_testing;Integrated Security=True");
         
         String monday = "";
         String tuesday = "";
@@ -54,11 +50,19 @@ namespace Timetable_Management_System
         String saturday = "";
         String sunday = "";
 
+        int mondaychk = 0;
+        int tuesdaychk = 0;
+        int wednesdaychk = 0;
+        int thursdaychk = 0;
+        int fridaychk = 0;
+        int saturdaychk = 0;
+        int sundaychk = 0;
+
         public List<Slot> P1 = new List<Slot>();
         public List<String> day = new List<String>();
         public List<String> startTime = new List<String>();
         public List<String> endTime = new List<String>();
-
+        public List<String> combineTime = new List<String>();
 
         
 
@@ -67,28 +71,7 @@ namespace Timetable_Management_System
 
         }
 
-        private void createParallelSessionTable()
-        {
-            string cs = @"URI=file:.\timetableManagementSystemDB.db";
-
-            using var con = new SQLiteConnection(cs);
-            con.Open();
-
-            using var cmd = new SQLiteCommand(con);
-
-            cmd.CommandText = @"CREATE TABLE  IF NOT EXISTS parallel_sessions (
-                                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                group_id TEXT,
-                                subgroup_id TEXT,
-                                session_id TEXT,
-                                lecturer_id TEXT,
-                                time_slot TEXT,
-                                FOREIGN KEY (group_id) REFERENCES year_semester(group_id),
-                                FOREIGN KEY (subgroup_id) REFERENCES year_semester(subgroup_id),
-                                FOREIGN KEY (lecturer_id) REFERENCES year_semester(lecturerID))";
-            cmd.ExecuteNonQuery();
-        }
-
+        
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -195,36 +178,43 @@ namespace Timetable_Management_System
             {
                 monday = "Monday";
                 day.Add(monday);
+                mondaychk = 1;
             }
             if (chkTue.Checked)
             {
                 tuesday = "Tuesday";
                 day.Add(tuesday);
+                tuesdaychk = 1;
             }
             if (chkWed.Checked)
             {
                 wednesday = "Wednesday";
                 day.Add(wednesday);
+                wednesdaychk = 1;
             }
             if (chkThur.Checked)
             {
                 thursday = "Thursday";
                 day.Add(thursday);
+                thursdaychk = 1;
             }
             if (chkFri.Checked)
             {
                 friday = "Friday";
                 day.Add(friday);
+                fridaychk = 1;
             }
             if (chkSat.Checked)
             {
                 saturday = "Saturday";
                 day.Add(saturday);
+                saturdaychk = 1;
             }
             if (chkSun.Checked)
             {
                 sunday = "Sunday";
                 day.Add(sunday);
+                sundaychk = 1;
             }
 
             string combindedString = string.Join(",", day);
@@ -280,13 +270,95 @@ namespace Timetable_Management_System
 
             cmd.ExecuteNonQuery();
 
+            //last row id
+            cmd.CommandText = "select last_insert_rowid()";
+
+            // The row ID is a 64-bit value - cast the Command result to an Int64.
+            //
+            Int64 LastRowID64 = (Int64)cmd.ExecuteScalar();
+
+            // Then grab the bottom 32-bits as the unique ID of the row.
+            //
+            int LastRowID = (int)LastRowID64;
+            //last row id
+
+            cmd.CommandText = @"CREATE TABLE IF NOT EXISTS TimeSlots(
+                                slotID     INTEGER PRIMARY KEY AUTOINCREMENT, 
+                                fullTime TEXT,
+                                tableID     INTEGER,
+                                FOREIGN KEY(tableID) REFERENCES Time_table1(tableID)
+     
+                )";
+            cmd.ExecuteNonQuery();
+
+            int length = combineTime.Count;
+
+            for (int i = 0; i < length; i++)
+            {
+                cmd.CommandText = "INSERT INTO  TimeSlots( fullTime, tableID)" +
+                "VALUES(@fullTime, @tableID)";
+
+                cmd.Parameters.AddWithValue("@fullTime", combineTime[i]);
+                cmd.Parameters.AddWithValue("@tableID", LastRowID);
+                
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+            }
+
+
+            combineTime.Clear();
+
+            int countchk = combineTime.Count;
+
+            cmd.CommandText = @"CREATE TABLE IF NOT EXISTS TimetableDaychk(
+                                checkID INTEGER PRIMARY KEY AUTOINCREMENT, 
+                                Monday INTEGER,
+                                Tuesday INTEGER,
+                                Wednesday INTEGER,
+                                Thursday INTEGER,
+                                Friday INTEGER,
+                                Saturday INTEGER,
+                                Sunday INTEGER,
+                                tableID     INTEGER,
+                                FOREIGN KEY(tableID) REFERENCES Time_table1(tableID)
+     
+                )";
+            cmd.ExecuteNonQuery();
+
+            cmd.CommandText = "INSERT INTO  TimetableDaychk( Monday, Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday,tableID)" +
+                "VALUES(@Monday, @Tuesday,@Wednesday, @Thursday,@Friday, @Saturday,@Sunday, @tableID)";
+
+            cmd.Parameters.AddWithValue("@Monday", mondaychk);
+            cmd.Parameters.AddWithValue("@Tuesday", tuesdaychk);
+            cmd.Parameters.AddWithValue("@Wednesday", wednesdaychk);
+            cmd.Parameters.AddWithValue("@Thursday", thursdaychk);
+            cmd.Parameters.AddWithValue("@Friday", fridaychk);
+            cmd.Parameters.AddWithValue("@Saturday", saturdaychk);
+            cmd.Parameters.AddWithValue("@Sunday", sundaychk);
+            cmd.Parameters.AddWithValue("@tableID", LastRowID);
+
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+
             Console.WriteLine("row inserted");
+            clearday();
             cleanForm1();
 
             MessageBox.Show("Time table info is successfuly inserted in the database", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
             con.Close();
+        }
+
+        public void clearday()
+        {
+            mondaychk = 0;
+            tuesdaychk = 0;
+            wednesdaychk = 0;
+            thursdaychk = 0;
+            fridaychk = 0;
+            saturdaychk = 0;
+            sundaychk = 0;
         }
 
         public void cleanForm1()
@@ -329,20 +401,21 @@ namespace Timetable_Management_System
         private void btnAdd_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = null;
-            P1.Add(new Slot() { startTime = txtSTime.Text, endTime = txtETime.Text });
+            string stime = txtSTime.Text;
+            string etime = txtETime.Text;
+            string fulltime = stime + "-" + etime;
+            P1.Add(new Slot() { startTime = stime, endTime = etime,fullSlot = fulltime });
             dataGridView1.DataSource = P1;
 
             startTime.Add(txtSTime.Text);
             endTime.Add(txtETime.Text);
+            combineTime.Add(fulltime);
         }
 
         private void comboTableType_SelectedIndexChanged(object sender, EventArgs e)
         {
             //SqlCommand cmd = new SqlCommand("select * from Time_table1 where tableType ='" + comboTableType.Text + "'", con);
 
-            
-
-            
 
             string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
