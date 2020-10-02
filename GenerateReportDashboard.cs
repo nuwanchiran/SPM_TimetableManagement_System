@@ -842,6 +842,7 @@ namespace Timetable_Management_System
 
             using var cmd = new SQLiteCommand(stm, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
+            cmbSubject_CreateSession.Items.Clear();
 
             while (rdr.Read())
             {
