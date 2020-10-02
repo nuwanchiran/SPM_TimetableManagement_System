@@ -276,7 +276,7 @@ namespace Timetable_Management_System
         private void button9_Click(object sender, EventArgs e)
         {
             String gid = genarateGroupID(label12.Text, label5.Text, label13.Text, comboBox5.Text);
-            string txtQuery = "UPDATE year_semester SET group_no='" + Convert.ToInt32(comboBox5.Text) + "',group_id='" + gid + "' WHERE id ='" + Convert.ToInt32(label11.Text) + "'";
+            string txtQuery = "UPDATE year_semester SET group_no='" + comboBox5.Text.ToString() + "',group_id='" + gid + "' WHERE id ='" + label11.Text.ToString() + "'";
             ExecuteQuery(txtQuery);
             LoadGroupList();
         }
@@ -284,14 +284,14 @@ namespace Timetable_Management_System
         private void button7_Click(object sender, EventArgs e)
         {
             String gid = genarateGroupID(label12.Text, label5.Text, label13.Text, comboBox5.Text);
-            string txtQuery = "UPDATE year_semester SET group_no='" + Convert.ToInt32(comboBox5.Text) + "',group_id='" + gid + "' WHERE id ='" + Convert.ToInt32(label11.Text) + "'";
+            string txtQuery = "UPDATE year_semester SET group_no='" + comboBox5.Text.ToString() + "',group_id='" + gid + "' WHERE id ='" + label11.Text.ToString() + "'";
             ExecuteQuery(txtQuery);
             LoadGroupList();
         }
         //delete group
         private void button8_Click(object sender, EventArgs e)
         {
-            string txtQuery = "UPDATE year_semester SET group_no='" + null + "',group_id='" + null + "' WHERE id ='" + Convert.ToInt32(label11.Text) + "'";
+            string txtQuery = "UPDATE year_semester SET group_no='" + null + "',group_id='" + null + "' WHERE id ='" + label11.Text.ToString() + "'";
             ExecuteQuery(txtQuery);
             LoadGroupList();
         }
@@ -299,7 +299,7 @@ namespace Timetable_Management_System
         private void button12_Click(object sender, EventArgs e)
         {
             String sgid = label18.Text +"."+ comboBox7.Text;
-            string txtQuery = "UPDATE year_semester SET subgroup_no='" + Convert.ToInt32(comboBox7.Text) + "',subgroup_id='" + sgid + "' WHERE id ='" + Convert.ToInt32(label15.Text) + "'";
+            string txtQuery = "UPDATE year_semester SET subgroup_no='" + comboBox7.Text.ToString() + "',subgroup_id='" + sgid + "' WHERE id ='" + label15.Text.ToString() + "'";
             ExecuteQuery(txtQuery);
             LoadSubGroupList();
         }
@@ -307,14 +307,14 @@ namespace Timetable_Management_System
         private void button10_Click(object sender, EventArgs e)
         {
             String sgid = label18.Text + "." + comboBox7.Text;
-            string txtQuery = "UPDATE year_semester SET subgroup_no='" + Convert.ToInt32(comboBox7.Text) + "',subgroup_id='" + sgid + "' WHERE id ='" + Convert.ToInt32(label15.Text) + "'";
+            string txtQuery = "UPDATE year_semester SET subgroup_no='" + comboBox7.Text.ToString() + "',subgroup_id='" + sgid + "' WHERE id ='" + label15.Text.ToString() + "'";
             ExecuteQuery(txtQuery);
             LoadSubGroupList();
         }
         //delete sub group
         private void button11_Click(object sender, EventArgs e)
         {
-            string txtQuery = "UPDATE year_semester SET subgroup_no='" + null + "',subgroup_id='" + null + "' WHERE id ='" + Convert.ToInt32(label15.Text) + "'";
+            string txtQuery = "UPDATE year_semester SET subgroup_no='" + null + "',subgroup_id='" + null + "' WHERE id ='" + label15.Text.ToString() + "'";
             ExecuteQuery(txtQuery);
             LoadSubGroupList();
         }

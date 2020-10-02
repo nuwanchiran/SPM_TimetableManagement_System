@@ -2592,7 +2592,7 @@ namespace Timetable_Management_System
         {
             try
             {
-                string txtQuery = "UPDATE parallel_sessions SET subgroup_id='" + comboBox6.Text + "', subject_code='" + comboBox2.Text + "', lecturer_id='" + comboBox3.Text + "', time_slot='" + comboBox5.Text + "', session_id='" + comboBox4.Text + "' WHERE id ='" + Convert.ToInt32(label6.Text) + "'";
+                string txtQuery = "UPDATE parallel_sessions SET subgroup_id='" + comboBox6.Text + "', subject_code='" + comboBox2.Text + "', lecturer_id='" + comboBox3.Text + "', time_slot='" + comboBox5.Text + "', session_id='" + comboBox4.Text + "' WHERE id ='" + label6.Text.ToString() + "'";
                 ExecuteQuery(txtQuery);
                 LoadParallelSessions();
             }
@@ -2611,7 +2611,7 @@ namespace Timetable_Management_System
         {
             try
             {
-                string txtQuery = "DELETE FROM parallel_sessions WHERE id='" + Convert.ToInt32(label6.Text) + "'";
+                string txtQuery = "DELETE FROM parallel_sessions WHERE id='" + label6.Text.ToString() + "'";
                 ExecuteQuery(txtQuery);
                 LoadParallelSessions();
             }

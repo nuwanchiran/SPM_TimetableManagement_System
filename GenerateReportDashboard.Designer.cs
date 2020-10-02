@@ -1197,9 +1197,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(285, 312);
+            this.button1.Location = new System.Drawing.Point(260, 312);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 39);
+            this.button1.Size = new System.Drawing.Size(173, 39);
             this.button1.TabIndex = 12;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
