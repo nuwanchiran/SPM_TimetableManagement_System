@@ -28,8 +28,9 @@ namespace Timetable_Management_System
       tabControl1.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
       this.WindowState = FormWindowState.Maximized;
 
-      //Create Session
-      fillInitialComboboxes();
+            createSessionIfNotExist();
+            //Create Session
+            fillInitialComboboxes();
       cleanCreateSession();
 
       //Manage Session
@@ -1694,14 +1695,28 @@ namespace Timetable_Management_System
       using var cmd = new SQLiteCommand(stm, con);
       using SQLiteDataReader rdr = cmd.ExecuteReader();
 
-      while (rdr.Read())
-      {
-        // string lecturerId = $@"{ rdr.GetString(0),-8}";
-        int groupNo = Int32.Parse($@"{rdr.GetInt32(0),-3}");
+            try
+            {
 
-        cmbGroup_ManageSession.Items.Add(groupNo.ToString());
-      }
-      con.Close();
+            
+                  while (rdr.Read())
+                  {
+                            // string lecturerId = $@"{ rdr.GetString(0),-8}";
+                            int groupNo = Int32.Parse($@"{rdr.GetInt32(0),-3}");
+                
+                            cmbGroup_ManageSession.Items.Add(groupNo.ToString());
+                  }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please fill all fields in year semester table");
+                this.Hide();
+                ManageStudentsDashboard obj = new ManageStudentsDashboard();
+                obj.Show();
+            }
+
+            con.Close();
 
       cmbGroup_ManageSession.SelectedIndex = 0;
     }
