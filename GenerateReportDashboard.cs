@@ -101,9 +101,35 @@ namespace Timetable_Management_System
       cmd.ExecuteNonQuery();
     }
 
-    //get group id from year_semester table
+        //set executequery
+        private void ExecuteQuery(string txtQuery)
+        {
+            setConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            sql_cmd.CommandText = txtQuery;
+            sql_cmd.ExecuteNonQuery();
+            sql_con.Close();
+        }
 
-    private void loadSubGroupId()
+        //load parallel sessions
+        private void LoadParallelSessions()
+        {
+            setConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string CommandText = "SELECT * FROM parallel_sessions";
+            DB = new SQLiteDataAdapter(CommandText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            dataGridView1.DataSource = DT;
+            sql_con.Close();
+        }
+
+        //get group id from year_semester table
+
+        private void loadSubGroupId()
     {
       SQLiteCommand sql_cmd;
       SQLiteDataAdapter DB;
@@ -181,34 +207,23 @@ namespace Timetable_Management_System
 
     private void loadTimeSlot()
     {
-      SQLiteCommand sql_cmd;
-      SQLiteDataAdapter DB;
-      DataSet DS = new DataSet();
-      setConnection();
-      sql_con.Open();
-      sql_cmd = sql_con.CreateCommand();
-      string CommandText = "SELECT sessionId FROM session";
-      DB = new SQLiteDataAdapter(CommandText, sql_con);
-      DS.Reset();
-      DB.Fill(DS);
-      DT = DS.Tables[0];
-      comboBox4.DisplayMember = "sessionId";
-      comboBox4.ValueMember = "sessionId";
-      comboBox4.DataSource = DT;
-      sql_con.Close();
+            comboBox5.Items.Add("08.30");
+            comboBox5.Items.Add("09.30");
+            comboBox5.Items.Add("10.30");
+            comboBox5.Items.Add("11.30");
+            comboBox5.Items.Add("12.30");
+            comboBox5.Items.Add("13.30");
+            comboBox5.Items.Add("14.30");
+            comboBox5.Items.Add("15.30");
+            comboBox5.Items.Add("16.30");
+            comboBox5.Items.Add("17.30");
+            comboBox5.Items.Add("18.30");
+            comboBox5.Items.Add("19.30");
     }
-    //set executequery
-    /*
-     private void ExecuteQuery(string txtQuery)
-     {
-         setConnection();
-         sql_con.Open();
-         sql_cmd = sql_con.CreateCommand();
-         sql_cmd.CommandText = txtQuery;
-         sql_cmd.ExecuteNonQuery();
-         sql_con.Close();
-     }
-    */
+
+    
+
+
 
     private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
     {
@@ -682,6 +697,8 @@ namespace Timetable_Management_System
       loadSubjectCode();
       loadLecturerId();
       loadSessionId();
+      loadTimeSlot();
+      LoadParallelSessions();
     }
 
     private void fillGroup_CreateSession()
@@ -2136,8 +2153,8 @@ namespace Timetable_Management_System
 
     private void tabPage1_Click(object sender, EventArgs e)
     {
-
-    }
+            
+     }
 
     private void RoomManagement_Click(object sender, EventArgs e)
     {
@@ -2154,10 +2171,13 @@ namespace Timetable_Management_System
 
     }
 
+    //add ps
     private void button1_Click(object sender, EventArgs e)
     {
-
-    }
+            string txtQuery = "INSERT INTO parallel_sessions (subgroup_id,subject_code,lecturer_id,time_slot,session_id) VALUES('" + comboBox6.Text + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + comboBox5.Text + "','" + comboBox4.Text + "')";
+            ExecuteQuery(txtQuery);
+            LoadParallelSessions();
+        }
 
     private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -2546,6 +2566,58 @@ namespace Timetable_Management_System
       con.Close();
     }
 
+        private void CreateSession_Click(object sender, EventArgs e)
+        {
 
-  }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                label16.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                comboBox6.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                comboBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                comboBox3.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                comboBox5.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                comboBox4.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please select the corner");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string txtQuery = "UPDATE parallel_sessions SET subgroup_id='" + comboBox6.Text + "', subject_code='" + comboBox2.Text + "', lecturer_id='" + comboBox3.Text + "', time_slot='" + comboBox5.Text + "', session_id='" + comboBox4.Text + "' WHERE id ='" + Convert.ToInt32(label6.Text) + "'";
+                ExecuteQuery(txtQuery);
+                LoadParallelSessions();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string txtQuery = "DELETE FROM parallel_sessions WHERE id='" + Convert.ToInt32(label6.Text) + "'";
+                ExecuteQuery(txtQuery);
+                LoadParallelSessions();
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+    }
 }
