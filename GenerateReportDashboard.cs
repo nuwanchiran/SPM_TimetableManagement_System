@@ -23,6 +23,7 @@ namespace Timetable_Management_System
 
         public GenerateReportDashboard()
         {
+            createParallelSessionTable();
             InitializeComponent();
             tabControl1.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
             this.WindowState = FormWindowState.Maximized;
@@ -37,6 +38,12 @@ namespace Timetable_Management_System
 
         }
 
+        private SQLiteConnection sql_con;
+        private SQLiteCommand sql_cmd;
+        private SQLiteDataAdapter DB;
+        private DataSet DS = new DataSet();
+        private DataTable DT = new DataTable();
+
         private void GenerateReportDashboard_Load(object sender, EventArgs e)
         {
 
@@ -47,6 +54,145 @@ namespace Timetable_Management_System
             //this should be always last statement in GenerateReportDashboard_Load
             dashboardLoaded = true;
         }
+
+        private void setConnection()
+        {
+            sql_con = new SQLiteConnection(@"URI=file:.\timetableManagementSystemDB.db");
+        }
+
+        //create parallel sessions
+        private void createParallelSessionTable()
+        {
+            string cs = @"URI=file:.\timetableManagementSystemDB.db";
+
+            using var con = new SQLiteConnection(cs);
+            con.Open();
+
+            using var cmd = new SQLiteCommand(con);
+
+            cmd.CommandText = @"CREATE TABLE IF NOT EXISTS parallel_sessions (
+                                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                subgroup_id TEXT,
+                                subject_code STRING,
+                                lecturer_id TEXT,
+                                time_slot TEXT,
+                                session_id STRING,
+                                FOREIGN KEY (subgroup_id) REFERENCES year_semester(subgroup_id),
+                                FOREIGN KEY (subject_code) REFERENCES subjects(subjectCode),
+                                FOREIGN KEY (session_id) REFERENCES session(sessionId),
+                                FOREIGN KEY (lecturer_id) REFERENCES lecturers(lecturerID)
+                                )";
+            cmd.ExecuteNonQuery();
+        }
+
+        //get group id from year_semester table
+
+        private void loadSubGroupId()
+        {
+            SQLiteCommand sql_cmd;
+            SQLiteDataAdapter DB;
+            DataSet DS = new DataSet();
+            setConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string CommandText = "SELECT subgroup_id FROM year_semester";
+            DB = new SQLiteDataAdapter(CommandText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            comboBox6.DisplayMember = "subgroup_id";
+            comboBox6.ValueMember = "subgroup_id";
+            comboBox6.DataSource = DT;
+            sql_con.Close();
+        }
+
+        private void loadSubjectCode()
+        {
+            SQLiteCommand sql_cmd;
+            SQLiteDataAdapter DB;
+            DataSet DS = new DataSet();
+            setConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string CommandText = "SELECT subjectCode FROM subjects";
+            DB = new SQLiteDataAdapter(CommandText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            comboBox2.DisplayMember = "subjectCode";
+            comboBox2.ValueMember = "subjectCode";
+            comboBox2.DataSource = DT;
+            sql_con.Close();
+        }
+
+        private void loadLecturerId()
+        {
+            SQLiteCommand sql_cmd;
+            SQLiteDataAdapter DB;
+            DataSet DS = new DataSet();
+            setConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string CommandText = "SELECT lecturerID FROM lecturers";
+            DB = new SQLiteDataAdapter(CommandText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            comboBox3.DisplayMember = "lecturerID";
+            comboBox3.ValueMember = "lecturerID";
+            comboBox3.DataSource = DT;
+            sql_con.Close();
+        }
+
+        private void loadSessionId()
+        {
+            SQLiteCommand sql_cmd;
+            SQLiteDataAdapter DB;
+            DataSet DS = new DataSet();
+            setConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string CommandText = "SELECT sessionId FROM session";
+            DB = new SQLiteDataAdapter(CommandText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            comboBox4.DisplayMember = "sessionId";
+            comboBox4.ValueMember = "sessionId";
+            comboBox4.DataSource = DT;
+            sql_con.Close();
+        }
+
+        private void loadTimeSlot()
+        {
+            SQLiteCommand sql_cmd;
+            SQLiteDataAdapter DB;
+            DataSet DS = new DataSet();
+            setConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            string CommandText = "SELECT sessionId FROM session";
+            DB = new SQLiteDataAdapter(CommandText, sql_con);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            comboBox4.DisplayMember = "sessionId";
+            comboBox4.ValueMember = "sessionId";
+            comboBox4.DataSource = DT;
+            sql_con.Close();
+        }
+        //set executequery
+        /*
+         private void ExecuteQuery(string txtQuery)
+         {
+             setConnection();
+             sql_con.Open();
+             sql_cmd = sql_con.CreateCommand();
+             sql_cmd.CommandText = txtQuery;
+             sql_cmd.ExecuteNonQuery();
+             sql_con.Close();
+         }
+        */
 
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
@@ -82,12 +228,18 @@ namespace Timetable_Management_System
             g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
         }
 
+        
+
+
         private void imgManageStudent_Click(object sender, EventArgs e)
         {
             ManageStudentsDashboard manageStudentsDashboardObj = new ManageStudentsDashboard();
             manageStudentsDashboardObj.Show();
             this.Hide();
         }
+
+
+
 
         private void ImgManageLecturers_Click(object sender, EventArgs e)
         {
@@ -509,6 +661,10 @@ namespace Timetable_Management_System
             fillSemester_CreateSession();
             fillProgram_CreateSession();
             fillGroup_CreateSession();
+            loadSubGroupId();
+            loadSubjectCode();
+            loadLecturerId();
+            loadSessionId();
         }
 
         private void fillGroup_CreateSession()
@@ -1958,6 +2114,49 @@ namespace Timetable_Management_System
             obj.Show();
         }
 
-     
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RoomManagement_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRoomManagement_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

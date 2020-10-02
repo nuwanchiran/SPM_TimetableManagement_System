@@ -35,16 +35,8 @@ namespace Timetable_Management_System
 
             public String endTime { get; set; }
         }
-  
 
-        private SQLiteConnection sql_con;
-        private SQLiteCommand sql_cmd;
-        private SQLiteDataAdapter DB;
-        private DataSet DS = new DataSet();
-        private DataTable DT = new DataTable();
-
-
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KEB3VJ8\SQLEXPRESS;Initial Catalog=onsys_testing;Integrated Security=True");*/
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KEB3VJ8\SQLEXPRESS;Initial Catalog=onsys_testing;Integrated Security=True");
         
         String monday = "";
         String tuesday = "";
@@ -59,34 +51,9 @@ namespace Timetable_Management_System
         public List<String> startTime = new List<String>();
         public List<String> endTime = new List<String>();
 
-
-        
-
         private void ManageTimeDashboard_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void createParallelSessionTable()
-        {
-            string cs = @"URI=file:.\timetableManagementSystemDB.db";
-
-            using var con = new SQLiteConnection(cs);
-            con.Open();
-
-            using var cmd = new SQLiteCommand(con);
-
-            cmd.CommandText = @"CREATE TABLE  IF NOT EXISTS parallel_sessions (
-                                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                group_id TEXT,
-                                subgroup_id TEXT,
-                                session_id TEXT,
-                                lecturer_id TEXT,
-                                time_slot TEXT,
-                                FOREIGN KEY (group_id) REFERENCES year_semester(group_id),
-                                FOREIGN KEY (subgroup_id) REFERENCES year_semester(subgroup_id),
-                                FOREIGN KEY (lecturer_id) REFERENCES year_semester(lecturerID))";
-            cmd.ExecuteNonQuery();
+            //createParallelSessionTable();
         }
 
         private void tabControl1_DrawItem(Object sender, System.Windows.Forms.DrawItemEventArgs e)
@@ -610,6 +577,11 @@ namespace Timetable_Management_System
             this.Hide();
             Login obj = new Login();
             obj.Show();
+        }
+
+        private void txtNoDays2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
