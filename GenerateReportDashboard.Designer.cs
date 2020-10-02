@@ -115,6 +115,10 @@
             this.RoomManagement = new System.Windows.Forms.TabPage();
             this.lblRoomManagement = new System.Windows.Forms.Label();
             this.GenerateTimetable = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.comboRoom = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboGroup = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.combolecName = new System.Windows.Forms.ComboBox();
             this.simpleGrid = new System.Windows.Forms.DataGridView();
@@ -162,6 +166,8 @@
             this.TimeManagement.SuspendLayout();
             this.RoomManagement.SuspendLayout();
             this.GenerateTimetable.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.simpleGrid)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -1067,6 +1073,8 @@
             // 
             // GenerateTimetable
             // 
+            this.GenerateTimetable.Controls.Add(this.groupBox4);
+            this.GenerateTimetable.Controls.Add(this.groupBox3);
             this.GenerateTimetable.Controls.Add(this.groupBox2);
             this.GenerateTimetable.Controls.Add(this.simpleGrid);
             this.GenerateTimetable.Controls.Add(this.btnGenarate);
@@ -1079,6 +1087,44 @@
             this.GenerateTimetable.TabIndex = 4;
             this.GenerateTimetable.Text = "Generate Timetable";
             this.GenerateTimetable.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.comboRoom);
+            this.groupBox4.Location = new System.Drawing.Point(862, 212);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(301, 100);
+            this.groupBox4.TabIndex = 70;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Room Name";
+            // 
+            // comboRoom
+            // 
+            this.comboRoom.FormattingEnabled = true;
+            this.comboRoom.Location = new System.Drawing.Point(29, 55);
+            this.comboRoom.Name = "comboRoom";
+            this.comboRoom.Size = new System.Drawing.Size(252, 28);
+            this.comboRoom.TabIndex = 65;
+            this.comboRoom.SelectedIndexChanged += new System.EventHandler(this.comboRoom_SelectedIndexChanged_1);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.comboGroup);
+            this.groupBox3.Location = new System.Drawing.Point(489, 212);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(301, 100);
+            this.groupBox3.TabIndex = 69;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Group Name";
+            // 
+            // comboGroup
+            // 
+            this.comboGroup.FormattingEnabled = true;
+            this.comboGroup.Location = new System.Drawing.Point(29, 55);
+            this.comboGroup.Name = "comboGroup";
+            this.comboGroup.Size = new System.Drawing.Size(252, 28);
+            this.comboGroup.TabIndex = 65;
+            this.comboGroup.SelectedIndexChanged += new System.EventHandler(this.comboGroup_SelectedIndexChanged_1);
             // 
             // groupBox2
             // 
@@ -1482,6 +1528,8 @@
             this.RoomManagement.PerformLayout();
             this.GenerateTimetable.ResumeLayout(false);
             this.GenerateTimetable.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.simpleGrid)).EndInit();
             this.tabPage1.ResumeLayout(false);
@@ -1626,5 +1674,9 @@
     private System.Windows.Forms.GroupBox groupBox2;
     private System.Windows.Forms.ComboBox combolecName;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ComboBox comboRoom;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox comboGroup;
     }
 }

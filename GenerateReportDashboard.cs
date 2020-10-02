@@ -2207,158 +2207,158 @@ namespace Timetable_Management_System
     {
 
     }
-    //Ravindu changes
-    void fillCombo()
-    {
-
-      comboTableType.Items.Clear();
-
-      string cs = @"URI=file:.\" + Utils.dbName + ".db";
-
-      using var con = new SQLiteConnection(cs);
-
-      using var cmd = new SQLiteCommand("select * from Time_table1", con);
-      SQLiteDataReader sdr;
-
-      try
-      {
-        con.Open();
-        sdr = cmd.ExecuteReader();
-
-        while (sdr.Read())
+        //Ravindu changes
+        void fillCombo()
         {
-          string type = sdr.GetString(1);
-          comboTableType.Items.Add(type);
-        }
-        con.Close();
-      }
-      catch (Exception e)
-      {
-        MessageBox.Show(e.Message);
-      }
 
-    }
+            comboTableType.Items.Clear();
 
-    public string value;
-    private void btnGenarate_Click(object sender, EventArgs e)
-    {
-      string tableType = comboTableType.Text;
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
-      string cs = @"URI=file:.\" + Utils.dbName + ".db";
+            using var con = new SQLiteConnection(cs);
 
-      using var con = new SQLiteConnection(cs);
+            using var cmd = new SQLiteCommand("select * from Time_table1", con);
+            SQLiteDataReader sdr;
 
-      using var cmd = new SQLiteCommand("select tableID from Time_table1 where tableType = '" + tableType + "'", con);
-      con.Open();
+            try
+            {
+                con.Open();
+                sdr = cmd.ExecuteReader();
 
-      SQLiteDataReader sdr;
-      sdr = cmd.ExecuteReader();
-      sdr.Read();
-      value = sdr.GetValue(0).ToString();
-      sdr.Close();
-      con.Close();
+                while (sdr.Read())
+                {
+                    string type = sdr.GetString(1);
+                    comboTableType.Items.Add(type);
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
 
-      using var cmd1 = new SQLiteCommand("SELECT TimeSlots.fullTime, TimetableDaychk.Monday, TimetableDaychk.Tuesday,TimetableDaychk.Wednesday," +
-          "TimetableDaychk.Thursday,TimetableDaychk.Friday,TimetableDaychk.Saturday,TimetableDaychk.Sunday " +
-          "FROM TimeSlots INNER JOIN TimetableDaychk ON TimeSlots.tableID = TimetableDaychk.tableID WHERE TimeSlots.tableID = '" + value + "' ", con);
-      /*
-      cmd.CommandText = "SELECT TimeSlots.fullTime, TimetableDaychk.Monday, TimetableDaychk.Tuesday,TimetableDaychk.Wednesday," +
-          "TimetableDaychk.Thursday,TimetableDaychk.Friday,TimetableDaychk.Saturday,TimetableDaychk.Sunday " +
-          "FROM TimeSlots INNER JOIN TimetableDaychk ON TimeSlots.tableID = TimetableDaychk.tableID WHERE TimeSlots.tableID = '" + value + "' ";
-      */
-      /*
-      System.Data.SQLite.SQLiteDataAdapter da = new System.Data.SQLite.SQLiteDataAdapter(cmd1);
-      System.Data.DataSet ds = new System.Data.DataSet();
-
-      DataTable dt = new DataTable();
-      da.Fill(dt);
-
-      simpleGrid.DataSource = dt;
-      con.Close();
-      */
-      con.Open();
-      SQLiteDataAdapter sda = new SQLiteDataAdapter(cmd1);
-      DataTable dt = new DataTable();
-      sda.Fill(dt);
-      simpleGrid.DataSource = dt;
-      con.Close();
-
-      con.Open();
-      using var cmd2 = new SQLiteCommand("SELECT Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday" +
-          " from TimetableDaychk" +
-          " WHERE tableID = '" + value + "' ", con);
-      SQLiteDataReader sdr3 = cmd2.ExecuteReader();
-
-      try
-      {
-        while (sdr3.Read())
-        {
-          if (sdr3.GetInt32(0) == 1)
-          {
-            ListDays.Add("Monday");
-          }
-          if (sdr3.GetInt32(1) == 1)
-          {
-            ListDays.Add("Tuesday");
-          }
-          if (sdr3.GetInt32(2) == 1)
-          {
-            ListDays.Add("Wednesday");
-          }
-          if (sdr3.GetInt32(3) == 1)
-          {
-            ListDays.Add("Thursday");
-          }
-          if (sdr3.GetInt32(4) == 1)
-          {
-            ListDays.Add("Friday");
-          }
-          if (sdr3.GetInt32(5) == 1)
-          {
-            ListDays.Add("Saturday");
-          }
-          if (sdr3.GetInt32(6) == 1)
-          {
-            ListDays.Add("Sunday");
-          }
-
-          //lengthdays = ListDays.Count;
         }
 
-        sdr3.Close();
-        con.Close();
-      }
-      catch (Exception ex)
-      {
-        MessageBox.Show(ex.Message);
-      }
-      int lengthdays = ListDays.Count;
-
-
-      con.Open();
-      cmd.CommandText = "SELECT fullTime from TimeSlots WHERE tableID = '" + value + "'";
-      SQLiteDataReader sdr2 = cmd.ExecuteReader();
-
-
-      try
-      {
-        while (sdr2.Read())
+        public string value;
+        private void btnGenarate_Click(object sender, EventArgs e)
         {
-          string time = sdr2.GetString(0);
-          ListTime.Add(time);
-        }
+            string tableType = comboTableType.Text;
 
-        sdr2.Close();
-        con.Close();
-      }
-      catch (Exception ex)
-      {
-        MessageBox.Show(ex.Message);
-      }
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+
+            using var cmd = new SQLiteCommand("select tableID from Time_table1 where tableType = '" + tableType + "'", con);
+            con.Open();
+
+            SQLiteDataReader sdr;
+            sdr = cmd.ExecuteReader();
+            sdr.Read();
+            value = sdr.GetValue(0).ToString();
+            sdr.Close();
+            con.Close();
+
+            using var cmd1 = new SQLiteCommand("SELECT TimeSlots.fullTime, TimetableDaychk.Monday, TimetableDaychk.Tuesday,TimetableDaychk.Wednesday," +
+                "TimetableDaychk.Thursday,TimetableDaychk.Friday,TimetableDaychk.Saturday,TimetableDaychk.Sunday " +
+                "FROM TimeSlots INNER JOIN TimetableDaychk ON TimeSlots.tableID = TimetableDaychk.tableID WHERE TimeSlots.tableID = '" + value + "' ", con);
+            /*
+            cmd.CommandText = "SELECT TimeSlots.fullTime, TimetableDaychk.Monday, TimetableDaychk.Tuesday,TimetableDaychk.Wednesday," +
+                "TimetableDaychk.Thursday,TimetableDaychk.Friday,TimetableDaychk.Saturday,TimetableDaychk.Sunday " +
+                "FROM TimeSlots INNER JOIN TimetableDaychk ON TimeSlots.tableID = TimetableDaychk.tableID WHERE TimeSlots.tableID = '" + value + "' ";
+            */
+            /*
+            System.Data.SQLite.SQLiteDataAdapter da = new System.Data.SQLite.SQLiteDataAdapter(cmd1);
+            System.Data.DataSet ds = new System.Data.DataSet();
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            simpleGrid.DataSource = dt;
+            con.Close();
+            */
+            con.Open();
+            SQLiteDataAdapter sda = new SQLiteDataAdapter(cmd1);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            simpleGrid.DataSource = dt;
+            con.Close();
+
+            con.Open();
+            using var cmd2 = new SQLiteCommand("SELECT Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday" +
+                " from TimetableDaychk" +
+                " WHERE tableID = '" + value + "' ", con);
+            SQLiteDataReader sdr3 = cmd2.ExecuteReader();
+
+            try
+            {
+                while (sdr3.Read())
+                {
+                    if (sdr3.GetInt32(0) == 1)
+                    {
+                        ListDays.Add("Monday");
+                    }
+                    if (sdr3.GetInt32(1) == 1)
+                    {
+                        ListDays.Add("Tuesday");
+                    }
+                    if (sdr3.GetInt32(2) == 1)
+                    {
+                        ListDays.Add("Wednesday");
+                    }
+                    if (sdr3.GetInt32(3) == 1)
+                    {
+                        ListDays.Add("Thursday");
+                    }
+                    if (sdr3.GetInt32(4) == 1)
+                    {
+                        ListDays.Add("Friday");
+                    }
+                    if (sdr3.GetInt32(5) == 1)
+                    {
+                        ListDays.Add("Saturday");
+                    }
+                    if (sdr3.GetInt32(6) == 1)
+                    {
+                        ListDays.Add("Sunday");
+                    }
+
+                    //lengthdays = ListDays.Count;
+                }
+
+                sdr3.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            int lengthdays = ListDays.Count;
 
 
-      con.Open();
-      cmd.CommandText = @"CREATE TABLE IF NOT EXISTS fullSlot(
+            con.Open();
+            cmd.CommandText = "SELECT fullTime from TimeSlots WHERE tableID = '" + value + "'";
+            SQLiteDataReader sdr2 = cmd.ExecuteReader();
+
+
+            try
+            {
+                while (sdr2.Read())
+                {
+                    string time = sdr2.GetString(0);
+                    ListTime.Add(time);
+                }
+
+                sdr2.Close();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            con.Open();
+            cmd.CommandText = @"CREATE TABLE IF NOT EXISTS fullSlot(
                                 fullSlotID INTEGER PRIMARY KEY AUTOINCREMENT, 
                                 slotNo INTEGER,
                                 Day TEXT,
@@ -2366,221 +2366,299 @@ namespace Timetable_Management_System
                                 tableID     INTEGER,
                                 FOREIGN KEY(tableID) REFERENCES Time_table1(tableID)
                 )";
-      cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
 
-      cmd.CommandText = @"CREATE TABLE IF NOT EXISTS sessionAssign(
+            cmd.CommandText = @"CREATE TABLE IF NOT EXISTS sessionAssign(
                                 saID INTEGER PRIMARY KEY AUTOINCREMENT, 
                                 sessID INTEGER,
                                 slotNo INTEGER
                 )";
-      cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
 
-      int lengthTime = ListTime.Count;
-      int count = 1;
+            int lengthTime = ListTime.Count;
+            int count = 1;
 
-      for (int y = 0; y < lengthdays; y++)
-      {
-        for (int x = 0; x < lengthTime; x++)
-        {
-          cmd.CommandText = "INSERT INTO  fullSlot( slotNo, Day, time, tableID)" +
-          "VALUES(@slotNo, @Day,@time, @tableID)";
+            for (int y = 0; y < lengthdays; y++)
+            {
+                for (int x = 0; x < lengthTime; x++)
+                {
+                    cmd.CommandText = "INSERT INTO  fullSlot( slotNo, Day, time, tableID)" +
+                    "VALUES(@slotNo, @Day,@time, @tableID)";
 
-          cmd.Parameters.AddWithValue("@slotNo", count);
-          cmd.Parameters.AddWithValue("@Day", ListDays[y]);
-          cmd.Parameters.AddWithValue("@time", ListTime[x]);
-          cmd.Parameters.AddWithValue("@tableID", value);
+                    cmd.Parameters.AddWithValue("@slotNo", count);
+                    cmd.Parameters.AddWithValue("@Day", ListDays[y]);
+                    cmd.Parameters.AddWithValue("@time", ListTime[x]);
+                    cmd.Parameters.AddWithValue("@tableID", value);
 
-          cmd.Prepare();
-          cmd.ExecuteNonQuery();
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
 
-          count++;
+                    count++;
+                }
+            }
+            getOrderedSession();
+
+            /*
+            con.Open();
+            int countSlot;
+            using var cmd4 = new SQLiteCommand("select count(tableID) from fullSlot", con);
+            sdr = cmd.ExecuteReader();
+
+            while (sdr.Read())
+            {
+                countSlot = sdr.GetInt32(0);
+            }
+            con.Close();
+            */
+
+            getSlotNo();
+            int countSlot = ListSlots.Count;
+            int countSession = ListSession.Count;
+            con.Close();
+
+            con.Open();
+
+
+            for (int i = 1; i <= countSlot; i++)
+            {
+                if (i <= countSession)
+                {
+                    cmd.CommandText = "INSERT INTO  sessionAssign( sessID, slotNo)" +
+                   "VALUES(@sessID, @slotNo)";
+
+                    int j = i - 1;
+                    cmd.Parameters.AddWithValue("@sessID", ListSession[j]);
+                    cmd.Parameters.AddWithValue("@slotNo", ListSlots[j]);
+
+                    cmd.Prepare();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            con.Close();
+
+            fillComboLec();//filling lecture combo
+            fillComboGroup();//filling group combo
+            fillComboRoom();//filling room combo
         }
-      }
-      getOrderedSession();
 
-      /*
-      con.Open();
-      int countSlot;
-      using var cmd4 = new SQLiteCommand("select count(tableID) from fullSlot", con);
-      sdr = cmd.ExecuteReader();
-
-      while (sdr.Read())
-      {
-          countSlot = sdr.GetInt32(0);
-      }
-      con.Close();
-      */
-
-      getSlotNo();
-      int countSlot = ListSlots.Count;
-      int countSession = ListSession.Count;
-      con.Close();
-
-      con.Open();
-
-
-      for (int i = 1; i <= countSlot; i++)
-      {
-        if (i <= countSession)
+        void getOrderedSession()
         {
-          cmd.CommandText = "INSERT INTO  sessionAssign( sessID, slotNo)" +
-         "VALUES(@sessID, @slotNo)";
 
-          int j = i - 1;
-          cmd.Parameters.AddWithValue("@sessID", ListSession[j]);
-          cmd.Parameters.AddWithValue("@slotNo", ListSlots[j]);
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
-          cmd.Prepare();
-          cmd.ExecuteNonQuery();
+            using var con = new SQLiteConnection(cs);
+
+            using var cmd = new SQLiteCommand("select * from testSessions", con);
+            SQLiteDataReader sdr;
+
+            try
+            {
+                con.Open();
+                sdr = cmd.ExecuteReader();
+
+                while (sdr.Read())
+                {
+                    string session = Convert.ToString(sdr.GetInt32(1));
+                    ListSession.Add(session);
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
         }
-      }
 
-      con.Close();
-
-      fillComboLec();//filling lecture combo
-    }
-
-    void getOrderedSession()
-    {
-
-      string cs = @"URI=file:.\" + Utils.dbName + ".db";
-
-      using var con = new SQLiteConnection(cs);
-
-      using var cmd = new SQLiteCommand("select * from testSessions", con);
-      SQLiteDataReader sdr;
-
-      try
-      {
-        con.Open();
-        sdr = cmd.ExecuteReader();
-
-        while (sdr.Read())
+        void getSlotNo()
         {
-          string session = Convert.ToString(sdr.GetInt32(1));
-          ListSession.Add(session);
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+
+            using var cmd = new SQLiteCommand("select * from fullSlot WHERE tableID = '" + value + "'", con);
+            SQLiteDataReader sdr;
+
+            try
+            {
+                con.Open();
+                sdr = cmd.ExecuteReader();
+
+                while (sdr.Read())
+                {
+                    string slotNo = Convert.ToString(sdr.GetInt32(0));
+                    ListSlots.Add(slotNo);
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
         }
-        con.Close();
-      }
-      catch (Exception e)
-      {
-        MessageBox.Show(e.Message);
-      }
 
-    }
-
-    void getSlotNo()
-    {
-
-      string cs = @"URI=file:.\" + Utils.dbName + ".db";
-
-      using var con = new SQLiteConnection(cs);
-
-      using var cmd = new SQLiteCommand("select * from fullSlot WHERE tableID = '" + value + "'", con);
-      SQLiteDataReader sdr;
-
-      try
-      {
-        con.Open();
-        sdr = cmd.ExecuteReader();
-
-        while (sdr.Read())
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
-          string slotNo = Convert.ToString(sdr.GetInt32(0));
-          ListSlots.Add(slotNo);
+
         }
-        con.Close();
-      }
-      catch (Exception e)
-      {
-        MessageBox.Show(e.Message);
-      }
 
-    }
-
-    private void groupBox2_Enter(object sender, EventArgs e)
-    {
-
-    }
-
-    private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-    {
-
-    }
-
-    private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-    void fillComboLec()
-    {
-
-      combolecName.Items.Clear();
-
-      string cs = @"URI=file:.\" + Utils.dbName + ".db";
-
-      using var con = new SQLiteConnection(cs);
-
-      using var cmd = new SQLiteCommand("select * from testLec", con);
-      SQLiteDataReader sdr;
-
-      try
-      {
-        con.Open();
-        sdr = cmd.ExecuteReader();
-
-        combolecName.Items.Insert(0, "--select Lec Name --");
-        while (sdr.Read())
+        void fillComboLec()
         {
-          int lecID = sdr.GetInt32(0);
-          string lecName = sdr.GetString(1);
 
-          //combolecName.DataTextField = "Text";
-          //combolecName.Items.Insert();
-          combolecName.Items.Insert(lecID, lecName);
+            combolecName.Items.Clear();
 
-          //combolecName.DataSource = comboBoxList;
-          //combolecName.DisplayMember = lecName;
-          //combolecName.ValueMember = lecID;
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+
+            using var cmd = new SQLiteCommand("select * from testLec", con);
+            SQLiteDataReader sdr;
+
+            try
+            {
+                con.Open();
+                sdr = cmd.ExecuteReader();
+
+                combolecName.Text = "--select Lec Name --";
+                while (sdr.Read())
+                {
+                    //string lecID = Convert.ToString(sdr.GetInt32(2));
+                    string lecName = sdr.GetString(1);
+
+                    //combolecName.DataTextField = "Text";
+                    //combolecName.Items.Insert();
+                    //combolecName.Items.Insert(lecID, lecName);
+
+                    //combolecName.DataSource = comboBoxList;
+                    //combolecName.DisplayMember = lecName;
+                    //combolecName.ValueMember = lecID;
+                    combolecName.Items.Add(lecName);
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
         }
-        con.Close();
-      }
-      catch (Exception e)
-      {
-        MessageBox.Show(e.Message);
-      }
 
-    }
+        void fillComboGroup()
+        {
 
-    private void combolecName_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      string lecid = combolecName.SelectedIndex.ToString();
-      string lecname = combolecName.SelectedItem.ToString();
+            comboGroup.Items.Clear();
 
-      string cs = @"URI=file:.\" + Utils.dbName + ".db";
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
 
-      using var con = new SQLiteConnection(cs);
+            using var con = new SQLiteConnection(cs);
 
-      using var cmd = new SQLiteCommand("SELECT testSessions.sessionID, sessionAssign.sessID, sessionAssign.slotNo,fullSlot.Day," +
-          "fullSlot.time FROM testSessions INNER JOIN sessionAssign ON testSessions.sessionId = sessionAssign.sessID " +
-          "LEFT JOIN fullSlot ON sessionAssign.slotNo = fullSlot.fullSlotID WHERE testSessions.lecId = 6", con);
+            using var cmd = new SQLiteCommand("select groupId,groupName from testSessions GROUP by groupId", con);
+            SQLiteDataReader sdr;
 
-      /*
-      SQLiteDataReader sdr;
-      sdr = cmd.ExecuteReader();
-      sdr.Read();
-      value = sdr.GetValue(0).ToString();
-      sdr.Close();
-      */
+            try
+            {
+                con.Open();
+                sdr = cmd.ExecuteReader();
 
-      con.Open();
-      SQLiteDataAdapter sda = new SQLiteDataAdapter(cmd);
-      DataTable dt = new DataTable();
-      sda.Fill(dt);
-      simpleGrid.DataSource = dt;
-      con.Close();
-    }
+                comboGroup.Text = "--select Group Name --";
+                while (sdr.Read())
+                {
+                    //string groupID = Convert.ToString(sdr.GetInt32(0));
+                    string groupName = sdr.GetString(1);
+                    comboGroup.Items.Add(groupName);
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
 
+        }
+
+        void fillComboRoom()
+        {
+
+            comboRoom.Items.Clear();
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+
+            using var cmd = new SQLiteCommand("select roomName from testSessions GROUP by roomName", con);
+            SQLiteDataReader sdr;
+
+            try
+            {
+                con.Open();
+                sdr = cmd.ExecuteReader();
+
+                comboRoom.Text = "--select Room Name --";
+                while (sdr.Read())
+                {
+                    //string groupID = Convert.ToString(sdr.GetInt32(0));
+                    string roomName = sdr.GetString(0);
+                    comboRoom.Items.Add(roomName);
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+        }
+
+        private void combolecName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string lecname = combolecName.SelectedItem.ToString();
+            //string lecid = ((System.Web.UI.WebControls.ListItem)combolecName.SelectedItem).Value;
+
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+
+            using var cmd = new SQLiteCommand("select lecNo from testLec where lecName = '" + lecname + "'", con);
+            con.Open();
+
+            SQLiteDataReader sdr;
+            sdr = cmd.ExecuteReader();
+            sdr.Read();
+            string lecid = sdr.GetValue(0).ToString();
+            sdr.Close();
+            con.Close();
+
+            using var cmd2 = new SQLiteCommand("SELECT DISTINCT(testSessions.sessionID), sessionAssign.slotNo,fullSlot.Day," +
+                "fullSlot.time,testSessions.groupName,testSessions.roomName FROM testSessions INNER JOIN sessionAssign ON testSessions.sessionId = sessionAssign.sessID " +
+                "LEFT JOIN fullSlot ON sessionAssign.slotNo = fullSlot.fullSlotID WHERE testSessions.lecId = '" + lecid + "'", con);
+
+
+
+            con.Open();
+            SQLiteDataAdapter sda = new SQLiteDataAdapter(cmd2);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            simpleGrid.DataSource = dt;
+            con.Close();
+
+
+        }
+
+        
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
         private void CreateSession_Click(object sender, EventArgs e)
         {
 
@@ -2633,6 +2711,64 @@ namespace Timetable_Management_System
             catch (Exception ex) {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void comboGroup_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string groupname = comboGroup.SelectedItem.ToString();
+            //string groupID = ((System.Web.UI.WebControls.ListItem)comboGroup.SelectedItem).Value;
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+
+            using var cmd = new SQLiteCommand("select groupId from testSessions where groupName = '" + groupname + "'", con);
+            con.Open();
+
+            SQLiteDataReader sdr;
+            sdr = cmd.ExecuteReader();
+            sdr.Read();
+            string groupID = sdr.GetValue(0).ToString();
+            sdr.Close();
+            con.Close();
+
+            using var cmd2 = new SQLiteCommand("SELECT DISTINCT(testSessions.sessionID), sessionAssign.slotNo,fullSlot.Day," +
+                "fullSlot.time,testLec.lecName,testSessions.roomName FROM testSessions INNER JOIN sessionAssign ON testSessions.sessionId = sessionAssign.sessID " +
+                "LEFT JOIN fullSlot ON sessionAssign.slotNo = fullSlot.fullSlotID LEFT JOIN testLec ON testLec.lecNo = testSessions.lecID WHERE testSessions.groupId = '" + groupID + "'", con);
+
+
+
+            con.Open();
+            SQLiteDataAdapter sda = new SQLiteDataAdapter(cmd2);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            simpleGrid.DataSource = dt;
+            con.Close();
+
+
+        }
+
+        private void comboRoom_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string roomname = comboRoom.SelectedItem.ToString();
+            //string groupID = ((System.Web.UI.WebControls.ListItem)comboGroup.SelectedItem).Value;
+
+            string cs = @"URI=file:.\" + Utils.dbName + ".db";
+
+            using var con = new SQLiteConnection(cs);
+
+            using var cmd = new SQLiteCommand("SELECT DISTINCT(testSessions.sessionID), sessionAssign.slotNo,fullSlot.Day," +
+                "fullSlot.time,testLec.lecName,testSessions.groupName FROM testSessions INNER JOIN sessionAssign ON testSessions.sessionId = sessionAssign.sessID " +
+                "LEFT JOIN fullSlot ON sessionAssign.slotNo = fullSlot.fullSlotID LEFT JOIN testLec ON testLec.lecNo = testSessions.lecID WHERE testSessions.roomName = '" + roomname + "'", con);
+
+
+
+            con.Open();
+            SQLiteDataAdapter sda = new SQLiteDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            simpleGrid.DataSource = dt;
+            con.Close();
         }
     }
 }
